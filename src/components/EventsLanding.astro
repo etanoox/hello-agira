@@ -86,7 +86,7 @@ const foodHref = pageUrl('eat', lang);
           <figure class="events-hero-visual">
             <div class="events-hero-photo"><Photo name="town" lang={lang} priority sizes="(max-width: 700px) 92vw, 54vw"/></div>
             <span class="events-hero-year" aria-hidden="true">2026</span>
-            <figcaption><span>{lang === 'it' ? 'Agira, tra il paese e il paesaggio' : 'Agira, between town and landscape'}</span><a href={photos.town.source} target="_blank" rel="noopener noreferrer">© {photos.town.author} · {photos.town.license}<Icon name="diagonal"/></a></figcaption>
+            <figcaption><span>{lang === 'it' ? 'Agira, tra il paese e il paesaggio' : 'Agira, between town and landscape'}</span><span>{photos.town.credit?.[lang]}</span></figcaption>
           </figure>
         </div>
         <div class="events-hero-index"><span>01</span><span>{lang === 'it' ? 'APPUNTAMENTI E TRADIZIONI' : 'EVENTS AND TRADITIONS'}</span><span>AGIRA · SICILIA</span></div>

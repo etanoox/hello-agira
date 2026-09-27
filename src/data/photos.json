@@ -13,15 +13,15 @@
       "it": "Panorama di Agira dai tetti del centro storico, con il castello sulla cima del Monte Teja.",
       "en": "A panorama of Agira from the historic centre rooftops, with the castle on the summit of Monte Teja."
     },
-    "author": "Giuseppe Ricceri",
+    "author": null,
     "authorUrl": null,
     "source": null,
     "license": null,
     "licenseUrl": null,
     "date": null,
     "credit": {
-      "it": "Fotografia di Giuseppe Ricceri.",
-      "en": "Photograph by Giuseppe Ricceri."
+      "it": "Fotografia fornita da Giuseppe Ricceri.",
+      "en": "Photograph supplied by Giuseppe Ricceri."
     }
   },
   "pastry": {
@@ -88,8 +88,8 @@
     "credit": null
   },
   "town": {
-    "width": 4272,
-    "height": 2146,
+    "width": 1761,
+    "height": 2048,
     "widths": [
       480,
       800,
@@ -97,16 +97,19 @@
       1800
     ],
     "alt": {
-      "it": "Panorama dall’alto sui tetti di Agira e sulle colline siciliane.",
-      "en": "A view across the rooftops of Agira towards the surrounding hills."
+      "it": "Panorama di Agira con i tetti del centro storico in primo piano e il castello sulla cima della collina.",
+      "en": "A panorama of Agira, with historic-centre rooftops in the foreground and the castle on the hilltop."
     },
-    "author": "Davide Mauro",
-    "authorUrl": "https://commons.wikimedia.org/wiki/User:Codas",
-    "source": "https://commons.wikimedia.org/wiki/File:Panorama_di_Agira.jpg",
-    "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
-    "date": "2016-08-17",
-    "credit": null
+    "author": "Giuseppe Ricceri",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Giuseppe Ricceri.",
+      "en": "Photograph by Giuseppe Ricceri."
+    }
   },
   "ssalvatore": {
     "width": 800,

@@ -14,7 +14,7 @@ const { lang } = Astro.props;
 const c = getCopy(lang);
 const localizedPaths = { it: pageUrl('sights', 'it'), en: pageUrl('sights', 'en') };
 const photoCredit = (name: keyof typeof photos) => photos[name];
-const photoCreditLabel = (photo: typeof photos[keyof typeof photos]) => photo.credit?.[lang] ?? `© ${photo.author} · ${photo.license}`;
+const photoCreditLabel = (photo: typeof photos[keyof typeof photos]) => photo.credit?.[lang] ?? (photo.license ? `© ${photo.author} · ${photo.license}` : photo.author);
 const featuredPageExtras = c.sightsPageExtras.filter((s) => 'image' in s) as Array<{ image: keyof typeof photos; tag: string; title: string; text: string; detail: string }>;
 const textPageExtras = c.sightsPageExtras.filter((s) => !('image' in s));
 const featuredSights = [...c.sights, ...featuredPageExtras];
@@ -55,14 +55,14 @@ const routesHref = pageUrl('routes', lang);
           {featuredSights.map((s, i) => {
             const image = s.image as keyof typeof photos;
             const credit = photoCredit(image);
-            const fullImageWidth = Math.min(1800, credit.width);
+            const fullImageWidth = Math.max(...credit.widths.filter(width => width <= 1800));
             return <article class={`sights-editorial-card sights-editorial-card-${i + 1}`}>
               <figure>
                 <a class="photo-link" href={`/images/${s.image}-${fullImageWidth}.webp`} data-gallery-open={s.image} aria-haspopup="dialog" aria-label={`${lang === 'it' ? 'Apri la fotografia' : 'Open photograph'}: ${s.title}`}>
                   <Photo name={image} lang={lang} sizes="(max-width: 700px) 92vw, (max-width: 1100px) 70vw, 50vw"/>
                   <span class="photo-view"><Icon name="plus"/></span>
                 </a>
-                <figcaption><span>0{i + 1} / {s.tag}</span><a href={credit.source}>{photoCreditLabel(credit)}<Icon name="diagonal"/></a></figcaption>
+                <figcaption><span>0{i + 1} / {s.tag}</span>{credit.source ? <a href={credit.source}>{photoCreditLabel(credit)}<Icon name="diagonal"/></a> : <span class="sights-photo-credit">{photoCreditLabel(credit)}</span>}</figcaption>
               </figure>
               <div class="sights-editorial-copy">
                 <h3>{s.title}</h3>

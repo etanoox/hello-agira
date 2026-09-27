@@ -34,7 +34,7 @@ const foodHref = pageUrl('eat', lang);
           <div class="photo-link"><Photo name="town" lang={lang} priority sizes="(max-width: 700px) 90vw, 48vw"/></div>
           <figcaption>
             <span>{lang === 'it' ? 'Agira, il centro storico' : 'Agira, the historic centre'}</span>
-            <a href={photo.source} target="_blank" rel="noopener noreferrer">© {photo.author} · {photo.license}<Icon name="diagonal"/></a>
+            <span>{photo.credit?.[lang]}</span>
           </figcaption>
         </figure>
       </div>
