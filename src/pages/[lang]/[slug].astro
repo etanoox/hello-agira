@@ -1,0 +1,80 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import Photo from '../../components/Photo.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import SightsLanding from '../../components/SightsLanding.astro';
+import EatingLanding from '../../components/EatingLanding.astro';
+import FestivalLanding from '../../components/FestivalLanding.astro';
+import { getCopy } from '../../data/copy';
+import { locales, pageUrl, type Locale } from '../../lib/i18n';
+
+export function getStaticPaths() {
+  return locales.flatMap(lang => [
+    { params: { lang, slug: lang === 'it' ? 'itinerari' : 'itineraries' }, props: { lang, slug: lang === 'it' ? 'itinerari' : 'itineraries' } },
+    { params: { lang, slug: lang === 'it' ? 'cosa-vedere' : 'things-to-see' }, props: { lang, slug: lang === 'it' ? 'cosa-vedere' : 'things-to-see' } },
+    { params: { lang, slug: lang === 'it' ? 'mangiare' : 'food-and-drink' }, props: { lang, slug: lang === 'it' ? 'mangiare' : 'food-and-drink' } },
+    { params: { lang, slug: lang === 'it' ? 'sagra-cassatella' : 'cassatella-festival' }, props: { lang, slug: lang === 'it' ? 'sagra-cassatella' : 'cassatella-festival' } },
+  ]);
+}
+
+const { lang, slug } = Astro.props as { lang: Locale; slug: string };
+const c = getCopy(lang);
+const isSightsPage = slug === 'cosa-vedere' || slug === 'things-to-see';
+const isEatingPage = slug === 'mangiare' || slug === 'food-and-drink';
+const isFestivalPage = slug === 'sagra-cassatella' || slug === 'cassatella-festival';
+const page = isFestivalPage ? 'festival' : isSightsPage ? 'sights' : isEatingPage ? 'eat' : 'routes';
+const localizedPaths = { it: pageUrl(page, 'it'), en: pageUrl(page, 'en') };
+---
+{isSightsPage ? <SightsLanding lang={lang}/> : isEatingPage ? <EatingLanding lang={lang}/> : isFestivalPage ? <FestivalLanding lang={lang}/> : <>
+<Base lang={lang} title={c.routesPageTitle} description={c.routesPageDescription} canonicalPath={localizedPaths[lang]} alternatePaths={localizedPaths}>
+  <SiteHeader lang={lang} currentPage="routes"/>
+  <main id="main" tabindex="-1">
+    <section class="route-page-hero" aria-labelledby="route-page-title">
+      <div class="container route-page-hero-grid">
+        <div class="route-page-copy">
+          <p class="eyebrow">{c.routesPageEyebrow}</p>
+          <h1 id="route-page-title">{c.routesTitle}</h1>
+          <p>{c.routesIntro}</p>
+          <a class="button button-yellow" href="#route-ideas">{c.routesPageAction}<Icon name="arrow"/></a>
+        </div>
+        <figure class="route-page-photo">
+          <div class="photo-link"><Photo name="town" lang={lang} priority sizes="(max-width: 700px) 90vw, 48vw"/></div>
+          <figcaption>{lang === 'it' ? 'Agira, le case del centro storico' : 'The rooftops of Agira’s historic centre'} <span>© Davide Mauro · CC BY-SA 4.0</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="route-ideas" class="section itinerary-section" aria-labelledby="route-ideas-title">
+      <div class="container">
+        <p class="eyebrow">{lang === 'it' ? '03 / IDEE DI VISITA' : '03 / WAYS TO EXPLORE'}</p>
+        <div class="section-heading itinerary-heading">
+          <h2 id="route-ideas-title">{c.routesPageListTitle}</h2>
+        </div>
+        <div class="itinerary-grid">
+          {c.routes.map((route, i) => <article class={`itinerary-card itinerary-card-${i + 1}`}>
+            <div class="itinerary-card-top"><span class="route-index">0{i + 1}</span><span class="route-time">{route.time}</span></div>
+            <h3>{route.title}</h3>
+            <p>{route.text}</p>
+            <ol aria-label={lang === 'it' ? 'Suggerimenti per la visita' : 'Visit suggestions'}>
+              {route.stops.map(stop => <li>{stop}</li>)}
+            </ol>
+          </article>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="itinerary-next" aria-label={lang === 'it' ? 'Continua a esplorare' : 'Keep exploring'}>
+      <div class="container itinerary-next-inner">
+        <div><p class="eyebrow">{lang === 'it' ? 'IL VIAGGIO CONTINUA' : 'KEEP EXPLORING'}</p><h2>{lang === 'it' ? 'Segui quello che ti incuriosisce.' : 'Follow what catches your eye.'}</h2></div>
+        <div class="itinerary-next-links">
+          <a class="button button-yellow" href={`/${lang}/#${lang === 'it' ? 'cosa-vedere' : 'sights'}`}>{c.routesPageSee}<Icon name="arrow"/></a>
+          <a class="text-link" href={pageUrl('eat', lang)}>{c.routesPageFood}<Icon name="diagonal"/></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <SiteFooter lang={lang} currentPage="routes"/>
+</Base>
+</>}

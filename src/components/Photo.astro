@@ -1,0 +1,9 @@
+---
+import photos from '../data/photos.json';
+import type { Locale } from '../lib/i18n';
+interface Props { name: keyof typeof photos; lang: Locale; class?: string; priority?: boolean; sizes?: string; }
+const { name, lang, class: className, priority = false, sizes = '(max-width: 700px) 100vw, 50vw' } = Astro.props;
+const photo = photos[name];
+const sourceWidth = Math.min(1200, photo.width);
+---
+<img class={className} src={`/images/${name}-${sourceWidth}.webp`} srcset={photo.widths.map(w => `/images/${name}-${w}.webp ${w}w`).join(', ')} sizes={sizes} width={photo.width} height={photo.height} alt={photo.alt[lang]} loading={priority ? 'eager' : 'lazy'} decoding="async" fetchpriority={priority ? 'high' : 'auto'} />

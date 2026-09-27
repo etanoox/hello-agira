@@ -1,0 +1,26 @@
+---
+import Photo from './Photo.astro';
+import Icon from './Icon.astro';
+import { getCopy } from '../data/copy';
+import { anchor, type Locale } from '../lib/i18n';
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const c = getCopy(lang);
+---
+<section class="journey" aria-labelledby="hero-title" data-journey>
+  <div class="journey-stage">
+    <div class="journey-aperture">
+      <div class="journey-image"><Photo name="hero" lang={lang} priority sizes="(max-width: 700px) 1700px, 100vw" class="journey-photo" /></div>
+      <div class="journey-shade"></div>
+    </div>
+    <div class="journey-meta"><span>SICILIA / ITALIA</span><span>{c.independent}</span></div>
+    <h1 id="hero-title" class="journey-heading">
+      <span class="journey-name"><span class="sr-only">Agira.</span><span class="journey-word" aria-hidden="true">{Array.from('Agira').map(letter => <span class="journey-letter">{letter}</span>)}<span class="journey-letter journey-dot">.</span></span></span>
+      <span class="journey-title-line">{c.heroLine}</span>
+    </h1>
+    <div class="journey-aside"><p>{c.heroText}</p><div class="journey-actions"><a class="journey-explore" href={anchor('sights',lang)}><span>{c.explore}</span><span class="journey-arrow"><Icon name="diagonal"/></span></a><a class="journey-plan" href={anchor('info',lang)}>{c.plan}<Icon name="arrow"/></a></div></div>
+    <a class="journey-scroll" href={anchor('discover',lang)}><span>{lang === 'it' ? 'Scorri per scoprire' : 'Scroll to discover'}</span><span class="journey-scroll-line" aria-hidden="true"><i></i></span></a>
+    <span class="journey-coordinates" aria-hidden="true">37°39′ N &nbsp; 14°31′ E</span>
+  </div>
+</section>
+<div class="journey-footnote"><span>{c.heroCaption} <a href="#credits">Stelmb · CC BY-SA 4.0</a></span><a href="/images/hero-2400.webp" data-gallery-open="hero" aria-haspopup="dialog">{lang === 'it' ? 'Guarda le fotografie' : 'View the photographs'}<Icon name="plus"/></a></div>

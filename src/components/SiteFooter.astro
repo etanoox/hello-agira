@@ -1,0 +1,22 @@
+---
+import Icon from './Icon.astro';
+import { getCopy } from '../data/copy';
+import photos from '../data/photos.json';
+import { sources } from '../data/sources';
+import { anchor, homeUrl, pageUrl, sectionIds, type Locale, type Section } from '../lib/i18n';
+interface Props { lang: Locale; currentPage?: 'routes' | 'sights' | 'eat' | 'festival' }
+const { lang, currentPage } = Astro.props;
+const c = getCopy(lang);
+const navKeys: Section[] = ['sights', 'eat', 'stay', 'routes', 'events', 'history'];
+const target = (key: Section) => key === 'routes' || key === 'sights' || key === 'eat' ? pageUrl(key, lang) : `${homeUrl(lang)}${anchor(key, lang)}`;
+const localeTarget = (locale: Locale) => currentPage ? pageUrl(currentPage, locale) : homeUrl(locale);
+---
+<footer class="site-footer" id={sectionIds.about[lang]}><div class="container">
+  <div class="footer-top">
+    <div><a class="wordmark footer-logo" href={homeUrl(lang)}>hello agira<span>.</span></a><p class="footer-title">{c.footerLine}</p><p class="footer-about">{c.footerAbout}</p></div>
+    <div class="footer-nav"><p class="eyebrow">{c.footerExplore}</p>{navKeys.slice(0,5).map((key,i)=><a href={target(key)}>{c.nav[i]}</a>)}</div>
+    <div class="footer-nav"><p class="eyebrow">{c.footerUseful}</p><a href={`${homeUrl(lang)}${anchor('info',lang)}`}>{c.plan}</a><a href={`${homeUrl(lang)}${anchor('map',lang)}`}>{c.onMap}</a><a href="#credits">{c.sourcesLabel}</a><a href="https://etanoox.me/">{c.contactLink}<Icon name="diagonal"/></a><nav class="footer-language" aria-label={lang === 'it' ? 'Lingua del sito' : 'Site language'}><a href={localeTarget('it')} lang="it" hreflang="it" aria-current={lang === 'it' ? 'page' : undefined}>Italiano</a><a href={localeTarget('en')} lang="en" hreflang="en" aria-current={lang === 'en' ? 'page' : undefined}>English</a></nav></div>
+  </div>
+  <div class="footer-bottom"><p>{c.footerDisclaimer}</p><a href="#top">{c.backTop}<Icon name="diagonal"/></a></div>
+  <details class="credits" id="credits"><summary>{c.sourcesLabel}<Icon name="plus"/></summary><div class="credits-content"><div><h2>{c.sources}</h2><p>{c.sourcesIntro}</p><ul>{sources.map(source=><li><a href={source.url}>{source.title}</a></li>)}</ul></div><div><h2>{c.credits}</h2><p>{c.photoChanges}</p><ul>{Object.values(photos).map(photo=><li><a href={photo.source}>{photo.alt[lang]}</a> — {photo.license ? <><a href={photo.authorUrl}>{photo.author}</a>, <a href={photo.licenseUrl}>{photo.license}</a>{photo.date ? ` (${photo.date.slice(0,4)})` : ''}.</> : <>{lang === 'it' ? 'foto pubblicata da' : 'photo published by'} <a href={photo.authorUrl}>{photo.author}</a>.</>}</li>)}</ul></div></div></details>
+</div></footer>

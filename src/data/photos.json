@@ -1,0 +1,142 @@
+{
+  "hero": {
+    "width": 3779,
+    "height": 1664,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "alt": {
+      "it": "Agira adagiata sul Monte Teja, con il castello in cima e le case del borgo.",
+      "en": "Agira spreading across Monte Teja, with castle ruins on the crest."
+    },
+    "author": "Stelmb",
+    "authorUrl": "https://commons.wikimedia.org/wiki/User:Stelmb",
+    "source": "https://commons.wikimedia.org/wiki/File:Veduta_panoramica_del_paese_di_Agira.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "date": "2014-12-27",
+    "credit": null
+  },
+  "pastry": {
+    "width": 3154,
+    "height": 2043,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "alt": {
+      "it": "Quattro cassatelle di Agira spolverate di zucchero a velo su un vassoio di legno.",
+      "en": "Four sugar-dusted cassatelle di Agira on a wooden serving plate."
+    },
+    "author": "Auregann",
+    "authorUrl": "https://commons.wikimedia.org/wiki/User:Auregann",
+    "source": "https://commons.wikimedia.org/wiki/File:Cassatelle_di_Agira_1.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "date": "2024-10-12",
+    "credit": null
+  },
+  "castle": {
+    "width": 6000,
+    "height": 4000,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "alt": {
+      "it": "Una torre illuminata del castello di Agira di notte, con un vulcano in eruzione sullo sfondo.",
+      "en": "An illuminated tower of Agira Castle at night, with volcanic light on the horizon."
+    },
+    "author": "PietroTorregrossa85",
+    "authorUrl": "https://commons.wikimedia.org/wiki/User:PietroTorregrossa85",
+    "source": "https://commons.wikimedia.org/wiki/File:Agira_tra_Storia_e_Natura.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "date": "2025-05-12",
+    "credit": null
+  },
+  "abbey": {
+    "width": 4272,
+    "height": 2848,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "alt": {
+      "it": "La facciata dell'Abbazia di San Filippo ad Agira, con la scalinata e le luminarie.",
+      "en": "The facade and steps of San Filippo Abbey in Agira, with festival decorations."
+    },
+    "author": "Davide Mauro",
+    "authorUrl": "https://commons.wikimedia.org/wiki/User:Codas",
+    "source": "https://commons.wikimedia.org/wiki/File:Chiesa_Reale_Abbazia_di_San_Filippo_d%27Agira_2.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "date": "2016-08-17",
+    "credit": null
+  },
+  "town": {
+    "width": 4272,
+    "height": 2146,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "alt": {
+      "it": "Panorama dall’alto sui tetti di Agira e sulle colline siciliane.",
+      "en": "A view across the rooftops of Agira towards the surrounding hills."
+    },
+    "author": "Davide Mauro",
+    "authorUrl": "https://commons.wikimedia.org/wiki/User:Codas",
+    "source": "https://commons.wikimedia.org/wiki/File:Panorama_di_Agira.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "date": "2016-08-17",
+    "credit": null
+  },
+  "ssalvatore": {
+    "width": 800,
+    "height": 537,
+    "widths": [480, 800],
+    "alt": {
+      "it": "La facciata in pietra della Collegiata del Santissimo Salvatore ad Agira.",
+      "en": "The stone facade of the Collegiate Church of SS. Salvatore in Agira."
+    },
+    "author": "Pro Loco Agira",
+    "authorUrl": "https://www.prolocoagira.it/",
+    "source": "https://www.prolocoagira.it/wp/2017/06/22/collegiata-del-ss-salvatore/",
+    "credit": {
+      "it": "Foto: Pro Loco Agira",
+      "en": "Photo: Pro Loco Agira"
+    },
+    "license": null
+  },
+  "grotta": {
+    "width": 626,
+    "height": 414,
+    "widths": [480, 626],
+    "alt": {
+      "it": "L’altare nella grotta di San Filippo, in una cavità con pareti di roccia ad Agira.",
+      "en": "The altar in the Cave of San Filippo, set within a rocky chamber in Agira."
+    },
+    "author": "Pro Loco Agira",
+    "authorUrl": "https://www.prolocoagira.it/",
+    "source": "https://www.prolocoagira.it/wp/2017/06/22/grotta-di-san-filippo/",
+    "credit": {
+      "it": "Foto: Pro Loco Agira",
+      "en": "Photo: Pro Loco Agira"
+    },
+    "license": null
+  }
+}

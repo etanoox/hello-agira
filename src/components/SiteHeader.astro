@@ -1,0 +1,26 @@
+---
+import Icon from './Icon.astro';
+import { getCopy } from '../data/copy';
+import { anchor, homeUrl, locales, pageUrl, type Locale, type Section } from '../lib/i18n';
+interface Props { lang: Locale; currentPage?: 'routes' | 'sights' | 'eat' | 'festival' }
+const { lang, currentPage } = Astro.props;
+const c = getCopy(lang);
+const navKeys: Section[] = ['sights', 'eat', 'stay', 'routes', 'events', 'history'];
+const target = (key: Section) => key === 'routes' || key === 'sights' || key === 'eat' ? pageUrl(key, lang) : `${homeUrl(lang)}${anchor(key, lang)}`;
+const localeTarget = (locale: Locale) => currentPage ? pageUrl(currentPage, locale) : homeUrl(locale);
+---
+<a class="skip-link" href="#main">{c.skip}</a>
+<header class="site-header cinematic-header">
+  <div class="header-inner">
+    <a href={homeUrl(lang)} class="wordmark" aria-label="Hello Agira">hello agira<span>.</span></a>
+    <nav class="main-nav" id="main-nav" aria-label={lang === 'it' ? 'Navigazione principale' : 'Main navigation'}>
+      {navKeys.map((key, i) => <a href={target(key)} aria-current={currentPage === key ? 'page' : undefined}>{c.nav[i]}</a>)}
+    </nav>
+    <div class="header-actions">
+      <nav class="language-switch" aria-label={lang === 'it' ? 'Lingua' : 'Language'}>
+        {locales.map(locale => <a href={localeTarget(locale)} lang={locale} hreflang={locale} aria-current={locale === lang ? 'page' : undefined} aria-label={locale === 'it' ? 'Italiano' : 'English'}>{locale.toUpperCase()}</a>)}
+      </nav>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label={c.menu} data-menu-label={c.menu} data-close-label={c.close}><Icon name="menu"/><span>{c.menu}</span></button>
+    </div>
+  </div>
+</header>

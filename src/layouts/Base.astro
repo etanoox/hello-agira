@@ -1,0 +1,42 @@
+---
+import '@fontsource-variable/bricolage-grotesque/wght.css';
+import '@fontsource-variable/dm-sans/wght.css';
+import '../styles/global.css';
+import '../styles/cinematic.css';
+import { websiteGraph, serializeSchema } from '../lib/schema';
+import type { Locale } from '../lib/i18n';
+interface Props { lang: Locale; title: string; description: string; errorPage?: boolean; canonicalPath?: string; alternatePaths?: { it: string; en: string }; }
+const { lang, title, description, errorPage = false, canonicalPath = `/${lang}/`, alternatePaths = { it: '/it/', en: '/en/' } } = Astro.props;
+const ready = Astro.site?.protocol === 'https:' && !errorPage;
+const canonical = ready ? new URL(canonicalPath, Astro.site).href : undefined;
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#073e38" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content={ready ? 'index,follow,max-image-preview:large' : 'noindex,nofollow'} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    {ready && <>
+      <link rel="canonical" href={canonical} />
+      <link rel="alternate" hreflang="it" href={new URL(alternatePaths.it, Astro.site).href} />
+      <link rel="alternate" hreflang="en" href={new URL(alternatePaths.en, Astro.site).href} />
+      <link rel="alternate" hreflang="x-default" href={new URL(alternatePaths.it, Astro.site).href} />
+      <script type="application/ld+json" set:html={serializeSchema(websiteGraph(Astro.site!, lang, title, canonicalPath))} />
+    </>}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Hello Agira" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content={lang === 'it' ? 'it_IT' : 'en_GB'} />
+    <meta property="og:locale:alternate" content={lang === 'it' ? 'en_GB' : 'it_IT'} />
+    {ready && <meta property="og:url" content={canonical} />}
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+  </head>
+  <body id="top"><slot /><script>import '../scripts/ui';</script></body>
+</html>

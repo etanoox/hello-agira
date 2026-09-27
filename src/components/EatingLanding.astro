@@ -1,0 +1,81 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from './Icon.astro';
+import Photo from './Photo.astro';
+import SiteHeader from './SiteHeader.astro';
+import SiteFooter from './SiteFooter.astro';
+import { getCopy } from '../data/copy';
+import { getEatingPage } from '../data/eating';
+import { pageUrl, type Locale } from '../lib/i18n';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const c = getCopy(lang);
+const page = getEatingPage(lang);
+const localizedPaths = { it: pageUrl('eat', 'it'), en: pageUrl('eat', 'en') };
+const sightsHref = pageUrl('sights', lang);
+const routesHref = pageUrl('routes', lang);
+---
+
+<Base lang={lang} title={page.title} description={page.description} canonicalPath={localizedPaths[lang]} alternatePaths={localizedPaths}>
+  <SiteHeader lang={lang} currentPage="eat"/>
+  <main id="main" tabindex="-1">
+    <section class="route-page-hero food-page-hero" aria-labelledby="food-page-title">
+      <div class="container route-page-hero-grid">
+        <div class="route-page-copy">
+          <p class="eyebrow">{page.eyebrow}</p>
+          <h1 id="food-page-title">{page.heading}</h1>
+          <p>{page.intro}</p>
+          <a class="button button-yellow" href="#food-guide">{page.action}<Icon name="arrow"/></a>
+        </div>
+        <figure class="route-page-photo food-page-photo">
+          <div class="photo-link"><Photo name="pastry" lang={lang} priority sizes="(max-width: 700px) 90vw, 48vw"/></div>
+          <figcaption>{c.pastryName} <span>© Auregann · CC BY-SA 4.0</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="food-guide" class="food-hub-intro section" aria-labelledby="food-hub-title">
+      <div class="container">
+        <p class="eyebrow">{page.sectionEyebrow}</p>
+        <div class="food-hub-intro-grid">
+          <h2 id="food-hub-title">{page.sectionTitle}</h2>
+          <div><p>{page.sectionText}</p><nav class="food-category-links" aria-label={lang === 'it' ? 'Categorie di locali' : 'Venue categories'}>
+            {page.groups.map(group => <a href={`#${group.id}`}>{group.title}<Icon name="diagonal"/></a>)}
+          </nav></div>
+        </div>
+      </div>
+    </section>
+
+    {page.groups.map(group => <section id={group.id} class={`food-hub-group food-hub-group-${group.id}`} aria-labelledby={`${group.id}-title`}>
+      <div class="container">
+        <div class="food-hub-heading">
+          <div><p class="eyebrow">{group.number} / {group.eyebrow}</p><h2 id={`${group.id}-title`}>{group.title}</h2></div>
+          <p>{group.intro}</p>
+        </div>
+        <div class="food-place-grid">
+          {group.places.map((place, i) => <article class={`food-place-card food-place-card-${i + 1}`}>
+            <div class="food-place-top"><span class="food-place-number">{String(i + 1).padStart(2, '0')}</span><span class="food-place-category">{place.category}</span></div>
+            <h3>{place.name}</h3>
+            <p>{place.text}</p>
+            <a class="text-link" href={place.href} target="_blank" rel="noopener noreferrer">{page.mapAction}<Icon name="diagonal"/></a>
+          </article>)}
+        </div>
+      </div>
+    </section>)}
+
+    <aside class="food-hub-note" aria-label={lang === 'it' ? 'Informazioni sui locali' : 'Venue information'}><div class="container"><Icon name="plus"/><p>{page.note}</p></div></aside>
+
+    <section class="itinerary-next food-page-next" aria-label={lang === 'it' ? 'Continua a esplorare' : 'Keep exploring'}>
+      <div class="container itinerary-next-inner">
+        <div><p class="eyebrow">{page.nextEyebrow}</p><h2>{page.nextTitle}</h2></div>
+        <div class="itinerary-next-links">
+          <a class="button button-yellow" href={sightsHref}>{page.sightsAction}<Icon name="arrow"/></a>
+          <a class="text-link" href={routesHref}>{page.routesAction}<Icon name="diagonal"/></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <SiteFooter lang={lang} currentPage="eat"/>
+  <script>import '../scripts/sights-reveal';</script>
+</Base>

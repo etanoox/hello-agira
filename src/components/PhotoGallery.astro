@@ -1,0 +1,29 @@
+---
+import Photo from './Photo.astro';
+import Icon from './Icon.astro';
+import photos from '../data/photos.json';
+import type { Locale } from '../lib/i18n';
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const items = [
+  { key: 'hero', title: lang === 'it' ? 'Agira, nel cuore della Sicilia' : 'Agira, in the heart of Sicily' },
+  { key: 'castle', title: lang === 'it' ? 'Il Castello' : 'The castle' },
+  { key: 'abbey', title: lang === 'it' ? 'L’Abbazia di San Filippo' : 'San Filippo Abbey' },
+  { key: 'town', title: lang === 'it' ? 'Il centro storico' : 'The historic centre' },
+  { key: 'pastry', title: 'La Cassatella di Agira' },
+  { key: 'ssalvatore', title: lang === 'it' ? 'La Collegiata del SS. Salvatore' : 'The Collegiate Church of SS. Salvatore' },
+  { key: 'grotta', title: lang === 'it' ? 'La Grotta di San Filippo' : 'The Cave of San Filippo' },
+] as const;
+const photoCredit = (key: (typeof items)[number]['key']) => {
+  const photo = photos[key];
+  return photo.credit?.[lang] ?? `© ${photo.author} · ${photo.license}`;
+};
+---
+<dialog class="photo-gallery" aria-labelledby="gallery-title" data-gallery>
+  <div class="gallery-top"><h2 id="gallery-title">Agira<span>.</span> <small>{lang === 'it' ? 'Fotografie' : 'Photographs'}</small></h2><button class="gallery-close" data-gallery-close aria-label={lang === 'it' ? 'Chiudi la galleria' : 'Close the gallery'}><span>{lang === 'it' ? 'Chiudi' : 'Close'}</span><Icon name="close"/></button></div>
+  <div class="gallery-stage">
+    {items.map((item,i) => <figure class="gallery-slide" data-gallery-slide={item.key} data-title={item.title} hidden={i !== 0}><Photo name={item.key} lang={lang} sizes="90vw"/><figcaption><span>{item.title}</span><a href={photos[item.key].source}>{photoCredit(item.key)}<Icon name="diagonal"/></a></figcaption></figure>)}
+  </div>
+  <div class="gallery-bottom"><button class="gallery-step gallery-prev" data-gallery-prev aria-label={lang === 'it' ? 'Fotografia precedente' : 'Previous photograph'}><Icon name="arrow"/></button><div class="gallery-thumbs" aria-label={lang === 'it' ? 'Scegli una fotografia' : 'Choose a photograph'}>{items.map((item,i)=><button data-gallery-select={item.key} aria-label={item.title} aria-pressed={i === 0}><img src={`/images/${item.key}-480.webp`} srcset={`/images/${item.key}-480.webp 480w`} sizes="72px" width={photos[item.key].width} height={photos[item.key].height} alt="" loading="lazy"/></button>)}</div><button class="gallery-step" data-gallery-next aria-label={lang === 'it' ? 'Fotografia successiva' : 'Next photograph'}><Icon name="arrow"/></button><p class="gallery-counter" data-gallery-counter aria-live="polite">01 / {String(items.length).padStart(2,'0')}</p></div>
+</dialog>
+<script>import '../scripts/gallery';</script>

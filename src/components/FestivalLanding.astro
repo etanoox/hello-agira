@@ -1,0 +1,153 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from './Icon.astro';
+import Photo from './Photo.astro';
+import SiteHeader from './SiteHeader.astro';
+import SiteFooter from './SiteFooter.astro';
+import { pageUrl, type Locale } from '../lib/i18n';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const localizedPaths = { it: pageUrl('festival', 'it'), en: pageUrl('festival', 'en') };
+const copy = lang === 'it' ? {
+  title: 'Sagra della Cassatella di Agira 2026 | Hello Agira',
+  description: 'La Sagra della Cassatella torna ad Agira domenica 8 novembre 2026. Scopri la tradizione e segui gli aggiornamenti sul programma.',
+  heroEyebrow: 'AGIRA · SICILIA · UNA TRADIZIONE DA INCONTRARE',
+  heroTitle: 'La cassatella\nincontra Agira.',
+  heroText: 'Ogni anno, la Sagra mette al centro il dolce simbolo del paese e invita a scoprire Agira attraverso sapori, storie e momenti da condividere.',
+  heroAction: 'Vai all’edizione 2026',
+  imageCaption: 'La cassatella di Agira',
+  imageCredit: '© Auregann · CC BY-SA 4.0',
+  storyEyebrow: '01 / IL CUORE DELLA FESTA',
+  storyTitle: 'Un dolce, tante storie.',
+  storyText: 'La Sagra è l’occasione per incontrare la cassatella nel suo luogo d’origine. Attorno a questo dolce della tradizione agirina si ritrovano la comunità, chi lo prepara e chi arriva per conoscere il paese.',
+  storyAside: 'Nelle passate edizioni, il programma ha affiancato agli stand gastronomici musica, spettacoli e momenti dedicati alle tradizioni locali. Ogni anno porta con sé un programma diverso.',
+  editionEyebrow: '02 / EDIZIONE 2026',
+  editionTitle: 'Ci vediamo ad Agira.',
+  dateLabel: 'QUANDO',
+  dateWeekday: 'DOMENICA',
+  dateMonth: 'NOVEMBRE',
+  dateYear: '2026',
+  placeLabel: 'DOVE',
+  place: 'Agira · Sicilia',
+  updateTitle: 'Il programma è in aggiornamento.',
+  updateText: 'La data indicata per l’edizione 2026 è domenica 8 novembre. Orari, luoghi degli appuntamenti e indicazioni per la visita saranno aggiunti con gli aggiornamenti degli organizzatori.',
+  proLoco: 'Aggiornamenti della Pro Loco',
+  comune: 'Aggiornamenti del Comune',
+  planEyebrow: '03 / OLTRE LA SAGRA',
+  planTitle: 'Fermati a conoscere Agira.',
+  planText: 'La giornata può diventare l’inizio di una visita tra vicoli, luoghi di memoria e sapori del territorio.',
+  sights: 'Cosa vedere',
+  food: 'Dove mangiare',
+  nextEyebrow: 'IL VIAGGIO CONTINUA',
+  nextTitle: 'Un paese da assaporare, con calma.',
+  nextAction: 'Esplora Agira',
+} : {
+  title: 'Cassatella Festival in Agira 2026 | Hello Agira',
+  description: 'The Cassatella Festival returns to Agira on Sunday 8 November 2026. Discover the tradition and follow updates to the programme.',
+  heroEyebrow: 'AGIRA · SICILY · A TRADITION TO EXPERIENCE',
+  heroTitle: 'Cassatella\nmeets Agira.',
+  heroText: 'Each year, the festival celebrates the town’s signature pastry and invites visitors to discover Agira through its flavours, stories and shared moments.',
+  heroAction: 'Explore the 2026 edition',
+  imageCaption: 'Cassatella di Agira',
+  imageCredit: '© Auregann · CC BY-SA 4.0',
+  storyEyebrow: '01 / AT THE HEART OF THE FESTIVAL',
+  storyTitle: 'One pastry, many stories.',
+  storyText: 'The festival is a chance to discover cassatella in the place it comes from. This local pastry brings together the community, the people who make it and visitors keen to get to know Agira.',
+  storyAside: 'Previous editions have paired food stands with music, performances and moments celebrating local traditions. Each year brings a different programme.',
+  editionEyebrow: '02 / 2026 EDITION',
+  editionTitle: 'See you in Agira.',
+  dateLabel: 'WHEN',
+  dateWeekday: 'SUNDAY',
+  dateMonth: 'NOVEMBER',
+  dateYear: '2026',
+  placeLabel: 'WHERE',
+  place: 'Agira · Sicily',
+  updateTitle: 'The programme is being updated.',
+  updateText: 'The date listed for the 2026 edition is Sunday 8 November. Times, event locations and visitor information will be added as the organisers publish updates.',
+  proLoco: 'Pro Loco updates',
+  comune: 'Municipality updates',
+  planEyebrow: '03 / BEYOND THE FESTIVAL',
+  planTitle: 'Stay and get to know Agira.',
+  planText: 'Make the day the start of a visit among the town’s lanes, places of memory and local flavours.',
+  sights: 'Things to see',
+  food: 'Where to eat',
+  nextEyebrow: 'KEEP EXPLORING',
+  nextTitle: 'A town to savour, at your own pace.',
+  nextAction: 'Explore Agira',
+};
+const sightsHref = pageUrl('sights', lang);
+const foodHref = pageUrl('eat', lang);
+const homeHref = `/${lang}/`;
+const prolocoHref = 'https://www.prolocoagira.it/wp/category/sagra-cassatella/';
+const comuneHref = 'https://www.comune.agira.en.it/index.php/it/news?type=1';
+---
+
+<Base lang={lang} title={copy.title} description={copy.description} canonicalPath={localizedPaths[lang]} alternatePaths={localizedPaths}>
+  <SiteHeader lang={lang} currentPage="festival"/>
+  <main id="main" tabindex="-1">
+    <section class="route-page-hero festival-hero" aria-labelledby="festival-title">
+      <div class="container">
+        <p class="eyebrow festival-topline">{copy.heroEyebrow}</p>
+        <div class="festival-hero-grid">
+          <div class="route-page-copy">
+            <p class="eyebrow">{lang === 'it' ? 'UNA FESTA DI SAPORI E TRADIZIONI' : 'A CELEBRATION OF FLAVOUR AND TRADITION'}</p>
+            <h1 id="festival-title">{copy.heroTitle}</h1>
+            <p>{copy.heroText}</p>
+            <div class="festival-date-lockup" aria-label={`${copy.dateWeekday} 8 ${copy.dateMonth} ${copy.dateYear}`}>
+              <span>{lang === 'it' ? 'EDIZIONE IN EVIDENZA' : 'FEATURED EDITION'}</span>
+              <div><strong>08</strong><p>{copy.dateMonth}<br/>{copy.dateYear}</p></div>
+            </div>
+            <a class="button button-yellow" href="#edizione-2026">{copy.heroAction}<Icon name="arrow"/></a>
+          </div>
+          <figure class="route-page-photo festival-hero-photo">
+            <div class="photo-link"><Photo name="pastry" lang={lang} priority sizes="(max-width: 700px) 92vw, 48vw"/></div>
+            <figcaption><span>{copy.imageCaption}</span><span>{copy.imageCredit}</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="festival-story section" aria-labelledby="festival-story-title">
+      <div class="container festival-story-grid">
+        <div><p class="eyebrow">{copy.storyEyebrow}</p><h2 id="festival-story-title">{copy.storyTitle}</h2></div>
+        <div class="festival-story-copy"><p>{copy.storyText}</p><p>{copy.storyAside}</p></div>
+      </div>
+    </section>
+
+    <section id="edizione-2026" class="festival-edition" aria-labelledby="festival-edition-title">
+      <div class="container festival-edition-grid">
+        <div class="festival-edition-date">
+          <p class="eyebrow">{copy.editionEyebrow}</p>
+          <h2 id="festival-edition-title">{copy.editionTitle}</h2>
+          <div class="festival-date-detail"><span>{copy.dateLabel}</span><strong>{lang === 'it' ? 'Domenica 8 novembre 2026' : 'Sunday 8 November 2026'}</strong></div>
+          <div class="festival-date-detail"><span>{copy.placeLabel}</span><strong>{copy.place}</strong></div>
+        </div>
+        <div class="festival-programme">
+          <span class="festival-programme-index" aria-hidden="true">08</span>
+          <h3>{copy.updateTitle}</h3>
+          <p>{copy.updateText}</p>
+          <div class="festival-official-links">
+            <a class="text-link" href={prolocoHref} target="_blank" rel="noopener noreferrer">{copy.proLoco}<Icon name="diagonal"/></a>
+            <a class="text-link" href={comuneHref} target="_blank" rel="noopener noreferrer">{copy.comune}<Icon name="diagonal"/></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="festival-plan section" aria-labelledby="festival-plan-title">
+      <div class="container festival-plan-grid">
+        <div><p class="eyebrow">{copy.planEyebrow}</p><h2 id="festival-plan-title">{copy.planTitle}</h2></div>
+        <div><p>{copy.planText}</p><div class="festival-plan-links"><a class="text-link" href={sightsHref}>{copy.sights}<Icon name="arrow"/></a><a class="text-link" href={foodHref}>{copy.food}<Icon name="arrow"/></a></div></div>
+      </div>
+    </section>
+
+    <section class="itinerary-next festival-next" aria-label={lang === 'it' ? 'Continua a esplorare' : 'Keep exploring'}>
+      <div class="container itinerary-next-inner">
+        <div><p class="eyebrow">{copy.nextEyebrow}</p><h2>{copy.nextTitle}</h2></div>
+        <div class="itinerary-next-links"><a class="button button-yellow" href={homeHref}>{copy.nextAction}<Icon name="arrow"/></a></div>
+      </div>
+    </section>
+  </main>
+  <SiteFooter lang={lang} currentPage="festival"/>
+</Base>
