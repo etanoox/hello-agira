@@ -17,6 +17,25 @@ const photo = photos.stay;
 const mapHref = `${homeUrl(lang)}${anchor('map', lang)}`;
 const sightsHref = pageUrl('sights', lang);
 const foodHref = pageUrl('eat', lang);
+const l = (it: string, en: string) => lang === 'it' ? it : en;
+const shortStay = l('Affitti Brevi', 'Short-term rentals');
+const accommodations = [
+  { name: "AGHERE'", category: shortStay, rating: '', cir: '19086001C261476', cin: 'IT086001C2V5YGMY4L' },
+  { name: 'AGIRA ROYAL CENTRAL ROOMS', category: shortStay, rating: '', cir: '19086001C242814', cin: 'IT086001C2VLD3GJOW' },
+  { name: 'Azienda Agrituristica Casale Salerno', category: l('Agriturismo', 'Farm stay'), rating: l('3 Spighe', '3 Spighe'), cir: '19086001B501950', cin: 'IT086001B54O8NBO4L' },
+  { name: 'Casa Albergo la Terza Stella', category: 'Bed & Breakfast', rating: l('3 Stelle', '3 stars'), cir: '19086001C102613', cin: 'IT086001C1RC4RZZ35' },
+  { name: 'Casa Don Raffaele', category: shortStay, rating: '', cir: '19086001C230932', cin: 'IT086001C256YVMWF6' },
+  { name: 'Central Rooms', category: shortStay, rating: '', cir: '19086001C213513', cin: 'IT086001C2MW8JFA8Z' },
+  { name: 'Domus Teja', category: shortStay, rating: '', cir: '19086001C218663', cin: 'IT086001C2IPXD2AA6' },
+  { name: 'Gli Amici di Filippo 2', category: shortStay, rating: '', cir: '19086001C255182', cin: 'IT086001C2MKSWDCVX' },
+  { name: 'kasakarma', category: shortStay, rating: '', cir: '19086001C208835', cin: 'IT086001C2EDRJIFRL' },
+  { name: 'La Casa dei Sogni', category: shortStay, rating: '', cir: '19086001C220594', cin: 'IT086001C2BF456HXP' },
+  { name: 'Mamà B&B', category: 'Bed & Breakfast', rating: l('3 Stelle', '3 stars'), cir: '19086001C131613', cin: 'IT086001C1W6DOZLCE' },
+  { name: 'Mariù', category: shortStay, rating: '', cir: '19086001C245971', cin: 'IT086001C2S9NT694M' },
+  { name: 'Sopra La Piazza', category: shortStay, rating: '', cir: '19086001C229472', cin: 'IT086001C2DTBTKF6V' },
+  { name: 'Talia', category: 'Bed & Breakfast', rating: l('3 Stelle', '3 stars'), cir: '19086001C102325', cin: 'IT086001C18NX829PZ' },
+  { name: 'VIA ROMA HOME RELAX', category: shortStay, rating: '', cir: '19086001C266102', cin: 'IT086001C2PDJVYNP2' },
+];
 ---
 
 <Base lang={lang} title={page.title} description={page.description} canonicalPath={localizedPaths[lang]} alternatePaths={localizedPaths}>
@@ -28,7 +47,7 @@ const foodHref = pageUrl('eat', lang);
           <p class="eyebrow">{page.eyebrow}</p>
           <h1 id="stay-page-title">{page.heading}</h1>
           <p>{page.intro}</p>
-          <a class="button button-yellow" href="#stay-guide">{page.action}<Icon name="arrow"/></a>
+          <a class="button button-yellow" href="#stay-accommodations">{l('Scopri le strutture', 'Explore accommodation')}<Icon name="arrow"/></a>
         </div>
         <figure class="route-page-photo stay-page-photo">
           <div class="photo-link"><Photo name="stay" lang={lang} priority sizes="(max-width: 700px) 90vw, 48vw"/></div>
@@ -37,6 +56,28 @@ const foodHref = pageUrl('eat', lang);
             <span>{photo.credit?.[lang]}</span>
           </figcaption>
         </figure>
+      </div>
+    </section>
+
+    <section id="stay-accommodations" class="stay-accommodations section" aria-labelledby="stay-accommodations-title">
+      <div class="container">
+        <div class="stay-guide-heading">
+          <div><p class="eyebrow">{l('OSPITALITÀ AD AGIRA', 'HOSPITALITY IN AGIRA')}</p><h2 id="stay-accommodations-title">{l('Un posto dove restare.', 'A place to stay.')}</h2></div>
+          <p>{l('Affitti brevi, bed & breakfast e agriturismo: scopri le strutture di Agira, con categoria e codici CIR e CIN. Indirizzi e contatti saranno aggiunti prossimamente.', 'Short-term rentals, bed & breakfasts and a farm stay: explore accommodation in Agira, with categories and CIR and CIN registration codes. Addresses and contact details will be added soon.')}</p>
+        </div>
+        <ul class="accommodation-list" role="list">
+          {accommodations.map((stay, i) => <li class="accommodation-entry">
+            <span class="small-number">{String(i + 1).padStart(2, '0')}</span>
+            <div>
+              <p class="accommodation-category">{stay.category}{stay.rating && ` · ${stay.rating}`}</p>
+              <h3>{stay.name}</h3>
+              <dl class="accommodation-codes">
+                <div><dt>CIR</dt><dd>{stay.cir}</dd></div>
+                <div><dt>CIN</dt><dd>{stay.cin}</dd></div>
+              </dl>
+            </div>
+          </li>)}
+        </ul>
       </div>
     </section>
 
@@ -55,8 +96,6 @@ const foodHref = pageUrl('eat', lang);
         </div>
       </div>
     </section>
-
-    <aside class="stay-listing-note"><div class="container"><Icon name="plus"/><p>{page.note}</p></div></aside>
 
     <section id="stay-practical" class="stay-practical-section section" aria-labelledby="stay-practical-title">
       <div class="container stay-practical-grid">
@@ -88,3 +127,17 @@ const foodHref = pageUrl('eat', lang);
   <SiteFooter lang={lang} currentPage="stay"/>
   <script>import '../scripts/sights-reveal';</script>
 </Base>
+
+<style>
+  .stay-accommodations{background:var(--stone)}
+  .accommodation-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:3rem;margin:3rem 0 0;padding:0;list-style:none}
+  .accommodation-entry{display:grid;grid-template-columns:2rem minmax(0,1fr);gap:1rem;padding:1.8rem 0;border-top:1px solid var(--line)}
+  .accommodation-entry>.small-number{padding-top:.15rem}
+  .accommodation-category{font-size:.75rem;line-height:1.5;color:var(--muted)}
+  .accommodation-entry h3{margin:.6rem 0 1.2rem;font-size:clamp(1.5rem,2.2vw,2rem);line-height:1.15;letter-spacing:-.04em;overflow-wrap:anywhere}
+  .accommodation-codes{margin:0;font-size:.75rem;line-height:1.7}
+  .accommodation-codes>div{display:grid;grid-template-columns:2.5rem minmax(0,1fr);gap:.5rem}
+  .accommodation-codes dt{color:var(--muted)}
+  .accommodation-codes dd{margin:0;overflow-wrap:anywhere}
+  @media(max-width:700px){.accommodation-list{grid-template-columns:1fr;margin-top:2rem}.accommodation-entry{gap:.6rem;padding:1.5rem 0}}
+</style>
