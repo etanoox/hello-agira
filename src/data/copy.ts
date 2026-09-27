@@ -129,7 +129,7 @@ export function getCopy(lang: Locale) {
     historyLabel: l('09 / Conosci Agira', '09 / Get to know Agira'),
     historyTitle: l('Le storie abitano qui.', 'The stories live here.'),
     historyText: l('Agyrion, il nome antico. Diodoro Siculo, lo storico nato qui. San Filippo, il patrono. Tre fili per cominciare a conoscere la città e le sue memorie.', 'Agyrion, its ancient name. Diodorus Siculus, the historian born here. Saint Philip, its patron saint. Three threads to start exploring the town’s past.'),
-    historyCta: l('Approfondisci nelle fonti storiche', 'Explore the historical sources'),
+    historyCta: l('Leggi la storia di Agira', 'Read the history of Agira'),
     infoLabel: l('10 / Prima di partire', '10 / Before you go'),
     infoTitle: l('Le cose utili,\nal momento giusto.', 'A little planning\ngoes a long way.'),
     info: [

@@ -1,6 +1,6 @@
 # Hello Agira — edizione animata 0.5.0 · IT / EN
 
-Progetto editoriale indipendente dedicato ad Agira. Questa consegna contiene la homepage e le pagine Itinerari e Cosa vedere in italiano e inglese, i sorgenti e una build statica per la prova locale. Non è stata pubblicata online.
+Progetto editoriale indipendente bilingue dedicato ad Agira. Il sito è pubblicato su [helloagira.it](https://helloagira.it/). Questa versione comprende la homepage e sei pagine editoriali in italiano e inglese, con sorgenti e build statica per la prova locale.
 
 ## Provarla in locale
 
@@ -41,9 +41,9 @@ Impostazioni del progetto Cloudflare Pages:
 | Comando di build | `npm run build` |
 | Cartella di output | `dist` |
 | Variabile `NODE_VERSION` | `24` |
-| Variabile `SITE_URL` | L'origine HTTPS effettiva del sito, senza percorsi |
+| Variabile `SITE_URL` | `https://helloagira.it` |
 
-**Imposta `SITE_URL` prima della pubblicazione e ricostruisci il sito.** È l'indirizzo pubblico definitivo: dominio personalizzato oppure indirizzo Pages effettivamente assegnato. Non è stato scelto o registrato alcun dominio in questa consegna. Quando cambi dominio, aggiorna la variabile e ripeti la build.
+`SITE_URL` deve contenere l'origine HTTPS pubblica, senza percorsi. Per la produzione usa `https://helloagira.it`; quando cambia il dominio, aggiorna la variabile e ripeti la build.
 
 Puoi impostare la stessa variabile in locale copiando `.env.example` in `.env`. Senza `SITE_URL`, la build resta volutamente `noindex`, non genera canonical o hreflang e non include URL nella sitemap. Con un'origine HTTPS genera canonical separati IT/EN, hreflang reciproci, x-default italiano, sitemap, robots e dati strutturati WebSite/WebPage/Place. Per gli ambienti di anteprima lascia `SITE_URL` vuota.
 
@@ -54,6 +54,10 @@ Puoi impostare la stessa variabile in locale copiando `.env.example` in `.env`. 
 - Homepage `/it/` e `/en/`, con navigazione per sezioni e cambio lingua.
 - Pagina Itinerari `/it/itinerari/` e `/en/itineraries/`, con canonical, hreflang e voci sitemap localizzate.
 - Pagina Cosa vedere `/it/cosa-vedere/` e `/en/things-to-see/`, con cinque luoghi in una griglia fotografica editoriale, fonti, gallery e collegamenti alla mappa e agli itinerari.
+- Pagina Storia `/it/storia/` e `/en/history/`, con una lettura per temi e fonti su Agyrion, Diodoro Siculo, l’Abbazia di San Filippo e le memorie delle chiese.
+- Hub Mangiare `/it/mangiare/` e `/en/food-and-drink/`, con una prima ricognizione di ristoranti, bar e dolci.
+- Hub Dormire e informazioni pratiche `/it/dormire/` e `/en/where-to-stay/`; non presenta strutture ricettive senza informazioni verificabili.
+- Pagina della Sagra della Cassatella `/it/sagra-cassatella/` e `/en/cassatella-festival/`, con l’edizione 2026 indicata per l’8 novembre e programma da aggiornare.
 - Entrata graduale della hero e comparsa delle schede durante lo scorrimento, disattivate con la preferenza di sistema per ridurre il movimento.
 - Hero fotografica animata con panorama che si apre durante lo scorrimento, introduzione, quattro accessi tematici, luoghi, Cassatella, idee di visita, mangiare, dormire, tradizioni, mappa, storia e informazioni pratiche.
 - Gallery fotografica con trascinamento, swipe, frecce e apertura a tutto schermo; chiusura con Esc e navigazione da tastiera.
@@ -71,8 +75,9 @@ Puoi impostare la stessa variabile in locale copiando `.env.example` in `.env`. 
 | `src/content/home/it.md`, `en.md` | Titolo SEO, descrizione e introduzione Markdown per lingua |
 | `src/data/copy.ts` | Testi delle sezioni e dell'interfaccia, in coppie IT/EN |
 | `src/pages/[lang]/index.astro` | Struttura condivisa delle due homepage |
-| `src/pages/[lang]/[slug].astro` | Pagine editoriali Itinerari e Cosa vedere IT/EN |
-| `src/components/SightsLanding.astro` | Struttura editoriale della pagina Cosa vedere |
+| `src/pages/[lang]/[slug].astro` | Instradamento delle pagine editoriali IT/EN |
+| `src/components/SightsLanding.astro`, `EatingLanding.astro`, `StayLanding.astro`, `HistoryLanding.astro`, `FestivalLanding.astro` | Pagine Cosa vedere, Mangiare, Dormire, Storia e Sagra |
+| `src/data/history.ts` | Testi bilingui e fonti della pagina Storia |
 | `src/components/SiteHeader.astro`, `SiteFooter.astro` | Navigazione e footer condivisi |
 | `src/styles/global.css`, `cinematic.css` | Palette, tipografia, composizioni e adattamenti responsive |
 | `src/components/JourneyHero.astro`, `PhotoGallery.astro` | Hero e gallery a tutto schermo |
@@ -87,11 +92,11 @@ La direzione visiva usa **Bricolage Grotesque** per i titoli e **DM Sans** per i
 
 ## Contenuti e sviluppo successivo
 
-Questa versione comprende la homepage, una pagina Itinerari e una pagina panoramica Cosa vedere. Le schede dei luoghi includono brevi approfondimenti; non sono ancora presenti pagine complete per ciascun luogo, né cataloghi o calendari aggiornati.
+Questa versione comprende homepage, Itinerari, Cosa vedere, Storia, Mangiare, Dormire e informazioni pratiche, e Sagra della Cassatella. Le schede dei luoghi includono brevi approfondimenti; non sono ancora presenti pagine complete per ciascun luogo, né calendari aggiornati.
 
-Non sono stati inventati ristoranti, strutture ricettive, recensioni, prezzi, orari o prossime date di eventi. Le sezioni mangiare e dormire offrono indicazioni editoriali; le tradizioni rinviano agli organizzatori. Le durate degli itinerari sono idee di visita e non misurazioni dei percorsi. La mappa contiene solo il centro abitato e l'Abbazia, con le fonti delle coordinate nel codice.
+Non sono stati inventati recensioni, prezzi, orari o programmi aggiornati. Mangiare è una prima ricognizione; la pagina Dormire offre criteri di scelta ma non elenca alloggi finché non ci sono dati verificabili. Le tradizioni rinviano agli organizzatori. Le durate degli itinerari sono idee di visita e non misurazioni dei percorsi. La mappa contiene solo il centro abitato e l'Abbazia, con le fonti delle coordinate nel codice.
 
-Prima di ampliare il progetto, aggiungi per ogni luogo, attività o evento una scheda con ID stabile, traduzioni, fonti, data di verifica e stato editoriale. Le due voci della collection `home` condividono già `entityId: agira`. La sitemap include homepage, Itinerari e Cosa vedere in entrambe le lingue. Aggiungi altri URL localizzati solo quando le relative pagine sono pronte. Orari, accessibilità, servizi e programmi richiedono conferma locale prima di essere presentati come aggiornati.
+Per ampliare il progetto, aggiungi per ogni luogo, attività o evento una scheda con ID stabile, traduzioni, fonti, data di verifica e stato editoriale. Le due voci della collection `home` condividono già `entityId: agira`. La sitemap include tutte le pagine pubblicate in entrambe le lingue. Orari, accessibilità, servizi e programmi richiedono conferma locale prima di essere presentati come aggiornati.
 
 ## Fotografie, font e servizi esterni
 
@@ -105,9 +110,9 @@ Non sono integrati analytics, moduli, account o geolocalizzazione. Le tessere Op
 
 ## Verifiche eseguite
 
-- Controllo Astro/TypeScript e generazione statica di homepage, Itinerari e Cosa vedere in entrambe le lingue.
+- Controllo Astro/TypeScript e generazione statica di homepage e sei coppie di pagine editoriali IT/EN.
 - Controllo di link e ancore locali, immagini, metadati, JSON-LD, sitemap, redirect e pagina 404.
-- Build locale e con origine HTTPS di prova: canonical, alternate hreflang e sitemap per le sei pagine IT/EN verificati. L'origine di prova non è inclusa nella build consegnata.
+- Build locale e con origine HTTPS di prova: canonical, alternate hreflang e sitemap verificati per tutte le pagine IT/EN. L'origine di prova non è inclusa nella build consegnata.
 - Ispezione visiva desktop della pagina Itinerari; menu e navigazione verso homepage e pagina dedicate verificati. Il layout mobile eredita i breakpoint responsive del progetto.
 - Verificato il fallback della mappa. Il browser di prova non supporta WebGL2: il rendering interattivo e le tessere vanno confermati in un browser compatibile.
 

@@ -1,5 +1,10 @@
 export const sources = [
   { title: 'Agira città d’arte · Rita Loredana Foti e Salvatore Longo Minnolo', url: 'https://www.agira.org/Sintesi-storiche/agira-citta-darte.html' },
+  { title: 'Materiali per una storia della città di Agira · Abbazia di San Filippo', url: 'https://www.agira.org/Sintesi-storiche/abbazia-di-san-filippo-santa-maria-latina-di-agira.html' },
+  { title: 'Materiali per una storia della città di Agira · La chiesa del SS. Salvatore', url: 'https://www.agira.org/Sintesi-storiche/la-chiesa-del-ss-salvatore-di-agira.html' },
+  { title: 'Materiali per una storia della città di Agira · La vita di San Filippo', url: 'https://www.agira.org/Pubblicazioni/la-vita-di-san-filippo-dagira/All-Pages.html' },
+  { title: 'Treccani · Agira, Enciclopedia Italiana', url: 'https://www.treccani.it/enciclopedia/agira_(Enciclopedia-Italiana)/' },
+  { title: 'Pro Loco Agira · Storia e cultura', url: 'https://www.prolocoagira.it/wp/storia-e-cultura/' },
   { title: 'Pro Loco Agira · Collegiata del SS. Salvatore', url: 'https://www.prolocoagira.it/wp/2017/06/22/collegiata-del-ss-salvatore/' },
   { title: 'Pro Loco Agira · Grotta di San Filippo', url: 'https://www.prolocoagira.it/wp/2017/06/22/grotta-di-san-filippo/' },
   { title: 'Pro Loco Agira · Guida Agira: la città svelata (2018)', url: 'https://www.prolocoagira.it/wp/wp-content/uploads/2018/05/guida-agira-compr.pdf' },

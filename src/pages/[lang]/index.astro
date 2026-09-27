@@ -75,7 +75,7 @@ const id = (key: Section) => sectionIds[key][lang];
 
     <Map lang={lang}/>
 
-    <section id={id('history')} class="section history-section" aria-labelledby="history-title"><div class="container history-grid"><p class="eyebrow">{c.historyLabel}</p><div><h2 id="history-title">{c.historyTitle}</h2><p>{c.historyText}</p><a class="text-link" href="https://www.agira.org/Sintesi-storiche/agira-citta-darte.html">{c.historyCta}<Icon name="diagonal"/></a></div><div class="history-words" aria-hidden="true"><span>Agyrion</span><span>Diodoro</span><span>San Filippo</span></div></div></section>
+    <section id={id('history')} class="section history-section" aria-labelledby="history-title"><div class="container history-grid"><p class="eyebrow">{c.historyLabel}</p><div><h2 id="history-title">{c.historyTitle}</h2><p>{c.historyText}</p><a class="text-link" href={pageUrl('history', lang)}>{c.historyCta}<Icon name="diagonal"/></a></div><div class="history-words" aria-hidden="true"><span>Agyrion</span><span>Diodoro</span><span>San Filippo</span></div></div></section>
 
     <section id={id('info')} class="section info-section" aria-labelledby="info-title"><div class="container info-grid"><div><p class="eyebrow">{c.infoLabel}</p><h2 id="info-title">{c.infoTitle}</h2></div><div class="info-list">{c.info.map((info,i)=><details><summary><span class="small-number">0{i+1}</span><h3>{info.title}</h3><Icon name="plus"/></summary><div class="info-answer"><p>{info.text}</p>{'href' in info && <a class="text-link" href={info.href}>{info.link}<Icon name="diagonal"/></a>}</div></details>)}</div></div></section>
   </main>

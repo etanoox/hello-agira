@@ -7,6 +7,7 @@ export const GET: APIRoute = ({ site }) => {
     { it: pageUrl('sights', 'it'), en: pageUrl('sights', 'en') },
     { it: pageUrl('eat', 'it'), en: pageUrl('eat', 'en') },
     { it: pageUrl('stay', 'it'), en: pageUrl('stay', 'en') },
+    { it: pageUrl('history', 'it'), en: pageUrl('history', 'en') },
     { it: pageUrl('festival', 'it'), en: pageUrl('festival', 'en') },
   ];
   const urls = site?.protocol === 'https:' ? pairs.flatMap(pair => ['it', 'en'].map(lang => {
