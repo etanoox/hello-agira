@@ -12,7 +12,7 @@ const { lang } = Astro.props;
 const localizedPaths = { it: pageUrl('festival', 'it'), en: pageUrl('festival', 'en') };
 const copy = lang === 'it' ? {
   title: 'Sagra della Cassatella di Agira 2026 | Hello Agira',
-  description: 'La Sagra della Cassatella torna ad Agira domenica 8 novembre 2026. Scopri il programma e organizza la visita.',
+  description: 'Sagra della Cassatella di Agira: domenica 8 novembre 2026, dalle 10:00 alle 24:00 in Piazza Roma. Scopri il programma e organizza la visita.',
   heroEyebrow: 'AGIRA · SICILIA · UNA TRADIZIONE DA INCONTRARE',
   heroTitle: 'La cassatella\nincontra Agira.',
   heroText: 'Ogni anno, la Sagra mette al centro il dolce simbolo del paese e invita a scoprire Agira attraverso sapori, storie e momenti da condividere.',
@@ -27,8 +27,8 @@ const copy = lang === 'it' ? {
   dateWeekday: 'DOMENICA',
   dateMonth: 'NOVEMBRE',
   dateYear: '2026',
-  updateTitle: 'Il programma è in aggiornamento.',
-  updateText: 'La data indicata per l’edizione 2026 è domenica 8 novembre. Orari, luoghi degli appuntamenti e indicazioni per la visita saranno aggiunti con gli aggiornamenti degli organizzatori.',
+  updateTitle: 'Una giornata di festa in Piazza Roma.',
+  updateText: 'La Sagra della Cassatella si terrà domenica 8 novembre 2026, dalle 10:00 alle 24:00, in Piazza Roma ad Agira. Per aggiornamenti ed eventuali variazioni consulta i canali degli organizzatori.',
   proLoco: 'Aggiornamenti della Pro Loco',
   comune: 'Aggiornamenti del Comune',
   programmeEyebrow: '03 / PROGRAMMA',
@@ -43,7 +43,7 @@ const copy = lang === 'it' ? {
   nextAction: 'Esplora Agira',
 } : {
   title: 'Cassatella Festival in Agira 2026 | Hello Agira',
-  description: 'The Cassatella Festival returns to Agira on Sunday 8 November 2026. Explore the programme and plan your visit.',
+  description: 'Agira’s Cassatella Festival: Sunday 8 November 2026, from 10:00 to midnight in Piazza Roma. Explore the programme and plan your visit.',
   heroEyebrow: 'AGIRA · SICILY · A TRADITION TO EXPERIENCE',
   heroTitle: 'Cassatella\nmeets Agira.',
   heroText: 'Each year, the festival celebrates the town’s signature pastry and invites visitors to discover Agira through its flavours, stories and shared moments.',
@@ -58,8 +58,8 @@ const copy = lang === 'it' ? {
   dateWeekday: 'SUNDAY',
   dateMonth: 'NOVEMBER',
   dateYear: '2026',
-  updateTitle: 'The programme is being updated.',
-  updateText: 'The date listed for the 2026 edition is Sunday 8 November. Times, event locations and visitor information will be added as the organisers publish updates.',
+  updateTitle: 'A day of celebration in Piazza Roma.',
+  updateText: 'The Cassatella Festival will take place on Sunday 8 November 2026, from 10:00 to midnight, in Piazza Roma, Agira. For updates and any changes, check the organisers’ channels.',
   proLoco: 'Pro Loco updates',
   comune: 'Municipality updates',
   programmeEyebrow: '03 / PROGRAMME',
@@ -80,13 +80,13 @@ const prolocoHref = 'https://www.prolocoagira.it/wp/category/sagra-cassatella/';
 const comuneHref = 'https://www.comune.agira.en.it/index.php/it/news?type=1';
 const editionFacts = lang === 'it' ? [
   { label: 'QUANDO', value: 'Domenica 8 novembre 2026' },
-  { label: 'QUANDO', value: 'Ora: 10:00 - 24:00' },
-  { label: 'DOVE', value: 'Piazza Europa, Agira · Sicilia' },
+  { label: 'ORARIO', value: '10:00–24:00' },
+  { label: 'DOVE', value: 'Piazza Roma, Agira · Sicilia' },
   { label: 'COSTO', value: 'Gratuito' },
 ] : [
   { label: 'WHEN', value: 'Sunday 8 November 2026' },
-  { label: 'WHEN', value: 'Time: 10:00–24:00' },
-  { label: 'WHERE', value: 'Piazza Europa, Agira · Sicily' },
+  { label: 'TIME', value: '10:00–24:00' },
+  { label: 'WHERE', value: 'Piazza Roma, Agira · Sicily' },
   { label: 'COST', value: 'Free admission' },
 ];
 const programmeItems = lang === 'it' ? [

@@ -113,9 +113,9 @@ export function getCopy(lang: Locale) {
     eventsIntro: l('Le tradizioni sono un altro modo di conoscere Agira.', 'Local traditions offer another way to get to know Agira.'),
     events: [
       { tag: l('Tradizione religiosa', 'Religious tradition'), title: l('La festa di San Filippo', 'The feast of Saint Philip'), text: l('Il culto del patrono è parte della storia cittadina. Per partecipare, consulta il programma della singola edizione.', 'The patron saint’s cult is part of the town’s history. Check the programme for the edition you plan to attend.') },
-      { tag: l('Sapori del territorio', 'Local flavours'), title: l('La Sagra della Cassatella', 'The Cassatella festival'), text: l('L’edizione 2026 è in programma domenica 8 novembre. La festa mette al centro il dolce simbolo di Agira e le tradizioni del paese.', 'The 2026 edition is scheduled for Sunday 8 November. The festival celebrates Agira’s signature pastry and local traditions.'), href: pageUrl('festival', lang), link: l('Scopri la Sagra', 'Discover the festival') },
+      { tag: l('Sapori del territorio', 'Local flavours'), title: l('La Sagra della Cassatella', 'The Cassatella festival'), text: l('L’edizione 2026 si terrà domenica 8 novembre, dalle 10:00 alle 24:00, in Piazza Roma ad Agira. Una giornata dedicata al dolce simbolo del paese e alle tradizioni locali.', 'The 2026 edition takes place on Sunday 8 November, from 10:00 to midnight, in Piazza Roma, Agira. A day celebrating the town’s signature pastry and local traditions.'), href: pageUrl('festival', lang), link: l('Scopri la Sagra', 'Discover the festival') },
     ],
-    eventsNote: l('Il programma dettagliato e le informazioni logistiche saranno aggiunti quando pubblicati dagli organizzatori.', 'The detailed programme and practical information will be added when published by the organisers.'),
+    eventsNote: l('Per aggiornamenti sui programmi ed eventuali variazioni, consulta i canali degli organizzatori.', 'For programme updates and any changes, check the organisers’ channels.'),
     eventsCta: l('Consulta la Pro Loco di Agira', 'Visit Pro Loco Agira'),
     eventsPageCta: l('Vai a tutti gli eventi', 'Explore all events'),
     mapLabel: l('08 / Orientati', '08 / Find your bearings'),
