@@ -138,7 +138,10 @@
   "ssalvatore": {
     "width": 800,
     "height": 537,
-    "widths": [480, 800],
+    "widths": [
+      480,
+      800
+    ],
     "alt": {
       "it": "La facciata in pietra della Collegiata del Santissimo Salvatore ad Agira.",
       "en": "The stone facade of the Collegiate Church of SS. Salvatore in Agira."
@@ -155,7 +158,10 @@
   "grotta": {
     "width": 626,
     "height": 414,
-    "widths": [480, 626],
+    "widths": [
+      480,
+      626
+    ],
     "alt": {
       "it": "L’altare nella grotta di San Filippo, in una cavità con pareti di roccia ad Agira.",
       "en": "The altar in the Cave of San Filippo, set within a rocky chamber in Agira."
@@ -168,5 +174,29 @@
       "en": "Photo: Pro Loco Agira"
     },
     "license": null
+  },
+  "pastryHero": {
+    "width": 1672,
+    "height": 941,
+    "widths": [
+      480,
+      800,
+      1200,
+      1672
+    ],
+    "alt": {
+      "it": "Cassatelle di Agira con ripieno scuro di cacao e mandorle, una delle quali tagliata a metà su un piatto.",
+      "en": "Cassatelle di Agira with a dark cocoa and almond filling, one cut in half on a plate."
+    },
+    "author": "Giuseppe Ricceri",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia fornita da Giuseppe Ricceri.",
+      "en": "Photograph supplied by Giuseppe Ricceri."
+    }
   }
 }

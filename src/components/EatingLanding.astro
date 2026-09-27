@@ -5,6 +5,7 @@ import Photo from './Photo.astro';
 import SiteHeader from './SiteHeader.astro';
 import SiteFooter from './SiteFooter.astro';
 import { getCopy } from '../data/copy';
+import photos from '../data/photos.json';
 import { getEatingPage } from '../data/eating';
 import { pageUrl, type Locale } from '../lib/i18n';
 
@@ -12,6 +13,7 @@ interface Props { lang: Locale }
 const { lang } = Astro.props;
 const c = getCopy(lang);
 const page = getEatingPage(lang);
+const photo = photos.pastryHero;
 const localizedPaths = { it: pageUrl('eat', 'it'), en: pageUrl('eat', 'en') };
 const sightsHref = pageUrl('sights', lang);
 const routesHref = pageUrl('routes', lang);
@@ -29,8 +31,8 @@ const routesHref = pageUrl('routes', lang);
           <a class="button button-yellow" href="#food-guide">{page.action}<Icon name="arrow"/></a>
         </div>
         <figure class="route-page-photo food-page-photo">
-          <div class="photo-link"><Photo name="pastry" lang={lang} priority sizes="(max-width: 700px) 90vw, 48vw"/></div>
-          <figcaption>{c.pastryName} <span>© Auregann · CC BY-SA 4.0</span></figcaption>
+          <div class="photo-link"><Photo name="pastryHero" lang={lang} priority sizes="(max-width: 700px) 90vw, 48vw"/></div>
+          <figcaption>{c.pastryName} <span>{photo.credit?.[lang]}</span></figcaption>
         </figure>
       </div>
     </section>
