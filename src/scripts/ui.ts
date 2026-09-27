@@ -12,14 +12,19 @@ if (toggle && nav) {
   document.addEventListener('keydown', event => { if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') { setOpen(false); toggle.focus(); } });
   document.addEventListener('click', event => { if (!(event.target as Element).closest('.site-header')) setOpen(false); });
 }
-// Preserve the current section when switching languages; the href remains usable without JS.
+// Translate homepage sections only; internal pages keep their server-rendered language links.
 const sectionPairs = [ ['scopri','discover'],['cosa-vedere','sights'],['cassatella','cassatella'],['itinerari','itineraries'],['mangiare','food'],['dormire','stay'],['eventi','events'],['mappa','map'],['storia','history'],['informazioni','information'],['progetto','about'] ];
 const updateLanguageLinks = () => {
+  if (!['/it/', '/en/'].includes(location.pathname)) return;
   const current = location.hash.slice(1);
   const pair = sectionPairs.find(p => p.includes(current));
   document.querySelectorAll<HTMLAnchorElement>('a[hreflang]').forEach(link => {
     const locale=link.hreflang;
-    link.href=`/${locale}/${pair ? `#${pair[locale === 'it' ? 0 : 1]}` : ''}`;
+    if (locale !== 'it' && locale !== 'en') return;
+    const target = new URL(link.href, location.href);
+    if (target.origin !== location.origin || target.pathname !== `/${locale}/`) return;
+    target.hash = pair ? pair[locale === 'it' ? 0 : 1] : '';
+    link.href = target.href;
   });
 };
 window.addEventListener('hashchange', updateLanguageLinks);
