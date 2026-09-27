@@ -27,11 +27,12 @@ const copy = lang === 'it' ? {
   dateWeekday: 'DOMENICA',
   dateMonth: 'NOVEMBRE',
   dateYear: '2026',
-  programmeEyebrow: '03 / PROGRAMMA',
-  programmeTitle: 'Dalla mattina fino a sera.',
-  programmeUpdates: 'Per eventuali aggiornamenti, consulta i canali ufficiali della Pro Loco e del Comune.',
+  updateTitle: 'Il programma è in aggiornamento.',
+  updateText: 'La data indicata per l’edizione 2026 è domenica 8 novembre. Orari, luoghi degli appuntamenti e indicazioni per la visita saranno aggiunti con gli aggiornamenti degli organizzatori.',
   proLoco: 'Aggiornamenti della Pro Loco',
   comune: 'Aggiornamenti del Comune',
+  programmeEyebrow: '03 / PROGRAMMA',
+  programmeTitle: 'Dalla mattina fino a sera.',
   planEyebrow: '04 / OLTRE LA SAGRA',
   planTitle: 'Fermati a conoscere Agira.',
   planText: 'La giornata può diventare l’inizio di una visita tra vicoli, luoghi di memoria e sapori del territorio.',
@@ -57,11 +58,12 @@ const copy = lang === 'it' ? {
   dateWeekday: 'SUNDAY',
   dateMonth: 'NOVEMBER',
   dateYear: '2026',
-  programmeEyebrow: '03 / PROGRAMME',
-  programmeTitle: 'From morning into the night.',
-  programmeUpdates: 'For updates, check the official Pro Loco and Municipality channels.',
+  updateTitle: 'The programme is being updated.',
+  updateText: 'The date listed for the 2026 edition is Sunday 8 November. Times, event locations and visitor information will be added as the organisers publish updates.',
   proLoco: 'Pro Loco updates',
   comune: 'Municipality updates',
+  programmeEyebrow: '03 / PROGRAMME',
+  programmeTitle: 'From morning into the night.',
   planEyebrow: '04 / BEYOND THE FESTIVAL',
   planTitle: 'Stay and get to know Agira.',
   planText: 'Make the day the start of a visit among the town’s lanes, places of memory and local flavours.',
@@ -89,20 +91,31 @@ const editionFacts = lang === 'it' ? [
 ];
 const programmeItems = lang === 'it' ? [
   { time: '10:00', title: 'Apertura stand gastronomici' },
-  { time: '11:00', title: 'Show cooking', detail: 'A cura di ERIS Formazione Agira.' },
-  { time: '12:00', title: 'Area gastronomica', detail: 'Musica dal vivo con Carmelo Ariti (Blue Stratos).' },
-  { time: '15:00', title: 'Circuito di destrezza per bambini con i go-kart', detail: 'A cura dell’Associazione San Filippo di Agira e dei commercianti di via Vittorio Emanuele.' },
-  { time: '18:00', title: 'Spettacolo itinerante', detail: 'A cura di Blue Stars Street Band.' },
-  { time: '21:00', title: 'Area gastronomica', detail: 'Musica dal vivo con la cover band Maneskin Pink Tribute.' },
-  { time: '23:00', title: 'DJ set', detail: 'Con DJ Cesar e Laura Ayla DJ.' },
+  { time: '11:00', title: 'Show cooking' },
+  { time: '12:00', title: 'Area gastronomica' },
+  { time: '15:00', title: 'Circuito di destrezza per bambini con i go-kart' },
+  { time: '18:00', title: 'Spettacolo itinerante' },
+  { time: '21:00', title: 'Area gastronomica' },
+  { time: '23:00', title: 'DJ set' },
 ] : [
   { time: '10:00', title: 'Food stands open' },
-  { time: '11:00', title: 'Live cooking demonstration', detail: 'By ERIS Formazione Agira.' },
-  { time: '12:00', title: 'Food area', detail: 'Live music with Carmelo Ariti (Blue Stratos).' },
-  { time: '15:00', title: 'Go-kart skills course for children', detail: 'Organised by the San Filippo Association of Agira and the shopkeepers of Via Vittorio Emanuele.' },
-  { time: '18:00', title: 'Street performance', detail: 'By Blue Stars Street Band.' },
-  { time: '21:00', title: 'Food area', detail: 'Live music with the Maneskin Pink Tribute cover band.' },
-  { time: '23:00', title: 'DJ set', detail: 'With DJs Cesar and Laura Ayla.' },
+  { time: '11:00', title: 'Live cooking demonstration' },
+  { time: '12:00', title: 'Food area' },
+  { time: '15:00', title: 'Go-kart skills course for children' },
+  { time: '18:00', title: 'Street performance' },
+  { time: '21:00', title: 'Food area' },
+  { time: '23:00', title: 'DJ set' },
+];
+const festivalArchive = lang === 'it' ? [
+  { src: '/images/cassatella-festival-2025.webp', width: 1137, height: 1600, alt: 'Locandina della Sagra della Cassatella di Agira, 13ª edizione del 2025', caption: '13ª edizione · 2025' },
+  { src: '/images/cassatella-festival-2024.webp', width: 1247, height: 1754, alt: 'Locandina della Sagra della Cassatella di Agira, 12ª edizione del 2024', caption: '12ª edizione · 2024' },
+  { src: '/images/cassatella-festival-2023.webp', width: 1433, height: 2048, alt: 'Locandina della Sagra della Cassatella di Agira, 11ª edizione del 2023', caption: '11ª edizione · 2023' },
+  { src: '/images/cassatella-festival-2022.webp', width: 1458, height: 2048, alt: 'Locandina della Sagra della Cassatella di Agira, 10ª edizione del 2022', caption: '10ª edizione · 2022' },
+] : [
+  { src: '/images/cassatella-festival-2025.webp', width: 1137, height: 1600, alt: 'Poster for the 13th Cassatella Festival in Agira, 2025', caption: '13th edition · 2025' },
+  { src: '/images/cassatella-festival-2024.webp', width: 1247, height: 1754, alt: 'Poster for the 12th Cassatella Festival in Agira, 2024', caption: '12th edition · 2024' },
+  { src: '/images/cassatella-festival-2023.webp', width: 1433, height: 2048, alt: 'Poster for the 11th Cassatella Festival in Agira, 2023', caption: '11th edition · 2023' },
+  { src: '/images/cassatella-festival-2022.webp', width: 1458, height: 2048, alt: 'Poster for the 10th Cassatella Festival in Agira, 2022', caption: '10th edition · 2022' },
 ];
 ---
 
@@ -134,7 +147,18 @@ const programmeItems = lang === 'it' ? [
     <section class="festival-story section" aria-labelledby="festival-story-title">
       <div class="container festival-story-grid">
         <div><p class="eyebrow">{copy.storyEyebrow}</p><h2 id="festival-story-title">{copy.storyTitle}</h2></div>
-        <div class="festival-story-copy"><p>{copy.storyText}</p><p>{copy.storyAside}</p></div>
+        <div class="festival-story-copy">
+          <p>{copy.storyText}</p>
+          <p>{copy.storyAside}</p>
+          <div class="festival-story-gallery" aria-label={lang === 'it' ? 'Locandine delle edizioni passate della Sagra' : 'Posters from past festival editions'}>
+            {festivalArchive.map(item => <figure>
+              <a href={item.src} target="_blank" rel="noopener noreferrer" aria-label={lang === 'it' ? `Apri la locandina: ${item.caption}` : `Open poster: ${item.caption}`}>
+                <img src={item.src} srcset={`${item.src.replace('.webp', '-480.webp')} 480w, ${item.src} 900w`} sizes="(max-width: 700px) 44vw, 13vw" alt={item.alt} width={item.width} height={item.height} loading="lazy" decoding="async" />
+              </a>
+              <figcaption>{item.caption}</figcaption>
+            </figure>)}
+          </div>
+        </div>
       </div>
     </section>
 
@@ -143,10 +167,17 @@ const programmeItems = lang === 'it' ? [
         <div class="festival-edition-date">
           <p class="eyebrow">{copy.editionEyebrow}</p>
           <h2 id="festival-edition-title">{copy.editionTitle}</h2>
+          {editionFacts.map(fact => <div class="festival-date-detail"><span>{fact.label}</span><strong>{fact.value}</strong></div>)}
         </div>
-        <dl class="festival-edition-facts">
-          {editionFacts.map(fact => <div class="festival-edition-fact"><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}
-        </dl>
+        <div class="festival-programme">
+          <span class="festival-programme-index" aria-hidden="true">08</span>
+          <h3>{copy.updateTitle}</h3>
+          <p>{copy.updateText}</p>
+          <div class="festival-official-links">
+            <a class="text-link" href={prolocoHref} target="_blank" rel="noopener noreferrer">{copy.proLoco}<Icon name="diagonal"/></a>
+            <a class="text-link" href={comuneHref} target="_blank" rel="noopener noreferrer">{copy.comune}<Icon name="diagonal"/></a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -159,16 +190,9 @@ const programmeItems = lang === 'it' ? [
         <ol class="festival-schedule-list">
           {programmeItems.map(item => <li>
             <time datetime={item.time}>{item.time}</time>
-            <div><h3>{item.title}</h3>{item.detail && <p>{item.detail}</p>}</div>
+            <div><h3>{item.title}</h3></div>
           </li>)}
         </ol>
-        <div class="festival-schedule-footer">
-          <p>{copy.programmeUpdates}</p>
-          <div class="festival-official-links">
-            <a class="text-link" href={prolocoHref} target="_blank" rel="noopener noreferrer">{copy.proLoco}<Icon name="diagonal"/></a>
-            <a class="text-link" href={comuneHref} target="_blank" rel="noopener noreferrer">{copy.comune}<Icon name="diagonal"/></a>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -190,10 +214,13 @@ const programmeItems = lang === 'it' ? [
 </Base>
 
 <style>
-  .festival-edition-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 2rem;align-content:center;margin:0}
-  .festival-edition-fact{display:grid;gap:.55rem;padding:1.15rem 0;border-top:1px solid #aab7a9}
-  .festival-edition-fact dt{font-size:.68rem;letter-spacing:.1em;color:var(--muted)}
-  .festival-edition-fact dd{margin:0;font-size:.96rem;line-height:1.5;font-weight:500}
+  .festival-story-gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.85rem;margin-top:1.65rem}
+  .festival-story-gallery figure{min-width:0;margin:0}
+  .festival-story-gallery a{display:block;overflow:hidden;border:1px solid #d8d4c8;border-radius:4px;background:#fff;box-shadow:0 5px 16px #14251d12;transition:transform .2s ease,box-shadow .2s ease}
+  .festival-story-gallery a:hover{transform:translateY(-3px);box-shadow:0 9px 22px #14251d20}
+  .festival-story-gallery a:focus-visible{outline:3px solid var(--forest);outline-offset:3px}
+  .festival-story-gallery img{display:block;width:100%;height:auto}
+  .festival-story-gallery figcaption{margin-top:.5rem;color:var(--forest);font-family:var(--display);font-size:.76rem;line-height:1.3;letter-spacing:.01em}
   .festival-schedule-section{background:#073e38;color:var(--stone)}
   .festival-schedule-section .eyebrow{color:var(--grain)}
   .festival-schedule-heading{max-width:760px}
@@ -204,13 +231,11 @@ const programmeItems = lang === 'it' ? [
   .festival-schedule-list time{font-family:var(--display);font-size:2rem;line-height:1;color:var(--grain);letter-spacing:-.05em}
   .festival-schedule-list h3{font-size:clamp(1.15rem,2vw,1.55rem);line-height:1.25;letter-spacing:-.025em}
   .festival-schedule-list p{max-width:760px;margin-top:.35rem;font-size:.9rem;line-height:1.6;color:#d8e0d9}
-  .festival-schedule-footer{display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:center;margin-top:2rem}
-  .festival-schedule-footer>p{max-width:520px;font-size:.82rem;line-height:1.55;color:#d8e0d9}
   @media(max-width:700px){
-    .festival-edition-facts{grid-template-columns:1fr}
+    .festival-story-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem .75rem;margin-top:1.35rem}
+    .festival-story-gallery figcaption{font-size:.78rem}
     .festival-schedule-list{margin-top:2rem}
     .festival-schedule-list li{grid-template-columns:5rem minmax(0,1fr);gap:.85rem;padding:1.1rem 0}
     .festival-schedule-list time{font-size:1.55rem}
-    .festival-schedule-footer{grid-template-columns:1fr;gap:.4rem}
   }
 </style>
