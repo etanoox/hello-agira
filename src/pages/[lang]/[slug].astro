@@ -9,6 +9,7 @@ import EatingLanding from '../../components/EatingLanding.astro';
 import StayLanding from '../../components/StayLanding.astro';
 import HistoryLanding from '../../components/HistoryLanding.astro';
 import FestivalLanding from '../../components/FestivalLanding.astro';
+import EventsLanding from '../../components/EventsLanding.astro';
 import { getCopy } from '../../data/copy';
 import { locales, pageUrl, type Locale } from '../../lib/i18n';
 
@@ -19,6 +20,7 @@ export function getStaticPaths() {
     { params: { lang, slug: lang === 'it' ? 'mangiare' : 'food-and-drink' }, props: { lang, slug: lang === 'it' ? 'mangiare' : 'food-and-drink' } },
     { params: { lang, slug: lang === 'it' ? 'dormire' : 'where-to-stay' }, props: { lang, slug: lang === 'it' ? 'dormire' : 'where-to-stay' } },
     { params: { lang, slug: lang === 'it' ? 'storia' : 'history' }, props: { lang, slug: lang === 'it' ? 'storia' : 'history' } },
+    { params: { lang, slug: lang === 'it' ? 'eventi' : 'events' }, props: { lang, slug: lang === 'it' ? 'eventi' : 'events' } },
     { params: { lang, slug: lang === 'it' ? 'sagra-cassatella' : 'cassatella-festival' }, props: { lang, slug: lang === 'it' ? 'sagra-cassatella' : 'cassatella-festival' } },
   ]);
 }
@@ -30,10 +32,11 @@ const isEatingPage = slug === 'mangiare' || slug === 'food-and-drink';
 const isStayPage = slug === 'dormire' || slug === 'where-to-stay';
 const isHistoryPage = slug === 'storia' || slug === 'history';
 const isFestivalPage = slug === 'sagra-cassatella' || slug === 'cassatella-festival';
-const page = isFestivalPage ? 'festival' : isSightsPage ? 'sights' : isEatingPage ? 'eat' : isStayPage ? 'stay' : isHistoryPage ? 'history' : 'routes';
+const isEventsPage = slug === 'eventi' || slug === 'events';
+const page = isFestivalPage ? 'festival' : isEventsPage ? 'events' : isSightsPage ? 'sights' : isEatingPage ? 'eat' : isStayPage ? 'stay' : isHistoryPage ? 'history' : 'routes';
 const localizedPaths = { it: pageUrl(page, 'it'), en: pageUrl(page, 'en') };
 ---
-{isSightsPage ? <SightsLanding lang={lang}/> : isEatingPage ? <EatingLanding lang={lang}/> : isStayPage ? <StayLanding lang={lang}/> : isHistoryPage ? <HistoryLanding lang={lang}/> : isFestivalPage ? <FestivalLanding lang={lang}/> : <>
+{isSightsPage ? <SightsLanding lang={lang}/> : isEatingPage ? <EatingLanding lang={lang}/> : isStayPage ? <StayLanding lang={lang}/> : isHistoryPage ? <HistoryLanding lang={lang}/> : isFestivalPage ? <FestivalLanding lang={lang}/> : isEventsPage ? <EventsLanding lang={lang}/> : <>
 <Base lang={lang} title={c.routesPageTitle} description={c.routesPageDescription} canonicalPath={localizedPaths[lang]} alternatePaths={localizedPaths}>
   <SiteHeader lang={lang} currentPage="routes"/>
   <main id="main" tabindex="-1">

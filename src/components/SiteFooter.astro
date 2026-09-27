@@ -4,11 +4,11 @@ import { getCopy } from '../data/copy';
 import photos from '../data/photos.json';
 import { sources } from '../data/sources';
 import { anchor, homeUrl, pageUrl, sectionIds, type Locale, type Section } from '../lib/i18n';
-interface Props { lang: Locale; currentPage?: 'routes' | 'sights' | 'eat' | 'stay' | 'history' | 'festival' }
+interface Props { lang: Locale; currentPage?: 'routes' | 'sights' | 'eat' | 'stay' | 'history' | 'festival' | 'events' }
 const { lang, currentPage } = Astro.props;
 const c = getCopy(lang);
 const navKeys: Section[] = ['sights', 'eat', 'stay', 'routes', 'events', 'history'];
-const target = (key: Section) => key === 'routes' || key === 'sights' || key === 'eat' || key === 'stay' || key === 'history' ? pageUrl(key, lang) : `${homeUrl(lang)}${anchor(key, lang)}`;
+const target = (key: Section) => key === 'routes' || key === 'sights' || key === 'eat' || key === 'stay' || key === 'history' || key === 'events' ? pageUrl(key, lang) : `${homeUrl(lang)}${anchor(key, lang)}`;
 const localeTarget = (locale: Locale) => currentPage ? pageUrl(currentPage, locale) : homeUrl(locale);
 ---
 <footer class="site-footer" id={sectionIds.about[lang]}><div class="container">

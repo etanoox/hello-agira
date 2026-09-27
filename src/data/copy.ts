@@ -117,6 +117,7 @@ export function getCopy(lang: Locale) {
     ],
     eventsNote: l('Il programma dettagliato e le informazioni logistiche saranno aggiunti quando pubblicati dagli organizzatori.', 'The detailed programme and practical information will be added when published by the organisers.'),
     eventsCta: l('Consulta la Pro Loco di Agira', 'Visit Pro Loco Agira'),
+    eventsPageCta: l('Vai a tutti gli eventi', 'Explore all events'),
     mapLabel: l('08 / Orientati', '08 / Find your bearings'),
     mapTitle: l('Agira, a colpo d’occhio.', 'Get to know your way around.'),
     mapIntro: l('Apri la mappa per orientarti nel paese. Per percorsi e accessibilità verifica sempre le condizioni sul posto.', 'Open the map to get your bearings. Always check routes and accessibility locally.'),

@@ -58,6 +58,7 @@ Puoi impostare la stessa variabile in locale copiando `.env.example` in `.env`. 
 - Hub Mangiare `/it/mangiare/` e `/en/food-and-drink/`, con una prima ricognizione di ristoranti, bar e dolci.
 - Hub Dormire e informazioni pratiche `/it/dormire/` e `/en/where-to-stay/`; non presenta strutture ricettive senza informazioni verificabili.
 - Pagina della Sagra della Cassatella `/it/sagra-cassatella/` e `/en/cassatella-festival/`, con l’edizione 2026 indicata per l’8 novembre e programma da aggiornare.
+- Hub Eventi `/it/eventi/` e `/en/events/`, con la Sagra 2026, la festa ricorrente di San Filippo e collegamenti agli aggiornamenti degli organizzatori.
 - Entrata graduale della hero e comparsa delle schede durante lo scorrimento, disattivate con la preferenza di sistema per ridurre il movimento.
 - Hero fotografica animata con panorama che si apre durante lo scorrimento, introduzione, quattro accessi tematici, luoghi, Cassatella, idee di visita, mangiare, dormire, tradizioni, mappa, storia e informazioni pratiche.
 - Gallery fotografica con trascinamento, swipe, frecce e apertura a tutto schermo; chiusura con Esc e navigazione da tastiera.
@@ -92,7 +93,7 @@ La direzione visiva usa **Bricolage Grotesque** per i titoli e **DM Sans** per i
 
 ## Contenuti e sviluppo successivo
 
-Questa versione comprende homepage, Itinerari, Cosa vedere, Storia, Mangiare, Dormire e informazioni pratiche, e Sagra della Cassatella. Le schede dei luoghi includono brevi approfondimenti; non sono ancora presenti pagine complete per ciascun luogo, né calendari aggiornati.
+Questa versione comprende homepage, Itinerari, Cosa vedere, Storia, Mangiare, Dormire e informazioni pratiche, Eventi e Sagra della Cassatella. Le schede dei luoghi includono brevi approfondimenti; non sono ancora presenti pagine complete per ciascun luogo, né calendari aggiornati.
 
 Non sono stati inventati recensioni, prezzi, orari o programmi aggiornati. Mangiare è una prima ricognizione; la pagina Dormire offre criteri di scelta ma non elenca alloggi finché non ci sono dati verificabili. Le tradizioni rinviano agli organizzatori. Le durate degli itinerari sono idee di visita e non misurazioni dei percorsi. La mappa contiene solo il centro abitato e l'Abbazia, con le fonti delle coordinate nel codice.
 
@@ -110,7 +111,7 @@ Non sono integrati analytics, moduli, account o geolocalizzazione. Le tessere Op
 
 ## Verifiche eseguite
 
-- Controllo Astro/TypeScript e generazione statica di homepage e sei coppie di pagine editoriali IT/EN.
+- Controllo Astro/TypeScript e generazione statica di homepage e sette coppie di pagine editoriali IT/EN.
 - Controllo di link e ancore locali, immagini, metadati, JSON-LD, sitemap, redirect e pagina 404.
 - Build locale e con origine HTTPS di prova: canonical, alternate hreflang e sitemap verificati per tutte le pagine IT/EN. L'origine di prova non è inclusa nella build consegnata.
 - Ispezione visiva desktop della pagina Itinerari; menu e navigazione verso homepage e pagina dedicate verificati. Il layout mobile eredita i breakpoint responsive del progetto.

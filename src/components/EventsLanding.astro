@@ -1,0 +1,158 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from './Icon.astro';
+import Photo from './Photo.astro';
+import SiteHeader from './SiteHeader.astro';
+import SiteFooter from './SiteFooter.astro';
+import photos from '../data/photos.json';
+import { pageUrl, type Locale } from '../lib/i18n';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const localizedPaths = { it: pageUrl('events', 'it'), en: pageUrl('events', 'en') };
+const copy = lang === 'it' ? {
+  title: 'Eventi e tradizioni ad Agira | Hello Agira',
+  description: 'Scopri gli appuntamenti e le tradizioni di Agira: la Sagra della Cassatella 2026 e la festa di San Filippo.',
+  eyebrow: 'AGIRA · IL CALENDARIO DELLE TRADIZIONI',
+  heading: 'Ci sono giorni\nche restano.',
+  intro: 'Le feste raccontano un paese in un modo diverso: attraverso i sapori, i riti e il piacere di ritrovarsi.',
+  action: 'Scopri gli appuntamenti',
+  calendarEyebrow: '01 / IN CALENDARIO',
+  calendarTitle: 'Un’occasione per venire ad Agira.',
+  calendarIntro: 'La Sagra della Cassatella è il prossimo appuntamento in evidenza. Il programma sarà aggiornato quando verrà pubblicato dagli organizzatori.',
+  festivalEyebrow: 'PROSSIMO APPUNTAMENTO · DOMENICA 8 NOVEMBRE 2026',
+  festivalTitle: 'La Sagra della Cassatella.',
+  festivalText: 'La festa celebra il dolce simbolo di Agira e invita a scoprire il paese attraverso i suoi sapori e le sue tradizioni.',
+  festivalAction: 'Vai alla pagina della Sagra',
+  traditionsEyebrow: '02 / UNA TRADIZIONE VIVA',
+  saintTitle: 'La festa di San Filippo.',
+  saintText: 'La devozione per il patrono attraversa il calendario e la vita della comunità. Le celebrazioni si articolano in più appuntamenti: date e programma variano di anno in anno.',
+  saintAction: 'Approfondisci la storia di Agira',
+  updatesEyebrow: 'SEGUI GLI AGGIORNAMENTI',
+  updatesTitle: 'Le date da segnare. I dettagli, quando arrivano.',
+  updatesText: 'Per programmi, orari e indicazioni aggiornate consulta i canali degli organizzatori.',
+  proloco: 'Pro Loco Agira',
+  comune: 'Comune di Agira',
+  nextEyebrow: 'IL VIAGGIO CONTINUA',
+  nextTitle: 'Una festa è anche un buon motivo per fermarsi.',
+  sights: 'Cosa vedere',
+  food: 'Dove mangiare',
+} : {
+  title: 'Events and traditions in Agira | Hello Agira',
+  description: 'Explore Agira’s events and traditions: the 2026 Cassatella Festival and the feast of Saint Philip.',
+  eyebrow: 'AGIRA · A CALENDAR OF TRADITIONS',
+  heading: 'Some days\nstay with you.',
+  intro: 'Festivals tell the story of a place in a different way: through its flavours, rituals and the joy of coming together.',
+  action: 'Explore the calendar',
+  calendarEyebrow: '01 / ON THE CALENDAR',
+  calendarTitle: 'A reason to come to Agira.',
+  calendarIntro: 'The Cassatella Festival is the next featured event. Its programme will be updated when published by the organisers.',
+  festivalEyebrow: 'NEXT EVENT · SUNDAY 8 NOVEMBER 2026',
+  festivalTitle: 'The Cassatella Festival.',
+  festivalText: 'The festival celebrates Agira’s signature pastry and invites visitors to discover the town through its flavours and traditions.',
+  festivalAction: 'Explore the festival page',
+  traditionsEyebrow: '02 / A LIVING TRADITION',
+  saintTitle: 'The feast of Saint Philip.',
+  saintText: 'Devotion to the town’s patron saint runs through the calendar and community life. Celebrations take place across several dates; the programme changes from year to year.',
+  saintAction: 'Explore Agira’s history',
+  updatesEyebrow: 'FOLLOW THE LATEST UPDATES',
+  updatesTitle: 'Save the date. Details will follow.',
+  updatesText: 'For programmes, times and practical information, check the organisers’ channels.',
+  proloco: 'Pro Loco Agira',
+  comune: 'Municipality of Agira',
+  nextEyebrow: 'KEEP EXPLORING',
+  nextTitle: 'A festival is a good reason to stay a little longer.',
+  sights: 'Things to see',
+  food: 'Where to eat',
+};
+const festivalHref = pageUrl('festival', lang);
+const historyHref = pageUrl('history', lang);
+const sightsHref = pageUrl('sights', lang);
+const foodHref = pageUrl('eat', lang);
+---
+
+<Base lang={lang} title={copy.title} description={copy.description} canonicalPath={localizedPaths[lang]} alternatePaths={localizedPaths}>
+  <SiteHeader lang={lang} currentPage="events"/>
+  <main id="main" tabindex="-1">
+    <section class="events-page-hero" aria-labelledby="events-page-title">
+      <div class="container">
+        <p class="eyebrow events-hero-eyebrow">{copy.eyebrow}</p>
+        <div class="events-hero-grid">
+          <div class="events-hero-copy">
+            <h1 id="events-page-title">{copy.heading}</h1>
+            <p>{copy.intro}</p>
+            <a class="button button-yellow" href="#events-calendar">{copy.action}<Icon name="arrow"/></a>
+          </div>
+          <figure class="events-hero-visual">
+            <div class="events-hero-photo"><Photo name="town" lang={lang} priority sizes="(max-width: 700px) 92vw, 54vw"/></div>
+            <span class="events-hero-year" aria-hidden="true">2026</span>
+            <figcaption><span>{lang === 'it' ? 'Agira, tra il paese e il paesaggio' : 'Agira, between town and landscape'}</span><a href={photos.town.source} target="_blank" rel="noopener noreferrer">© {photos.town.author} · {photos.town.license}<Icon name="diagonal"/></a></figcaption>
+          </figure>
+        </div>
+        <div class="events-hero-index"><span>01</span><span>{lang === 'it' ? 'APPUNTAMENTI E TRADIZIONI' : 'EVENTS AND TRADITIONS'}</span><span>AGIRA · SICILIA</span></div>
+      </div>
+    </section>
+
+    <section id="events-calendar" class="events-calendar section" aria-labelledby="events-calendar-title">
+      <div class="container">
+        <div class="events-calendar-heading">
+          <div><p class="eyebrow">{copy.calendarEyebrow}</p><h2 id="events-calendar-title">{copy.calendarTitle}</h2></div>
+          <p>{copy.calendarIntro}</p>
+        </div>
+        <article class="events-featured events-reveal">
+          <figure class="events-feature-photo">
+            <Photo name="pastry" lang={lang} sizes="(max-width: 700px) 90vw, 50vw"/>
+            <figcaption><span>{lang === 'it' ? 'La cassatella di Agira' : 'Cassatella di Agira'}</span><a href={photos.pastry.source} target="_blank" rel="noopener noreferrer">© {photos.pastry.author} · {photos.pastry.license}<Icon name="diagonal"/></a></figcaption>
+          </figure>
+          <div class="events-feature-copy">
+            <p class="eyebrow">{copy.festivalEyebrow}</p>
+            <h3>{copy.festivalTitle}</h3>
+            <p>{copy.festivalText}</p>
+            <a class="text-link" href={festivalHref}>{copy.festivalAction}<Icon name="arrow"/></a>
+          </div>
+          <aside class="events-date-tile" aria-label={lang === 'it' ? 'Domenica 8 novembre 2026' : 'Sunday 8 November 2026'}>
+            <span>{lang === 'it' ? 'DOMENICA' : 'SUNDAY'}</span><strong>08</strong><p>{lang === 'it' ? 'NOVEMBRE' : 'NOVEMBER'}<br/>2026</p><small>AGIRA · SICILIA</small>
+          </aside>
+        </article>
+      </div>
+    </section>
+
+    <section class="events-tradition-section" aria-labelledby="events-saint-title">
+      <div class="container events-tradition-grid events-reveal">
+        <div class="events-tradition-copy">
+          <p class="eyebrow">{copy.traditionsEyebrow}</p>
+          <h2 id="events-saint-title">{copy.saintTitle}</h2>
+          <p>{copy.saintText}</p>
+          <a class="text-link" href={historyHref}>{copy.saintAction}<Icon name="arrow"/></a>
+        </div>
+        <figure class="events-tradition-visual">
+          <Photo name="abbey" lang={lang} sizes="(max-width: 700px) 90vw, 46vw"/>
+          <figcaption><span>{lang === 'it' ? 'La Reale Abbazia di San Filippo ad Agira' : 'The Royal Abbey of San Filippo in Agira'}</span><a href={photos.abbey.source} target="_blank" rel="noopener noreferrer">© {photos.abbey.author} · {photos.abbey.license}<Icon name="diagonal"/></a></figcaption>
+          <span class="events-tradition-mark" aria-hidden="true">SP</span>
+        </figure>
+      </div>
+    </section>
+
+    <aside class="events-updates">
+      <div class="container events-updates-inner">
+        <div><p class="eyebrow">{copy.updatesEyebrow}</p><h2>{copy.updatesTitle}</h2><p>{copy.updatesText}</p></div>
+        <div class="events-update-links">
+          <a class="text-link" href="https://www.prolocoagira.it/" target="_blank" rel="noopener noreferrer">{copy.proloco}<Icon name="diagonal"/></a>
+          <a class="text-link" href="https://www.comune.agira.en.it/index.php/it/news?type=1" target="_blank" rel="noopener noreferrer">{copy.comune}<Icon name="diagonal"/></a>
+        </div>
+      </div>
+    </aside>
+
+    <section class="itinerary-next events-page-next" aria-label={lang === 'it' ? 'Continua a esplorare' : 'Keep exploring'}>
+      <div class="container itinerary-next-inner">
+        <div><p class="eyebrow">{copy.nextEyebrow}</p><h2>{copy.nextTitle}</h2></div>
+        <div class="itinerary-next-links">
+          <a class="button button-yellow" href={sightsHref}>{copy.sights}<Icon name="arrow"/></a>
+          <a class="text-link" href={foodHref}>{copy.food}<Icon name="diagonal"/></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <SiteFooter lang={lang} currentPage="events"/>
+  <script>import '../scripts/sights-reveal';</script>
+</Base>
