@@ -13,7 +13,7 @@ const { lang } = Astro.props;
 const c = getCopy(lang);
 const page = c.stayPage;
 const localizedPaths = { it: pageUrl('stay', 'it'), en: pageUrl('stay', 'en') };
-const photo = photos.town;
+const photo = photos.stay;
 const mapHref = `${homeUrl(lang)}${anchor('map', lang)}`;
 const sightsHref = pageUrl('sights', lang);
 const foodHref = pageUrl('eat', lang);
@@ -31,9 +31,9 @@ const foodHref = pageUrl('eat', lang);
           <a class="button button-yellow" href="#stay-guide">{page.action}<Icon name="arrow"/></a>
         </div>
         <figure class="route-page-photo stay-page-photo">
-          <div class="photo-link"><Photo name="town" lang={lang} priority sizes="(max-width: 700px) 90vw, 48vw"/></div>
+          <div class="photo-link"><Photo name="stay" lang={lang} priority sizes="(max-width: 700px) 90vw, 48vw"/></div>
           <figcaption>
-            <span>{lang === 'it' ? 'Agira, il centro storico' : 'Agira, the historic centre'}</span>
+            <span>{lang === 'it' ? 'Una colazione ad Agira' : 'Breakfast in Agira'}</span>
             <span>{photo.credit?.[lang]}</span>
           </figcaption>
         </figure>

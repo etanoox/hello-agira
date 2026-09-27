@@ -111,6 +111,30 @@
       "en": "Photograph by Giuseppe Ricceri."
     }
   },
+  "stay": {
+    "width": 1382,
+    "height": 921,
+    "widths": [
+      480,
+      800,
+      1200,
+      1382
+    ],
+    "alt": {
+      "it": "Una camera luminosa con un vassoio di colazione servito sul letto.",
+      "en": "A bright bedroom with a breakfast tray served on the bed."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Immagine fornita da Giuseppe Ricceri.",
+      "en": "Image supplied by Giuseppe Ricceri."
+    }
+  },
   "ssalvatore": {
     "width": 800,
     "height": 537,
