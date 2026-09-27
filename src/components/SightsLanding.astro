@@ -34,11 +34,11 @@ const routesHref = pageUrl('routes', lang);
           <a class="button button-yellow" href="#sights-collection">{c.sightsPageAction}<Icon name="arrow"/></a>
         </div>
         <figure class="route-page-photo">
-          <a class="photo-link sights-hero-photo" href="/images/hero-2400.webp" data-gallery-open="hero" aria-haspopup="dialog" aria-label={`${lang === 'it' ? 'Apri la fotografia' : 'Open photograph'}: ${lang === 'it' ? 'Agira e il suo paesaggio' : 'Agira and its countryside'}`}>
+          <a class="photo-link sights-hero-photo" href={`/images/hero-${Math.max(...photos.hero.widths)}.webp`} data-gallery-open="hero" aria-haspopup="dialog" aria-label={`${lang === 'it' ? 'Apri la fotografia' : 'Open photograph'}: ${lang === 'it' ? 'Agira e il suo paesaggio' : 'Agira and its countryside'}`}>
             <Photo name="hero" lang={lang} priority sizes="(max-width: 700px) 90vw, 48vw"/>
             <span class="photo-view"><Icon name="plus"/></span>
           </a>
-          <figcaption>{lang === 'it' ? 'Agira, tra il paese e il paesaggio' : 'Agira, between town and countryside'} <span>© Stelmb · CC BY-SA 4.0</span></figcaption>
+          <figcaption>{lang === 'it' ? 'Agira, tra il paese e il paesaggio' : 'Agira, between town and countryside'}</figcaption>
         </figure>
       </div>
     </section>

@@ -2,6 +2,7 @@
 import Photo from './Photo.astro';
 import Icon from './Icon.astro';
 import { getCopy } from '../data/copy';
+import photos from '../data/photos.json';
 import { anchor, type Locale } from '../lib/i18n';
 interface Props { lang: Locale }
 const { lang } = Astro.props;
@@ -23,4 +24,4 @@ const c = getCopy(lang);
     <span class="journey-coordinates" aria-hidden="true">37°39′ N &nbsp; 14°31′ E</span>
   </div>
 </section>
-<div class="journey-footnote"><span>{c.heroCaption} <a href="#credits">Stelmb · CC BY-SA 4.0</a></span><a href="/images/hero-2400.webp" data-gallery-open="hero" aria-haspopup="dialog">{lang === 'it' ? 'Guarda le fotografie' : 'View the photographs'}<Icon name="plus"/></a></div>
+<div class="journey-footnote"><span>{c.heroCaption}</span><a href={`/images/hero-${Math.max(...photos.hero.widths)}.webp`} data-gallery-open="hero" aria-haspopup="dialog">{lang === 'it' ? 'Guarda le fotografie' : 'View the photographs'}<Icon name="plus"/></a></div>

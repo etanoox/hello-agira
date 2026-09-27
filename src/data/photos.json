@@ -1,25 +1,28 @@
 {
   "hero": {
-    "width": 3779,
-    "height": 1664,
+    "width": 2047,
+    "height": 930,
     "widths": [
       480,
       800,
       1200,
       1800,
-      2400
+      2047
     ],
     "alt": {
-      "it": "Agira adagiata sul Monte Teja, con il castello in cima e le case del borgo.",
-      "en": "Agira spreading across Monte Teja, with castle ruins on the crest."
+      "it": "Panorama di Agira dai tetti del centro storico, con il castello sulla cima del Monte Teja.",
+      "en": "A panorama of Agira from the historic centre rooftops, with the castle on the summit of Monte Teja."
     },
-    "author": "Stelmb",
-    "authorUrl": "https://commons.wikimedia.org/wiki/User:Stelmb",
-    "source": "https://commons.wikimedia.org/wiki/File:Veduta_panoramica_del_paese_di_Agira.jpg",
-    "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
-    "date": "2014-12-27",
-    "credit": null
+    "author": "Giuseppe Ricceri",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Giuseppe Ricceri.",
+      "en": "Photograph by Giuseppe Ricceri."
+    }
   },
   "pastry": {
     "width": 3154,
