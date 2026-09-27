@@ -1,0 +1,90 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from './Icon.astro';
+import Photo from './Photo.astro';
+import SiteHeader from './SiteHeader.astro';
+import SiteFooter from './SiteFooter.astro';
+import photos from '../data/photos.json';
+import { getCopy } from '../data/copy';
+import { anchor, homeUrl, pageUrl, type Locale } from '../lib/i18n';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const c = getCopy(lang);
+const page = c.stayPage;
+const localizedPaths = { it: pageUrl('stay', 'it'), en: pageUrl('stay', 'en') };
+const photo = photos.town;
+const mapHref = `${homeUrl(lang)}${anchor('map', lang)}`;
+const sightsHref = pageUrl('sights', lang);
+const foodHref = pageUrl('eat', lang);
+---
+
+<Base lang={lang} title={page.title} description={page.description} canonicalPath={localizedPaths[lang]} alternatePaths={localizedPaths}>
+  <SiteHeader lang={lang} currentPage="stay"/>
+  <main id="main" tabindex="-1">
+    <section class="route-page-hero stay-page-hero" aria-labelledby="stay-page-title">
+      <div class="container route-page-hero-grid">
+        <div class="route-page-copy">
+          <p class="eyebrow">{page.eyebrow}</p>
+          <h1 id="stay-page-title">{page.heading}</h1>
+          <p>{page.intro}</p>
+          <a class="button button-yellow" href="#stay-guide">{page.action}<Icon name="arrow"/></a>
+        </div>
+        <figure class="route-page-photo stay-page-photo">
+          <div class="photo-link"><Photo name="town" lang={lang} priority sizes="(max-width: 700px) 90vw, 48vw"/></div>
+          <figcaption>
+            <span>{lang === 'it' ? 'Agira, il centro storico' : 'Agira, the historic centre'}</span>
+            <a href={photo.source} target="_blank" rel="noopener noreferrer">© {photo.author} · {photo.license}<Icon name="diagonal"/></a>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="stay-guide" class="stay-guide section" aria-labelledby="stay-guide-title">
+      <div class="container">
+        <div class="stay-guide-heading">
+          <div><p class="eyebrow">{page.guideEyebrow}</p><h2 id="stay-guide-title">{page.guideTitle}</h2></div>
+          <p>{page.guideText}</p>
+        </div>
+        <div class="stay-criteria-grid">
+          {page.criteria.map((criterion, i) => <article class={`stay-criterion stay-criterion-${i + 1}`}>
+            <span class="stay-criterion-number">0{i + 1}</span>
+            <h3>{criterion.title}</h3>
+            <p>{criterion.text}</p>
+          </article>)}
+        </div>
+      </div>
+    </section>
+
+    <aside class="stay-listing-note"><div class="container"><Icon name="plus"/><p>{page.note}</p></div></aside>
+
+    <section id="stay-practical" class="stay-practical-section section" aria-labelledby="stay-practical-title">
+      <div class="container stay-practical-grid">
+        <div class="stay-practical-intro">
+          <p class="eyebrow">{page.practicalEyebrow}</p>
+          <h2 id="stay-practical-title">{page.practicalTitle}</h2>
+          <p>{page.practicalIntro}</p>
+          <a class="text-link" href={mapHref}>{c.onMap}<Icon name="arrow"/></a>
+        </div>
+        <div class="stay-practical-list">
+          {c.info.map((item, i) => <details>
+            <summary><span class="small-number">0{i + 1}</span><h3>{item.title}</h3><Icon name="plus"/></summary>
+            <div class="stay-practical-answer"><p>{item.text}</p>{'href' in item && <a class="text-link" href={item.href} target="_blank" rel="noopener noreferrer">{item.link}<Icon name="diagonal"/></a>}</div>
+          </details>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="itinerary-next stay-page-next" aria-label={lang === 'it' ? 'Continua a esplorare' : 'Keep exploring'}>
+      <div class="container itinerary-next-inner">
+        <div><p class="eyebrow">{page.nextEyebrow}</p><h2>{page.nextTitle}</h2></div>
+        <div class="itinerary-next-links">
+          <a class="button button-yellow" href={sightsHref}>{c.routesPageSee}<Icon name="arrow"/></a>
+          <a class="text-link" href={foodHref}>{c.routesPageFood}<Icon name="diagonal"/></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <SiteFooter lang={lang} currentPage="stay"/>
+  <script>import '../scripts/sights-reveal';</script>
+</Base>

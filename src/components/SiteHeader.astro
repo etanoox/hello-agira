@@ -2,11 +2,11 @@
 import Icon from './Icon.astro';
 import { getCopy } from '../data/copy';
 import { anchor, homeUrl, locales, pageUrl, type Locale, type Section } from '../lib/i18n';
-interface Props { lang: Locale; currentPage?: 'routes' | 'sights' | 'eat' | 'festival' }
+interface Props { lang: Locale; currentPage?: 'routes' | 'sights' | 'eat' | 'stay' | 'festival' }
 const { lang, currentPage } = Astro.props;
 const c = getCopy(lang);
 const navKeys: Section[] = ['sights', 'eat', 'stay', 'routes', 'events', 'history'];
-const target = (key: Section) => key === 'routes' || key === 'sights' || key === 'eat' ? pageUrl(key, lang) : `${homeUrl(lang)}${anchor(key, lang)}`;
+const target = (key: Section) => key === 'routes' || key === 'sights' || key === 'eat' || key === 'stay' ? pageUrl(key, lang) : `${homeUrl(lang)}${anchor(key, lang)}`;
 const localeTarget = (locale: Locale) => currentPage ? pageUrl(currentPage, locale) : homeUrl(locale);
 ---
 <a class="skip-link" href="#main">{c.skip}</a>

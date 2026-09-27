@@ -3,7 +3,7 @@ import path from 'node:path';
 import assert from 'node:assert/strict';
 const directory = 'dist';
 const read = file => fs.readFileSync(path.join(directory,file),'utf8');
-const htmlPages = ['it/index.html','en/index.html','it/itinerari/index.html','en/itineraries/index.html','it/cosa-vedere/index.html','en/things-to-see/index.html'];
+const htmlPages = ['it/index.html','en/index.html','it/itinerari/index.html','en/itineraries/index.html','it/cosa-vedere/index.html','en/things-to-see/index.html','it/mangiare/index.html','en/food-and-drink/index.html','it/dormire/index.html','en/where-to-stay/index.html','it/sagra-cassatella/index.html','en/cassatella-festival/index.html'];
 const titles=[];
 let totalAssets=0, totalLinks=0;
 for (const file of htmlPages) {
@@ -36,7 +36,10 @@ for (const file of htmlPages) {
     assert.equal(new URL(canonical).pathname,expectedPath,`${lang}: canonical path`);
     const itineraries=file.includes('itinerari')||file.includes('itineraries');
     const sights=file.includes('cosa-vedere')||file.includes('things-to-see');
-    const alternatePaths=itineraries?{it:'/it/itinerari/',en:'/en/itineraries/','x-default':'/it/itinerari/'}:sights?{it:'/it/cosa-vedere/',en:'/en/things-to-see/','x-default':'/it/cosa-vedere/'}:{it:'/it/',en:'/en/','x-default':'/it/'};
+    const eating=file.includes('mangiare')||file.includes('food-and-drink');
+    const stay=file.includes('dormire')||file.includes('where-to-stay');
+    const festival=file.includes('sagra-cassatella')||file.includes('cassatella-festival');
+    const alternatePaths=itineraries?{it:'/it/itinerari/',en:'/en/itineraries/','x-default':'/it/itinerari/'}:sights?{it:'/it/cosa-vedere/',en:'/en/things-to-see/','x-default':'/it/cosa-vedere/'}:eating?{it:'/it/mangiare/',en:'/en/food-and-drink/','x-default':'/it/mangiare/'}:stay?{it:'/it/dormire/',en:'/en/where-to-stay/','x-default':'/it/dormire/'}:festival?{it:'/it/sagra-cassatella/',en:'/en/cassatella-festival/','x-default':'/it/sagra-cassatella/'}:{it:'/it/',en:'/en/','x-default':'/it/'};
     for(const code of ['it','en','x-default']){
       const alternate=html.match(new RegExp(`<link rel="alternate" hreflang="${code}" href="([^"]+)"`))?.[1];
       assert.ok(alternate,`${lang}: ${code} alternate`);
@@ -53,4 +56,4 @@ assert.notEqual(titles[0],titles[1],'Localized titles must differ');
 for(const file of ['404.html','robots.txt','sitemap.xml','_redirects','_headers','favicon.svg'])assert.ok(fs.existsSync(path.join(directory,file)),`Required ${file}`);
 assert.match(read('_redirects'),/^\/ \/it\/ 301/m);
 assert.ok(!read('sitemap.xml').includes('404'));
-console.log(`PASS: IT/EN home, itinerary and sights pages, ${totalLinks} local links, ${totalAssets} image uses, metadata, JSON-LD, hreflang, sitemap, redirect and 404.`);
+console.log(`PASS: IT/EN home and five editorial page pairs, ${totalLinks} local links, ${totalAssets} image uses, metadata, JSON-LD, hreflang, sitemap, redirect and 404.`);
