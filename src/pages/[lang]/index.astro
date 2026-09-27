@@ -65,7 +65,7 @@ const id = (key: Section) => sectionIds[key][lang];
     <section id={id('pastry')} class="pastry-section" aria-labelledby="pastry-title">
       <div class="container pastry-grid">
         <div class="pastry-copy"><p class="eyebrow">{c.pastryLabel}</p><h2 id="pastry-title">{c.pastryTitle}</h2><h3>{c.pastryName}</h3><p>{c.pastryText}</p><a class="button button-yellow" href={pageUrl('eat', lang)}>{c.pastryCta}<Icon name="arrow"/></a></div>
-        <div class="pastry-visual"><span class="pastry-giant" aria-hidden="true">Cassatella.</span><figure><a class="photo-link" href="/images/pastry-1800.webp" data-gallery-open="pastry" aria-haspopup="dialog" aria-label={`${lang === 'it' ? 'Apri la fotografia' : 'Open photograph'}: ${c.pastryName}`}><Photo name="pastry" lang={lang}/><span class="photo-view"><Icon name="plus"/></span></a><figcaption>{c.pastryName} <span>© Auregann · CC BY-SA 4.0</span></figcaption></figure><div class="pastry-tags">{c.pastryTags.map(t=><span>{t}</span>)}</div></div>
+        <div class="pastry-visual"><span class="pastry-giant" aria-hidden="true">Cassatella.</span><figure><a class="photo-link" href="/images/pastry-1800.webp" data-gallery-open="pastry" aria-haspopup="dialog" aria-label={`${lang === 'it' ? 'Apri la fotografia' : 'Open photograph'}: ${c.pastryName}`}><Photo name="pastry" lang={lang}/><span class="photo-view"><Icon name="plus"/></span></a><figcaption>{c.pastryName} <span>{photos.pastry.credit?.[lang]}</span></figcaption></figure><div class="pastry-tags">{c.pastryTags.map(t=><span>{t}</span>)}</div></div>
       </div>
     </section>
 

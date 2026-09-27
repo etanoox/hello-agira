@@ -102,7 +102,7 @@ const foodHref = pageUrl('eat', lang);
         <article class="events-featured events-reveal">
           <figure class="events-feature-photo">
             <Photo name="pastry" lang={lang} sizes="(max-width: 700px) 90vw, 50vw"/>
-            <figcaption><span>{lang === 'it' ? 'La cassatella di Agira' : 'Cassatella di Agira'}</span><a href={photos.pastry.source} target="_blank" rel="noopener noreferrer">© {photos.pastry.author} · {photos.pastry.license}<Icon name="diagonal"/></a></figcaption>
+            <figcaption><span>{lang === 'it' ? 'La cassatella di Agira' : 'Cassatella di Agira'}</span><span>{photos.pastry.credit?.[lang]}</span></figcaption>
           </figure>
           <div class="events-feature-copy">
             <p class="eyebrow">{copy.festivalEyebrow}</p>

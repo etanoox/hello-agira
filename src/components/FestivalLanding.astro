@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Icon from './Icon.astro';
 import Photo from './Photo.astro';
+import photos from '../data/photos.json';
 import SiteHeader from './SiteHeader.astro';
 import SiteFooter from './SiteFooter.astro';
 import { pageUrl, type Locale } from '../lib/i18n';
@@ -17,7 +18,6 @@ const copy = lang === 'it' ? {
   heroText: 'Ogni anno, la Sagra mette al centro il dolce simbolo del paese e invita a scoprire Agira attraverso sapori, storie e momenti da condividere.',
   heroAction: 'Vai all’edizione 2026',
   imageCaption: 'La cassatella di Agira',
-  imageCredit: '© Auregann · CC BY-SA 4.0',
   storyEyebrow: '01 / IL CUORE DELLA FESTA',
   storyTitle: 'Un dolce, tante storie.',
   storyText: 'La Sagra è l’occasione per incontrare la cassatella nel suo luogo d’origine. Attorno a questo dolce della tradizione agirina si ritrovano la comunità, chi lo prepara e chi arriva per conoscere il paese.',
@@ -50,7 +50,6 @@ const copy = lang === 'it' ? {
   heroText: 'Each year, the festival celebrates the town’s signature pastry and invites visitors to discover Agira through its flavours, stories and shared moments.',
   heroAction: 'Explore the 2026 edition',
   imageCaption: 'Cassatella di Agira',
-  imageCredit: '© Auregann · CC BY-SA 4.0',
   storyEyebrow: '01 / AT THE HEART OF THE FESTIVAL',
   storyTitle: 'One pastry, many stories.',
   storyText: 'The festival is a chance to discover cassatella in the place it comes from. This local pastry brings together the community, the people who make it and visitors keen to get to know Agira.',
@@ -102,7 +101,7 @@ const comuneHref = 'https://www.comune.agira.en.it/index.php/it/news?type=1';
           </div>
           <figure class="route-page-photo festival-hero-photo">
             <div class="photo-link"><Photo name="pastry" lang={lang} priority sizes="(max-width: 700px) 92vw, 48vw"/></div>
-            <figcaption><span>{copy.imageCaption}</span><span>{copy.imageCredit}</span></figcaption>
+            <figcaption><span>{copy.imageCaption}</span><span>{photos.pastry.credit?.[lang]}</span></figcaption>
           </figure>
         </div>
       </div>

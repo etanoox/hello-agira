@@ -13,7 +13,7 @@ interface Props { lang: Locale }
 const { lang } = Astro.props;
 const c = getCopy(lang);
 const page = getEatingPage(lang);
-const photo = photos.pastryHero;
+const photo = photos.pastry;
 const localizedPaths = { it: pageUrl('eat', 'it'), en: pageUrl('eat', 'en') };
 const sightsHref = pageUrl('sights', lang);
 const routesHref = pageUrl('routes', lang);
@@ -31,7 +31,7 @@ const routesHref = pageUrl('routes', lang);
           <a class="button button-yellow" href="#food-guide">{page.action}<Icon name="arrow"/></a>
         </div>
         <figure class="route-page-photo food-page-photo">
-          <div class="photo-link"><Photo name="pastryHero" lang={lang} priority sizes="(max-width: 700px) 90vw, 48vw"/></div>
+          <div class="photo-link"><Photo name="pastry" lang={lang} priority sizes="(max-width: 700px) 90vw, 48vw"/></div>
           <figcaption>{c.pastryName} <span>{photo.credit?.[lang]}</span></figcaption>
         </figure>
       </div>
