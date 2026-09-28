@@ -1,0 +1,13 @@
+---
+import ItineraryDetail from '../../../components/ItineraryDetail.astro';
+import { getItineraries } from '../../../data/itineraries';
+import { locales, clusters, itinerarySlugs } from '../../../lib/i18n';
+export function getStaticPaths() {
+  return locales.flatMap(lang => getItineraries(lang).map(route => ({
+    params: { lang, collection: clusters.routes[lang], itinerary: itinerarySlugs[route.id][lang] },
+    props: { lang, route },
+  })));
+}
+const { lang, route } = Astro.props;
+---
+<ItineraryDetail lang={lang} route={route}/>

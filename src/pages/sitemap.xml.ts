@@ -1,7 +1,8 @@
 import type { APIRoute } from 'astro';
-import { pageUrl } from '../lib/i18n';
+import { pageUrl, itinerarySlugs, itineraryUrl, type ItineraryId } from '../lib/i18n';
 export const GET: APIRoute = ({ site }) => {
   const pairs = [
+    ...Object.keys(itinerarySlugs).map(id => ({ it: itineraryUrl(id as ItineraryId, 'it'), en: itineraryUrl(id as ItineraryId, 'en') })),
     { it: '/it/', en: '/en/' },
     { it: pageUrl('routes', 'it'), en: pageUrl('routes', 'en') },
     { it: pageUrl('sights', 'it'), en: pageUrl('sights', 'en') },

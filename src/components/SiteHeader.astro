@@ -2,12 +2,12 @@
 import Icon from './Icon.astro';
 import { getCopy } from '../data/copy';
 import { anchor, homeUrl, locales, pageUrl, type Locale, type Section } from '../lib/i18n';
-interface Props { lang: Locale; currentPage?: 'routes' | 'sights' | 'eat' | 'stay' | 'history' | 'festival' | 'events' }
-const { lang, currentPage } = Astro.props;
+interface Props { lang: Locale; currentPage?: 'routes' | 'sights' | 'eat' | 'stay' | 'history' | 'festival' | 'events'; alternatePaths?: Record<Locale, string> }
+const { lang, currentPage, alternatePaths } = Astro.props;
 const c = getCopy(lang);
 const navKeys: Section[] = ['sights', 'eat', 'stay', 'routes', 'events', 'history'];
 const target = (key: Section) => key === 'routes' || key === 'sights' || key === 'eat' || key === 'stay' || key === 'history' || key === 'events' ? pageUrl(key, lang) : `${homeUrl(lang)}${anchor(key, lang)}`;
-const localeTarget = (locale: Locale) => currentPage ? pageUrl(currentPage, locale) : homeUrl(locale);
+const localeTarget = (locale: Locale) => alternatePaths?.[locale] ?? (currentPage ? pageUrl(currentPage, locale) : homeUrl(locale));
 ---
 <a class="skip-link" href="#main">{c.skip}</a>
 <header class="site-header cinematic-header">

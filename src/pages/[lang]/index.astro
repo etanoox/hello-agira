@@ -1,4 +1,5 @@
 ---
+import '../../styles/itineraries.css';
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import Photo from '../../components/Photo.astro';
@@ -10,7 +11,7 @@ import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import photos from '../../data/photos.json';
 import { getCopy } from '../../data/copy';
-import { anchor, pageUrl, sectionIds, type Locale, type Section } from '../../lib/i18n';
+import { anchor, pageUrl, itineraryUrl, type ItineraryId, sectionIds, type Locale, type Section } from '../../lib/i18n';
 export async function getStaticPaths() {
   const entries = await getCollection('home', ({ data }) => data.status === 'published');
   return entries.map(entry => ({ params: { lang: entry.data.lang }, props: { entry } }));
@@ -54,7 +55,7 @@ const id = (key: Section) => sectionIds[key][lang];
 
     <section id={id('routes')} class="section routes-section" aria-labelledby="routes-title"><div class="container">
       <p class="eyebrow">{c.routesLabel}</p><div class="section-heading"><h2 id="routes-title">{c.routesTitle}</h2><p>{c.routesIntro}</p></div>
-      <div class="route-grid">{c.routes.map((route,i)=><article class="route-card"><div class="route-top"><span class="route-index">0{i+1}</span><span class="route-time">{route.time}</span></div><h3>{route.title}</h3><p>{route.text}</p><details><summary>{c.routeOpen}<Icon name="plus"/></summary><ol>{route.stops.map(s=><li>{s}</li>)}</ol></details></article>)}</div>
+      <div class="route-grid">{c.routes.map((route,i)=><article class="route-card"><div class="route-top"><span class="route-index">0{i+1}</span><span class="route-time">{route.time}</span></div><h3><a href={itineraryUrl((['first', 'day', 'weekend'] as ItineraryId[])[i], lang)}>{route.title}</a></h3><p>{route.text}</p><details><summary>{c.routeOpen}<Icon name="plus"/></summary><ol>{route.stops.map(s=><li>{s}</li>)}</ol></details><a class="text-link itinerary-open" href={itineraryUrl((['first', 'day', 'weekend'] as ItineraryId[])[i], lang)}>{lang === 'it' ? 'Esplora l’itinerario' : 'Explore this itinerary'}<Icon name="arrow"/></a></article>)}</div>
     </div></section>
 
     <section id={id('eat')} class="section eat-section" aria-labelledby="eat-title"><div class="container food-grid">

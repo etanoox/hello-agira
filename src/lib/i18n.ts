@@ -29,3 +29,11 @@ export const clusters = {
   info: { it: 'informazioni', en: 'visitor-information' },
 } as const;
 export const pageUrl = (key: keyof typeof clusters, lang: Locale) => `/${lang}/${clusters[key][lang]}/`;
+
+export const itinerarySlugs = {
+  first: { it: 'un-primo-incontro', en: 'a-first-encounter' },
+  day: { it: 'prendila-con-calma', en: 'take-your-time' },
+  weekend: { it: 'resta-un-po-di-piu', en: 'stay-a-little-longer' },
+} as const;
+export type ItineraryId = keyof typeof itinerarySlugs;
+export const itineraryUrl = (id: ItineraryId, lang: Locale) => `${pageUrl('routes', lang)}${itinerarySlugs[id][lang]}/`;

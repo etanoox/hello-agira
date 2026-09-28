@@ -1,0 +1,64 @@
+---
+import Base from '../layouts/Base.astro';
+import SiteHeader from './SiteHeader.astro';
+import SiteFooter from './SiteFooter.astro';
+import Photo from './Photo.astro';
+import Icon from './Icon.astro';
+import { getItineraries, type Itinerary } from '../data/itineraries';
+import { itineraryUrl, pageUrl, type Locale } from '../lib/i18n';
+import { serializeSchema } from '../lib/schema';
+import photos from '../data/photos.json';
+import '../styles/itineraries.css';
+interface Props { lang: Locale; route: Itinerary }
+const { lang, route } = Astro.props;
+const l = (it: string, en: string) => lang === 'it' ? it : en;
+const routes = getItineraries(lang);
+const index = routes.findIndex(item => item.id === route.id);
+const alternates = { it: itineraryUrl(route.id, 'it'), en: itineraryUrl(route.id, 'en') };
+const title = `${route.title.replace(/\.$/, '')} — ${l('Itinerario ad Agira', 'Agira itinerary')} | Hello Agira`;
+const photo = photos[route.photo];
+const origin = Astro.site?.protocol === 'https:' ? Astro.site : undefined;
+const breadcrumbs = origin ? {
+  '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: l('Itinerari', 'Itineraries'), item: new URL(pageUrl('routes',lang), origin).href },
+    { '@type': 'ListItem', position: 2, name: route.title, item: new URL(alternates[lang],origin).href },
+  ],
+} : undefined;
+---
+<Base lang={lang} title={title} description={route.description} canonicalPath={alternates[lang]} alternatePaths={alternates}>
+  <div class="itinerary-detail-shell" data-itinerary={route.id}>
+    <SiteHeader lang={lang} currentPage="routes" alternatePaths={alternates}/>
+    <main id="main" tabindex="-1">
+      <section class="itinerary-detail-intro container" aria-labelledby="itinerary-title">
+        <div class="itinerary-breadcrumb">
+          <nav aria-label={l('Percorso di navigazione', 'Breadcrumb')}><a href={pageUrl('routes', lang)}>{l('Itinerari', 'Itineraries')}</a><span aria-hidden="true"> / </span><span aria-current="page">{route.title}</span></nav>
+          <span>0{index+1} / 03</span>
+        </div>
+        <div class="itinerary-title-row"><h1 id="itinerary-title">{route.title}</h1><p>{route.intro}</p></div>
+        <div class="itinerary-overview">
+          <figure class="itinerary-feature-photo"><Photo name={route.photo} lang={lang} priority sizes="(max-width: 800px) 100vw, 60vw"/><figcaption>{photo.credit?.[lang] ?? photo.alt[lang]}</figcaption></figure>
+          <aside class="itinerary-facts" aria-labelledby="visit-heading">
+            <p class="eyebrow">0{index+1} / {l('LA VISITA', 'YOUR VISIT')}</p><h2 id="visit-heading">{route.heading}</h2>
+            <dl><div><dt>{l('Tempo da riservare', 'Time to set aside')}</dt><dd>{route.duration}</dd></div><div><dt>{l('La tua giornata', 'Your pace')}</dt><dd>{route.pace}</dd></div><div><dt>{l('Cammino e accessibilità', 'Walking and access')}</dt><dd class="itinerary-walking">{route.walking}</dd></div></dl>
+            <a class="button button-yellow" href="#percorso">{l('Segui le tappe', 'Explore the stops')}<Icon name="arrow"/></a>
+          </aside>
+        </div>
+      </section>
+      <section id="percorso" class="itinerary-detail-body container" aria-labelledby="stops-heading">
+        <div class="itinerary-stop-column"><p class="eyebrow">{l('IL PERCORSO', 'THE PLAN')}</p><h2 id="stops-heading">{route.routeTitle}</h2><p class="itinerary-route-intro">{route.routeIntro}</p>
+          <ol class="itinerary-timeline">
+            {route.steps.map((step,i) => <li id={`tappa-${i+1}`}><span class="itinerary-stop-number" aria-hidden="true">0{i+1}</span><div class="itinerary-stop-content"><p class="eyebrow">{step.label}</p><h3>{step.title}</h3><p>{step.text}</p><p class="itinerary-stop-time">{step.time}</p><p class="itinerary-stop-tip"><strong>{l('Da sapere.', 'Good to know.')}</strong> {step.tip}</p>{step.link && <a class="text-link" href={step.link.href}>{step.link.label}<Icon name="diagonal"/></a>}</div></li>)}
+          </ol>
+        </div>
+        <aside class="itinerary-side" aria-label={l('Schema e consigli', 'Outline and advice')}>
+          <nav class="itinerary-outline" aria-label={l('Vai a una tappa', 'Jump to a stop')}><p class="eyebrow">{l('IN UN COLPO D’OCCHIO', 'AT A GLANCE')}</p><ol>{route.steps.map((step,i)=><li><a href={`#tappa-${i+1}`}><span>0{i+1}</span><span>{step.title}</span><Icon name="arrow"/></a></li>)}</ol><p class="itinerary-outline-note">{l('Schema delle soste, non una traccia di navigazione.', 'An outline of the stops, not a navigation track.')}</p></nav>
+          <div class="itinerary-practical"><h3>{l('Prima di partire', 'Before you set off')}</h3><ul>{route.tips.map((tip,i)=><li><span aria-hidden="true">0{i+1}</span><div><h4>{tip.title}</h4><p>{tip.text}</p></div></li>)}</ul></div>
+        </aside>
+      </section>
+      <div class="container itinerary-estimate-note"><p>{l('I tempi indicati sono suggerimenti per organizzare la visita, non percorrenze misurate. Vanno adattati al punto di partenza, al passo, al meteo e alle aperture.', 'The times shown are planning suggestions, not measured walking times. Adapt them to your starting point, pace, weather and opening hours.')}</p></div>
+      <section class="itinerary-related" aria-labelledby="other-routes"><div class="container"><p class="eyebrow">{l('IL VIAGGIO CONTINUA', 'KEEP EXPLORING')}</p><h2 id="other-routes">{l('Un altro ritmo, un’altra Agira.', 'Another pace, another side of Agira.')}</h2><div class="itinerary-related-grid">{routes.filter(item=>item.id!==route.id).map(item=><a href={itineraryUrl(item.id,lang)}><span>{item.pace}</span><h3>{item.title}</h3><Icon name="arrow"/></a>)}</div><a class="text-link" href={pageUrl('routes',lang)}>{l('Tutti gli itinerari', 'All itineraries')}<Icon name="arrow"/></a></div></section>
+    </main>
+    <SiteFooter lang={lang} currentPage="routes" alternatePaths={alternates}/>
+  </div>
+  {breadcrumbs && <script type="application/ld+json" set:html={serializeSchema(breadcrumbs)}/>}
+</Base>

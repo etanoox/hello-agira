@@ -9,9 +9,10 @@ import EatingLanding from '../../components/EatingLanding.astro';
 import StayLanding from '../../components/StayLanding.astro';
 import HistoryLanding from '../../components/HistoryLanding.astro';
 import FestivalLanding from '../../components/FestivalLanding.astro';
+import '../../styles/itineraries.css';
 import EventsLanding from '../../components/EventsLanding.astro';
 import { getCopy } from '../../data/copy';
-import { locales, pageUrl, type Locale } from '../../lib/i18n';
+import { locales, pageUrl, itineraryUrl, type ItineraryId, type Locale } from '../../lib/i18n';
 
 export function getStaticPaths() {
   return locales.flatMap(lang => [
@@ -64,11 +65,12 @@ const localizedPaths = { it: pageUrl(page, 'it'), en: pageUrl(page, 'en') };
         <div class="itinerary-grid">
           {c.routes.map((route, i) => <article class={`itinerary-card itinerary-card-${i + 1}`}>
             <div class="itinerary-card-top"><span class="route-index">0{i + 1}</span><span class="route-time">{route.time}</span></div>
-            <h3>{route.title}</h3>
+            <h3><a href={itineraryUrl((['first', 'day', 'weekend'] as ItineraryId[])[i], lang)}>{route.title}</a></h3>
             <p>{route.text}</p>
             <ol aria-label={lang === 'it' ? 'Suggerimenti per la visita' : 'Visit suggestions'}>
               {route.stops.map(stop => <li>{stop}</li>)}
             </ol>
+            <a class="text-link itinerary-open" href={itineraryUrl((['first', 'day', 'weekend'] as ItineraryId[])[i], lang)}>{lang === 'it' ? 'Esplora l’itinerario' : 'Explore this itinerary'}<Icon name="arrow"/></a>
           </article>)}
         </div>
       </div>
