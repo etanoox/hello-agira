@@ -13,7 +13,7 @@ interface Props { lang: Locale }
 const { lang } = Astro.props;
 const page = getHistoryPage(lang);
 const localizedPaths = { it: pageUrl('history', 'it'), en: pageUrl('history', 'en') };
-const heroPhoto = photos.hero;
+const heroPhoto = photos.historyHero;
 ---
 
 <Base lang={lang} title={page.title} description={page.description} canonicalPath={localizedPaths[lang]} alternatePaths={localizedPaths}>
@@ -28,8 +28,8 @@ const heroPhoto = photos.hero;
           <a class="button button-yellow" href="#history-chapters">{page.action}<Icon name="arrow"/></a>
         </div>
         <figure class="route-page-photo history-page-photo">
-          <a class="photo-link" href={`/images/hero-${Math.max(...heroPhoto.widths)}.webp`} data-gallery-open="hero" aria-haspopup="dialog" aria-label={`${lang === 'it' ? 'Apri la fotografia' : 'Open photograph'}: ${heroPhoto.alt[lang]}`}>
-            <Photo name="hero" lang={lang} priority sizes="(max-width: 700px) 90vw, 48vw"/>
+          <a class="photo-link" href={`/images/historyHero-${Math.max(...heroPhoto.widths)}.webp`} data-gallery-open="historyHero" aria-haspopup="dialog" aria-label={`${lang === 'it' ? 'Apri la fotografia' : 'Open photograph'}: ${heroPhoto.alt[lang]}`}>
+            <Photo name="historyHero" lang={lang} priority sizes="(max-width: 700px) 90vw, 48vw"/>
             <span class="photo-view"><Icon name="plus"/></span>
           </a>
           <figcaption>
@@ -94,6 +94,6 @@ const heroPhoto = photos.hero;
     </section>
   </main>
   <SiteFooter lang={lang} currentPage="history"/>
-  <PhotoGallery lang={lang}/>
+  <PhotoGallery lang={lang} heroImage="historyHero"/>
   <script>import '../scripts/sights-reveal';</script>
 </Base>

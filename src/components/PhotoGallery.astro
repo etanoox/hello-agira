@@ -3,10 +3,10 @@ import Photo from './Photo.astro';
 import Icon from './Icon.astro';
 import photos from '../data/photos.json';
 import type { Locale } from '../lib/i18n';
-interface Props { lang: Locale }
-const { lang } = Astro.props;
+interface Props { lang: Locale; heroImage?: 'hero' | 'historyHero' }
+const { lang, heroImage = 'hero' } = Astro.props;
 const items = [
-  { key: 'hero', title: lang === 'it' ? 'Agira, nel cuore della Sicilia' : 'Agira, in the heart of Sicily' },
+  { key: heroImage, title: lang === 'it' ? 'Agira, nel cuore della Sicilia' : 'Agira, in the heart of Sicily' },
   { key: 'castle', title: lang === 'it' ? 'Il Castello' : 'The castle' },
   { key: 'abbey', title: lang === 'it' ? 'L’Abbazia di San Filippo' : 'San Filippo Abbey' },
   { key: 'town', title: lang === 'it' ? 'Il centro storico' : 'The historic centre' },

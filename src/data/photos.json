@@ -178,5 +178,29 @@
       "en": "Photo: Pro Loco Agira"
     },
     "license": null
+  },
+  "historyHero": {
+    "width": 1587,
+    "height": 2048,
+    "widths": [
+      480,
+      800,
+      1200,
+      1587
+    ],
+    "alt": {
+      "it": "Agira e il castello sul colle, tra campi e ulivi sotto un cielo nuvoloso.",
+      "en": "Agira and its hilltop castle, with fields and olive trees beneath a cloudy sky."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia fornita da Giuseppe Ricceri.",
+      "en": "Photograph supplied by Giuseppe Ricceri."
+    }
   }
 }
