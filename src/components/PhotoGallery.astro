@@ -7,7 +7,7 @@ interface Props { lang: Locale; heroImage?: 'hero' | 'historyHero' }
 const { lang, heroImage = 'hero' } = Astro.props;
 const items = [
   { key: heroImage, title: lang === 'it' ? 'Agira, nel cuore della Sicilia' : 'Agira, in the heart of Sicily' },
-  { key: 'castle', title: lang === 'it' ? 'Il Castello' : 'The castle' },
+  { key: 'castleDaylight', title: lang === 'it' ? 'Il Castello' : 'The castle' },
   { key: 'abbey', title: lang === 'it' ? 'L’Abbazia di San Filippo' : 'San Filippo Abbey' },
   { key: 'town', title: lang === 'it' ? 'Il centro storico' : 'The historic centre' },
   { key: 'pastry', title: 'La Cassatella di Agira' },

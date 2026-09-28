@@ -24,7 +24,7 @@ export function getHistoryPage(lang: Locale) {
     sectionTitle: l('Una città si legge a strati.', 'A town read in layers.'),
     chapters: [
       {
-        id: 'agyrion', number: '01', eyebrow: l('LA CITTÀ ANTICA', 'THE ANCIENT CITY'), image: 'castle',
+        id: 'agyrion', number: '01', eyebrow: l('LA CITTÀ ANTICA', 'THE ANCIENT CITY'), image: 'castleDaylight',
         title: l('Agyrion, prima di Agira.', 'Agyrion, before Agira.'),
         text: l('Le fonti collegano l’Agira di oggi all’antica Agyrion. Nell’area del castello, scavi riferiti dalla Pro Loco hanno individuato resti di abitato e di una zecca greca datati tra il V e il IV secolo a.C. Le ricostruzioni storiche collocano la città nelle vicende della Sicilia greca e nell’età di Timoleonte.', 'Historical sources connect present-day Agira with ancient Agyrion. In the castle area, excavations reported by the Pro Loco identified settlement remains and a Greek mint dated to the fifth and fourth centuries BCE. Historical accounts place the city within the story of Greek Sicily and the age of Timoleon.'),
         sourceLinks: [

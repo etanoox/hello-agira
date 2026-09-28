@@ -49,9 +49,9 @@
       "en": "Photograph supplied by Giuseppe Ricceri."
     }
   },
-  "castle": {
-    "width": 6000,
-    "height": 4000,
+  "castleDaylight": {
+    "width": 2048,
+    "height": 1961,
     "widths": [
       480,
       800,
@@ -59,16 +59,19 @@
       1800
     ],
     "alt": {
-      "it": "Una torre illuminata del castello di Agira di notte, con un vulcano in eruzione sullo sfondo.",
-      "en": "An illuminated tower of Agira Castle at night, with volcanic light on the horizon."
+      "it": "Le torri e le mura del castello di Agira, sopra le case del paese, sotto un cielo azzurro.",
+      "en": "The towers and walls of Agira Castle above the town’s houses beneath a blue sky."
     },
-    "author": "PietroTorregrossa85",
-    "authorUrl": "https://commons.wikimedia.org/wiki/User:PietroTorregrossa85",
-    "source": "https://commons.wikimedia.org/wiki/File:Agira_tra_Storia_e_Natura.jpg",
-    "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
-    "date": "2025-05-12",
-    "credit": null
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia fornita da Giuseppe Ricceri.",
+      "en": "Photograph supplied by Giuseppe Ricceri."
+    }
   },
   "abbey": {
     "width": 4272,
