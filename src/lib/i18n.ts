@@ -39,6 +39,7 @@ export type ItineraryId = keyof typeof itinerarySlugs;
 export const itineraryUrl = (id: ItineraryId, lang: Locale) => `${pageUrl('routes', lang)}${itinerarySlugs[id][lang]}/`;
 
 export const sightSlugs = {
+  abbey: { it: 'abbazia-san-filippo', en: 'san-filippo-abbey' },
   castle: { it: 'castello-di-agira', en: 'agira-castle' },
 } as const;
 export type SightId = keyof typeof sightSlugs;

@@ -1,4 +1,5 @@
 import type { Locale, SightId } from '../lib/i18n';
+import { getAbbeyPage } from './abbey-page';
 import type photos from './photos.json';
 
 export interface AudioTrack {
@@ -12,6 +13,7 @@ export interface AudioChapter extends AudioTrack {
   transcript: string[];
 }
 export interface PlaceAudioGuide {
+  language?: Locale;
   title: string;
   introduction: string;
   chapters: AudioChapter[];
@@ -29,6 +31,7 @@ export interface SightPage {
   image: keyof typeof photos;
   location: string;
   mapQuery: string;
+  visitorNote?: string;
   facts: { label: string; value: string }[];
   story: { title: string; paragraphs: string[] }[];
   highlights: { title: string; text: string }[];
@@ -83,5 +86,5 @@ export function getSightPages(lang: Locale): SightPage[] {
       {title:'Agira città d’arte — Rita Loredana Foti e Salvatore Longo Minnolo',url:'https://www.agira.org/Sintesi-storiche/agira-citta-darte.html'},
       {title:l('Kore Siciliæ — Castello di Agira', 'Kore Siciliæ — Agira Castle'),url:'https://koresiciliae.it/it/luoghi/castello-di-agira'},
     ],
-  }];
+  }, getAbbeyPage(lang)];
 }

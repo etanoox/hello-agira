@@ -1,0 +1,85 @@
+{
+  "language": "en",
+  "chapters": [
+    {
+      "id": "00-introduction",
+      "src": "/audio/abbazia/en/00-introduction.mp3",
+      "durationSeconds": 30.28,
+      "title": {
+        "it": "Introduzione",
+        "en": "Introduction"
+      },
+      "transcript": []
+    },
+    {
+      "id": "01-origins",
+      "src": "/audio/abbazia/en/01-origins.mp3",
+      "durationSeconds": 61.23,
+      "title": {
+        "it": "Le origini dell’Abbazia",
+        "en": "The Origins of the Abbey"
+      },
+      "transcript": []
+    },
+    {
+      "id": "02-transformation",
+      "src": "/audio/abbazia/en/02-transformation.mp3",
+      "durationSeconds": 59.01,
+      "title": {
+        "it": "Declino e trasformazione",
+        "en": "Decline and Transformation"
+      },
+      "transcript": []
+    },
+    {
+      "id": "03-facade",
+      "src": "/audio/abbazia/en/03-facade.mp3",
+      "durationSeconds": 59.01,
+      "title": {
+        "it": "La facciata",
+        "en": "The Façade"
+      },
+      "transcript": []
+    },
+    {
+      "id": "04-interior",
+      "src": "/audio/abbazia/en/04-interior.mp3",
+      "durationSeconds": 66.51,
+      "title": {
+        "it": "Gli interni e il coro",
+        "en": "The Interior and the Choir"
+      },
+      "transcript": []
+    },
+    {
+      "id": "05-paintings",
+      "src": "/audio/abbazia/en/05-paintings.mp3",
+      "durationSeconds": 68.91,
+      "title": {
+        "it": "Dipinti e tesori artistici",
+        "en": "Paintings and Artistic Treasures"
+      },
+      "transcript": []
+    },
+    {
+      "id": "06-relics",
+      "src": "/audio/abbazia/en/06-relics.mp3",
+      "durationSeconds": 64.68,
+      "title": {
+        "it": "Le reliquie di San Filippo",
+        "en": "The Relics of Saint Philip"
+      },
+      "transcript": []
+    },
+    {
+      "id": "07-sacristy",
+      "src": "/audio/abbazia/en/07-sacristy.mp3",
+      "durationSeconds": 57.0,
+      "title": {
+        "it": "La sacrestia e l’archivio",
+        "en": "The Sacristy and the Archive"
+      },
+      "transcript": []
+    }
+  ]
+}

@@ -12,11 +12,11 @@ for (const track of [...guide.chapters, ...(guide.full ? [guide.full] : [])]) {
   }
   if (track.durationSeconds !== undefined && (!Number.isFinite(track.durationSeconds) || track.durationSeconds <= 0)) throw new Error('Audio duration must be positive.');
 }
-if (guide.chapters.some(chapter=>!chapter.title.trim() || !chapter.transcript.some(text=>text.trim()))) throw new Error('Audio chapters need a title and transcript.');
+if (guide.chapters.some(chapter=>!chapter.title.trim())) throw new Error('Audio chapters need a title.');
 const format = (track: AudioTrack) => track.durationSeconds === undefined ? '' : `${Math.floor(track.durationSeconds/60)}:${String(Math.floor(track.durationSeconds%60)).padStart(2,'0')}`;
 ---
 <section id={id} class="place-audio" data-audio-guide data-lang={lang} aria-labelledby={`${id}-title`}>
-  <div class="place-audio-heading"><p class="eyebrow">{l('ASCOLTA IL LUOGO', 'LISTEN TO THIS PLACE')}</p><h2 id={`${id}-title`}>{guide.title}</h2><p>{guide.introduction}</p><span class="place-audio-language">{l('Italiano', 'English')} · {guide.chapters.length} {l('capitoli', 'chapters')}</span></div>
+  <div class="place-audio-heading"><p class="eyebrow">{l('ASCOLTA IL LUOGO', 'LISTEN TO THIS PLACE')}</p><h2 id={`${id}-title`}>{guide.title}</h2><p>{guide.introduction}</p><span class="place-audio-language">{(guide.language ?? lang) === 'en' ? l('Audio in inglese', 'Audio in English') : l('Audio in italiano', 'Audio in Italian')} · {guide.chapters.length} {l('capitoli', 'chapters')}</span></div>
   <div class="place-audio-player">
     <p data-current-track>{guide.chapters[0].title}</p>
     <audio controls preload="none" src={guide.chapters[0].src} aria-label={guide.title} data-audio-player>
@@ -32,7 +32,7 @@ const format = (track: AudioTrack) => track.durationSeconds === undefined ? '' :
     <p class="place-audio-status" data-audio-status role="status" aria-live="polite"></p>
   </div>
   <ol class="place-audio-chapters" aria-label={l('Capitoli audio', 'Audio chapters')}>
-    {guide.chapters.map((chapter,index)=><li><span class="place-chapter-number" aria-hidden="true">{String(index+1).padStart(2,'0')}</span><div><h3>{chapter.title}</h3><details id={`${id}-transcript-${index}`}><summary>{l('Leggi la trascrizione', 'Read the transcript')}</summary>{chapter.transcript.map(text=><p>{text}</p>)}</details></div><a href={chapter.src} data-audio-chapter data-title={chapter.title} aria-label={`${l('Ascolta', 'Listen to')}: ${chapter.title}`}><span aria-hidden="true">▷</span> {l('Ascolta', 'Listen')} {format(chapter)}</a></li>)}
+    {guide.chapters.map((chapter,index)=><li><span class="place-chapter-number" aria-hidden="true">{String(index+1).padStart(2,'0')}</span><div><h3>{chapter.title}</h3>{chapter.transcript.some(text=>text.trim()) && <details lang={guide.language ?? lang} id={`${id}-transcript-${index}`}><summary>{l('Leggi la trascrizione', 'Read the transcript')}</summary>{chapter.transcript.map(text=><p>{text}</p>)}</details>}</div><a href={chapter.src} data-audio-chapter data-title={chapter.title} aria-label={`${l('Ascolta', 'Listen to')}: ${chapter.title}`}><span aria-hidden="true">▷</span> {l('Ascolta', 'Listen')} {format(chapter)}</a></li>)}
   </ol>
   {guide.credit && <p class="place-audio-credit">{guide.credit}</p>}
   <script>import '../scripts/place-audio';</script>

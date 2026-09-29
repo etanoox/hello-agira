@@ -52,7 +52,7 @@ document.querySelectorAll<HTMLElement>('[data-audio-guide]').forEach(root => {
     else status.textContent = it ? 'Ascolto completato.' : 'Listening complete.';
   });
   player.addEventListener('error',()=>{
-    status.textContent = it ? 'Questo audio non è disponibile. Puoi leggere la trascrizione qui sotto.' : 'This audio is unavailable. You can read the transcript below.';
+    status.textContent = it ? 'Questo audio non è disponibile. Riprova o scegli un altro capitolo.' : 'This audio is unavailable. Try again or choose another chapter.';
   });
   root.querySelector<HTMLElement>('[data-audio-tools]')!.hidden=false;
   update();

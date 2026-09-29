@@ -5,6 +5,7 @@ const directory = 'dist';
 const read = file => fs.readFileSync(path.join(directory,file),'utf8');
 const htmlPages = ['it/index.html','en/index.html','it/itinerari/index.html','en/itineraries/index.html','it/cosa-vedere/index.html','en/things-to-see/index.html','it/mangiare/index.html','en/food-and-drink/index.html','it/dormire/index.html','en/where-to-stay/index.html','it/storia/index.html','en/history/index.html','it/eventi/index.html','en/events/index.html','it/sagra-cassatella/index.html','en/cassatella-festival/index.html'];
 const detailPairs = [
+  { it: '/it/cosa-vedere/abbazia-san-filippo/', en: '/en/things-to-see/san-filippo-abbey/' },
   { it: '/it/cosa-vedere/castello-di-agira/', en: '/en/things-to-see/agira-castle/' },
   { it: '/it/itinerari/un-primo-incontro/', en: '/en/itineraries/a-first-encounter/' },
   { it: '/it/itinerari/prendila-con-calma/', en: '/en/itineraries/take-your-time/' },
@@ -79,4 +80,4 @@ assert.notEqual(titles[0],titles[1],'Localized titles must differ');
 for(const file of ['404.html','robots.txt','sitemap.xml','_redirects','_headers','favicon.svg'])assert.ok(fs.existsSync(path.join(directory,file)),`Required ${file}`);
 assert.match(read('_redirects'),/^\/ \/it\/ 301/m);
 assert.ok(!read('sitemap.xml').includes('404'));
-console.log('PASS: IT/EN home, seven editorial page pairs and three itinerary pairs and the castle pair, ' + totalLinks + ' local links, ' + totalAssets + ' image uses, metadata, JSON-LD, hreflang, sitemap, redirect and 404.');
+console.log('PASS: IT/EN home, seven editorial page pairs and three itinerary pairs and the castle/abbey pairs, ' + totalLinks + ' local links, ' + totalAssets + ' image uses, metadata, JSON-LD, hreflang, sitemap, redirect and 404.');
