@@ -1,4 +1,5 @@
 import type { Locale, SightId } from '../lib/i18n';
+import { getSaintAnthonyPage } from './saint-anthony-page';
 import { getAbbeyPage } from './abbey-page';
 import type photos from './photos.json';
 
@@ -86,5 +87,5 @@ export function getSightPages(lang: Locale): SightPage[] {
       {title:'Agira città d’arte — Rita Loredana Foti e Salvatore Longo Minnolo',url:'https://www.agira.org/Sintesi-storiche/agira-citta-darte.html'},
       {title:l('Kore Siciliæ — Castello di Agira', 'Kore Siciliæ — Agira Castle'),url:'https://koresiciliae.it/it/luoghi/castello-di-agira'},
     ],
-  }, getAbbeyPage(lang)];
+  }, getAbbeyPage(lang), getSaintAnthonyPage(lang)];
 }

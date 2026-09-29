@@ -205,5 +205,28 @@
       "it": "Fotografia fornita da Giuseppe Ricceri.",
       "en": "Photograph supplied by Giuseppe Ricceri."
     }
+  },
+  "saintAnthony": {
+    "width": 930,
+    "height": 2048,
+    "widths": [
+      480,
+      800,
+      930
+    ],
+    "alt": {
+      "it": "Interno della Chiesa di Sant’Antonio di Padova ad Agira, con altare, crocifisso e organo.",
+      "en": "Interior of the Church of Saint Anthony of Padua in Agira, with altar, crucifix and organ."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia fornita da Giuseppe Ricceri.",
+      "en": "Photograph supplied by Giuseppe Ricceri."
+    }
   }
 }

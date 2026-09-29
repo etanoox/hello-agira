@@ -1,0 +1,75 @@
+{
+  "language": "en",
+  "chapters": [
+    {
+      "id": "00-introduction",
+      "src": "/audio/sant-antonio/en/00-introduction.mp3",
+      "durationSeconds": 20.43,
+      "title": {
+        "it": "Introduzione",
+        "en": "Introduction"
+      },
+      "transcript": []
+    },
+    {
+      "id": "01-chapter",
+      "src": "/audio/sant-antonio/en/01-chapter.mp3",
+      "durationSeconds": 29.47,
+      "title": {
+        "it": "Capitolo 1",
+        "en": "Chapter 1"
+      },
+      "transcript": []
+    },
+    {
+      "id": "02-chapter",
+      "src": "/audio/sant-antonio/en/02-chapter.mp3",
+      "durationSeconds": 31.79,
+      "title": {
+        "it": "Capitolo 2",
+        "en": "Chapter 2"
+      },
+      "transcript": []
+    },
+    {
+      "id": "03-chapter",
+      "src": "/audio/sant-antonio/en/03-chapter.mp3",
+      "durationSeconds": 31.48,
+      "title": {
+        "it": "Capitolo 3",
+        "en": "Chapter 3"
+      },
+      "transcript": []
+    },
+    {
+      "id": "04-chapter",
+      "src": "/audio/sant-antonio/en/04-chapter.mp3",
+      "durationSeconds": 38.92,
+      "title": {
+        "it": "Capitolo 4",
+        "en": "Chapter 4"
+      },
+      "transcript": []
+    },
+    {
+      "id": "05-chapter",
+      "src": "/audio/sant-antonio/en/05-chapter.mp3",
+      "durationSeconds": 29.39,
+      "title": {
+        "it": "Capitolo 5",
+        "en": "Chapter 5"
+      },
+      "transcript": []
+    },
+    {
+      "id": "06-closing",
+      "src": "/audio/sant-antonio/en/06-closing.mp3",
+      "durationSeconds": 23.88,
+      "title": {
+        "it": "Conclusione e ringraziamenti",
+        "en": "Closing and thanks"
+      },
+      "transcript": []
+    }
+  ]
+}
