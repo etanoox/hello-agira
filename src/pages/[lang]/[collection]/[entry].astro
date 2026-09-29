@@ -1,0 +1,21 @@
+---
+import ItineraryDetail from '../../../components/ItineraryDetail.astro';
+import SightDetail from '../../../components/SightDetail.astro';
+import { getItineraries } from '../../../data/itineraries';
+import { getSightPages } from '../../../data/sight-pages';
+import { locales, clusters, itinerarySlugs, sightSlugs } from '../../../lib/i18n';
+export function getStaticPaths() {
+  return locales.flatMap(lang => [
+    ...getItineraries(lang).map(route => ({
+      params: { lang, collection: clusters.routes[lang], entry: itinerarySlugs[route.id][lang] },
+      props: { kind: 'itinerary' as const, lang, route },
+    })),
+    ...getSightPages(lang).map(place => ({
+      params: { lang, collection: clusters.sights[lang], entry: sightSlugs[place.id][lang] },
+      props: { kind: 'sight' as const, lang, place },
+    })),
+  ]);
+}
+const props = Astro.props;
+---
+{props.kind === 'sight' ? <SightDetail lang={props.lang} place={props.place}/> : <ItineraryDetail lang={props.lang} route={props.route}/>}

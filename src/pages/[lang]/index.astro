@@ -11,7 +11,7 @@ import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import photos from '../../data/photos.json';
 import { getCopy } from '../../data/copy';
-import { anchor, pageUrl, itineraryUrl, type ItineraryId, sectionIds, type Locale, type Section } from '../../lib/i18n';
+import { anchor, pageUrl, sightUrl, itineraryUrl, type ItineraryId, sectionIds, type Locale, type Section } from '../../lib/i18n';
 export async function getStaticPaths() {
   const entries = await getCollection('home', ({ data }) => data.status === 'published');
   return entries.map(entry => ({ params: { lang: entry.data.lang }, props: { entry } }));
@@ -45,7 +45,7 @@ const id = (key: Section) => sectionIds[key][lang];
           <div class="reel-toolbar"><p>{lang === 'it' ? 'Tre luoghi. Tre punti di vista.' : 'Three places. Three perspectives.'}</p><div class="reel-navigation"><span data-reel-count aria-live="polite">01 / 03</span><button data-reel-prev aria-label={lang === 'it' ? 'Luogo precedente' : 'Previous place'}><Icon name="arrow"/></button><button data-reel-next aria-label={lang === 'it' ? 'Luogo successivo' : 'Next place'}><Icon name="arrow"/></button></div></div>
           <div class="sight-track" data-reel-track tabindex="0" role="region" aria-label={lang === 'it' ? 'Fotografie e luoghi di Agira' : 'Photographs and places in Agira'}>{c.sights.map((s,i) => <article class={`sight-card sight-${i}`}>
             <figure><a class="photo-link" href={`/images/${s.image}-1800.webp`} data-gallery-open={s.image} aria-haspopup="dialog" aria-label={`${lang === 'it' ? 'Apri la fotografia' : 'Open photograph'}: ${s.title}`}><Photo name={s.image as keyof typeof photos} lang={lang} sizes="(max-width: 700px) 90vw, 56vw"/><span class="photo-view"><Icon name="plus"/></span></a><figcaption>0{i+1} / {s.tag}</figcaption></figure>
-            <h3>{s.title}</h3><p>{s.text}</p><details class="sight-details"><summary>{c.details}<Icon name="plus"/></summary><p>{s.detail}</p></details>
+            <h3>{s.id === 'castle' ? <a href={sightUrl('castle',lang)}>{s.title}</a> : s.title}</h3><p>{s.text}</p>{s.id === 'castle' && <a class="text-link" href={sightUrl('castle',lang)}>{lang === 'it' ? 'Scopri il castello' : 'Explore the castle'}<Icon name="arrow"/></a>}<details class="sight-details"><summary>{c.details}<Icon name="plus"/></summary><p>{s.detail}</p></details>
           </article>)}</div>
           <div class="reel-bottom"><span>{lang === 'it' ? 'Trascina, scorri, esplora.' : 'Drag, scroll, explore.'}</span><div class="reel-progress" aria-hidden="true"><i data-reel-progress></i></div></div>
         </div>

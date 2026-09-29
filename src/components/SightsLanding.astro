@@ -6,8 +6,9 @@ import PhotoGallery from './PhotoGallery.astro';
 import SiteHeader from './SiteHeader.astro';
 import SiteFooter from './SiteFooter.astro';
 import photos from '../data/photos.json';
+import { getSightPages } from '../data/sight-pages';
 import { getCopy } from '../data/copy';
-import { anchor, homeUrl, pageUrl, type Locale } from '../lib/i18n';
+import { anchor, homeUrl, pageUrl, sightUrl, type Locale } from '../lib/i18n';
 
 interface Props { lang: Locale }
 const { lang } = Astro.props;
@@ -17,6 +18,7 @@ const photoCredit = (name: keyof typeof photos) => photos[name];
 const photoCreditLabel = (photo: typeof photos[keyof typeof photos]) => photo.credit?.[lang] ?? (photo.license ? `© ${photo.author} · ${photo.license}` : photo.author);
 const featuredPageExtras = c.sightsPageExtras.filter((s) => 'image' in s) as Array<{ image: keyof typeof photos; tag: string; title: string; text: string; detail: string }>;
 const textPageExtras = c.sightsPageExtras.filter((s) => !('image' in s));
+const publishedPlaces = getSightPages(lang);
 const featuredSights = [...c.sights, ...featuredPageExtras];
 const mapHref = `${homeUrl(lang)}${anchor('map', lang)}`;
 const routesHref = pageUrl('routes', lang);
@@ -55,6 +57,7 @@ const routesHref = pageUrl('routes', lang);
           {featuredSights.map((s, i) => {
             const image = s.image as keyof typeof photos;
             const credit = photoCredit(image);
+            const detail = publishedPlaces.find(place => place.image === image);
             const fullImageWidth = Math.max(...credit.widths.filter(width => width <= 1800));
             return <article class={`sights-editorial-card sights-editorial-card-${i + 1}`}>
               <figure>
@@ -65,9 +68,10 @@ const routesHref = pageUrl('routes', lang);
                 <figcaption><span>0{i + 1} / {s.tag}</span>{credit.source ? <a href={credit.source}>{photoCreditLabel(credit)}<Icon name="diagonal"/></a> : <span class="sights-photo-credit">{photoCreditLabel(credit)}</span>}</figcaption>
               </figure>
               <div class="sights-editorial-copy">
-                <h3>{s.title}</h3>
+                <h3>{detail ? <a href={sightUrl(detail.id,lang)}>{s.title}</a> : s.title}</h3>
                 <p>{s.text}</p>
                 <details class="sight-details"><summary>{c.details}<Icon name="plus"/></summary><p>{s.detail}</p></details>
+                {detail && <a class="text-link" href={sightUrl(detail.id,lang)}>{lang === 'it' ? 'Scopri il luogo' : 'Explore this place'}<Icon name="arrow"/></a>}
               </div>
             </article>;
           })}

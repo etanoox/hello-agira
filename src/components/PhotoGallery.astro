@@ -3,9 +3,9 @@ import Photo from './Photo.astro';
 import Icon from './Icon.astro';
 import photos from '../data/photos.json';
 import type { Locale } from '../lib/i18n';
-interface Props { lang: Locale; heroImage?: 'hero' | 'historyHero' }
-const { lang, heroImage = 'hero' } = Astro.props;
-const items = [
+interface Props { lang: Locale; heroImage?: 'hero' | 'historyHero'; items?: { key: keyof typeof photos; title: string }[] }
+const { lang, heroImage = 'hero', items: customItems } = Astro.props;
+const defaultItems = [
   { key: heroImage, title: lang === 'it' ? 'Agira, nel cuore della Sicilia' : 'Agira, in the heart of Sicily' },
   { key: 'castleDaylight', title: lang === 'it' ? 'Il Castello' : 'The castle' },
   { key: 'abbey', title: lang === 'it' ? 'L’Abbazia di San Filippo' : 'San Filippo Abbey' },
@@ -14,6 +14,7 @@ const items = [
   { key: 'ssalvatore', title: lang === 'it' ? 'La Collegiata del SS. Salvatore' : 'The Collegiate Church of SS. Salvatore' },
   { key: 'grotta', title: lang === 'it' ? 'La Grotta di San Filippo' : 'The Cave of San Filippo' },
 ] as const;
+const items = customItems ?? defaultItems;
 const photoCredit = (key: (typeof items)[number]['key']) => {
   const photo = photos[key];
   return photo.credit?.[lang] ?? (photo.license ? `© ${photo.author} · ${photo.license}` : photo.author);
