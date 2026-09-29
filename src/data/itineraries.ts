@@ -38,7 +38,7 @@ export function getItineraries(lang: Locale): Itinerary[] {
       tips: [
         {title:l('Scarpe e acqua','Shoes and water'),text:l('Porta scarpe comode e acqua. Nelle giornate calde prevedi più pause e scegli le ore meno calde.', 'Wear comfortable shoes and carry water. On hot days allow more breaks and choose cooler hours.')},
         {title:l('Arrivo e ritorno','Arrival and return'),text:l('Segna dove hai lasciato l’auto e verifica sul posto parcheggi e limitazioni al traffico prima di entrare nelle vie del centro.', 'Note where you leave your car and check parking and traffic restrictions before entering the central streets.')},
-        {title:l('Adatta la passeggiata','Adapt your walk'),text:l('Puoi accorciare la visita restando nel centro e dedicando più tempo alla pausa. Non è un percorso certificato accessibile.', 'Shorten the walk by staying in the centre and taking a longer break. This is not a certified accessible route.')},
+        {title:l( 'Parla con la gente del posto', 'Talk to the locals' ),text:l( 'Parla con la gente del posto, chiedi informazioni, consigli e curiosità. Anche questo fa parte del viaggio e dell’esperienza: i cittadini saranno lieti di aiutarti.', 'Talk to the locals and ask for information, tips and local stories. It is all part of the journey and the experience: people will be happy to help you.' )},
       ],
     },
     {
