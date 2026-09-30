@@ -8,9 +8,9 @@ export function getSaintAnthonyPage(lang: Locale): SightPage {
     id: 'saintAnthony', name: l('Chiesa di Sant’Antonio di Padova', 'Church of Saint Anthony of Padua'),
     category: l('Arte, silenzio e devozione', 'Art, quiet and devotion'),
     title: l('Chiesa di Sant’Antonio di Padova ad Agira | Hello Agira', 'Church of Saint Anthony of Padua, Agira | Hello Agira'),
-    description: l('Scopri la Chiesa di Sant’Antonio di Padova ad Agira: fotografia degli interni, informazioni per la visita e audioguida in inglese in sette tracce.', 'Discover the Church of Saint Anthony of Padua in Agira: an interior photograph, visiting information and a seven-track English audio guide.'),
+    description: l('Scopri la Chiesa di Sant’Antonio di Padova ad Agira: fotografie della facciata e degli interni, informazioni per la visita e audioguida in inglese in sette tracce.', 'Discover the Church of Saint Anthony of Padua in Agira: photographs of its façade and interior, visiting information and a seven-track English audio guide.'),
     introduction: l('Un invito a fermarsi e alzare lo sguardo. Nella Chiesa di Sant’Antonio di Padova, accompagna l’osservazione degli interni con un racconto da ascoltare al tuo passo.', 'An invitation to pause and look up. In the Church of Saint Anthony of Padua, explore the interior with a story you can listen to at your own pace.'),
-    image: 'saintAnthony', location: l('Sant’Antonio di Padova · Agira, EN · Sicilia', 'Saint Anthony of Padua · Agira, EN · Sicily'),
+    image: 'saintAnthonyFacade', location: l('Sant’Antonio di Padova · Agira, EN · Sicilia', 'Saint Anthony of Padua · Agira, EN · Sicily'),
     mapQuery: 'Chiesa Sant Antonio di Padova Agira Sicilia',
     visitorNote: l('Verifica gli orari e le condizioni di accesso direttamente con la chiesa.', 'Check opening hours and access arrangements directly with the church.'),
     facts: [
@@ -33,7 +33,10 @@ export function getSaintAnthonyPage(lang: Locale): SightPage {
       {title:l('Accessibilità','Accessibility'),text:l('Per esigenze di mobilità, chiedi informazioni sugli ingressi e sui percorsi disponibili prima della visita.', 'If you have mobility requirements, ask about entrances and available routes before visiting.')},
       {title:l('Ascoltare la guida','Listening to the guide'),text:l('Gli audio sono in inglese anche nella pagina italiana. Puoi cambiare traccia, mettere in pausa e regolare la velocità. Serve una connessione internet.', 'The recordings are in English on both language versions. Switch tracks, pause and adjust playback speed. An internet connection is required.')},
     ],
-    gallery:[{key:'saintAnthony',title:l('Gli interni della Chiesa di Sant’Antonio di Padova','Inside the Church of Saint Anthony of Padua')}],
+    gallery:[
+      {key:'saintAnthonyFacade',title:l('La facciata della Chiesa di Sant’Antonio di Padova','The façade of the Church of Saint Anthony of Padua')},
+      {key:'saintAnthony',title:l('Gli interni della Chiesa di Sant’Antonio di Padova','Inside the Church of Saint Anthony of Padua')},
+    ],
     sources:[],
     audio:{language:audio.language as Locale,title:l('La chiesa, raccontata.','The church, narrated.'),introduction:l('Introduzione, cinque capitoli e ringraziamenti finali. L’audioguida è attualmente disponibile in inglese.', 'An introduction, five chapters and closing thanks. The audio guide is currently available in English.'),chapters:audio.chapters.map(chapter=>({src:chapter.src,durationSeconds:chapter.durationSeconds,title:chapter.title[lang],transcript:chapter.transcript}))},
   };
