@@ -252,5 +252,105 @@
       "it": "Fotografia fornita da Giuseppe Ricceri.",
       "en": "Photograph supplied by Giuseppe Ricceri."
     }
+  },
+  "etnaPozzilloMoon": {
+    "width": 2048,
+    "height": 1324,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800,
+      2048
+    ],
+    "alt": {
+      "it": "L’Etna innevato e il lago Pozzillo al chiaro di luna.",
+      "en": "Snow-covered Mount Etna and Lake Pozzillo by moonlight."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "© Etanoox.",
+      "en": "© Etanoox."
+    }
+  },
+  "castleEtnaDusk": {
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800,
+      2048
+    ],
+    "alt": {
+      "it": "Le rovine del Castello di Agira e l’Etna al crepuscolo.",
+      "en": "Agira Castle ruins and Mount Etna at dusk."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "© Etanoox.",
+      "en": "© Etanoox."
+    }
+  },
+  "agiraFireworks": {
+    "width": 2048,
+    "height": 1350,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800,
+      2048
+    ],
+    "alt": {
+      "it": "Fuochi d’artificio sopra i tetti e i campanili di Agira.",
+      "en": "Fireworks above the rooftops and bell towers of Agira."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "© Etanoox.",
+      "en": "© Etanoox."
+    }
+  },
+  "agiraSunsetPanorama": {
+    "width": 2047,
+    "height": 970,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800,
+      2047
+    ],
+    "alt": {
+      "it": "Panorama di Agira e delle colline circostanti al tramonto.",
+      "en": "A sunset panorama of Agira and the surrounding hills."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia fornita da Giuseppe Ricceri.",
+      "en": "Photograph supplied by Giuseppe Ricceri."
+    }
   }
 }

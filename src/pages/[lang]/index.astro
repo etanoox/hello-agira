@@ -83,6 +83,11 @@ const id = (key: Section) => sectionIds[key][lang];
 
   <SiteFooter lang={lang}/>
 
-  <PhotoGallery lang={lang}/>
+  <PhotoGallery lang={lang} extraItems={[
+    {key:'etnaPozzilloMoon',title:lang === 'it' ? 'L’Etna e il lago Pozzillo al chiaro di luna' : 'Mount Etna and Lake Pozzillo by moonlight'},
+    {key:'castleEtnaDusk',title:lang === 'it' ? 'Il Castello e l’Etna al crepuscolo' : 'Agira Castle and Mount Etna at dusk'},
+    {key:'agiraFireworks',title:lang === 'it' ? 'Fuochi d’artificio sopra Agira' : 'Fireworks above Agira'},
+    {key:'agiraSunsetPanorama',title:lang === 'it' ? 'Agira al tramonto' : 'Agira at sunset'},
+  ]}/>
   <script>import '../../scripts/motion';</script>
 </Base>

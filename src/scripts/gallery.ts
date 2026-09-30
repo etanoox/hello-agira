@@ -14,6 +14,7 @@ if (dialog && typeof dialog.showModal === 'function') {
     thumbs.forEach((thumb,i) => thumb.setAttribute('aria-pressed',String(i === selected)));
     counter.textContent = `${String(selected + 1).padStart(2,'0')} / ${String(slides.length).padStart(2,'0')}`;
     counter.setAttribute('aria-label',`${counter.textContent}: ${slides[selected].dataset.title}`);
+    if (dialog.open) thumbs[selected]?.scrollIntoView({block:'nearest',inline:'nearest'});
     if (!reducedMotion()) animation = slides[selected].animate([{opacity:0,transform:'translateY(8px)'},{opacity:1,transform:'translateY(0)'}], {duration:230,easing:'ease-out'});
   };
   document.querySelectorAll<HTMLAnchorElement>('[data-gallery-open]').forEach(link => link.addEventListener('click',event => {
