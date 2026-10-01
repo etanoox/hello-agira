@@ -352,5 +352,29 @@
       "it": "Fotografia fornita da Giuseppe Ricceri.",
       "en": "Photograph supplied by Giuseppe Ricceri."
     }
+  },
+  "agiraGoldenHour": {
+    "width": 1280,
+    "height": 580,
+    "widths": [
+      480,
+      800,
+      1200,
+      1280
+    ],
+    "alt": {
+      "it": "Panorama del centro storico di Agira illuminato dalla luce calda del tramonto.",
+      "en": "Panorama of Agira’s historic centre in the warm light of sunset."
+    },
+    "author": "Omero Mugavero",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Omero Mugavero.",
+      "en": "Photograph by Omero Mugavero."
+    }
   }
 }
