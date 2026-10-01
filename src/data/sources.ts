@@ -12,8 +12,6 @@ export const sources = [
   { title: 'Pro Loco Agira · Quartiere delle Rocche', url: 'https://www.prolocoagira.it/wp/2017/06/22/quartiere-delle-rocche/' },
   { title: 'Pro Loco Agira · Museo della Cultura Materiale', url: 'https://www.prolocoagira.it/wp/2017/10/20/museo-agira/' },
   { title: 'Veterans Affairs Canada · Agira Canadian War Cemetery', url: 'https://veterans.gc.ca/en/remembrance/memorials/overseas/agira-canadian-war-cemetery' },
-  { title: 'Visit Sicily · I santuari di Sicilia', url: 'https://www.visitsicily.info/en/sicilians-shrines/' },
-  { title: 'Visit Sicily · I dolci della tradizione pasquale', url: 'https://www.visitsicily.info/sapore/i-dolci-della-tradizione-pasquale-da-assaggiare-in-sicilia/' },
   { title: 'Università di Catania / CUTGANA · Vallone di Piano della Corte', url: 'https://www.cutgana.unict.it/aree-protette/vallone-di-piano-della-corte' },
   { title: 'Pro Loco Agira · Tradizioni e aggiornamenti', url: 'https://www.prolocoagira.it/' },
   { title: 'Pro Loco Agira · Sagra della Cassatella (archivio)', url: 'https://www.prolocoagira.it/wp/category/sagra-cassatella/' },

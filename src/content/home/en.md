@@ -8,7 +8,6 @@ reviewedAt: 2026-09-26
 sources:
   - https://www.agira.org/Sintesi-storiche/agira-citta-darte.html
   - https://www.cutgana.unict.it/aree-protette/vallone-di-piano-della-corte
-  - https://www.visitsicily.info/en/sicilians-shrines/
 ---
 Agira is a hill town in the province of Enna, in inland Sicily. Its streets climb Monte Teja, past houses and churches towards the castle ruins.
 
