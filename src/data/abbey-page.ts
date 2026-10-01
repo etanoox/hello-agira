@@ -14,7 +14,11 @@ export function getAbbeyPage(lang: Locale): SightPage {
     introduction: l('Una scalinata, una facciata, un luogo legato alla memoria religiosa di Agira. Fermati all’Abbazia di San Filippo e lascia che il racconto accompagni il tuo sguardo.', 'A flight of steps, a façade, a place connected to Agira’s religious heritage. Stop at San Filippo Abbey and let the story guide your gaze.'),
     image: 'abbey', location: l('Abbazia di San Filippo · Agira, EN · Sicilia', 'San Filippo Abbey · Agira, EN · Sicily'),
     mapQuery: 'Abbazia di San Filippo, Agira, Sicilia',
-    visitorNote: l('Per visitare gli interni, verifica gli orari direttamente con il santuario.', 'Check opening hours directly with the sanctuary before visiting the interior.'),
+    visitorNote: l('Per visitare gli interni, verifica gli orari direttamente con il parroco.', 'Check opening hours directly with the parish priest before visiting the interior.'),
+    visitorContacts: [
+      { label: '+39 0935 198 7171', href: 'tel:+3909351987171' },
+      { label: 'chiesarealesanfilippo@gmail.com', href: 'mailto:chiesarealesanfilippo@gmail.com' },
+    ],
     facts: [
       { label: l('Il luogo', 'The place'), value: l('Abbazia di San Filippo', 'San Filippo Abbey') },
       { label: l('Audioguida', 'Audio guide'), value: l('In inglese · introduzione e 7 capitoli', 'English · introduction and 7 chapters') },

@@ -33,6 +33,7 @@ export interface SightPage {
   location: string;
   mapQuery: string;
   visitorNote?: string;
+  visitorContacts?: { label: string; href: string }[];
   facts: { label: string; value: string }[];
   story: { title: string; paragraphs: string[] }[];
   highlights: { title: string; text: string }[];

@@ -25,7 +25,7 @@ for (const file of htmlPages) {
   const ids=[...html.matchAll(/\sid="([^"]+)"/g)].map(m=>m[1]);assert.equal(new Set(ids).size,ids.length,`${lang}: unique IDs`);
   const pageUrl=`https://test.invalid/${file.replace(/index\.html$/, '')}`;
   for(const match of html.matchAll(/<(?:a|link)\b[^>]*href="([^"]*)"/g)){
-    const href=match[1]; if(href.startsWith('http')||href.startsWith('mailto:'))continue;
+    const href=match[1]; if(href.startsWith('http')||href.startsWith('mailto:')||href.startsWith('tel:'))continue;
     assert.ok(href&&href!=='#',`${lang}: no empty links`);
     const url=new URL(href,pageUrl);
     const target=url.pathname.endsWith('/')?url.pathname+'index.html':url.pathname;
