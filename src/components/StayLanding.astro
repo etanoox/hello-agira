@@ -5,6 +5,7 @@ import Photo from './Photo.astro';
 import SiteHeader from './SiteHeader.astro';
 import SiteFooter from './SiteFooter.astro';
 import photos from '../data/photos.json';
+import { accommodations } from '../data/accommodations';
 import { getCopy } from '../data/copy';
 import { anchor, homeUrl, pageUrl, type Locale } from '../lib/i18n';
 
@@ -18,24 +19,12 @@ const mapHref = `${homeUrl(lang)}${anchor('map', lang)}`;
 const sightsHref = pageUrl('sights', lang);
 const foodHref = pageUrl('eat', lang);
 const l = (it: string, en: string) => lang === 'it' ? it : en;
-const shortStay = l('Affitti Brevi', 'Short-term rentals');
-const accommodations = [
-  { name: "AGHERE'", category: shortStay, rating: '', cir: '19086001C261476', cin: 'IT086001C2V5YGMY4L' },
-  { name: 'AGIRA ROYAL CENTRAL ROOMS', category: shortStay, rating: '', cir: '19086001C242814', cin: 'IT086001C2VLD3GJOW' },
-  { name: 'Azienda Agrituristica Casale Salerno', category: l('Agriturismo', 'Farm stay'), rating: l('3 Spighe', '3 Spighe'), cir: '19086001B501950', cin: 'IT086001B54O8NBO4L' },
-  { name: 'Casa Albergo la Terza Stella', category: 'Bed & Breakfast', rating: l('3 Stelle', '3 stars'), cir: '19086001C102613', cin: 'IT086001C1RC4RZZ35' },
-  { name: 'Casa Don Raffaele', category: shortStay, rating: '', cir: '19086001C230932', cin: 'IT086001C256YVMWF6' },
-  { name: 'Central Rooms', category: shortStay, rating: '', cir: '19086001C213513', cin: 'IT086001C2MW8JFA8Z' },
-  { name: 'Domus Teja', category: shortStay, rating: '', cir: '19086001C218663', cin: 'IT086001C2IPXD2AA6' },
-  { name: 'Gli Amici di Filippo 2', category: shortStay, rating: '', cir: '19086001C255182', cin: 'IT086001C2MKSWDCVX' },
-  { name: 'kasakarma', category: shortStay, rating: '', cir: '19086001C208835', cin: 'IT086001C2EDRJIFRL' },
-  { name: 'La Casa dei Sogni', category: shortStay, rating: '', cir: '19086001C220594', cin: 'IT086001C2BF456HXP' },
-  { name: 'Mamà B&B', category: 'Bed & Breakfast', rating: l('3 Stelle', '3 stars'), cir: '19086001C131613', cin: 'IT086001C1W6DOZLCE' },
-  { name: 'Mariù', category: shortStay, rating: '', cir: '19086001C245971', cin: 'IT086001C2S9NT694M' },
-  { name: 'Sopra La Piazza', category: shortStay, rating: '', cir: '19086001C229472', cin: 'IT086001C2DTBTKF6V' },
-  { name: 'Talia', category: 'Bed & Breakfast', rating: l('3 Stelle', '3 stars'), cir: '19086001C102325', cin: 'IT086001C18NX829PZ' },
-  { name: 'VIA ROMA HOME RELAX', category: shortStay, rating: '', cir: '19086001C266102', cin: 'IT086001C2PDJVYNP2' },
-];
+const categories = {
+  shortStay: l('Affitti Brevi', 'Short-term rentals'),
+  bedBreakfast: 'Bed & Breakfast',
+  farmStay: l('Agriturismo', 'Farm stay'),
+};
+const ratings = { threeStars: l('3 Stelle', '3 stars'), threeSpighe: '3 Spighe' };
 ---
 
 <Base lang={lang} title={page.title} description={page.description} canonicalPath={localizedPaths[lang]} alternatePaths={localizedPaths}>
@@ -69,7 +58,7 @@ const accommodations = [
           {accommodations.map((stay, i) => <li class="accommodation-entry">
             <span class="small-number">{String(i + 1).padStart(2, '0')}</span>
             <div>
-              <p class="accommodation-category">{stay.category}{stay.rating && ` · ${stay.rating}`}</p>
+            <p class="accommodation-category">{categories[stay.category]}{stay.rating && ` · ${ratings[stay.rating]}`}</p>
               <h3>{stay.name}</h3>
               <dl class="accommodation-codes">
                 <div><dt>CIR</dt><dd>{stay.cir}</dd></div>
