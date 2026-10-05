@@ -16,9 +16,4 @@ export const sources = [
   { title: 'Pro Loco Agira · Tradizioni e aggiornamenti', url: 'https://www.prolocoagira.it/' },
   { title: 'Pro Loco Agira · Sagra della Cassatella (archivio)', url: 'https://www.prolocoagira.it/wp/category/sagra-cassatella/' },
   { title: 'Comune di Agira · Sagra della Cassatella (programma 2025)', url: 'https://www.comune.agira.en.it/index.php/it/news/sagra-della-cassatella' },
-  { title: 'Restaurant Guru · Locali ad Agira (prima ricognizione)', url: 'https://restaurantguru.it/Agira' },
-  { title: 'Etnaportal · Ristorante Pizzeria Number One', url: 'https://etnaportal.it/number_one' },
-  { title: 'Bottega delle Cassatelle · Sito ufficiale', url: 'https://bottegadellecassatelle.it' },
-  { title: 'La Dolciaria · Sito ufficiale', url: 'https://ladolciaria-agira.com' },
-  { title: 'Tripadvisor · Re Nero Caffè', url: 'https://www.tripadvisor.it/Restaurant_Review-g2209427-d25577156-Reviews-Re_Nero_Caffe-Agira_Province_of_Enna_Sicily.html' },
 ];

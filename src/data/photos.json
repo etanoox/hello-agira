@@ -20,8 +20,8 @@
     "licenseUrl": null,
     "date": null,
     "credit": {
-      "it": "Fotografia fornita da Giuseppe Ricceri.",
-      "en": "Photograph supplied by Giuseppe Ricceri."
+      "it": "Fotografia di Giuseppe Ricceri.",
+      "en": "Photo by Giuseppe Ricceri."
     }
   },
   "pastry": {
@@ -45,8 +45,8 @@
     "licenseUrl": null,
     "date": null,
     "credit": {
-      "it": "Fotografia fornita da Giuseppe Ricceri.",
-      "en": "Photograph supplied by Giuseppe Ricceri."
+      "it": "Fotografia di Giuseppe Ricceri.",
+      "en": "Photo by Giuseppe Ricceri."
     }
   },
   "castleDaylight": {
@@ -69,8 +69,8 @@
     "licenseUrl": null,
     "date": null,
     "credit": {
-      "it": "Fotografia fornita da Giuseppe Ricceri.",
-      "en": "Photograph supplied by Giuseppe Ricceri."
+      "it": "Fotografia di Giuseppe Ricceri.",
+      "en": "Photo by Giuseppe Ricceri."
     }
   },
   "abbey": {
@@ -202,8 +202,8 @@
     "licenseUrl": null,
     "date": null,
     "credit": {
-      "it": "Fotografia fornita da Giuseppe Ricceri.",
-      "en": "Photograph supplied by Giuseppe Ricceri."
+      "it": "Fotografia di Giuseppe Ricceri.",
+      "en": "Photo by Giuseppe Ricceri."
     }
   },
   "saintAnthony": {
@@ -225,8 +225,8 @@
     "licenseUrl": null,
     "date": null,
     "credit": {
-      "it": "Fotografia fornita da Giuseppe Ricceri.",
-      "en": "Photograph supplied by Giuseppe Ricceri."
+      "it": "Fotografia di Giuseppe Ricceri.",
+      "en": "Photo by Giuseppe Ricceri."
     }
   },
   "saintAnthonyFacade": {
@@ -250,7 +250,7 @@
     "date": null,
     "credit": {
       "it": "Fotografia di Omero Mugavero.",
-      "en": "Photograph by Omero Mugavero."
+      "en": "Photo by Omero Mugavero."
     }
   },
   "etnaPozzilloMoon": {
@@ -349,8 +349,8 @@
     "licenseUrl": null,
     "date": null,
     "credit": {
-      "it": "Fotografia fornita da Giuseppe Ricceri.",
-      "en": "Photograph supplied by Giuseppe Ricceri."
+      "it": "Fotografia di Giuseppe Ricceri.",
+      "en": "Photo by Giuseppe Ricceri."
     }
   },
   "agiraGoldenHour": {
@@ -375,6 +375,78 @@
     "credit": {
       "it": "Fotografia di Omero Mugavero.",
       "en": "Photograph by Omero Mugavero."
+    }
+  },
+  "agiraEtnaPanorama": {
+    "width": 2048,
+    "height": 970,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "alt": {
+      "it": "Agira vista dai tetti del centro storico, con l’Etna innevato all’orizzonte.",
+      "en": "Agira seen from the historic centre rooftops, with snow-covered Mount Etna on the horizon."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Giuseppe Ricceri.",
+      "en": "Photo by Giuseppe Ricceri."
+    }
+  },
+  "agiraSunsetTown": {
+    "width": 2048,
+    "height": 970,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "alt": {
+      "it": "Panorama di Agira al tramonto, con il centro storico e l’Etna innevato sullo sfondo.",
+      "en": "A sunset panorama of Agira, with the historic centre and snow-covered Mount Etna in the distance."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Giuseppe Ricceri.",
+      "en": "Photo by Giuseppe Ricceri."
+    }
+  },
+  "agiraMistTown": {
+    "width": 2048,
+    "height": 969,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "alt": {
+      "it": "Il centro storico e il castello di Agira emergono dalla nebbia.",
+      "en": "Agira’s historic centre and castle emerge through the mist."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Giuseppe Ricceri.",
+      "en": "Photo by Giuseppe Ricceri."
     }
   }
 }
