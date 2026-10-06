@@ -448,5 +448,168 @@
       "it": "Fotografia di Giuseppe Ricceri.",
       "en": "Photo by Giuseppe Ricceri."
     }
+  },
+  "agiraDittainoSunset": {
+    "width": 1280,
+    "height": 960,
+    "widths": [
+      480,
+      800,
+      1200,
+      1280
+    ],
+    "alt": {
+      "it": "Il tramonto tinge di arancio le colline della Sicilia centrale, sotto un cielo nuvoloso.",
+      "en": "Sunset casts an orange glow over the hills of central Sicily beneath a cloudy sky."
+    },
+    "author": "Angelo Lambusta",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Angelo Lambusta.",
+      "en": "Photograph by Angelo Lambusta."
+    }
+  },
+  "agiraEtnaPozzilloSunset": {
+    "width": 960,
+    "height": 1280,
+    "widths": [
+      480,
+      800,
+      960
+    ],
+    "alt": {
+      "it": "Il sole tramonta dietro l’Etna, con il lago Pozzillo ai piedi del paesaggio.",
+      "en": "The sun sets behind Mount Etna, with Lake Pozzillo below."
+    },
+    "author": "Angelo Lambusta",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Angelo Lambusta.",
+      "en": "Photograph by Angelo Lambusta."
+    }
+  },
+  "agiraPozzilloGoldenHour": {
+    "width": 960,
+    "height": 1280,
+    "widths": [
+      480,
+      800,
+      960
+    ],
+    "alt": {
+      "it": "La luce del tramonto illumina l’Etna e il lago Pozzillo.",
+      "en": "Sunset light falls across Mount Etna and Lake Pozzillo."
+    },
+    "author": "Angelo Lambusta",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Angelo Lambusta.",
+      "en": "Photograph by Angelo Lambusta."
+    }
+  },
+  "agiraEtnaLakeSunset": {
+    "width": 960,
+    "height": 1280,
+    "widths": [
+      480,
+      800,
+      960
+    ],
+    "alt": {
+      "it": "L’Etna e il lago Pozzillo nel chiarore dell’ultima luce del giorno.",
+      "en": "Mount Etna and Lake Pozzillo in the last light of the day."
+    },
+    "author": "Angelo Lambusta",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Angelo Lambusta.",
+      "en": "Photograph by Angelo Lambusta."
+    }
+  },
+  "agiraPozzilloMistySunset": {
+    "width": 1280,
+    "height": 960,
+    "widths": [
+      480,
+      800,
+      1200,
+      1280
+    ],
+    "alt": {
+      "it": "La foschia attraversa il paesaggio di Agira e del lago Pozzillo al tramonto.",
+      "en": "Misty air drifts across the landscape around Agira and Lake Pozzillo at sunset."
+    },
+    "author": "Angelo Lambusta",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Angelo Lambusta.",
+      "en": "Photograph by Angelo Lambusta."
+    }
+  },
+  "abbeyFestivalLights": {
+    "width": 960,
+    "height": 1280,
+    "widths": [
+      480,
+      800,
+      960
+    ],
+    "alt": {
+      "it": "La facciata dell’Abbazia di San Filippo ad Agira, illuminata dalle luminarie della festa.",
+      "en": "The facade of San Filippo Abbey in Agira, illuminated by festival lights."
+    },
+    "author": "Angelo Lambusta",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Angelo Lambusta.",
+      "en": "Photograph by Angelo Lambusta."
+    }
+  },
+  "agiraPozzilloTrail": {
+    "width": 960,
+    "height": 1280,
+    "widths": [
+      480,
+      800,
+      960
+    ],
+    "alt": {
+      "it": "Un sentiero panoramico sopra il lago Pozzillo, con l’Etna all’orizzonte.",
+      "en": "A scenic trail above Lake Pozzillo, with Mount Etna on the horizon."
+    },
+    "author": "Angelo Lambusta",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Angelo Lambusta.",
+      "en": "Photograph by Angelo Lambusta."
+    }
   }
 }

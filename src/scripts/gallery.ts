@@ -14,13 +14,24 @@ if (dialog && typeof dialog.showModal === 'function') {
     thumbs.forEach((thumb,i) => thumb.setAttribute('aria-pressed',String(i === selected)));
     counter.textContent = `${String(selected + 1).padStart(2,'0')} / ${String(slides.length).padStart(2,'0')}`;
     counter.setAttribute('aria-label',`${counter.textContent}: ${slides[selected].dataset.title}`);
-    if (dialog.open) thumbs[selected]?.scrollIntoView({block:'nearest',inline:'nearest'});
+    if (dialog.open) {
+      const thumb = thumbs[selected];
+      const strip = thumb?.parentElement;
+      if (thumb && strip) {
+        const thumbRect = thumb.getBoundingClientRect();
+        const stripRect = strip.getBoundingClientRect();
+        const left = thumbRect.left < stripRect.left
+          ? thumbRect.left - stripRect.left
+          : thumbRect.right > stripRect.right ? thumbRect.right - stripRect.right : 0;
+        if (left) strip.scrollBy({left,behavior:'instant'});
+      }
+    }
     if (!reducedMotion()) animation = slides[selected].animate([{opacity:0,transform:'translateY(8px)'},{opacity:1,transform:'translateY(0)'}], {duration:230,easing:'ease-out'});
   };
   document.querySelectorAll<HTMLAnchorElement>('[data-gallery-open]').forEach(link => link.addEventListener('click',event => {
     const index = slides.findIndex(slide => slide.dataset.gallerySlide === link.dataset.galleryOpen);
     if (index < 0 || event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-    event.preventDefault();opener = link;show(index);dialog.showModal();document.body.classList.add('gallery-is-open');
+    event.preventDefault();opener = link;dialog.showModal();document.body.classList.add('gallery-is-open');show(index);
     dialog.querySelector<HTMLButtonElement>('[data-gallery-close]')?.focus({preventScroll:true});
   }));
   dialog.querySelector('[data-gallery-close]')?.addEventListener('click',()=>dialog.close());
