@@ -2,6 +2,7 @@ import type { Locale, SightId } from '../lib/i18n';
 import { getSaintAnthonyPage } from './saint-anthony-page';
 import { getAbbeyPage } from './abbey-page';
 import type photos from './photos.json';
+import castleAudio from './castle-audio.json';
 
 export interface AudioTrack {
   /** Local path under public/audio/, e.g. /audio/castle/it/01.mp3. */
@@ -48,6 +49,12 @@ export function getSightPages(lang: Locale): SightPage[] {
   const l = (it: string, en: string) => lang === 'it' ? it : en;
   return [{
     id: 'castle', name: l('Il Castello di Agira', 'Agira Castle'),
+    audio: {
+      language: castleAudio.language as Locale,
+      title: l('Il castello, raccontato.', 'The castle, narrated.'),
+      introduction: l('Sette capitoli per scoprire la storia del castello e della sua chiesetta. Ascoltali in sequenza oppure scegli una singola traccia. L’audioguida è attualmente disponibile in inglese.', 'Seven chapters exploring the history of the castle and its little church. Listen in sequence or choose an individual track. This audio guide is currently available in English.'),
+      chapters: castleAudio.chapters.map(chapter => ({ src: chapter.src, durationSeconds: chapter.durationSeconds, title: chapter.title[lang], transcript: chapter.transcript })),
+    },
     category: l('Pietra, storia e paesaggio', 'Stone, history and landscape'),
     title: l('Castello di Agira: storia, panorama e visita | Hello Agira', 'Agira Castle: history, views and visiting | Hello Agira'),
     description: l('Scopri il Castello di Agira sul Monte Teja: le torri medievali, il paesaggio e le informazioni utili per organizzare la salita e la visita.', 'Discover Agira Castle on Monte Teja: medieval towers, views of the surrounding landscape and practical information for planning your visit.'),

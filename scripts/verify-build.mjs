@@ -73,7 +73,11 @@ for (const file of htmlPages) {
 }
 for (const file of ['it/cosa-vedere/castello-di-agira/index.html','en/things-to-see/agira-castle/index.html']) {
   const html=read(file);
-  assert.ok(!html.includes('data-audio-guide'), 'Do not publish an unavailable audio guide');
+  assert.ok(html.includes('data-audio-guide'), 'Castle audio guide is available');
+  assert.equal((html.match(/<a\b[^>]*\sdata-audio-chapter(?:\s|>)/g) || []).length, 7, 'Castle guide has seven chapters');
+  for (const match of html.matchAll(/href="(\/audio\/castello\/en\/[^"]+\.mp3)"/g)) {
+    assert.ok(fs.existsSync(path.join(directory, match[1])), `Missing castle audio: ${match[1]}`);
+  }
   assert.ok(!/<iframe[^>]*\ssrc=/.test(html), 'Map loads only on request');
   if(html.includes('rel="canonical"')) assert.ok(html.includes('TouristAttraction') && html.includes('BreadcrumbList'), 'Place structured data');
 }

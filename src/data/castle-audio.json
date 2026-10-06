@@ -1,0 +1,68 @@
+{
+  "language": "en",
+  "chapters": [
+    {
+      "src": "/audio/castello/en/01-two-origins.mp3",
+      "durationSeconds": 50.6,
+      "title": {
+        "it": "Un castello, due origini",
+        "en": "A Castle with Two Origins"
+      },
+      "transcript": []
+    },
+    {
+      "src": "/audio/castello/en/02-first-written-records.mp3",
+      "durationSeconds": 59.4,
+      "title": {
+        "it": "Le prime testimonianze scritte",
+        "en": "The First Written Records"
+      },
+      "transcript": []
+    },
+    {
+      "src": "/audio/castello/en/03-resistance-and-decline.mp3",
+      "durationSeconds": 42.84,
+      "title": {
+        "it": "Resistenza e declino",
+        "en": "Resistance and Decline"
+      },
+      "transcript": []
+    },
+    {
+      "src": "/audio/castello/en/04-understanding-the-fortress.mp3",
+      "durationSeconds": 58.36,
+      "title": {
+        "it": "Comprendere la fortezza",
+        "en": "Understanding the Fortress"
+      },
+      "transcript": []
+    },
+    {
+      "src": "/audio/castello/en/05-earthquake-flood-restoration.mp3",
+      "durationSeconds": 46.45,
+      "title": {
+        "it": "Terremoto, alluvione e restauro",
+        "en": "Earthquake, Flood, and Restoration"
+      },
+      "transcript": []
+    },
+    {
+      "src": "/audio/castello/en/06-church-prayer-for-rain.mp3",
+      "durationSeconds": 69.56,
+      "title": {
+        "it": "La chiesetta e la preghiera per la pioggia",
+        "en": "The Little Church and the Prayer for Rain"
+      },
+      "transcript": []
+    },
+    {
+      "src": "/audio/castello/en/07-journey-continues.mp3",
+      "durationSeconds": 54.6,
+      "title": {
+        "it": "Il tuo viaggio continua",
+        "en": "Your Journey Continues"
+      },
+      "transcript": []
+    }
+  ]
+}
