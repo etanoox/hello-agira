@@ -611,5 +611,29 @@
       "it": "Fotografia di Angelo Lambusta.",
       "en": "Photograph by Angelo Lambusta."
     }
+  },
+  "canadianCemetery": {
+    "width": 2048,
+    "height": 1328,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "alt": {
+      "it": "Le lapidi del Cimitero militare canadese di Agira, con il lago Pozzillo e l’Etna sullo sfondo.",
+      "en": "Headstones at Agira Canadian War Cemetery, with Lake Pozzillo and Mount Etna in the background."
+    },
+    "author": "Etanoox",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Il Cimitero militare canadese di Agira.",
+      "en": "Agira Canadian War Cemetery."
+    }
   }
 }
