@@ -45,7 +45,7 @@ export function getItineraries(lang: Locale): Itinerary[] {
       id:'day', title:l('Prendila con calma.','Take your time.'),
       description:l('Un giorno ad Agira tra centro storico, castello e Abbazia di San Filippo. Una proposta di visita con pause, tempi consigliati e indicazioni pratiche.', 'Spend a day in Agira exploring the historic centre, castle and San Filippo Abbey. A suggested day with breaks, time allowances and practical guidance.'),
       intro:l('Dal paese al castello, poi una pausa pranzo e l’Abbazia di San Filippo. Una giornata per dare spazio ai luoghi, alle salite e alle soste.', 'From the town to the castle, followed by lunch and San Filippo Abbey. A day with room for places, climbs and pauses.'),
-      photo:'castleDaylight', duration:l('5–7 ore','5–7 hours'), pace:l('Un giorno · ritmo libero','One day · your own pace'),
+      photo:'agiraPozzilloTrail', duration:l('5–7 ore','5–7 hours'), pace:l('Un giorno · ritmo libero','One day · your own pace'),
       heading:l('Sali. Rallenta.\nGuarda più lontano.','Climb. Slow down.\nLook further.'),
       routeTitle:l('Il paese, dall’alto e da vicino.','The town, from above and up close.'),
       routeIntro:l('Organizza la giornata intorno agli accessi e agli orari effettivi. Puoi invertire castello e Abbazia: verifica prima di partire, soprattutto se vuoi visitare gli interni.', 'Plan your day around actual access and opening hours. You can swap the castle and abbey visits: check before setting off, especially if you want to go inside.'),
