@@ -19,7 +19,7 @@ export function getItineraries(lang: Locale): Itinerary[] {
       id: 'first', title: l('Un primo incontro.', 'A first encounter.'),
       description: l('Agira in mezza giornata: centro storico, una pausa panoramica e una cassatella. Tappe, tempo da dedicare e consigli per organizzare la passeggiata.', 'Half a day in Agira: the historic centre, a scenic pause and a cassatella. Suggested stops, time to allow and practical advice for your walk.'),
       intro: l('Una passeggiata nel centro storico, un affaccio sul paesaggio e il tempo per una cassatella. Per chi arriva ad Agira per la prima volta.', 'A walk through the historic centre, a view of the countryside and time for a cassatella. A gentle introduction to Agira.'),
-      photo: 'hero', duration: l('2–3 ore', '2–3 hours'), pace: l('Mezza giornata · a piedi', 'Half a day · on foot'),
+      photo: 'agiraEtnaPozzilloSunset', duration: l('2–3 ore', '2–3 hours'), pace: l('Mezza giornata · a piedi', 'Half a day · on foot'),
       heading: l('Cammina. Guarda.\nPoi fermati.', 'Walk. Look around.\nThen pause.'),
       routeTitle: l('Tre soste. Nessuna fretta.', 'Three stops. No rush.'),
       routeIntro: l('Comincia dal centro e scegli sul posto le strade più adatte al tuo passo. Questa proposta lascia spazio alle deviazioni: non richiede di raggiungere il castello.', 'Start in the centre and choose streets that suit your pace. Leave room for detours: this suggested walk does not require reaching the castle.'),
