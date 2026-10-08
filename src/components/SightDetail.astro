@@ -63,10 +63,10 @@ const structured=ready ? {
           <h2>{l('La visita, in breve.','Your visit, at a glance.')}</h2>
           <dl>{place.facts.map(fact=><div><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}</dl>
           <p class="place-facts-note">{place.visitorNote ?? l('Per accessi e condizioni di visita, verifica con il Comune.','Check access and visiting conditions with the municipality.')}</p>
-          {place.visitorContacts?.length ? <div class="place-contacts">
-            {place.visitorContacts.map(contact=><a class="text-link" href={contact.href}><span>{contact.label}</span><Icon name="diagonal"/></a>)}
-          </div> : <a class="text-link" href="https://www.comune.agira.en.it/" target="_blank" rel="noopener noreferrer">{l('Comune di Agira','Municipality of Agira')}<Icon name="diagonal"/></a>}
-        </section>
+           {place.visitorContacts?.length ? <div class="place-contacts">
+             {place.visitorContacts.map(contact=><a class="text-link" href={contact.href}><span>{contact.label}</span><Icon name="diagonal"/></a>)}
+           </div> : null}
+         </section>
         <section class="place-map-card" aria-labelledby="place-map-heading"><h2 id="place-map-heading">{l('Dove si trova','Where to find it')}</h2><p>{place.location}</p><div class="place-map" data-place-map><div class="place-map-cover" data-map-cover><Icon name="pin"/><span>{place.name}</span><button class="button button-green" type="button" data-load-map hidden>{l('Carica mappa Google','Load Google map')}</button><p>{l('La mappa viene caricata da Google solo quando la apri.','Google’s map loads only when you open it.')}</p></div><iframe hidden data-src={mapEmbed} title={`${l('Mappa','Map')}: ${place.name}`} loading="lazy" allowfullscreen tabindex="0"></iframe></div><a class="text-link" href={mapUrl} target="_blank" rel="noopener noreferrer">{l('Apri in Google Maps','Open in Google Maps')}<Icon name="diagonal"/></a></section>
         <section class="place-practical"><h2>{l('Informazioni utili','Useful information')}</h2>{place.practical.map((item,i)=><details open={i===0}><summary>{item.title}<Icon name="plus"/></summary><p>{item.text}</p></details>)}</section>
       </aside>
