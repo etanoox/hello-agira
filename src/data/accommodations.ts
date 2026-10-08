@@ -22,7 +22,7 @@ export const accommodations: Accommodation[] = [
   // These two listings share the address Piazza Garibaldi 5 and therefore one pin.
   { id: 'central-rooms', name: 'Central Rooms', category: 'shortStay', cir: '19086001C213513', cin: 'IT086001C2MW8JFA8Z', coordinates: [14.52213, 37.6568985] },
   { id: 'domus-teja', name: 'Domus Teja', category: 'shortStay', cir: '19086001C218663', cin: 'IT086001C2IPXD2AA6', coordinates: [14.5221756, 37.6555227], approximateLocation: true },
-  { id: 'gli-amici-di-filippo-2', name: 'Gli Amici di Filippo 2', category: 'shortStay', cir: '19086001C255182', cin: 'IT086001C2MKSWDCVX', coordinates: [14.5191939, 37.6585186], approximateLocation: true },
+  { id: 'gli-amici-di-filippo-2', name: 'Gli Amici di Filippo', category: 'shortStay', cir: '19086001C255182', cin: 'IT086001C2MKSWDCVX', coordinates: [14.5191939, 37.6585186], approximateLocation: true },
   { id: 'kasakarma', name: 'kasakarma', category: 'shortStay', cir: '19086001C208835', cin: 'IT086001C2EDRJIFRL', coordinates: [14.5280294, 37.6545607], approximateLocation: true },
   { id: 'la-casa-dei-sogni', name: 'La Casa dei Sogni', category: 'shortStay', cir: '19086001C220594', cin: 'IT086001C2BF456HXP', coordinates: [14.484235, 37.660851], approximateLocation: true },
   { id: 'mama-bb', name: 'Mamà B&B', category: 'bedBreakfast', rating: 'threeStars', cir: '19086001C131613', cin: 'IT086001C1W6DOZLCE', coordinates: [14.519759, 37.6586766] },

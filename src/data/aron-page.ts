@@ -22,7 +22,7 @@ export function getAronPage(lang: Locale): SightPage {
     ],
     story: [
       { title: l('Un’arca sacra in pietra.', 'A sacred ark in stone.'), paragraphs: [l('L’Aron ha-qodesh è l’arca destinata a custodire i rotoli della Torah nella sinagoga. Quello di Agira è realizzato in pietra e proviene dall’antica sinagoga della città.', 'The Aron ha-qodesh is the ark used to hold Torah scrolls in a synagogue. Agira’s example is made of stone and comes from the town’s former synagogue.')] },
-      { title: l('Le parole e la data.', 'The words and the date.'), paragraphs: [l('Il Corpus delle iscrizioni ebraiche pubblicato sul portale Sicilia Semitica dell’Università di Messina registra il manufatto con la data 1454 e collega l’iscrizione a Isaia 2:5. La scheda indica come luogo di conservazione la Collegiata del SS. Salvatore.', 'The corpus of Hebrew inscriptions published on the University of Messina’s Sicilia Semitica portal records the object as dating to 1454 and connects its inscription with Isaiah 2:5. It lists the Collegiate Church of SS. Salvatore as its place of preservation.')] },
+      { title: l('Le parole e la data.', 'The words and the date.'), paragraphs: [l('Il Corpus delle iscrizioni ebraiche pubblicato sul portale Sicilia Semitica dell’Università di Messina registra il manufatto con la data 1454 e collega l’iscrizione a Isaia 2:5. L\'Aron è provvisoriamente conservato presso la Collegiata del SS. Salvatore.', 'The corpus of Hebrew inscriptions published on the University of Messina’s Sicilia Semitica portal records the artefact with the date 1454 and links the inscription to Isaiah 2:5. The Aron is temporarily housed at the Collegiate Church of SS. Salvatore.')] },
       { title: l('La memoria di una comunità.', 'The memory of a community.'), paragraphs: [l('L’Aron conserva una traccia materiale della presenza ebraica ad Agira. L’audioguida accompagna la scoperta in tre tappe: l’arca sacra, le parole scolpite e il ricordo della comunità.', 'The Aron preserves material evidence of Jewish life in Agira. The audio guide explores it in three stages: the sacred ark, its carved words and the memory of the community.')] },
     ],
     highlights: [
@@ -37,7 +37,6 @@ export function getAronPage(lang: Locale): SightPage {
     gallery: [{ key: 'ssalvatore', title: l('La Collegiata del SS. Salvatore, che conserva l’Aron', 'The Collegiate Church of SS. Salvatore, where the Aron is preserved') }],
     sources: [
       { title: 'Università di Messina · Sicilia Semitica — Corpus delle iscrizioni ebraiche', url: 'https://siciliasemitica.unime.it/wp-content/uploads/sites/27/2024/12/2-Corpus-delle-iscrizioni-ebraiche-in-Sicilia.pdf' },
-      { title: 'Agira città d’arte — Rita Loredana Foti e Salvatore Longo Minnolo', url: 'https://www.agira.org/Sintesi-storiche/agira-citta-darte.html' },
     ],
     audio: {
       language: 'en', title: l('L’Aron, raccontato.', 'The Aron, narrated.'),
