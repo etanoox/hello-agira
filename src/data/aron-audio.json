@@ -1,0 +1,32 @@
+{
+  "language": "en",
+  "chapters": [
+    {
+      "src": "/audio/aron/en/01-sacred-ark.mp3",
+      "durationSeconds": 64.99,
+      "title": {
+        "it": "Un’arca sacra in pietra",
+        "en": "A Sacred Ark in Stone"
+      },
+      "transcript": []
+    },
+    {
+      "src": "/audio/aron/en/02-words-in-stone.mp3",
+      "durationSeconds": 78.68,
+      "title": {
+        "it": "Parole scolpite nella pietra",
+        "en": "Words Carved in Stone"
+      },
+      "transcript": []
+    },
+    {
+      "src": "/audio/aron/en/03-community.mp3",
+      "durationSeconds": 71.55,
+      "title": {
+        "it": "Il ricordo di una comunità",
+        "en": "A Community Remembered"
+      },
+      "transcript": []
+    }
+  ]
+}

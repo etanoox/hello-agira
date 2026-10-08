@@ -57,7 +57,7 @@ const routesHref = pageUrl('routes', lang);
           {featuredSights.map((s, i) => {
             const image = s.image as keyof typeof photos;
             const credit = photoCredit(image);
-            const detail = publishedPlaces.find(place => place.image === image);
+            const detail = publishedPlaces.find(place => place.image === image && place.id !== 'aron');
             const fullImageWidth = Math.max(...credit.widths.filter(width => width <= 1800));
             return <article class={`sights-editorial-card sights-editorial-card-${i + 1}`}>
               <figure>

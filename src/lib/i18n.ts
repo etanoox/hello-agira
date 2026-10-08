@@ -39,6 +39,7 @@ export type ItineraryId = keyof typeof itinerarySlugs;
 export const itineraryUrl = (id: ItineraryId, lang: Locale) => `${pageUrl('routes', lang)}${itinerarySlugs[id][lang]}/`;
 
 export const sightSlugs = {
+  aron: { it: 'aron-memoria-ebraica', en: 'aron-jewish-heritage' },
   saintAnthony: { it: 'chiesa-sant-antonio-di-padova', en: 'saint-anthony-of-padua-church' },
   abbey: { it: 'abbazia-san-filippo', en: 'san-filippo-abbey' },
   castle: { it: 'castello-di-agira', en: 'agira-castle' },

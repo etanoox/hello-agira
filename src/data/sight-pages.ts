@@ -1,3 +1,4 @@
+import { getAronPage } from './aron-page';
 import type { Locale, SightId } from '../lib/i18n';
 import { getSaintAnthonyPage } from './saint-anthony-page';
 import { getAbbeyPage } from './abbey-page';
@@ -94,5 +95,5 @@ export function getSightPages(lang: Locale): SightPage[] {
     sources: [
       {title:'Agira città d’arte — Rita Loredana Foti e Salvatore Longo Minnolo',url:'https://www.agira.org/Sintesi-storiche/agira-citta-darte.html'},
     ],
-  }, getAbbeyPage(lang), getSaintAnthonyPage(lang)];
+  }, getAbbeyPage(lang), getSaintAnthonyPage(lang), getAronPage(lang)];
 }

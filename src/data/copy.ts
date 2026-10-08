@@ -1,4 +1,4 @@
-import { pageUrl, type Locale } from '../lib/i18n';
+import { sightUrl, pageUrl, type Locale } from '../lib/i18n';
 export function getCopy(lang: Locale) {
   const l = (it: string, en: string) => lang === 'it' ? it : en;
   return {
@@ -30,7 +30,7 @@ export function getCopy(lang: Locale) {
       { id: 'town', image: 'town', tag: l('Il piacere di camminare', 'Take the long way'), title: l('Il centro storico', 'The historic centre'), text: l('Strade in salita, case addossate e dettagli da osservare con calma.', 'Sloping streets, close-knit houses and details worth slowing down for.'), detail: l('Scegli scarpe comode e un percorso adatto alle tue esigenze: salite e scale possono cambiare molto l’esperienza di visita.', 'Wear comfortable shoes and choose a route that suits you: slopes and steps can make a real difference to your visit.') },
     ],
     moreSights: [
-      { title: l('L’Aron e la memoria ebraica', 'The Aron and Jewish heritage'), text: l('L’Aron in pietra testimonia la presenza storica della comunità ebraica ad Agira.', 'The stone Aron bears witness to Agira’s historic Jewish community.'), href: 'https://www.agira.org/Sintesi-storiche/agira-citta-darte.html', link: l('Leggi la fonte storica', 'Read the historical source') },
+      { title: l('L’Aron e la memoria ebraica', 'The Aron and Jewish heritage'), text: l('L’Aron in pietra testimonia la presenza storica della comunità ebraica ad Agira.', 'The stone Aron bears witness to Agira’s historic Jewish community.'), href: sightUrl('aron', lang), link: l('Scopri l’Aron e ascolta l’audioguida', 'Explore the Aron and listen to the audio guide') },
       { title: l('Vallone di Piano della Corte', 'Vallone di Piano della Corte'), text: l('Una riserva lungo il torrente Brace, tra le colline degli Erei. Consulta il CUTGANA per le visite.', 'A nature reserve along the Brace stream in the Erei hills. Consult CUTGANA for visiting information.'), href: 'https://www.cutgana.unict.it/aree-protette/vallone-di-piano-della-corte', link: l('Informazioni sulla riserva', 'Nature reserve information') },
     ],
     sightsPageExtras: [
