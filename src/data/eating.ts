@@ -56,7 +56,6 @@ export function getEatingPage(lang: Locale) {
         places: [
           { name: 'Bottega delle Cassatelle', category: l('Cassatelle · pasticceria', 'Cassatelle · pastry shop'), text: l('Una sosta dedicata al dolce più riconoscibile di Agira.', 'A stop for Agira’s best-known sweet.'), href: 'https://bottegadellecassatelle.it' },
           { name: 'Dolc’è Agira · La Dolciaria', category: l('Pasticceria · produzione dolciaria', 'Pastry shop · confectionery'), text: l('La Dolciaria è una delle realtà legate alla produzione delle cassatelle agirine.', 'La Dolciaria is one of the local makers of Agira’s cassatelle.'), href: 'https://ladolciaria-agira.com' },
-          { name: 'Bar Monte Teja', category: l('Caffetteria · pasticceria', 'Café · pastry shop'), text: l('Caffetteria e pasticceria in via Collegio.', 'A café and pastry shop on Via Collegio.'), href: 'https://restaurantguru.it/Bar-Monte-Teja-Agira' },
           { name: 'Antichi Sapori “’nto catoju”', category: l('Dolci · sapori locali', 'Sweets · local flavours'), text: l('Una tappa da esplorare tra i sapori di Agira.', 'A place to explore among the flavours of Agira.'), href: mapSearch('Antichi Sapori nto catoju') },
           { name: 'Panificio Giunta Angela', category: l('Panificio · dolci', 'Bakery · sweets'), text: l('Un panificio ad Agira.', 'A bakery in Agira.'), href: mapSearch('Panificio Giunta Angela') },
         ],
