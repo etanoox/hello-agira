@@ -100,7 +100,7 @@
 .route-index{display:inline-block;transition:transform .4s}
 .stay-photo{overflow:hidden}
 .stay-photo img{height:118%;min-height:100%;object-fit:cover}
-.history-words{color:transparent;-webkit-text-stroke:1px #c7d4c588;font-size:clamp(2.4rem,4vw,4.2rem);line-height:1.1}
+.history-words{color:#667761;-webkit-text-stroke:0;font-size:clamp(2.4rem,4vw,4.2rem);line-height:1.1}
 /* Gallery uses the native dialog focus trap and Escape support. */
 body.gallery-is-open{overflow:hidden}
 .photo-gallery{background:var(--forest-dark);color:var(--stone);border:0;margin:0;padding:1.5rem 3rem 1.75rem;width:100%;max-width:100vw;height:100dvh;max-height:100dvh;overflow:hidden}
