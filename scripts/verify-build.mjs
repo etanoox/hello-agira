@@ -5,6 +5,7 @@ const directory = 'dist';
 const read = file => fs.readFileSync(path.join(directory,file),'utf8');
 const htmlPages = ['it/index.html','en/index.html','it/itinerari/index.html','en/itineraries/index.html','it/cosa-vedere/index.html','en/things-to-see/index.html','it/mangiare/index.html','en/food-and-drink/index.html','it/dormire/index.html','en/where-to-stay/index.html','it/storia/index.html','en/history/index.html','it/eventi/index.html','en/events/index.html','it/sagra-cassatella/index.html','en/cassatella-festival/index.html'];
 const detailPairs = [
+  { it: '/it/cosa-vedere/palazzo-baronale-manmano-gussio/', en: '/en/things-to-see/palazzo-baronale-manmano-gussio/' },
   { it: '/it/cosa-vedere/cimitero-militare-canadese/', en: '/en/things-to-see/agira-canadian-war-cemetery/' },
   { it: '/it/cosa-vedere/aron-memoria-ebraica/', en: '/en/things-to-see/aron-jewish-heritage/' },
   { it: '/it/cosa-vedere/chiesa-sant-antonio-di-padova/', en: '/en/things-to-see/saint-anthony-of-padua-church/' },
@@ -97,4 +98,9 @@ for (const file of ['it/cosa-vedere/aron-memoria-ebraica/index.html', 'en/things
 
 for (const file of ['it/cosa-vedere/cimitero-militare-canadese/index.html', 'en/things-to-see/agira-canadian-war-cemetery/index.html']) {
   assert.ok(!read(file).includes('data-audio-guide'), 'Cemetery audio remains unpublished until available');
+}
+
+for (const lang of ['it','en']) {
+ const folder = lang === 'it' ? 'cosa-vedere' : 'things-to-see';
+ assert.ok(!read(`${lang}/${folder}/palazzo-baronale-manmano-gussio/index.html`).includes('data-audio-guide'), 'Palace audio is not yet available');
 }

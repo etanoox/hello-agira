@@ -39,6 +39,7 @@ export type ItineraryId = keyof typeof itinerarySlugs;
 export const itineraryUrl = (id: ItineraryId, lang: Locale) => `${pageUrl('routes', lang)}${itinerarySlugs[id][lang]}/`;
 
 export const sightSlugs = {
+  manmanoGussio: { it: 'palazzo-baronale-manmano-gussio', en: 'palazzo-baronale-manmano-gussio' },
   canadianCemetery: { it: 'cimitero-militare-canadese', en: 'agira-canadian-war-cemetery' },
   aron: { it: 'aron-memoria-ebraica', en: 'aron-jewish-heritage' },
   saintAnthony: { it: 'chiesa-sant-antonio-di-padova', en: 'saint-anthony-of-padua-church' },

@@ -635,5 +635,29 @@
       "it": "Il Cimitero militare canadese di Agira.",
       "en": "Agira Canadian War Cemetery."
     }
+  },
+  "manmanoGussio": {
+    "width": 1536,
+    "height": 2048,
+    "widths": [
+      480,
+      800,
+      1200,
+      1536
+    ],
+    "alt": {
+      "it": "Soffitto dipinto e lampadario negli interni del Palazzo baronale Manmano Gussio ad Agira.",
+      "en": "Painted ceiling and chandelier inside Palazzo baronale Manmano Gussio in Agira."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Gli interni del Palazzo baronale Manmano Gussio.",
+      "en": "Inside Palazzo baronale Manmano Gussio."
+    }
   }
 }
