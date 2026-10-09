@@ -11,7 +11,11 @@ export function getManmanoGussioPage(lang: Locale): SightPage {
     introduction: l('Alza lo sguardo. Tra scene dipinte, cornici e dettagli ornamentali, Palazzo baronale Manmano Gussio offre un incontro con il patrimonio delle dimore storiche di Agira.', 'Look up. Among painted scenes, frames and ornamental details, Palazzo baronale Manmano Gussio offers an encounter with Agira’s historic residential heritage.'),
     image: 'manmanoGussio', location: l('Via Norfo 2 · angolo via Diodorea 135 · Agira', 'Via Norfo 2 · corner of Via Diodorea 135 · Agira'),
     mapQuery: 'Palazzo Manmano Gussio Via Norfo 2 Agira',
-    visitorNote: l('Il palazzo è visitabile previa prenotazione. Concorda la visita con i referenti della dimora prima di recarti sul posto.', 'The palace can be visited by prior reservation. Arrange your visit with the residence’s representatives before arriving.'),
+    visitorNote: l('Il palazzo è visitabile previa prenotazione. Per concordare la visita, contatta Orazio La Delfa al +39 328 779 7235, anche su WhatsApp.', 'The palace can be visited by prior reservation. To arrange a visit, contact Orazio La Delfa on +39 328 779 7235, also available on WhatsApp.'),
+    visitorContacts: [
+      { label: l('Chiama Orazio La Delfa · +39 328 779 7235', 'Call Orazio La Delfa · +39 328 779 7235'), href: 'tel:+393287797235' },
+      { label: l('Prenota su WhatsApp · Orazio La Delfa', 'Book via WhatsApp · Orazio La Delfa'), href: 'https://wa.me/393287797235' },
+    ],
     facts: [
       { label: l('Denominazione', 'Name'), value: 'Palazzo baronale Manmano Gussio' },
       { label: l('Già', 'Formerly'), value: 'Trigona di S. Elia' },
@@ -29,12 +33,16 @@ export function getManmanoGussioPage(lang: Locale): SightPage {
       { title: l('Il recente restauro', 'The recent restoration'), text: l('Un’occasione per conoscere il recupero della dimora curato da Orazio La Delfa.', 'An opportunity to learn about the residence’s restoration by Orazio La Delfa.') },
     ],
     practical: [
-      { title: l('Prenotare la visita', 'Arranging a visit'), text: l('La visita richiede prenotazione. Concorda giorno, orario e condizioni di accesso con i referenti del palazzo.', 'Visits require prior reservation. Agree on the date, time and access arrangements with the palace’s representatives.') },
+      { title: l('Prenotare la visita', 'Arranging a visit'), text: l('La visita richiede prenotazione. Contatta Orazio La Delfa al +39 328 779 7235, per telefono o WhatsApp, per concordare giorno, orario e condizioni di accesso.', 'Visits require prior reservation. Contact Orazio La Delfa on +39 328 779 7235 by phone or WhatsApp to agree on the date, time and access arrangements.') },
       { title: l('Dove si trova', 'Location'), text: l('L’indirizzo è via Norfo 2, angolo via Diodorea 135, ad Agira. Usa la mappa come aiuto per orientarti e verifica sul posto l’ingresso concordato.', 'The address is Via Norfo 2, on the corner of Via Diodorea 135, in Agira. Use the map to get your bearings and confirm the agreed entrance on arrival.') },
       { title: l('Durante la visita', 'During your visit'), text: l('Segui le indicazioni dei referenti della dimora e chiedi prima di fotografare gli ambienti. Evita di toccare decorazioni e arredi.', 'Follow the guidance of the residence’s representatives and ask before photographing the rooms. Avoid touching decorations and furnishings.') },
       { title: l('Accessibilità', 'Accessibility'), text: l('Se hai esigenze di mobilità, verifica al momento della prenotazione gli ingressi, le scale e gli ambienti accessibili.', 'If you have mobility requirements, check entrances, stairs and accessible rooms when arranging your visit.') },
     ],
-    gallery: [{ key: 'manmanoGussio', title: l('Il soffitto decorato e il lampadario del palazzo', 'The palace’s decorated ceiling and chandelier') }],
+    gallery: [
+      { key: 'manmanoGussio', title: l('Il soffitto decorato e il lampadario del palazzo', 'The palace’s decorated ceiling and chandelier') },
+      { key: 'manmanoGussioFacade', title: l('La facciata del Palazzo baronale Manmano Gussio', 'The façade of Palazzo baronale Manmano Gussio') },
+      { key: 'manmanoGussioMirror', title: l('Il soffitto e il lampadario riflessi nello specchio', 'The ceiling and chandelier reflected in the mirror') },
+    ],
     sources: [{ title: 'Graziella Graziano — Palazzo Manmano Gussio, Nuove Edizioni Bohemien', url: 'https://www.nuoveedizionibohemien.it/index.php/27179/' }],
   };
 }

@@ -659,5 +659,53 @@
       "it": "Gli interni del Palazzo baronale Manmano Gussio.",
       "en": "Inside Palazzo baronale Manmano Gussio."
     }
+  },
+  "manmanoGussioFacade": {
+    "width": 1685,
+    "height": 1387,
+    "widths": [
+      480,
+      800,
+      1200,
+      1685
+    ],
+    "alt": {
+      "it": "La facciata del Palazzo baronale Manmano Gussio.",
+      "en": "The façade of Palazzo baronale Manmano Gussio."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "La facciata del Palazzo baronale Manmano Gussio.",
+      "en": "The façade of Palazzo baronale Manmano Gussio."
+    }
+  },
+  "manmanoGussioMirror": {
+    "width": 2048,
+    "height": 1536,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "alt": {
+      "it": "Il soffitto decorato e il lampadario riflessi in uno specchio del palazzo.",
+      "en": "The decorated ceiling and chandelier reflected in a mirror inside the palace."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Il soffitto decorato e il lampadario riflessi in uno specchio del palazzo.",
+      "en": "The decorated ceiling and chandelier reflected in a mirror inside the palace."
+    }
   }
 }
