@@ -12,15 +12,15 @@ const { lang } = Astro.props;
 const localizedPaths = { it: pageUrl('events', 'it'), en: pageUrl('events', 'en') };
 const copy = lang === 'it' ? {
   title: 'Eventi e tradizioni ad Agira | Hello Agira',
-  description: 'Eventi ad Agira: Sagra della Cassatella domenica 8 novembre 2026, dalle 10:00 alle 24:00 in Piazza Europa, e tradizioni di San Filippo.',
+  description: 'Eventi ad Agira: Sagra della Cassatella domenica 15 novembre 2026, dalle 10:00 alle 24:00 in Piazza Europa, e tradizioni di San Filippo.',
   eyebrow: 'AGIRA · IL CALENDARIO DELLE TRADIZIONI',
   heading: 'Ci sono giorni\nche restano.',
   intro: 'Le feste raccontano un paese in un modo diverso: attraverso i sapori, i riti e il piacere di ritrovarsi.',
   action: 'Scopri gli appuntamenti',
   calendarEyebrow: '01 / IN CALENDARIO',
   calendarTitle: 'Un’occasione per venire ad Agira.',
-  calendarIntro: 'La Sagra della Cassatella ti aspetta domenica 8 novembre 2026, dalle 10:00 alle 24:00, in Piazza Europa ad Agira.',
-  festivalEyebrow: 'PROSSIMO APPUNTAMENTO · DOMENICA 8 NOVEMBRE 2026',
+  calendarIntro: 'La Sagra della Cassatella ti aspetta domenica 15 novembre 2026, dalle 10:00 alle 24:00, in Piazza Europa ad Agira.',
+  festivalEyebrow: 'PROSSIMO APPUNTAMENTO · DOMENICA 15 NOVEMBRE 2026',
   festivalTitle: 'La Sagra della Cassatella.',
   festivalText: 'La festa celebra il dolce simbolo di Agira e invita a scoprire il paese attraverso i suoi sapori e le sue tradizioni.',
   festivalAction: 'Vai alla pagina della Sagra',
@@ -39,15 +39,15 @@ const copy = lang === 'it' ? {
   food: 'Dove mangiare',
 } : {
   title: 'Events and traditions in Agira | Hello Agira',
-  description: 'Events in Agira: the Cassatella Festival on Sunday 8 November 2026, from 10:00 to midnight in Piazza Europa, and Saint Philip traditions.',
+  description: 'Events in Agira: the Cassatella Festival on Sunday 15 November 2026, from 10:00 to midnight in Piazza Europa, and Saint Philip traditions.',
   eyebrow: 'AGIRA · A CALENDAR OF TRADITIONS',
   heading: 'Some days\nstay with you.',
   intro: 'Festivals tell the story of a place in a different way: through its flavours, rituals and the joy of coming together.',
   action: 'Explore the calendar',
   calendarEyebrow: '01 / ON THE CALENDAR',
   calendarTitle: 'A reason to come to Agira.',
-  calendarIntro: 'Join the Cassatella Festival on Sunday 8 November 2026, from 10:00 to midnight, in Piazza Europa, Agira.',
-  festivalEyebrow: 'NEXT EVENT · SUNDAY 8 NOVEMBER 2026',
+  calendarIntro: 'Join the Cassatella Festival on Sunday 15 November 2026, from 10:00 to midnight, in Piazza Europa, Agira.',
+  festivalEyebrow: 'NEXT EVENT · SUNDAY 15 NOVEMBER 2026',
   festivalTitle: 'The Cassatella Festival.',
   festivalText: 'The festival celebrates Agira’s signature pastry and invites visitors to discover the town through its flavours and traditions.',
   festivalAction: 'Explore the festival page',
@@ -110,7 +110,7 @@ const foodHref = pageUrl('eat', lang);
             <p>{copy.festivalText}</p>
             <a class="text-link" href={festivalHref}>{copy.festivalAction}<Icon name="arrow"/></a>
           </div>
-          <aside class="events-date-tile" aria-label={lang === 'it' ? 'Domenica 8 novembre 2026' : 'Sunday 8 November 2026'}>
+          <aside class="events-date-tile" aria-label={lang === 'it' ? 'Domenica 15 novembre 2026' : 'Sunday 15 November 2026'}>
             <span>{lang === 'it' ? 'DOMENICA' : 'SUNDAY'}</span><strong>15</strong><p>{lang === 'it' ? 'NOVEMBRE' : 'NOVEMBER'}<br/>2026</p><small>AGIRA · SICILIA</small>
           </aside>
         </article>
