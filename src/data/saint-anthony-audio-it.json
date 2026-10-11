@@ -1,0 +1,98 @@
+{
+  "language": "it",
+  "chapters": [
+    {
+      "id": "00-introduction",
+      "src": "/audio/sant-antonio/it/00-introduction.mp3",
+      "durationSeconds": 20.69,
+      "title": {
+        "it": "Introduzione",
+        "en": "Introduction"
+      },
+      "transcript": [
+        "Benvenuti nella chiesa di Sant’Antonio di Padova.",
+        "Costruita nel millecinquecentosessantasette sul luogo in cui sorgeva una piccola cappella, questa chiesa ha attraversato secoli di storia. Con la sua imponente facciata, l’elegante cupola e le preziose opere d’arte, è uno dei tesori di Agira. Iniziamo insieme la nostra visita."
+      ]
+    },
+    {
+      "id": "01-chapter",
+      "src": "/audio/sant-antonio/it/01-chapter.mp3",
+      "durationSeconds": 30.43,
+      "title": {
+        "it": "Origini e costruzione",
+        "en": "Chapter 1"
+      },
+      "transcript": [
+        "La chiesa fu edificata nel millecinquecentosessantasette su un terreno donato dai baroni Zuccaro. La sua storia, però, era cominciata prima: già nel millecinquecentocinque sorgeva qui una cappella dedicata alla Vergine Maria.",
+        "L’edificio presenta una pianta a croce latina con tre navate. Nel milleseicentottanta fu completato il campanile, che contribuì a dare alla chiesa il suo caratteristico profilo nel panorama di Agira."
+      ]
+    },
+    {
+      "id": "02-chapter",
+      "src": "/audio/sant-antonio/it/02-chapter.mp3",
+      "durationSeconds": 38.35,
+      "title": {
+        "it": "La facciata e la cupola",
+        "en": "Chapter 2"
+      },
+      "transcript": [
+        "La facciata, progettata nel millesettecentocinquantaquattro da Antonio Caruso, è uno degli elementi più affascinanti della chiesa. Caruso fu allievo di Giovanni Battista Vaccarini, maestro dell’architettura barocca siciliana. La sua influenza è così evidente che, osservando la facciata e confrontandola con quella della cattedrale di Catania, la somiglianza colpisce subito.",
+        "Nel milleottocentocinquantaquattro fu aggiunta la cupola, che conferì armonia e imponenza all’intero edificio, in cui si intrecciano elementi del tardo barocco e dello stile neoclassico."
+      ]
+    },
+    {
+      "id": "03-chapter",
+      "src": "/audio/sant-antonio/it/03-chapter.mp3",
+      "durationSeconds": 36.28,
+      "title": {
+        "it": "I momenti difficili",
+        "en": "Chapter 3"
+      },
+      "transcript": [
+        "Come molti monumenti storici, anche questa chiesa ha vissuto eventi drammatici. Nel milleottocentosessantanove, un devastante incendio distrusse il coro e molti degli affreschi della volta.",
+        "Più tardi, nel millenovecentosessantanove, gravi danni strutturali ne imposero la chiusura per quasi trent’anni. Soltanto nel millenovecentonovantotto, dopo lunghi lavori di restauro, l’edificio fu riaperto al pubblico.",
+        "Queste vicende raccontano la capacità del monumento e della comunità locale di resistere alle difficoltà e di rinascere."
+      ]
+    },
+    {
+      "id": "04-chapter",
+      "src": "/audio/sant-antonio/it/04-chapter.mp3",
+      "durationSeconds": 42.68,
+      "title": {
+        "it": "I tesori artistici",
+        "en": "Chapter 4"
+      },
+      "transcript": [
+        "Al suo interno, la chiesa custodisce una preziosa raccolta di opere d’arte. Tra queste troviamo un rilievo marmoreo dell’Epifania del sedicesimo secolo e una statua lignea di papa San Silvestro, risalente al milleseicentoquattro, accompagnata da pannelli scolpiti che raccontano la conversione dell’imperatore Costantino.",
+        "Troverete anche la Madonna dei Poveri, del milleseicentotto, l’elegante altare del Santissimo Sacramento e la sala capitolare, restaurata di recente.",
+        "Uno dei capolavori più importanti è il crocifisso ligneo del quindicesimo secolo, attribuito al Maestro della Croce di Piazza Armerina e proveniente dalla chiesa di Sant’Antonio Abate."
+      ]
+    },
+    {
+      "id": "05-chapter",
+      "src": "/audio/sant-antonio/it/05-chapter.mp3",
+      "durationSeconds": 29.65,
+      "title": {
+        "it": "La storica rivalità",
+        "en": "Chapter 5"
+      },
+      "transcript": [
+        "Per secoli, la chiesa di Sant’Antonio di Padova contese a Santa Margherita il diritto di essere la chiesa madre di Agira. Fu una disputa lunga e aspra, ma alla fine nessuna delle due prevalse.",
+        "È per questo che, a differenza di molti altri centri siciliani, Agira non ha un’unica chiesa principale. Entrambe mantengono un ruolo centrale nella storia, nella fede e nell’identità della città."
+      ]
+    },
+    {
+      "id": "06-closing",
+      "src": "/audio/sant-antonio/it/06-closing.mp3",
+      "durationSeconds": 26.12,
+      "title": {
+        "it": "Conclusione",
+        "en": "Closing and thanks"
+      },
+      "transcript": [
+        "Grazie per averci accompagnato in questa visita alla chiesa di Sant’Antonio di Padova. Speriamo che abbiate apprezzato la scoperta della sua storia, della sua architettura e dei suoi tesori artistici.",
+        "La scoperta continua: Agira è ricca di chiese, monumenti e storie affascinanti che aspettano di essere esplorati. Ascoltate anche le nostre altre audioguide e proseguite il vostro viaggio in questa splendida città."
+      ]
+    }
+  ]
+}
