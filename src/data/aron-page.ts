@@ -1,15 +1,17 @@
 import type { Locale } from '../lib/i18n';
 import type { SightPage } from './sight-pages';
-import audio from './aron-audio.json';
+import englishAudio from './aron-audio.json';
+import italianAudio from './aron-audio-it.json';
 
 export function getAronPage(lang: Locale): SightPage {
   const l = (it: string, en: string) => lang === 'it' ? it : en;
+  const audio = lang === 'it' ? italianAudio : englishAudio;
   const seconds = Math.floor(audio.chapters.reduce((sum, chapter) => sum + chapter.durationSeconds, 0));
   return {
     id: 'aron', name: l('L’Aron e la memoria ebraica', 'The Aron and Jewish heritage'),
     category: l('Pietra, parole e memoria', 'Stone, words and memory'),
     title: l('Aron ebraico di Agira: storia e audioguida | Hello Agira', 'Agira’s Jewish Aron: history and audio guide | Hello Agira'),
-    description: l('Scopri l’Aron in pietra di Agira, datato 1454 e conservato nella Collegiata del SS. Salvatore, con un’audioguida in inglese in tre capitoli.', 'Discover Agira’s stone Aron, dated to 1454 and preserved in the Collegiate Church of SS. Salvatore, with a three-chapter English audio guide.'),
+    description: l('Scopri l’Aron in pietra di Agira, datato 1454 e conservato nella Collegiata del SS. Salvatore, con un’audioguida in italiano in tre capitoli.', 'Discover Agira’s stone Aron, dated to 1454 and preserved in the Collegiate Church of SS. Salvatore, with a three-chapter English audio guide.'),
     introduction: l('Una testimonianza in pietra della storia ebraica di Agira. L’Aron invita a fermarsi sulle parole incise e sulla memoria della comunità a cui apparteneva.', 'A stone witness to Agira’s Jewish history. The Aron invites you to pause over its carved words and the memory of the community to which it belonged.'),
     image: 'ssalvatore', location: l('Collegiata del SS. Salvatore · Agira', 'Collegiate Church of SS. Salvatore · Agira'),
     mapQuery: 'Collegiata Santissimo Salvatore Agira',
@@ -17,7 +19,7 @@ export function getAronPage(lang: Locale): SightPage {
     facts: [
       { label: l('Datazione', 'Date'), value: '1454' },
       { label: l('Conservato nella', 'Preserved in'), value: l('Collegiata del SS. Salvatore', 'Collegiate Church of SS. Salvatore') },
-      { label: l('Audioguida', 'Audio guide'), value: l('In inglese · 3 capitoli', 'English · 3 chapters') },
+      { label: l('Audioguida', 'Audio guide'), value: l('In italiano · 3 capitoli', 'English · 3 chapters') },
       { label: l('Durata', 'Duration'), value: `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}` },
     ],
     story: [
@@ -31,7 +33,7 @@ export function getAronPage(lang: Locale): SightPage {
     ],
     practical: [
       { title: l('Organizzare la visita', 'Planning your visit'), text: l('Verifica direttamente con la chiesa gli orari e la possibilità di osservare l’Aron.', 'Check opening hours and arrangements for viewing the Aron directly with the church.') },
-      { title: l('Ascoltare sul posto', 'Listening on site'), text: l('Usa le cuffie e rispetta preghiere e celebrazioni. Gli audio sono in inglese su entrambe le versioni del sito; serve una connessione internet.', 'Use headphones and respect prayer and services. The recordings are in English on both versions of the site; an internet connection is required.') },
+      { title: l('Ascoltare sul posto', 'Listening on site'), text: l('Usa le cuffie e rispetta preghiere e celebrazioni. Gli audio seguono la lingua della pagina: italiano o inglese. Serve una connessione internet.', 'Use headphones and respect prayer and services. The recordings follow the page language: Italian or English. An internet connection is required.') },
       { title: l('Accessibilità', 'Accessibility'), text: l('Per esigenze di mobilità, chiedi informazioni aggiornate sugli ingressi e sull’accesso al monumento prima della visita.', 'If you have mobility requirements, ask for current information about entrances and access to the monument before visiting.') },
     ],
     gallery: [{ key: 'ssalvatore', title: l('La Collegiata del SS. Salvatore, che conserva l’Aron', 'The Collegiate Church of SS. Salvatore, where the Aron is preserved') }],
@@ -39,8 +41,8 @@ export function getAronPage(lang: Locale): SightPage {
       { title: 'Università di Messina · Sicilia Semitica — Corpus delle iscrizioni ebraiche', url: 'https://siciliasemitica.unime.it/wp-content/uploads/sites/27/2024/12/2-Corpus-delle-iscrizioni-ebraiche-in-Sicilia.pdf' },
     ],
     audio: {
-      language: 'en', title: l('L’Aron, raccontato.', 'The Aron, narrated.'),
-      introduction: l('Tre capitoli in inglese, da ascoltare in sequenza o singolarmente: l’arca sacra, l’iscrizione e la memoria ebraica di Agira.', 'Three chapters in English to listen to in sequence or individually: the sacred ark, the inscription and Agira’s Jewish heritage.'),
+      language: lang, title: l('L’Aron, raccontato.', 'The Aron, narrated.'),
+      introduction: l('Tre capitoli in italiano, da ascoltare in sequenza o singolarmente: l’arca sacra, l’iscrizione e la memoria ebraica di Agira.', 'Three chapters in English to listen to in sequence or individually: the sacred ark, the inscription and Agira’s Jewish heritage.'),
       chapters: audio.chapters.map(chapter => ({ src: chapter.src, durationSeconds: chapter.durationSeconds, title: chapter.title[lang], transcript: chapter.transcript })),
     },
   };
