@@ -81,7 +81,8 @@ for (const file of ['it/cosa-vedere/castello-di-agira/index.html','en/things-to-
   for (const match of html.matchAll(/href="(\/audio\/castello\/en\/[^"]+\.mp3)"/g)) {
     assert.ok(fs.existsSync(path.join(directory, match[1])), `Missing castle audio: ${match[1]}`);
   }
-  assert.ok(!/<iframe[^>]*\ssrc=/.test(html), 'Map loads only on request');
+  const iframeSources = [...html.matchAll(/<iframe\b[^>]*\ssrc="([^"]+)"/g)].map(match => match[1]);
+  assert.ok(iframeSources.every(src => src === 'https://www.googletagmanager.com/ns.html?id=GTM-TG2VSHS8'), 'Map loads only on request; GTM noscript iframe is allowed');
   if(html.includes('rel="canonical"')) assert.ok(html.includes('TouristAttraction') && html.includes('BreadcrumbList'), 'Place structured data');
 }
 assert.notEqual(titles[0],titles[1],'Localized titles must differ');
