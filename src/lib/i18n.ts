@@ -19,6 +19,7 @@ export type Section = keyof typeof sectionIds;
 export const anchor = (key: Section, lang: Locale) => `#${sectionIds[key][lang]}`;
 // Future page translations are mapped by entityId, never inferred by replacing slugs.
 export const clusters = {
+  services: { it: 'servizi-utili', en: 'useful-services' },
   sights: { it: 'cosa-vedere', en: 'things-to-see' },
   eat: { it: 'mangiare', en: 'food-and-drink' },
   stay: { it: 'dormire', en: 'where-to-stay' },
