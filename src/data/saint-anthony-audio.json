@@ -9,7 +9,10 @@
         "it": "Introduzione",
         "en": "Introduction"
       },
-      "transcript": []
+      "transcript": [
+        "Welcome to the Church of Saint Anthony of Padua.",
+        "Built in 1567 on the site of a small chapel, this church has witnessed centuries of history. With its striking façade, elegant dome, and precious artworks, it is one of the treasures of Agira. Let’s begin our guided tour."
+      ]
     },
     {
       "id": "01-chapter",
@@ -19,7 +22,10 @@
         "it": "Capitolo 1",
         "en": "Chapter 1"
       },
-      "transcript": []
+      "transcript": [
+        "The church was erected in 1567 on land donated by the Zuccaro barons, but its story began earlier, in 1505, when a chapel dedicated to the Virgin Mary already stood here.",
+        "The building follows a Latin cross plan with three naves, and in 1680 the bell tower was completed, giving the church its distinctive profile on the skyline of Agira."
+      ]
     },
     {
       "id": "02-chapter",
@@ -29,7 +35,10 @@
         "it": "Capitolo 2",
         "en": "Chapter 2"
       },
-      "transcript": []
+      "transcript": [
+        "The façade, designed in 1754 by Antonio Caruso, is one of the church’s most remarkable features. Caruso was a student of Giovanni Battista Vaccarini, master of Sicilian Baroque architecture. The influence is so evident that, when compared with the cathedral of Catania, the resemblance is striking.",
+        "In 1854, the dome was added, bringing harmony and grandeur to the whole structure, a blend of late Baroque and neoclassical style."
+      ]
     },
     {
       "id": "03-chapter",
@@ -39,7 +48,10 @@
         "it": "Capitolo 3",
         "en": "Chapter 3"
       },
-      "transcript": []
+      "transcript": [
+        "Like many historic monuments, the church has endured tragic events. In 1869, a devastating fire destroyed the choir and many frescoes of the vault.",
+        "Later, in 1969, severe structural damage forced its closure for almost thirty years. Only in 1998, after long restoration works, did the building reopen to the public. These trials reveal the resilience of both the monument and the local community."
+      ]
     },
     {
       "id": "04-chapter",
@@ -49,7 +61,11 @@
         "it": "Capitolo 4",
         "en": "Chapter 4"
       },
-      "transcript": []
+      "transcript": [
+        "Inside, the church preserves a fine collection of artworks. Among them: a 16th-century marble relief of the Epiphany, and a wooden statue of Pope Saint Sylvester from 1604, with carved panels narrating the conversion of Emperor Constantine.",
+        "You will also find the Madonna of the Poor from 1608, the elegant Altar of the Blessed Sacrament, and the recently restored Chapter Hall.",
+        "One of the greatest masterpieces is the 15th-century wooden crucifix, attributed to the Master of the Cross of Piazza Armerina, originally from the church of Saint Anthony Abbot."
+      ]
     },
     {
       "id": "05-chapter",
@@ -59,7 +75,10 @@
         "it": "Capitolo 5",
         "en": "Chapter 5"
       },
-      "transcript": []
+      "transcript": [
+        "For centuries, the Church of Saint Anthony of Padua competed with Santa Margherita for the right to be the mother church of Agira. The contest was long and bitter, but in the end neither prevailed.",
+        "This is why, unlike many Sicilian towns, Agira has no single main church. Instead, both remain equally central to its history, faith, and identity."
+      ]
     },
     {
       "id": "06-closing",
@@ -69,7 +88,10 @@
         "it": "Conclusione e ringraziamenti",
         "en": "Closing and thanks"
       },
-      "transcript": []
+      "transcript": [
+        "Thank you for joining us on this tour of the Church of Saint Anthony of Padua. We hope you enjoyed discovering its history, architecture, and artistic treasures.",
+        "Don’t stop here—Agira is full of fascinating churches, monuments, and stories waiting to be explored. Be sure to listen to our other audioguides and continue your journey through this beautiful town."
+      ]
     }
   ]
 }
