@@ -1,16 +1,18 @@
 import type { Locale } from '../lib/i18n';
 import type { SightPage } from './sight-pages';
-import audio from './abbey-audio.json';
+import englishAudio from './abbey-audio.json';
+import italianAudio from './abbey-audio-it.json';
 
 export function getAbbeyPage(lang: Locale): SightPage {
   const l = (it: string, en: string) => lang === 'it' ? it : en;
+  const audio = lang === 'it' ? italianAudio : englishAudio;
   const seconds = Math.floor(audio.chapters.reduce((sum, chapter) => sum + chapter.durationSeconds, 0));
   const duration = `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}`;
   return {
     id: 'abbey', name: l('L’Abbazia di San Filippo', 'San Filippo Abbey'),
     category: l('Fede, arte e memoria', 'Faith, art and memory'),
     title: l('Abbazia di San Filippo ad Agira e audioguida | Hello Agira', 'San Filippo Abbey in Agira and audio guide | Hello Agira'),
-    description: l('Visita l’Abbazia di San Filippo ad Agira: scopri il luogo e ascolta l’audioguida in inglese, con introduzione e sette capitoli dedicati.', 'Explore San Filippo Abbey in Agira with an English audio guide: an introduction and seven chapters, photographs and useful visiting information.'),
+    description: l('Visita l’Abbazia di San Filippo ad Agira: scopri il luogo e ascolta l’audioguida in italiano, con introduzione, sette capitoli e conclusione.', 'Explore San Filippo Abbey in Agira with an English audio guide: an introduction and seven chapters, photographs and useful visiting information.'),
     introduction: l('Una scalinata, una facciata, un luogo legato alla memoria religiosa di Agira. Fermati all’Abbazia di San Filippo e lascia che il racconto accompagni il tuo sguardo.', 'A flight of steps, a façade, a place connected to Agira’s religious heritage. Stop at San Filippo Abbey and let the story guide your gaze.'),
     image: 'abbey', location: l('Abbazia di San Filippo · Agira, EN · Sicilia', 'San Filippo Abbey · Agira, EN · Sicily'),
     mapQuery: 'Abbazia di San Filippo, Agira, Sicilia',
@@ -21,7 +23,7 @@ export function getAbbeyPage(lang: Locale): SightPage {
     ],
     facts: [
       { label: l('Il luogo', 'The place'), value: l('Abbazia di San Filippo', 'San Filippo Abbey') },
-      { label: l('Audioguida', 'Audio guide'), value: l('In inglese · introduzione e 7 capitoli', 'English · introduction and 7 chapters') },
+      { label: l('Audioguida', 'Audio guide'), value: l('In italiano · 9 tracce', 'English · introduction and 7 chapters') },
       { label: l('Durata dell’ascolto', 'Listening time'), value: duration },
     ],
     story: [
@@ -42,14 +44,14 @@ export function getAbbeyPage(lang: Locale): SightPage {
       { title: l('Accesso e orari', 'Access and opening hours'), text: l('Verifica gli orari con il santuario prima della visita. L’accesso agli ambienti citati nell’audioguida può essere limitato e dipende dalle condizioni del momento.', 'Check opening hours with the sanctuary before your visit. Access to spaces mentioned in the guide may be restricted and depends on current arrangements.') },
       { title: l('Durante le celebrazioni', 'During services'), text: l('Rispetta chi è in preghiera. Ascolta con le cuffie e rimanda la visita degli interni se è in corso una celebrazione.', 'Respect those at prayer. Use headphones and postpone exploring the interior if a service is taking place.') },
       { title: l('Scale e accessibilità', 'Steps and accessibility'), text: l('Prima di organizzare la visita, chiedi al santuario informazioni sugli ingressi e sui percorsi disponibili per le tue esigenze di mobilità.', 'Before planning your visit, ask the sanctuary about entrances and routes suitable for your mobility requirements.') },
-      { title: l('Come usare l’audioguida', 'Using the audio guide'), text: l('Gli audio sono attualmente in inglese anche su questa pagina. Puoi mettere in pausa, cambiare capitolo e regolare la velocità. La riproduzione richiede una connessione internet.', 'The recordings are in English. You can pause, switch chapters and adjust playback speed. Playback requires an internet connection.') },
+      { title: l('Come usare l’audioguida', 'Using the audio guide'), text: l('Gli audio di questa pagina sono in italiano. Puoi mettere in pausa, cambiare capitolo e regolare la velocità. La riproduzione richiede una connessione internet.', 'The recordings are in English. You can pause, switch chapters and adjust playback speed. Playback requires an internet connection.') },
     ],
     gallery: [{ key: 'abbey', title: l('L’Abbazia di San Filippo', 'San Filippo Abbey') }],
     sources: [],
     audio: {
       language: audio.language as Locale,
       title: l('L’Abbazia, raccontata.', 'The abbey, narrated.'),
-      introduction: l('Introduzione e sette capitoli, da ascoltare in sequenza o uno alla volta. L’audioguida è attualmente disponibile in inglese.', 'An introduction and seven chapters: listen in sequence or choose one at a time. This audio guide is in English.'),
+      introduction: l('Introduzione, sette capitoli e conclusione, da ascoltare in sequenza o uno alla volta. L’audioguida di questa pagina è in italiano.', 'An introduction and seven chapters: listen in sequence or choose one at a time. This audio guide is in English.'),
       chapters: audio.chapters.map(chapter => ({ src: chapter.src, durationSeconds: chapter.durationSeconds, title: chapter.title[lang], transcript: chapter.transcript })),
     },
   };
