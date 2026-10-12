@@ -98,7 +98,13 @@ for (const file of ['it/cosa-vedere/aron-memoria-ebraica/index.html', 'en/things
 }
 
 for (const file of ['it/cosa-vedere/cimitero-militare-canadese/index.html', 'en/things-to-see/agira-canadian-war-cemetery/index.html']) {
-  assert.ok(!read(file).includes('data-audio-guide'), 'Cemetery audio remains unpublished until available');
+  const html = read(file);
+  const lang = file.startsWith('it/') ? 'it' : 'en';
+  const expectedChapters = lang === 'it' ? 6 : 5;
+  assert.ok(html.includes('data-audio-guide'), 'Cemetery audio is available');
+  assert.equal((html.match(/<a\b[^>]*\sdata-audio-chapter(?:\s|>)/g) || []).length, expectedChapters, 'Cemetery chapter count matches the language');
+  assert.equal((html.match(/<details\b[^>]*id="audioguida-transcript-/g) || []).length, expectedChapters, 'Every cemetery chapter has a transcript');
+  assert.ok(html.includes(`/audio/cimitero-canadese/${lang}/`), 'Cemetery audio matches the page language');
 }
 
 for (const lang of ['it','en']) {
