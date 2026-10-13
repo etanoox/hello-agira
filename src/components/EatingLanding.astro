@@ -55,6 +55,7 @@ const routesHref = pageUrl('routes', lang);
           <div><p class="eyebrow">{group.number} / {group.eyebrow}</p><h2 id={`${group.id}-title`}>{group.title}</h2></div>
           <p>{group.intro}</p>
         </div>
+        {group.id === 'cassatelle-dolci' && <p style="margin-bottom:2rem"><a class="text-link" href={pageUrl('cassatella',lang)}>{lang === 'it' ? 'La Cassatella di Agira: storia, ingredienti e lavorazione' : 'Cassatella di Agira: history, ingredients and its making'}<Icon name="arrow"/></a></p>}
         <div class="food-place-grid">
           {group.places.map((place, i) => <article class={`food-place-card food-place-card-${i + 1}`}>
             <div class="food-place-top"><span class="food-place-number">{String(i + 1).padStart(2, '0')}</span><span class="food-place-category">{place.category}</span></div>

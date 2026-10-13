@@ -9,6 +9,7 @@ for (const name of fs.readdirSync(path.join(directory, 'images'))) {
 const read = file => fs.readFileSync(path.join(directory,file),'utf8');
 const htmlPages = ['it/index.html','en/index.html','it/itinerari/index.html','en/itineraries/index.html','it/cosa-vedere/index.html','en/things-to-see/index.html','it/mangiare/index.html','en/food-and-drink/index.html','it/dormire/index.html','en/where-to-stay/index.html','it/storia/index.html','en/history/index.html','it/eventi/index.html','en/events/index.html','it/sagra-cassatella/index.html','en/cassatella-festival/index.html'];
 const detailPairs = [
+  { it: '/it/cassatella-di-agira/', en: '/en/cassatella-di-agira/' },
   { it: '/it/cosa-vedere/palazzo-baronale-manmano-gussio/', en: '/en/things-to-see/palazzo-baronale-manmano-gussio/' },
   { it: '/it/cosa-vedere/cimitero-militare-canadese/', en: '/en/things-to-see/agira-canadian-war-cemetery/' },
   { it: '/it/cosa-vedere/aron-memoria-ebraica/', en: '/en/things-to-see/aron-jewish-heritage/' },

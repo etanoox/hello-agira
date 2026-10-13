@@ -151,6 +151,7 @@ const festivalArchive = lang === 'it' ? [
         <div class="festival-story-copy">
           <p>{copy.storyText}</p>
           <p>{copy.storyAside}</p>
+          <p><a class="text-link" href={pageUrl('cassatella',lang)}>{lang === 'it' ? 'Scopri la Cassatella di Agira: ingredienti e tradizione' : 'Discover Cassatella di Agira: ingredients and tradition'}<Icon name="arrow"/></a></p>
           <div class="festival-story-gallery" aria-label={lang === 'it' ? 'Locandine delle edizioni passate della Sagra' : 'Posters from past festival editions'}>
             {festivalArchive.map(item => <figure>
               <a href={item.src} target="_blank" rel="noopener noreferrer" aria-label={lang === 'it' ? `Apri la locandina: ${item.caption}` : `Open poster: ${item.caption}`}>
