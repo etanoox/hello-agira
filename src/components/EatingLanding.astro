@@ -55,7 +55,6 @@ const routesHref = pageUrl('routes', lang);
           <div><p class="eyebrow">{group.number} / {group.eyebrow}</p><h2 id={`${group.id}-title`}>{group.title}</h2></div>
           <p>{group.intro}</p>
         </div>
-        {group.id === 'cassatelle-dolci' && <p style="margin-bottom:2rem"><a class="text-link" href={pageUrl('cassatella',lang)}>{lang === 'it' ? 'La Cassatella di Agira: storia, ingredienti e lavorazione' : 'Cassatella di Agira: history, ingredients and its making'}<Icon name="arrow"/></a></p>}
         <div class="food-place-grid">
           {group.places.map((place, i) => <article class={`food-place-card food-place-card-${i + 1}`}>
             <div class="food-place-top"><span class="food-place-number">{String(i + 1).padStart(2, '0')}</span><span class="food-place-category">{place.category}</span></div>
@@ -64,6 +63,7 @@ const routesHref = pageUrl('routes', lang);
             <a class="text-link" href={place.href} target="_blank" rel="noopener noreferrer">{page.mapAction}<Icon name="diagonal"/></a>
           </article>)}
         </div>
+        {group.id === 'cassatelle-dolci' && <div class="food-cassatella-action"><a class="button button-yellow" href={pageUrl('cassatella',lang)}>{lang === 'it' ? 'Scopri la Cassatella di Agira' : 'Discover Cassatella di Agira'}<Icon name="arrow"/></a></div>}
       </div>
     </section>)}
 
@@ -82,3 +82,14 @@ const routesHref = pageUrl('routes', lang);
   <SiteFooter lang={lang} currentPage="eat"/>
   <script>import '../scripts/sights-reveal';</script>
 </Base>
+
+<style>
+  .food-hub-heading { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
+  .food-hub-heading > p { max-width: 42rem; margin: 0; line-height: 1.65; }
+  .food-cassatella-action { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--line); }
+  .food-cassatella-action .button { max-width: 100%; white-space: normal; }
+  @media (max-width: 700px) {
+    .food-hub-heading { gap: 1rem; }
+    .food-cassatella-action { margin-top: 2rem; padding-top: 1.5rem; }
+  }
+</style>
