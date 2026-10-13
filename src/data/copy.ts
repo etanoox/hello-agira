@@ -10,7 +10,7 @@ export function getCopy(lang: Locale) {
     heroText: l('Storie, luoghi e sapori.\nComincia da qui.', 'Places, stories and local flavours.\nYour journey starts here.'),
     explore: l('Scopri Agira', 'Discover Agira'), plan: l('Organizza la visita', 'Plan your visit'),
     heroCaption: l('Agira, il paese e il suo paesaggio.', 'Agira and the countryside beyond.'),
-    independent: l('Progetto editoriale indipendente', 'Independent editorial project'),
+    independent: l('Agira, raccontata da chi la vive.', 'Agira, told by those who call it home.'),
     introLabel: l('01 / Benvenuti ad Agira', '01 / Welcome to Agira'),
     introTitle: l('C’è una Sicilia\nche si scopre a piedi.', 'Some places are best\ndiscovered on foot.'),
     introLinks: [l('La sua storia', 'Its history'), l('I luoghi', 'The sights'), l('Come arrivare', 'Getting here')],
