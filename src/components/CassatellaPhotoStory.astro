@@ -1,0 +1,61 @@
+---
+import Photo from './Photo.astro';
+import PhotoGallery from './PhotoGallery.astro';
+import Icon from './Icon.astro';
+import photos from '../data/photos.json';
+import type { Locale } from '../lib/i18n';
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const l = (it: string, en: string) => lang === 'it' ? it : en;
+const items = [
+  { key: 'cassatelleAnello9890', title: l("Il gesto della farina", "A dusting of flour") },
+  { key: 'cassatelleAnello9889', title: l("La sfoglia e il mattarello", "Pastry and rolling pin") },
+  { key: 'cassatelleAnello9903', title: l("Il ripieno sulla sfoglia", "Filling the pastry") },
+  { key: 'cassatelleAnello9910', title: l("Lo stampo sul banco", "The pastry cutter") },
+  { key: 'cassatelleAnello9934', title: l("La teglia al forno", "The tray at the oven") },
+  { key: 'cassatelleAnello9938', title: l("Cassatelle nella luce calda", "Cassatelle in warm light") },
+  { key: 'cassatelleAnello9878', title: l("Cassatelle disposte sulla teglia", "Cassatelle arranged on a tray") },
+  { key: 'cassatelleAnello9882', title: l("Il bordo della cassatella", "The edge of a cassatella") },
+  { key: 'cassatelleAnello9917', title: l("La forma della cassatella", "The shape of a cassatella") },
+  { key: 'cassatelleAnello9923', title: l("Mani al lavoro", "Hands at work") },
+  { key: 'cassatelleAnello9926', title: l("La farina sul banco", "Flour on the worktop") },
+] satisfies {key: keyof typeof photos; title: string}[];
+const featured = items.slice(0,6);
+---
+<section class="pastry-story section" aria-labelledby="pastry-story-title">
+  <div class="container">
+    <header class="pastry-heading">
+      <div><p class="eyebrow">{l('GESTI E TRADIZIONE', 'CRAFT AND TRADITION')}</p><h2 id="pastry-story-title">{l('Le mani dietro la cassatella.', 'The hands behind the cassatella.')}</h2></div>
+      <div class="pastry-intro"><p>{l('La farina sul banco, la sfoglia, il ripieno, le teglie al forno. Un racconto fotografico della preparazione delle cassatelle di Agira, da osservare un gesto alla volta.', 'Flour on the worktop, pastry, filling and trays at the oven. A photographic journey through the making of Agira’s cassatelle, one gesture at a time.')}</p><p class="pastry-credit">{l('La preparazione delle cassatelle, nelle fotografie di Filippo Anello.', 'The making of cassatelle, photographed by Filippo Anello.')}</p></div>
+    </header>
+    <div class="pastry-photo-grid">
+      {featured.map((item,i) => <figure class:list={['pastry-frame', {'pastry-wide': i === 0 || i === 5}]}>
+        <a href={`/images/${item.key}-${Math.max(...photos[item.key].widths)}.webp`} data-gallery-open={item.key} aria-haspopup="dialog" aria-label={`${l('Ingrandisci', 'Enlarge')}: ${item.title}`}>
+          <Photo name={item.key} lang={lang} sizes={i === 0 || i === 5 ? '(max-width: 700px) 92vw, 85vw' : '(max-width: 700px) 92vw, 42vw'}/>
+          <span class="pastry-enlarge"><Icon name="plus"/></span>
+        </a>
+        <figcaption><span>{String(i+1).padStart(2,'0')} / {item.title}</span><span>Filippo Anello</span></figcaption>
+      </figure>)}
+    </div>
+    <div class="pastry-gallery-action"><a class="button button-yellow" href={`/images/${items[0].key}-1800.webp`} data-gallery-open={items[0].key} aria-haspopup="dialog">{l('Guarda tutte le 11 fotografie', 'View all 11 photographs')}<Icon name="arrow"/></a></div>
+  </div>
+</section>
+<PhotoGallery lang={lang} items={items}/>
+<style>
+.pastry-story{background:#eae5d9;padding-top:5rem;padding-bottom:5rem}
+.pastry-heading{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:3rem}
+.pastry-heading h2{font-family:var(--display);font-size:clamp(2.6rem,5.5vw,5rem);line-height:1;letter-spacing:-.055em;max-width:650px;margin-top:1rem}
+.pastry-intro>p{font-size:1.05rem;line-height:1.75;max-width:540px}
+.pastry-intro .pastry-credit{font-size:.83rem;margin-top:1.25rem}
+.pastry-photo-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2.5rem 2rem}
+.pastry-frame{min-width:0;margin:0}.pastry-wide{grid-column:1/-1}
+.pastry-frame a{display:block;position:relative;line-height:0;background:var(--forest-dark)}
+.pastry-frame a:focus-visible{outline:3px solid var(--forest);outline-offset:5px}
+.pastry-frame :global(img){display:block;width:100%;height:auto}
+.pastry-enlarge{position:absolute;bottom:1rem;right:1rem;display:grid;place-items:center;width:40px;height:40px;background:var(--stone);color:var(--forest);border-radius:50%}
+.pastry-enlarge :global(svg){width:18px;height:18px}
+.pastry-frame figcaption{display:flex;justify-content:space-between;gap:1rem;padding-top:.8rem;font-size:.8rem;line-height:1.5}
+.pastry-frame figcaption>span:last-child{white-space:nowrap;opacity:.75}
+.pastry-gallery-action{margin-top:2.5rem;text-align:center}
+@media(max-width:700px){.pastry-story{padding-block:3.5rem}.pastry-heading{grid-template-columns:1fr;gap:1.5rem;margin-bottom:2rem}.pastry-photo-grid{grid-template-columns:1fr;gap:1.75rem}.pastry-wide{grid-column:auto}.pastry-frame figcaption{font-size:.73rem;gap:.5rem}.pastry-gallery-action .button{white-space:normal}}
+</style>

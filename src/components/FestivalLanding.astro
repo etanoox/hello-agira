@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import CassatellaPhotoStory from './CassatellaPhotoStory.astro';
 import Icon from './Icon.astro';
 import Photo from './Photo.astro';
 import photos from '../data/photos.json';
@@ -161,6 +162,8 @@ const festivalArchive = lang === 'it' ? [
         </div>
       </div>
     </section>
+
+    <CassatellaPhotoStory lang={lang}/>
 
     <section id="edizione-2026" class="festival-edition" aria-labelledby="festival-edition-title">
       <div class="container festival-edition-grid">
