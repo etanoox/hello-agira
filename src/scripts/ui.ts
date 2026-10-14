@@ -29,7 +29,4 @@ const updateLanguageLinks = () => {
 };
 window.addEventListener('hashchange', updateLanguageLinks);
 updateLanguageLinks();
-// A credits anchor also opens the native disclosure for mouse and keyboard users.
-const revealCredits = () => { if (location.hash === '#credits') { const credits=document.querySelector<HTMLDetailsElement>('#credits'); if(credits) credits.open=true; } };
-window.addEventListener('hashchange', revealCredits); revealCredits();
 export {};
