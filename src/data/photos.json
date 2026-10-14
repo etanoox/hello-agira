@@ -1138,5 +1138,76 @@
       "it": "Fotografia di Filippo Anello.",
       "en": "Photograph by Filippo Anello."
     }
+  },
+  "aronAnelloFull": {
+    "width": 1365,
+    "height": 2048,
+    "widths": [
+      480,
+      800,
+      1200
+    ],
+    "alt": {
+      "it": "L’Aron ha-Qodesh in pietra conservato nella Collegiata del SS. Salvatore ad Agira.",
+      "en": "The stone Aron ha-Qodesh preserved in the Collegiate Church of SS. Salvatore in Agira."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photograph by Filippo Anello."
+    }
+  },
+  "aronAnelloDetail": {
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "alt": {
+      "it": "Dettaglio dell’arco a sesto acuto e delle decorazioni scolpite dell’Aron di Agira.",
+      "en": "Detail of the pointed arch and carved decoration of the Aron in Agira."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photograph by Filippo Anello."
+    }
+  },
+  "salvatoreAnelloInterior": {
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "alt": {
+      "it": "Le navate e gli archi dell’interno della Collegiata del SS. Salvatore ad Agira.",
+      "en": "The naves and arches inside the Collegiate Church of SS. Salvatore in Agira."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photograph by Filippo Anello."
+    }
   }
 }

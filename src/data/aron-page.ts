@@ -36,7 +36,12 @@ export function getAronPage(lang: Locale): SightPage {
       { title: l('Ascoltare sul posto', 'Listening on site'), text: l('Usa le cuffie e rispetta preghiere e celebrazioni. Gli audio seguono la lingua della pagina: italiano o inglese. Serve una connessione internet.', 'Use headphones and respect prayer and services. The recordings follow the page language: Italian or English. An internet connection is required.') },
       { title: l('Accessibilità', 'Accessibility'), text: l('Per esigenze di mobilità, chiedi informazioni aggiornate sugli ingressi e sull’accesso al monumento prima della visita.', 'If you have mobility requirements, ask for current information about entrances and access to the monument before visiting.') },
     ],
-    gallery: [{ key: 'ssalvatore', title: l('La Collegiata del SS. Salvatore, che conserva l’Aron', 'The Collegiate Church of SS. Salvatore, where the Aron is preserved') }],
+    gallery: [
+      { key: 'aronAnelloFull', title: l('L’Aron in pietra', 'The stone Aron') },
+      { key: 'aronAnelloDetail', title: l('L’arco e i dettagli scolpiti', 'The arch and carved details') },
+      { key: 'salvatoreAnelloInterior', title: l('L’interno della Collegiata del SS. Salvatore', 'Inside the Collegiate Church of SS. Salvatore') },
+      { key: 'ssalvatore', title: l('La Collegiata del SS. Salvatore, che conserva l’Aron', 'The Collegiate Church of SS. Salvatore, where the Aron is preserved') },
+    ],
     sources: [
       { title: 'Università di Messina · Sicilia Semitica — Corpus delle iscrizioni ebraiche', url: 'https://siciliasemitica.unime.it/wp-content/uploads/sites/27/2024/12/2-Corpus-delle-iscrizioni-ebraiche-in-Sicilia.pdf' },
     ],
