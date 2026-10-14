@@ -12,7 +12,7 @@ export function getSaintAnthonyPage(lang: Locale): SightPage {
     title: l('Chiesa di Sant’Antonio di Padova ad Agira | Hello Agira', 'Church of Saint Anthony of Padua, Agira | Hello Agira'),
     description: l('Scopri la Chiesa di Sant’Antonio di Padova ad Agira: fotografie della facciata e degli interni, informazioni per la visita e audioguida in italiano in sette tracce.', 'Discover the Church of Saint Anthony of Padua in Agira: photographs of its façade and interior, visiting information and a seven-track English audio guide.'),
     introduction: l('Un invito a fermarsi e alzare lo sguardo. Nella Chiesa di Sant’Antonio di Padova, accompagna l’osservazione degli interni con un racconto da ascoltare al tuo passo.', 'An invitation to pause and look up. In the Church of Saint Anthony of Padua, explore the interior with a story you can listen to at your own pace.'),
-    image: 'saintAnthonyFacade', location: l('Sant’Antonio di Padova · Agira, EN · Sicilia', 'Saint Anthony of Padua · Agira, EN · Sicily'),
+    image: 'saintAnthonyAnelloFacade', location: l('Sant’Antonio di Padova · Agira, EN · Sicilia', 'Saint Anthony of Padua · Agira, EN · Sicily'),
     mapQuery: 'Chiesa Sant Antonio di Padova Agira Sicilia',
     visitorNote: l('Verifica gli orari e le condizioni di accesso direttamente con la chiesa.', 'Check opening hours and access arrangements directly with the church.'),
     facts: [
