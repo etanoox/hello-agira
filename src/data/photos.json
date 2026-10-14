@@ -1042,5 +1042,101 @@
       "it": "Fotografia di Filippo Anello.",
       "en": "Photograph by Filippo Anello."
     }
+  },
+  "abbeyAnelloFacade": {
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "alt": {
+      "it": "La facciata dell’Abbazia di San Filippo ad Agira vista dalla scalinata.",
+      "en": "The façade of San Filippo Abbey in Agira seen from the steps."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photograph by Filippo Anello."
+    }
+  },
+  "abbeyAnelloPanorama": {
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "alt": {
+      "it": "L’Abbazia di San Filippo e il campanile tra i tetti di Agira.",
+      "en": "San Filippo Abbey and its bell tower among Agira’s rooftops."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photograph by Filippo Anello."
+    }
+  },
+  "abbeyAnelloNave": {
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "alt": {
+      "it": "La navata dell’Abbazia di San Filippo, con colonne di marmo rosso e volta decorata.",
+      "en": "The nave of San Filippo Abbey, with red marble columns and a decorated vault."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photograph by Filippo Anello."
+    }
+  },
+  "abbeyAnelloCelebration": {
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "alt": {
+      "it": "L’interno dell’Abbazia di San Filippo durante una celebrazione, con la navata e l’altare illuminati.",
+      "en": "The interior of San Filippo Abbey during a service, with the nave and altar illuminated."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photograph by Filippo Anello."
+    }
   }
 }

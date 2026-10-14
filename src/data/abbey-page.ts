@@ -46,7 +46,13 @@ export function getAbbeyPage(lang: Locale): SightPage {
       { title: l('Scale e accessibilità', 'Steps and accessibility'), text: l('Prima di organizzare la visita, chiedi al santuario informazioni sugli ingressi e sui percorsi disponibili per le tue esigenze di mobilità.', 'Before planning your visit, ask the sanctuary about entrances and routes suitable for your mobility requirements.') },
       { title: l('Come usare l’audioguida', 'Using the audio guide'), text: l('Gli audio di questa pagina sono in italiano. Puoi mettere in pausa, cambiare capitolo e regolare la velocità. La riproduzione richiede una connessione internet.', 'The recordings are in English. You can pause, switch chapters and adjust playback speed. Playback requires an internet connection.') },
     ],
-    gallery: [{ key: 'abbey', title: l('L’Abbazia di San Filippo', 'San Filippo Abbey') }],
+    gallery: [
+      { key: 'abbeyAnelloFacade', title: l('La facciata e la scalinata', 'The façade and steps') },
+      { key: 'abbeyAnelloPanorama', title: l('L’abbazia tra i tetti di Agira', 'The abbey among Agira’s rooftops') },
+      { key: 'abbeyAnelloNave', title: l('La navata, le colonne e la volta', 'The nave, columns and vault') },
+      { key: 'abbeyAnelloCelebration', title: l('L’interno durante una celebrazione', 'The interior during a service') },
+      { key: 'abbey', title: l('L’Abbazia di San Filippo', 'San Filippo Abbey') },
+    ],
     sources: [],
     audio: {
       language: audio.language as Locale,
