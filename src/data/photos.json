@@ -970,5 +970,77 @@
       "it": "Fotografia di Filippo Anello.",
       "en": "Photograph by Filippo Anello."
     }
+  },
+  "saintAnthonyAnelloFacade": {
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "alt": {
+      "it": "La facciata e il campanile della Chiesa di Sant’Antonio di Padova ad Agira.",
+      "en": "The façade and bell tower of the Church of Saint Anthony of Padua in Agira."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photograph by Filippo Anello."
+    }
+  },
+  "saintAnthonyAnelloInterior": {
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "alt": {
+      "it": "La navata e il pulpito della Chiesa di Sant’Antonio di Padova durante una celebrazione.",
+      "en": "The nave and pulpit of the Church of Saint Anthony of Padua during a service."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photograph by Filippo Anello."
+    }
+  },
+  "saintAnthonyAnelloPassiatore": {
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "alt": {
+      "it": "La Chiesa di Sant’Antonio di Padova con il campanile, la cupola e il Passiatore.",
+      "en": "The Church of Saint Anthony of Padua with its bell tower, dome and the Passiatore."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photograph by Filippo Anello."
+    }
   }
 }

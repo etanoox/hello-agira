@@ -36,6 +36,9 @@ export function getSaintAnthonyPage(lang: Locale): SightPage {
       {title:l('Ascoltare la guida','Listening to the guide'),text:l('Gli audio seguono la lingua della pagina: italiano o inglese. Puoi cambiare traccia, mettere in pausa e regolare la velocità. Serve una connessione internet.', 'The recordings follow the page language: Italian or English. Switch tracks, pause and adjust playback speed. An internet connection is required.')},
     ],
     gallery:[
+      {key:'saintAnthonyAnelloFacade',title:l('La facciata e il campanile','The façade and bell tower')},
+      {key:'saintAnthonyAnelloInterior',title:l('La navata durante una celebrazione','The nave during a service')},
+      {key:'saintAnthonyAnelloPassiatore',title:l('Sant’Antonio di Padova e il Passiatore','Saint Anthony of Padua and the Passiatore')},
       {key:'saintAnthonyFacade',title:l('La facciata della Chiesa di Sant’Antonio di Padova','The façade of the Church of Saint Anthony of Padua')},
       {key:'saintAnthony',title:l('Gli interni della Chiesa di Sant’Antonio di Padova','Inside the Church of Saint Anthony of Padua')},
     ],
