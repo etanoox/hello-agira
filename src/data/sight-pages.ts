@@ -93,6 +93,13 @@ export function getSightPages(lang: Locale): SightPage[] {
       {title:l('Il tempo da dedicare', 'Time to allow'),text:l('Lascia spazio alla salita, alle pause e al ritorno. Il tempo necessario varia in base al punto di partenza e al percorso: non indichiamo una percorrenza cronometrata.', 'Allow time for the climb, breaks and the return journey. The time needed depends on your starting point and route; no measured walking time is provided.')},
     ],
     gallery: [
+      {key:'castleAnelloPath',title:l('Il sentiero tra le mura','The path among the walls')},
+      {key:'castleAnelloWalls',title:l('Le mura e le torri','The walls and towers')},
+      {key:'castleAnelloTower',title:l('La torre e il paesaggio','The tower and the landscape')},
+      {key:'castleAnelloPanorama',title:l('Agira vista dal castello','Agira seen from the castle')},
+      {key:'castleAnelloRuins',title:l('I resti delle mura contro il cielo','The ruined walls against the sky')},
+      {key:'castleAnelloRemains',title:l('Le strutture superstiti','The surviving structures')},
+      {key:'castleAnelloLookout',title:l('Il percorso verso la torretta','The path towards the small tower')},
       {key:'castleDaylight',title:l('Le torri del Castello', 'The castle towers')},
       {key:'hero',title:l('Il castello nel profilo di Agira, visto dal centro', 'The castle on Agira’s skyline, seen from the centre')},
     ],
