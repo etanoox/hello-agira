@@ -52,7 +52,13 @@ const breadcrumbs = origin ? {
         </div>
         <aside class="itinerary-side" aria-label={l('Schema e consigli', 'Outline and advice')}>
           <nav class="itinerary-outline" aria-label={l('Vai a una tappa', 'Jump to a stop')}><p class="eyebrow">{l('IN UN COLPO D’OCCHIO', 'AT A GLANCE')}</p><ol>{route.steps.map((step,i)=><li><a href={`#tappa-${i+1}`}><span>0{i+1}</span><span>{step.title}</span><Icon name="arrow"/></a></li>)}</ol><p class="itinerary-outline-note">{l('Schema delle soste, non una traccia di navigazione.', 'An outline of the stops, not a navigation track.')}</p></nav>
-          <div class="itinerary-practical"><h3>{l('Prima di partire', 'Before you set off')}</h3><ul>{route.tips.map((tip,i)=><li><span aria-hidden="true">0{i+1}</span><div><h4>{tip.title}</h4><p>{tip.text}</p></div></li>)}</ul></div>
+          <div class="itinerary-practical"><h3>{l('Prima di partire', 'Before you set off')}</h3><ul>{route.tips.map((tip,i)=><li><span aria-hidden="true">0{i+1}</span><div><h4>{tip.title}</h4><p>{tip.text}</p></div></li>)}
+            {(route.id === 'day' || route.id === 'weekend') && <li><span aria-hidden="true">0{route.tips.length + 1}</span><div>
+              <h4>{l('Se vieni per la festa', 'Visiting for the festival')}</h4>
+              <p>{l('Le celebrazioni possono influire sulle aperture e sugli spostamenti nel centro storico. Consulta il programma prima di organizzare le tappe.', 'Celebrations may affect opening hours and movement around the historic centre. Check the programme before planning your stops.')}</p>
+              <a class="text-link" href={pageUrl('saintFestival', lang)}>{l('Le feste di San Filippo', 'Saint Philip’s festivals')}<Icon name="arrow"/></a>
+            </div></li>}
+          </ul></div>
         </aside>
       </section>
       <div class="container itinerary-estimate-note"><p>{l('I tempi indicati sono suggerimenti per organizzare la visita, non percorrenze misurate. Vanno adattati al punto di partenza, al passo, al meteo e alle aperture.', 'The times shown are planning suggestions, not measured walking times. Adapt them to your starting point, pace, weather and opening hours.')}</p></div>

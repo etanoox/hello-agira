@@ -57,7 +57,10 @@ const heroPhoto = photos.historyHero;
               <div class="history-chapter-top"><span>{chapter.number}</span><p class="eyebrow">{chapter.eyebrow}</p></div>
               <h2>{chapter.title}</h2>
               <p>{chapter.text}</p>
-              <div class="history-source-links">{chapter.sourceLinks.map(source => <a class="text-link" href={source.href} target="_blank" rel="noopener noreferrer">{source.label}<Icon name="diagonal"/></a>)}</div>
+              <div class="history-source-links">
+                {chapter.sourceLinks.map(source => <a class="text-link" href={source.href} target="_blank" rel="noopener noreferrer">{source.label}<Icon name="diagonal"/></a>)}
+                {chapter.id === 'san-filippo' && <a class="text-link" href={pageUrl('saintFestival', lang)}>{lang === 'it' ? 'Le feste di San Filippo: maggio e agosto' : 'Saint Philip’s festivals: May and August'}<Icon name="arrow"/></a>}
+              </div>
             </div>
             {photo && imageKey && <figure class="history-chapter-visual">
               <a class="photo-link" href={`/images/${imageKey}-${largestWidth}.webp`} data-gallery-open={imageKey} aria-haspopup="dialog" aria-label={`${lang === 'it' ? 'Apri la fotografia' : 'Open photograph'}: ${photo.alt[lang]}`}>
