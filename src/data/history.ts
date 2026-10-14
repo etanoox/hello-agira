@@ -42,7 +42,7 @@ export function getHistoryPage(lang: Locale) {
         ],
       },
       {
-        id: 'san-filippo', number: '03', eyebrow: l('IL MONASTERO E LA MEMORIA', 'MONASTERY AND MEMORY'), image: 'abbey',
+        id: 'san-filippo', number: '03', eyebrow: l('IL MONASTERO E LA MEMORIA', 'MONASTERY AND MEMORY'), image: 'abbeyAnelloPanorama',
         title: l('San Filippo, una storia ancora viva.', 'San Filippo, a history still alive.'),
         text: l('L’Abbazia di San Filippo, nota anche come Santa Maria Latina, sorge sui resti di un antico monastero greco di regola basiliana. Gli storici Rita Loredana Foti e Salvatore Longo Minnolo ne collocano le origini tra il VII e l’VIII secolo e descrivono la successiva rifondazione normanna e benedettina.', 'San Filippo Abbey, also known as Santa Maria Latina, stands on the remains of an ancient Greek monastery following the Basilian rule. Historians Rita Loredana Foti and Salvatore Longo Minnolo place its origins between the seventh and eighth centuries and describe its later Norman and Benedictine chapter.'),
         sourceLinks: [

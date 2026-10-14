@@ -14,7 +14,7 @@ export function getAbbeyPage(lang: Locale): SightPage {
     title: l('Abbazia di San Filippo ad Agira e audioguida | Hello Agira', 'San Filippo Abbey in Agira and audio guide | Hello Agira'),
     description: l('Visita l’Abbazia di San Filippo ad Agira: scopri il luogo e ascolta l’audioguida in italiano, con introduzione, sette capitoli e conclusione.', 'Explore San Filippo Abbey in Agira with an English audio guide: an introduction and seven chapters, photographs and useful visiting information.'),
     introduction: l('Una scalinata, una facciata, un luogo legato alla memoria religiosa di Agira. Fermati all’Abbazia di San Filippo e lascia che il racconto accompagni il tuo sguardo.', 'A flight of steps, a façade, a place connected to Agira’s religious heritage. Stop at San Filippo Abbey and let the story guide your gaze.'),
-    image: 'abbey', location: l('Abbazia di San Filippo · Agira, EN · Sicilia', 'San Filippo Abbey · Agira, EN · Sicily'),
+    image: 'abbeyAnelloPanorama', location: l('Abbazia di San Filippo · Agira, EN · Sicilia', 'San Filippo Abbey · Agira, EN · Sicily'),
     mapQuery: 'Abbazia di San Filippo, Agira, Sicilia',
     visitorNote: l('Per visitare gli interni, verifica gli orari direttamente con il parroco.', 'Check opening hours directly with the parish priest before visiting the interior.'),
     visitorContacts: [
@@ -51,7 +51,6 @@ export function getAbbeyPage(lang: Locale): SightPage {
       { key: 'abbeyAnelloPanorama', title: l('L’abbazia tra i tetti di Agira', 'The abbey among Agira’s rooftops') },
       { key: 'abbeyAnelloNave', title: l('La navata, le colonne e la volta', 'The nave, columns and vault') },
       { key: 'abbeyAnelloCelebration', title: l('L’interno durante una celebrazione', 'The interior during a service') },
-      { key: 'abbey', title: l('L’Abbazia di San Filippo', 'San Filippo Abbey') },
     ],
     sources: [],
     audio: {

@@ -73,27 +73,6 @@
       "en": "Photo by Giuseppe Ricceri."
     }
   },
-  "abbey": {
-    "width": 4272,
-    "height": 2848,
-    "widths": [
-      480,
-      800,
-      1200,
-      1800
-    ],
-    "alt": {
-      "it": "La facciata dell'Abbazia di San Filippo ad Agira, con la scalinata e le luminarie.",
-      "en": "The facade and steps of San Filippo Abbey in Agira, with festival decorations."
-    },
-    "author": "Davide Mauro",
-    "authorUrl": "https://commons.wikimedia.org/wiki/User:Codas",
-    "source": "https://commons.wikimedia.org/wiki/File:Chiesa_Reale_Abbazia_di_San_Filippo_d%27Agira_2.jpg",
-    "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
-    "date": "2016-08-17",
-    "credit": null
-  },
   "town": {
     "width": 1761,
     "height": 2048,
