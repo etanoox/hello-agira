@@ -15,6 +15,7 @@ export const GET: APIRoute = ({ site }) => {
     { it: pageUrl('history', 'it'), en: pageUrl('history', 'en') },
     { it: pageUrl('events', 'it'), en: pageUrl('events', 'en') },
     { it: pageUrl('festival', 'it'), en: pageUrl('festival', 'en') },
+    { it: pageUrl('saintFestival', 'it'), en: pageUrl('saintFestival', 'en') },
   ];
   const urls = site?.protocol === 'https:' ? pairs.flatMap(pair => ['it', 'en'].map(lang => {
     const current = pair[lang as 'it' | 'en'];

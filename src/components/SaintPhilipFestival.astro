@@ -1,0 +1,123 @@
+---
+import Base from '../layouts/Base.astro';
+import SiteHeader from './SiteHeader.astro';
+import SiteFooter from './SiteFooter.astro';
+import Photo from './Photo.astro';
+import Icon from './Icon.astro';
+import { saintPhilipFestival } from '../data/saint-philip-festival';
+import { pageUrl, sightUrl, type Locale } from '../lib/i18n';
+import { serializeSchema } from '../lib/schema';
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const c = saintPhilipFestival(lang);
+const paths = { it: pageUrl('saintFestival', 'it'), en: pageUrl('saintFestival', 'en') };
+const imageAlt = lang === 'it' ? 'Il prospetto dell’Abbazia di San Filippo ad Agira. Fotografia di Filippo Anello.' : 'The façade of San Filippo Abbey in Agira. Photograph by Filippo Anello.';
+const sources = [
+  { name: lang === 'it' ? 'Comune di Agira · Festa di Maggio' : 'Municipality of Agira · May festival', href: 'https://www.comune.agira.en.it/it/eventi/festa-del-santo-patrono-s-filippo-d-agira-2023' },
+  { name: lang === 'it' ? 'Comune di Agira · Festa di Agosto' : 'Municipality of Agira · August festival', href: 'https://www.comune.agira.en.it/it/eventi/622530' },
+  { name: 'Pro Loco Agira · Festa Ranni', href: 'https://www.prolocoagira.it/wp/2026/08/08/festa-ranni-in-onore-di-s-filippo-dagira/' },
+  { name: lang === 'it' ? 'Comune di Limina · San Filippo d’Agira' : 'Municipality of Limina · Saint Philip of Agira', href: 'https://comune.limina.me.it/vivere-il-comune/eventi/processione-di-san-filippo-dagira/' },
+  { name: lang === 'it' ? 'Agira.org · Il gemellaggio con Żebbuġ' : 'Agira.org · Twinning with Żebbuġ', href: 'https://www.agira.org/Ultime/agira-zebbug-incontro-per-rafforzare-il-gemellaggio-tra-le-due-comunita.html' },
+];
+const breadcrumb = Astro.site?.protocol === 'https:' ? {
+  '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: new URL(`/${lang}/`, Astro.site).href },
+    { '@type': 'ListItem', position: 2, name: lang === 'it' ? 'Eventi' : 'Events', item: new URL(pageUrl('events', lang), Astro.site).href },
+    { '@type': 'ListItem', position: 3, name: lang === 'it' ? 'Festa di San Filippo' : 'Saint Philip Festival', item: new URL(paths[lang], Astro.site).href },
+  ],
+} : null;
+---
+<Base lang={lang} title={c.title} description={c.description} canonicalPath={paths[lang]} alternatePaths={paths} socialImage="/images/san-filippo-social.jpg" socialImageAlt={imageAlt}>
+  {breadcrumb && <script type="application/ld+json" set:html={serializeSchema(breadcrumb)}/>}
+  <SiteHeader lang={lang} currentPage="events" alternatePaths={paths}/>
+  <main id="main" tabindex="-1">
+    <section class="route-page-hero festival-hero" aria-labelledby="festival-title">
+      <div class="container">
+        <p class="eyebrow festival-topline">{c.eyebrow}</p>
+        <div class="festival-hero-grid">
+          <div class="route-page-copy">
+            <h1 id="festival-title">{c.heading}</h1>
+            <p>{c.intro}</p>
+            <div class="festival-date-lockup">
+              <span>{lang === 'it' ? 'LE DUE FESTE' : 'THE TWO CELEBRATIONS'}</span>
+              <div><strong>12</strong><p>{c.dates[0].month}<br/>{c.dates[1].month}</p></div>
+            </div>
+            <a class="button button-yellow" href="#calendario">{c.action}<Icon name="arrow"/></a>
+          </div>
+          <figure class="route-page-photo festival-hero-photo">
+            <div class="photo-link"><Photo name="abbeyFestivalAnello" lang={lang} priority sizes="(max-width: 700px) 92vw, 48vw"/></div>
+            <figcaption><span>{c.caption}</span><span>{lang === 'it' ? 'Fotografia di Filippo Anello.' : 'Photograph by Filippo Anello.'}</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="calendario" class="festival-edition" aria-labelledby="festival-calendar-title">
+      <div class="container festival-edition-grid">
+        <div class="festival-edition-date">
+          <p class="eyebrow">{lang === 'it' ? 'IL CALENDARIO DELLA DEVOZIONE' : 'A CALENDAR OF DEVOTION'}</p>
+          <h2 id="festival-calendar-title">{c.action}</h2>
+          {c.dates.map((date, i) => <div class="festival-date-detail">
+            <span>12 {date.month}</span>
+            <div><strong><a href={i === 0 ? '#primavera' : '#estate'}>{date.name}</a></strong><p>{date.note}</p></div>
+          </div>)}
+          <div class="festival-plan-links"><a class="text-link" href="#malta">{lang === 'it' ? 'Il legame con Malta' : 'The connection with Malta'}<Icon name="arrow"/></a></div>
+        </div>
+        <div class="festival-programme">
+          <span class="festival-programme-index" aria-hidden="true">12</span>
+          <h3>{c.programmeTitle}</h3>
+          <p>{c.programmeText}</p>
+          <div class="festival-official-links">
+            <a class="text-link" href="https://www.prolocoagira.it/wp/" target="_blank" rel="noopener noreferrer">Pro Loco Agira<Icon name="diagonal"/></a>
+            <a class="text-link" href="https://www.comune.agira.en.it/" target="_blank" rel="noopener noreferrer">{lang === 'it' ? 'Comune di Agira' : 'Municipality of Agira'}<Icon name="diagonal"/></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {c.sections.map((section, i) => <section id={section.id} class={i % 2 === 0 ? 'festival-story section' : 'festival-plan section'} aria-labelledby={`${section.id}-title`}>
+      <div class="container festival-story-grid">
+        <div><p class="eyebrow">{section.label}</p><h2 id={`${section.id}-title`}>{section.title}</h2></div>
+        <div class="festival-story-copy">
+          {section.paragraphs.map(p => <p>{p}</p>)}
+          {i === 0 && <p><a class="text-link" href={sightUrl('abbey',lang)}>{c.abbey}<Icon name="arrow"/></a></p>}
+        </div>
+      </div>
+    </section>)}
+
+    <section class="festival-plan section" aria-labelledby="festival-visit-title">
+      <div class="container festival-plan-grid">
+        <div><p class="eyebrow">{c.visitLabel}</p><h2 id="festival-visit-title">{c.visitTitle}</h2></div>
+        <div><p>{c.visitText}</p><div class="festival-plan-links">
+          <a class="text-link" href={pageUrl('eat',lang)}>{c.food}<Icon name="arrow"/></a>
+          <a class="text-link" href={pageUrl('stay',lang)}>{c.stay}<Icon name="arrow"/></a>
+        </div></div>
+      </div>
+    </section>
+
+    <section class="stay-practical-section section" aria-labelledby="festival-faq-title">
+      <div class="container stay-practical-grid">
+        <div class="stay-practical-intro"><h2 id="festival-faq-title">{c.faqTitle}</h2></div>
+        <div class="stay-practical-list">
+          {c.faqs.map((faq, i) => <details>
+            <summary><span class="small-number">0{i + 1}</span><h3>{faq.q}</h3><Icon name="plus"/></summary>
+            <div class="stay-practical-answer"><p>{faq.a}</p></div>
+          </details>)}
+          <details>
+            <summary><span class="small-number">04</span><h3>{c.sources}</h3><Icon name="plus"/></summary>
+            <div class="stay-practical-answer">{sources.map(source => <p><a class="text-link" href={source.href} target="_blank" rel="noopener noreferrer">{source.name}<Icon name="diagonal"/></a></p>)}</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="itinerary-next festival-next" aria-label={lang === 'it' ? 'Continua a esplorare' : 'Keep exploring'}>
+      <div class="container itinerary-next-inner">
+        <div><p class="eyebrow">{lang === 'it' ? 'IL VIAGGIO CONTINUA' : 'KEEP EXPLORING'}</p><h2>{c.events}</h2></div>
+        <div class="itinerary-next-links"><a class="button button-yellow" href={pageUrl('events',lang)}>{c.events}<Icon name="arrow"/></a></div>
+      </div>
+    </section>
+  </main>
+  <SiteFooter lang={lang} currentPage="events" alternatePaths={paths}/>
+</Base>

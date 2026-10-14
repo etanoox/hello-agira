@@ -28,6 +28,7 @@ export const clusters = {
   history: { it: 'storia', en: 'history' },
   events: { it: 'eventi', en: 'events' },
   festival: { it: 'sagra-cassatella', en: 'cassatella-festival' },
+  saintFestival: { it: 'festa-san-filippo', en: 'saint-philip-festival' },
   info: { it: 'informazioni', en: 'visitor-information' },
 } as const;
 export const pageUrl = (key: keyof typeof clusters, lang: Locale) => `/${lang}/${clusters[key][lang]}/`;
