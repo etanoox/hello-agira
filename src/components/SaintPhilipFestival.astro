@@ -11,7 +11,6 @@ interface Props { lang: Locale }
 const { lang } = Astro.props;
 const c = saintPhilipFestival(lang);
 const paths = { it: pageUrl('saintFestival', 'it'), en: pageUrl('saintFestival', 'en') };
-const imageAlt = lang === 'it' ? 'Il prospetto dell’Abbazia di San Filippo ad Agira. Fotografia di Filippo Anello.' : 'The façade of San Filippo Abbey in Agira. Photograph by Filippo Anello.';
 const sources = [
   { name: lang === 'it' ? 'Comune di Agira · Festa di Maggio' : 'Municipality of Agira · May festival', href: 'https://www.comune.agira.en.it/it/eventi/festa-del-santo-patrono-s-filippo-d-agira-2023' },
   { name: lang === 'it' ? 'Comune di Agira · Festa di Agosto' : 'Municipality of Agira · August festival', href: 'https://www.comune.agira.en.it/it/eventi/622530' },
@@ -28,7 +27,7 @@ const breadcrumb = Astro.site?.protocol === 'https:' ? {
   ],
 } : null;
 ---
-<Base lang={lang} title={c.title} description={c.description} canonicalPath={paths[lang]} alternatePaths={paths} socialImage="/images/san-filippo-social.jpg" socialImageAlt={imageAlt}>
+<Base socialPhoto="abbeyFestivalAnello" lang={lang} title={c.title} description={c.description} canonicalPath={paths[lang]} alternatePaths={paths}>
   {breadcrumb && <script type="application/ld+json" set:html={serializeSchema(breadcrumb)}/>}
   <SiteHeader lang={lang} currentPage="events" alternatePaths={paths}/>
   <main id="main" tabindex="-1">

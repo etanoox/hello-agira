@@ -36,7 +36,7 @@ const structured=ready ? {
   ],
 } : undefined;
 ---
-<Base lang={lang} title={place.title} description={place.description} canonicalPath={alternatePaths[lang]} alternatePaths={alternatePaths}>
+<Base socialPhoto={place.image} lang={lang} title={place.title} description={place.description} canonicalPath={alternatePaths[lang]} alternatePaths={alternatePaths}>
   <SiteHeader lang={lang} currentPage="sights" alternatePaths={alternatePaths}/>
   <main id="main" tabindex="-1" class="place-detail">
     <section class="place-hero" aria-labelledby="place-title">

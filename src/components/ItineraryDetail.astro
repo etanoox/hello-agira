@@ -25,7 +25,7 @@ const breadcrumbs = origin ? {
   ],
 } : undefined;
 ---
-<Base lang={lang} title={title} description={route.description} canonicalPath={alternates[lang]} alternatePaths={alternates}>
+<Base socialPhoto={route.photo} lang={lang} title={title} description={route.description} canonicalPath={alternates[lang]} alternatePaths={alternates}>
   <div class="itinerary-detail-shell" data-itinerary={route.id}>
     <SiteHeader lang={lang} currentPage="routes" alternatePaths={alternates}/>
     <main id="main" tabindex="-1">

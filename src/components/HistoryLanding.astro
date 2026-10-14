@@ -16,7 +16,7 @@ const localizedPaths = { it: pageUrl('history', 'it'), en: pageUrl('history', 'e
 const heroPhoto = photos.historyHero;
 ---
 
-<Base lang={lang} title={page.title} description={page.description} canonicalPath={localizedPaths[lang]} alternatePaths={localizedPaths}>
+<Base socialPhoto="historyHero" lang={lang} title={page.title} description={page.description} canonicalPath={localizedPaths[lang]} alternatePaths={localizedPaths}>
   <SiteHeader lang={lang} currentPage="history"/>
   <main id="main" tabindex="-1">
     <section class="route-page-hero history-page-hero" aria-labelledby="history-page-title">

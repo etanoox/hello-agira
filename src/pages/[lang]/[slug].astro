@@ -40,7 +40,7 @@ const page = isFestivalPage ? 'festival' : isEventsPage ? 'events' : isSightsPag
 const localizedPaths = { it: pageUrl(page, 'it'), en: pageUrl(page, 'en') };
 ---
 {slug === 'festa-san-filippo' || slug === 'saint-philip-festival' ? <SaintPhilipFestival lang={lang}/> : isSightsPage ? <SightsLanding lang={lang}/> : isEatingPage ? <EatingLanding lang={lang}/> : isStayPage ? <StayLanding lang={lang}/> : isHistoryPage ? <HistoryLanding lang={lang}/> : isFestivalPage ? <FestivalLanding lang={lang}/> : isEventsPage ? <EventsLanding lang={lang}/> : <>
-<Base lang={lang} title={c.routesPageTitle} description={c.routesPageDescription} canonicalPath={localizedPaths[lang]} alternatePaths={localizedPaths}>
+<Base socialPhoto="town" lang={lang} title={c.routesPageTitle} description={c.routesPageDescription} canonicalPath={localizedPaths[lang]} alternatePaths={localizedPaths}>
   <SiteHeader lang={lang} currentPage="routes"/>
   <main id="main" tabindex="-1">
     <section class="route-page-hero" aria-labelledby="route-page-title">

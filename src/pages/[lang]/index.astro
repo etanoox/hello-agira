@@ -38,7 +38,7 @@ const { Content } = await render(entry);
 const a = (key: Section) => anchor(key, lang);
 const id = (key: Section) => sectionIds[key][lang];
 ---
-<Base lang={lang} title={entry.data.title} description={entry.data.description}>
+<Base socialPhoto="hero" lang={lang} title={entry.data.title} description={entry.data.description}>
   <SiteHeader lang={lang}/>
 
   <main id="main" tabindex="-1">

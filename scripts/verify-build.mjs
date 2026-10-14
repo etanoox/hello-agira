@@ -117,3 +117,34 @@ for (const lang of ['it','en']) {
  const folder = lang === 'it' ? 'cosa-vedere' : 'things-to-see';
  assert.ok(!read(`${lang}/${folder}/palazzo-baronale-manmano-gussio/index.html`).includes('data-audio-guide'), 'Palace audio is not yet available');
 }
+
+// Check every localized page, including pages added outside htmlPages.
+let socialPages = 0;
+for (const locale of ['it', 'en']) {
+  for (const relative of fs.readdirSync(path.join(directory, locale), { recursive: true })) {
+    if (!relative.endsWith('.html')) continue;
+    const file = path.join(locale, relative);
+    const html = read(file);
+    if (!html.includes('rel="canonical"')) continue;
+    const meta = name => html.match(new RegExp(`<meta (?:property|name)="${name}" content="([^"]+)"`))?.[1];
+    const image = meta('og:image');
+    assert.ok(image, `${file}: social image`);
+    const url = new URL(image);
+    assert.equal(url.protocol, 'https:', `${file}: HTTPS social image`);
+    const canonical = html.match(/rel="canonical" href="([^"]+)"/)?.[1];
+    assert.equal(url.origin, new URL(canonical).origin, `${file}: absolute image on site origin`);
+    const imagePath = path.join(directory, url.pathname);
+    assert.ok(fs.existsSync(imagePath) && fs.statSync(imagePath).size > 0, `${file}: social image exists`);
+    assert.equal(meta('twitter:image'), image, `${file}: matching social images`);
+    assert.equal(meta('twitter:card'), 'summary_large_image', `${file}: large X card`);
+    assert.ok(meta('og:image:alt') && meta('twitter:image:alt'), `${file}: localized image descriptions`);
+    const hero = [...html.matchAll(/<img\b[^>]*>/g)].find(match => match[0].includes('fetchpriority="high"'))?.[0];
+    if (hero) {
+      const heroSrc = hero.match(/src="([^"]+)"/)?.[1];
+      const photoKey = src => src.replace(/-\d+\.webp$/, '');
+      assert.equal(photoKey(url.pathname), photoKey(heroSrc), `${file}: social photo matches hero`);
+    }
+    socialPages++;
+  }
+}
+console.log(`PASS: social metadata and hero images on ${socialPages} localized pages.`);
