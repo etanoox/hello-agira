@@ -57,7 +57,7 @@ const copy = lang === 'it' ? {
 };
 const seasonalEvents = lang === 'it' ? [
   {
-    id: 'presepe-vivente', eyebrow: '03 / LA NOTTE DI NATALE', title: 'Il Presepe Vivente di Agira.',
+    id: 'presepe-vivente', image: 'nativityEvent', eyebrow: '03 / LA NOTTE DI NATALE', title: 'Il Presepe Vivente di Agira.',
     date: '2026-12-24', label: 'Giovedì 24 dicembre 2026', day: 'GIOVEDÌ', number: '24', month: 'DICEMBRE', year: '2026',
     paragraphs: [
       'La notte del 24 dicembre il centro storico si anima di figuranti, botteghe e antichi mestieri. Il percorso attraversa la parte alta di Agira e accompagna Maria e Giuseppe fino alla Natività, tra i ruderi del Castello medievale.',
@@ -67,7 +67,7 @@ const seasonalEvents = lang === 'it' ? [
     award: 'Il Presepe ha ricevuto il riconoscimento di “Miglior Presepe Vivente d’Italia” per il 2025/2026, nell’ambito del 33° Geraci Eventus Praesepium Meeting.',
   },
   {
-    id: 'un-pane-per-la-vita', eyebrow: '04 / SAPORI E SOLIDARIETÀ', title: 'Un Pane per la Vita.',
+    id: 'un-pane-per-la-vita', image: 'breadForLifeEvent', eyebrow: '04 / SAPORI E SOLIDARIETÀ', title: 'Un Pane per la Vita.',
     date: '2027-01-05', label: 'Martedì 5 gennaio 2027', day: 'MARTEDÌ', number: '5', month: 'GENNAIO', year: '2027',
     paragraphs: [
       'Il 5 gennaio 2027 torna nella parte alta del centro storico la 35ª edizione di Un Pane per la Vita: una serata di incontro e solidarietà a favore dell’UNICEF e dei bambini colpiti da guerre e carestie.',
@@ -78,7 +78,7 @@ const seasonalEvents = lang === 'it' ? [
   },
 ] : [
   {
-    id: 'presepe-vivente', eyebrow: '03 / CHRISTMAS EVE', title: 'Agira’s Living Nativity.',
+    id: 'presepe-vivente', image: 'nativityEvent', eyebrow: '03 / CHRISTMAS EVE', title: 'Agira’s Living Nativity.',
     date: '2026-12-24', label: 'Thursday 24 December 2026', day: 'THURSDAY', number: '24', month: 'DECEMBER', year: '2026',
     paragraphs: [
       'On the night of 24 December, Agira’s historic centre comes alive with costumed performers, workshops and traditional crafts. The route winds through the upper town, following Mary and Joseph towards the Nativity among the ruins of the medieval castle.',
@@ -88,7 +88,7 @@ const seasonalEvents = lang === 'it' ? [
     award: 'The event received the “Best Living Nativity in Italy” award for 2025/2026 at the 33rd Geraci Eventus Praesepium Meeting.',
   },
   {
-    id: 'un-pane-per-la-vita', eyebrow: '04 / FOOD AND SOLIDARITY', title: 'Un Pane per la Vita.',
+    id: 'un-pane-per-la-vita', image: 'breadForLifeEvent', eyebrow: '04 / FOOD AND SOLIDARITY', title: 'Un Pane per la Vita.',
     date: '2027-01-05', label: 'Tuesday 5 January 2027', day: 'TUESDAY', number: '5', month: 'JANUARY', year: '2027',
     paragraphs: [
       'On 5 January 2027, the upper historic centre hosts the 35th edition of Un Pane per la Vita — Bread for Life: an evening supporting UNICEF and children affected by war and famine.',
@@ -171,7 +171,10 @@ const foodHref = pageUrl('eat', lang);
 
     {seasonalEvents.map((event, index) => <section class:list={["events-seasonal-section", "section", { "events-seasonal-section-muted": index % 2 === 1 }]} aria-labelledby={`${event.id}-title`}>
       <div class="container">
-        <article class="events-featured events-text-event events-reveal">
+        <article class="events-featured events-reveal">
+          <figure class="events-feature-photo events-illustration">
+            <Photo name={event.image as keyof typeof photos} lang={lang} sizes="(max-width: 700px) 90vw, 45vw"/>
+          </figure>
           <div class="events-feature-copy">
             <p class="eyebrow">{event.eyebrow}</p>
             <h2 id={`${event.id}-title`}>{event.title}</h2>

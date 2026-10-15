@@ -1404,5 +1404,51 @@
       "it": "Grafica dell’edizione 2026, fornita per illustrare la manifestazione.",
       "en": "Artwork from the 2026 edition, supplied to illustrate the event."
     }
+  },
+  "nativityEvent": {
+    "width": 1200,
+    "height": 1200,
+    "widths": [
+      480,
+      800,
+      1200
+    ],
+    "alt": {
+      "it": "Illustrazione della Natività con Maria, Giuseppe e il Bambino, illuminati da una lanterna.",
+      "en": "Illustration of Mary, Joseph and the infant Jesus in a lantern-lit Nativity scene."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "",
+      "en": ""
+    }
+  },
+  "breadForLifeEvent": {
+    "width": 1200,
+    "height": 1200,
+    "widths": [
+      480,
+      800,
+      1200
+    ],
+    "alt": {
+      "it": "Illustrazione di una serata dedicata al pane e alla solidarietà, con pane casereccio e piatti della tradizione.",
+      "en": "Illustration of an evening celebrating bread and solidarity, with homemade loaves and traditional dishes."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "",
+      "en": ""
+    }
   }
 }

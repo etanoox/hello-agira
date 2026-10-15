@@ -779,20 +779,13 @@ body.gallery-is-open{overflow:hidden}
 .sights-editorial-card img[src*="/castleDaylight-"],
 .history-chapter-visual img[src*="/castleDaylight-"]{object-position:50% 0%}
 
-/* Recurring events without a dedicated photograph or detail page. */
+/* Alternating backgrounds for recurring events. */
 .events-seasonal-section{background:var(--stone)}
 .events-seasonal-section-muted{background:#e8eadf}
-.events-featured.events-text-event{grid-template-columns:minmax(0,1fr) 200px;align-items:start}
-.events-text-event .events-feature-copy{grid-column:1;grid-row:1}
-.events-text-event .events-feature-copy h2{max-width:800px}
-.events-text-event .events-feature-copy>p:not(.eyebrow){max-width:760px}
-.events-text-event .events-date-tile{grid-column:2;grid-row:1;width:200px;margin:0}
 .events-award-source{display:inline-flex;align-items:center;gap:.35rem;text-decoration:underline;text-underline-offset:3px}
 .events-award-source svg{width:14px;height:14px}
-@media(max-width:700px){
-  .events-featured.events-text-event{grid-template-columns:minmax(0,1fr)}
-  .events-text-event .events-date-tile{grid-column:1;grid-row:2;width:100%}
-}
 
 .events-motor-poster img{height:auto;aspect-ratio:1;object-fit:contain}
 .events-date-month>strong{font-size:3.2rem;letter-spacing:-.065em;margin-block:.6rem}
+
+.events-illustration img{height:auto;aspect-ratio:1;object-fit:contain}
