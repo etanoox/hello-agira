@@ -12,7 +12,7 @@ const { lang } = Astro.props;
 const localizedPaths = { it: pageUrl('events', 'it'), en: pageUrl('events', 'en') };
 const copy = lang === 'it' ? {
   title: 'Eventi e tradizioni ad Agira | Hello Agira',
-  description: 'Eventi ad Agira: Sagra della Cassatella domenica 15 novembre 2026, dalle 10:00 alle 24:00 in Piazza Europa, e tradizioni di San Filippo.',
+  description: 'Eventi ad Agira: Sagra della Cassatella domenica 15 novembre 2026, dalle 10:00 alle 24:00 in Piazza Europa, festa di San Filippo, Presepe Vivente e Un Pane per la Vita.',
   eyebrow: 'AGIRA · IL CALENDARIO DELLE TRADIZIONI',
   heading: 'Ci sono giorni\nche restano.',
   intro: 'Le feste raccontano un paese in un modo diverso: attraverso i sapori, i riti e il piacere di ritrovarsi.',
@@ -34,7 +34,7 @@ const copy = lang === 'it' ? {
   food: 'Dove mangiare',
 } : {
   title: 'Events and traditions in Agira | Hello Agira',
-  description: 'Events in Agira: the Cassatella Festival on Sunday 15 November 2026, from 10:00 to midnight in Piazza Europa, and Saint Philip traditions.',
+  description: 'Events in Agira: the Cassatella Festival on Sunday 15 November 2026, from 10:00 to midnight in Piazza Europa, the feast of Saint Philip, the Living Nativity and Un Pane per la Vita.',
   eyebrow: 'AGIRA · A CALENDAR OF TRADITIONS',
   heading: 'Some days\nstay with you.',
   intro: 'Festivals tell the story of a place in a different way: through its flavours, rituals and the joy of coming together.',
@@ -55,6 +55,49 @@ const copy = lang === 'it' ? {
   sights: 'Things to see',
   food: 'Where to eat',
 };
+const seasonalEvents = lang === 'it' ? [
+  {
+    id: 'presepe-vivente', eyebrow: '03 / LA NOTTE DI NATALE', title: 'Il Presepe Vivente di Agira.',
+    date: '2026-12-24', label: 'Giovedì 24 dicembre 2026', day: 'GIOVEDÌ', number: '24', month: 'DICEMBRE', year: '2026',
+    paragraphs: [
+      'La notte del 24 dicembre il centro storico si anima di figuranti, botteghe e antichi mestieri. Il percorso attraversa la parte alta di Agira e accompagna Maria e Giuseppe fino alla Natività, tra i ruderi del Castello medievale.',
+      'Organizzato dall’Associazione Amici del Presepe, l’appuntamento intreccia fede, racconto biblico e tradizioni contadine siciliane. L’edizione del 2026 è la 36ª.',
+      'Il percorso apre abitualmente in serata, intorno alle 20:00, e culmina nella rappresentazione della Natività nella notte di Natale. Orari e tappe del programma 2026 saranno aggiornati quando disponibili.',
+    ],
+    award: 'Il Presepe ha ricevuto il riconoscimento di “Miglior Presepe Vivente d’Italia” per il 2025/2026, nell’ambito del 33° Geraci Eventus Praesepium Meeting.',
+  },
+  {
+    id: 'un-pane-per-la-vita', eyebrow: '04 / SAPORI E SOLIDARIETÀ', title: 'Un Pane per la Vita.',
+    date: '2027-01-05', label: 'Martedì 5 gennaio 2027', day: 'MARTEDÌ', number: '5', month: 'GENNAIO', year: '2027',
+    paragraphs: [
+      'Il 5 gennaio 2027 torna nella parte alta del centro storico la 35ª edizione di Un Pane per la Vita: una serata di incontro e solidarietà a favore dell’UNICEF e dei bambini colpiti da guerre e carestie.',
+      'Il cuore della manifestazione è il pane casereccio, impastato a mano dalle donne del paese e cotto nei forni tradizionali. Accanto al pane, i sapori della cucina contadina: lenticchie, ceci, fruate e vino casareccio.',
+      'L’iniziativa è promossa dall’Associazione Amici del Presepe Agira e dal Comitato Provinciale di Enna per l’UNICEF. L’appuntamento si svolge tradizionalmente dalle 19:00, tra le vie della zona alta del paese.',
+    ],
+    award: null,
+  },
+] : [
+  {
+    id: 'presepe-vivente', eyebrow: '03 / CHRISTMAS EVE', title: 'Agira’s Living Nativity.',
+    date: '2026-12-24', label: 'Thursday 24 December 2026', day: 'THURSDAY', number: '24', month: 'DECEMBER', year: '2026',
+    paragraphs: [
+      'On the night of 24 December, Agira’s historic centre comes alive with costumed performers, workshops and traditional crafts. The route winds through the upper town, following Mary and Joseph towards the Nativity among the ruins of the medieval castle.',
+      'Organised by the Amici del Presepe association, the event brings together faith, biblical storytelling and Sicily’s rural traditions. The 2026 event marks its 36th edition.',
+      'The route usually opens in the evening, around 8 pm, and culminates in the Nativity scene on Christmas night. Times and details for the 2026 programme will be updated when available.',
+    ],
+    award: 'The event received the “Best Living Nativity in Italy” award for 2025/2026 at the 33rd Geraci Eventus Praesepium Meeting.',
+  },
+  {
+    id: 'un-pane-per-la-vita', eyebrow: '04 / FOOD AND SOLIDARITY', title: 'Un Pane per la Vita.',
+    date: '2027-01-05', label: 'Tuesday 5 January 2027', day: 'TUESDAY', number: '5', month: 'JANUARY', year: '2027',
+    paragraphs: [
+      'On 5 January 2027, the upper historic centre hosts the 35th edition of Un Pane per la Vita — Bread for Life: an evening supporting UNICEF and children affected by war and famine.',
+      'At its heart is homemade bread, kneaded by local women and baked in traditional ovens. Alongside it are flavours from the local rural kitchen: lentils, chickpeas, fruate and homemade wine.',
+      'The event is promoted by the Amici del Presepe Agira association and UNICEF’s provincial committee in Enna. It traditionally begins at 7 pm in the streets of the upper town.',
+    ],
+    award: null,
+  },
+];
 const festivalHref = pageUrl('festival', lang);
 const saintFestivalHref = pageUrl('saintFestival', lang);
 const sightsHref = pageUrl('sights', lang);
@@ -125,6 +168,22 @@ const foodHref = pageUrl('eat', lang);
         </article>
       </div>
     </section>
+
+    {seasonalEvents.map(event => <section class="events-seasonal-section section" aria-labelledby={`${event.id}-title`}>
+      <div class="container">
+        <article class="events-featured events-text-event events-reveal">
+          <div class="events-feature-copy">
+            <p class="eyebrow">{event.eyebrow}</p>
+            <h2 id={`${event.id}-title`}>{event.title}</h2>
+            {event.paragraphs.map(paragraph => <p>{paragraph}</p>)}
+            {event.award && <p>{event.award} <a class="events-award-source" href="https://ennapress.it/il-presepe-di-agira-premiato-come-il-migliore-presepe-vivente-ditalia/">{lang === 'it' ? 'La notizia su EnnaPress' : 'Read the report on EnnaPress'}<Icon name="diagonal"/></a></p>}
+          </div>
+          <aside class="events-date-tile" aria-label={event.label}>
+            <span>{event.day}</span><strong>{event.number}</strong><p>{event.month}<br/>{event.year}</p><small>AGIRA · SICILIA</small>
+          </aside>
+        </article>
+      </div>
+    </section>)}
 
     <section class="itinerary-next events-page-next" aria-label={lang === 'it' ? 'Continua a esplorare' : 'Keep exploring'}>
       <div class="container itinerary-next-inner">
