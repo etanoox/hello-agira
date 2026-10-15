@@ -26,13 +26,8 @@ const copy = lang === 'it' ? {
   festivalAction: 'Vai alla pagina della Sagra',
   traditionsEyebrow: '02 / UNA TRADIZIONE VIVA',
   saintTitle: 'La festa di San Filippo.',
-  saintText: 'La devozione per il patrono attraversa il calendario e la vita della comunità. Le celebrazioni si articolano in più appuntamenti: date e programma variano di anno in anno.',
-  saintAction: 'Scopri le feste di San Filippo',
-  updatesEyebrow: 'SEGUI GLI AGGIORNAMENTI',
-  updatesTitle: 'Resta aggiornato sulla festa.',
-  updatesText: 'Per programmi, orari e indicazioni aggiornate consulta i canali degli organizzatori.',
-  proloco: 'Pro Loco Agira',
-  comune: 'Comune di Agira',
+  saintText: 'Il 12 maggio Agira celebra San Filippo, patrono del paese. La prossima festa sarà il 12 maggio 2027. La ricorrenza estiva è dedicata soprattutto agli emigrati che tornano ad Agira.',
+  saintAction: 'Scopri la festa di San Filippo',
   nextEyebrow: 'IL VIAGGIO CONTINUA',
   nextTitle: 'Una festa è anche un buon motivo per fermarsi.',
   sights: 'Cosa vedere',
@@ -53,13 +48,8 @@ const copy = lang === 'it' ? {
   festivalAction: 'Explore the festival page',
   traditionsEyebrow: '02 / A LIVING TRADITION',
   saintTitle: 'The feast of Saint Philip.',
-  saintText: 'Devotion to the town’s patron saint runs through the calendar and community life. Celebrations take place across several dates; the programme changes from year to year.',
-  saintAction: 'Discover Saint Philip’s festivals',
-  updatesEyebrow: 'FOLLOW THE LATEST UPDATES',
-  updatesTitle: 'Keep up with the festival.',
-  updatesText: 'For programmes, times and practical information, check the organisers’ channels.',
-  proloco: 'Pro Loco Agira',
-  comune: 'Municipality of Agira',
+  saintText: 'On 12 May, Agira celebrates Saint Philip, the town’s patron saint. The next feast will take place on 12 May 2027. The summer celebration is mainly for emigrants returning to Agira.',
+  saintAction: 'Discover the feast of Saint Philip',
   nextEyebrow: 'KEEP EXPLORING',
   nextTitle: 'A festival is a good reason to stay a little longer.',
   sights: 'Things to see',
@@ -89,7 +79,6 @@ const foodHref = pageUrl('eat', lang);
             <figcaption><span>{lang === 'it' ? 'Agira, tra il paese e il paesaggio' : 'Agira, between town and landscape'}</span><span>{photos.town.credit?.[lang]}</span></figcaption>
           </figure>
         </div>
-        <div class="events-hero-index"><span>01</span><span>{lang === 'it' ? 'APPUNTAMENTI E TRADIZIONI' : 'EVENTS AND TRADITIONS'}</span><span>AGIRA · SICILIA</span></div>
       </div>
     </section>
 
@@ -118,29 +107,24 @@ const foodHref = pageUrl('eat', lang);
     </section>
 
     <section class="events-tradition-section" aria-labelledby="events-saint-title">
-      <div class="container events-tradition-grid events-reveal">
-        <div class="events-tradition-copy">
-          <p class="eyebrow">{copy.traditionsEyebrow}</p>
-          <h2 id="events-saint-title">{copy.saintTitle}</h2>
-          <p>{copy.saintText}</p>
-          <a class="text-link" href={saintFestivalHref}>{copy.saintAction}<Icon name="arrow"/></a>
-        </div>
-        <figure class="events-tradition-visual">
-          <Photo name="abbeyAnelloPanorama" lang={lang} sizes="(max-width: 700px) 90vw, 46vw"/>
-          <figcaption><span>{lang === 'it' ? 'La Reale Abbazia di San Filippo ad Agira' : 'The Royal Abbey of San Filippo in Agira'}</span><span>{photos.abbeyAnelloPanorama.credit[lang]}</span></figcaption>
-          <span class="events-tradition-mark" aria-hidden="true">SP</span>
-        </figure>
+      <div class="container">
+        <article class="events-featured events-reveal">
+          <figure class="events-feature-photo">
+            <Photo name="abbeyAnelloPanorama" lang={lang} sizes="(max-width: 700px) 90vw, 50vw"/>
+            <figcaption><span>{lang === 'it' ? 'La Reale Abbazia di San Filippo ad Agira' : 'The Royal Abbey of San Filippo in Agira'}</span><span>{photos.abbeyAnelloPanorama.credit[lang]}</span></figcaption>
+          </figure>
+          <div class="events-feature-copy">
+            <p class="eyebrow">{copy.traditionsEyebrow}</p>
+            <h2 id="events-saint-title">{copy.saintTitle}</h2>
+            <p>{copy.saintText}</p>
+            <a class="text-link" href={saintFestivalHref}>{copy.saintAction}<Icon name="arrow"/></a>
+          </div>
+          <aside class="events-date-tile" aria-label={lang === 'it' ? 'Mercoledì 12 maggio 2027' : 'Wednesday 12 May 2027'}>
+            <span>{lang === 'it' ? 'MERCOLEDÌ' : 'WEDNESDAY'}</span><strong>12</strong><p>{lang === 'it' ? 'MAGGIO' : 'MAY'}<br/>2027</p><small>AGIRA · SICILIA</small>
+          </aside>
+        </article>
       </div>
     </section>
-
-    <aside class="events-updates">
-      <div class="container events-updates-inner">
-        <div><p class="eyebrow">{copy.updatesEyebrow}</p><h2>{copy.updatesTitle}</h2><p>{copy.updatesText}</p></div>
-        <div class="events-update-links">
-          <a class="text-link" href="https://www.prolocoagira.it/" target="_blank" rel="noopener noreferrer">{copy.proloco}<Icon name="diagonal"/></a>
-        </div>
-      </div>
-    </aside>
 
     <section class="itinerary-next events-page-next" aria-label={lang === 'it' ? 'Continua a esplorare' : 'Keep exploring'}>
       <div class="container itinerary-next-inner">
