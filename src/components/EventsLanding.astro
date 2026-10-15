@@ -176,7 +176,7 @@ const foodHref = pageUrl('eat', lang);
             <p class="eyebrow">{event.eyebrow}</p>
             <h2 id={`${event.id}-title`}>{event.title}</h2>
             {event.paragraphs.map(paragraph => <p>{paragraph}</p>)}
-            {event.award && <p>{event.award} <a class="events-award-source" href="https://ennapress.it/il-presepe-di-agira-premiato-come-il-migliore-presepe-vivente-ditalia/">{lang === 'it' ? 'La notizia su EnnaPress' : 'Read the report on EnnaPress'}<Icon name="diagonal"/></a></p>}
+            {event.award && <p>{event.award}</p>}
           </div>
           <aside class="events-date-tile" aria-label={event.label}>
             <span>{event.day}</span><strong>{event.number}</strong><p>{event.month}<br/>{event.year}</p><small>AGIRA · SICILIA</small>
