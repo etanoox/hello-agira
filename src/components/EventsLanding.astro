@@ -12,7 +12,7 @@ const { lang } = Astro.props;
 const localizedPaths = { it: pageUrl('events', 'it'), en: pageUrl('events', 'en') };
 const copy = lang === 'it' ? {
   title: 'Eventi e tradizioni ad Agira | Hello Agira',
-  description: 'Eventi ad Agira: Sagra della Cassatella domenica 15 novembre 2026, dalle 10:00 alle 24:00 in Piazza Europa, festa di San Filippo, Presepe Vivente e Un Pane per la Vita.',
+  description: 'Eventi ad Agira: Sagra della Cassatella domenica 15 novembre 2026, dalle 10:00 alle 24:00 in Piazza Europa, festa di San Filippo, Presepe Vivente, Un Pane per la Vita e Motor Expo.',
   eyebrow: 'AGIRA · IL CALENDARIO DELLE TRADIZIONI',
   heading: 'Ci sono giorni\nche restano.',
   intro: 'Le feste raccontano un paese in un modo diverso: attraverso i sapori, i riti e il piacere di ritrovarsi.',
@@ -34,7 +34,7 @@ const copy = lang === 'it' ? {
   food: 'Dove mangiare',
 } : {
   title: 'Events and traditions in Agira | Hello Agira',
-  description: 'Events in Agira: the Cassatella Festival on Sunday 15 November 2026, from 10:00 to midnight in Piazza Europa, the feast of Saint Philip, the Living Nativity and Un Pane per la Vita.',
+  description: 'Events in Agira: the Cassatella Festival on Sunday 15 November 2026, from 10:00 to midnight in Piazza Europa, the feast of Saint Philip, the Living Nativity, Un Pane per la Vita and Motor Expo.',
   eyebrow: 'AGIRA · A CALENDAR OF TRADITIONS',
   heading: 'Some days\nstay with you.',
   intro: 'Festivals tell the story of a place in a different way: through its flavours, rituals and the joy of coming together.',
@@ -184,6 +184,26 @@ const foodHref = pageUrl('eat', lang);
         </article>
       </div>
     </section>)}
+
+    <section class="events-seasonal-section section" aria-labelledby="events-motor-title">
+      <div class="container">
+        <article class="events-featured events-reveal">
+          <figure class="events-feature-photo events-motor-poster">
+            <Photo name="motorExpo2026Poster" lang={lang} sizes="(max-width: 700px) 90vw, 45vw"/>
+            <figcaption>{photos.motorExpo2026Poster.credit[lang]}</figcaption>
+          </figure>
+          <div class="events-feature-copy">
+            <p class="eyebrow">{lang === 'it' ? '05 / MOTORI E PASSIONI' : '05 / MOTORING AND PASSION'}</p>
+            <h2 id="events-motor-title">Motor Expo Agira 2027.</h2>
+            <p>{lang === 'it' ? 'La 27ª edizione del Motor Expo Agira riunisce appassionati, collezionisti e curiosi al Padiglione Fieristico di Agira. Una mostra-scambio dedicata ad auto, moto, oggettistica e memorabilia d’epoca, organizzata dal Club Motori d’Epoca Agira.' : 'The 27th Motor Expo Agira brings enthusiasts, collectors and curious visitors together at Agira’s Exhibition Pavilion. Organised by the Club Motori d’Epoca Agira, this swap meet celebrates classic cars, motorcycles, vintage objects and memorabilia.'}</p>
+            <p>{lang === 'it' ? 'L’appuntamento è previsto a marzo 2027, con ingresso gratuito. Le giornate esatte e il programma saranno pubblicati non appena confermati.' : 'The event is planned for March 2027, with free admission. Exact dates and the programme will be published once confirmed.'}</p>
+          </div>
+          <aside class="events-date-tile events-date-month" aria-label={lang === 'it' ? 'Marzo 2027, date da confermare' : 'March 2027, dates to be confirmed'}>
+            <span>{lang === 'it' ? 'DATE DA CONFERMARE' : 'DATES TO BE CONFIRMED'}</span><strong>2027</strong><p>{lang === 'it' ? 'MARZO' : 'MARCH'}</p><small>AGIRA · SICILIA</small>
+          </aside>
+        </article>
+      </div>
+    </section>
 
     <section class="itinerary-next events-page-next" aria-label={lang === 'it' ? 'Continua a esplorare' : 'Keep exploring'}>
       <div class="container itinerary-next-inner">

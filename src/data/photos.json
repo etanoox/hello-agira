@@ -1381,5 +1381,28 @@
       "it": "Fotografia di Filippo Anello.",
       "en": "Photograph by Filippo Anello."
     }
+  },
+  "motorExpo2026Poster": {
+    "width": 1200,
+    "height": 1200,
+    "widths": [
+      480,
+      800,
+      1200
+    ],
+    "alt": {
+      "it": "Grafica Motor Expò Agira 2026, ventiseiesima mostra-scambio, con un’auto d’epoca e un motore stilizzato.",
+      "en": "Motor Expò Agira 2026 artwork for the 26th swap meet, featuring a classic car and a stylised engine."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Grafica dell’edizione 2026, fornita per illustrare la manifestazione.",
+      "en": "Artwork from the 2026 edition, supplied to illustrate the event."
+    }
   }
 }

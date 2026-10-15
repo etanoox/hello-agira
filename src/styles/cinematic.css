@@ -793,3 +793,6 @@ body.gallery-is-open{overflow:hidden}
   .events-featured.events-text-event{grid-template-columns:minmax(0,1fr)}
   .events-text-event .events-date-tile{grid-column:1;grid-row:2;width:100%}
 }
+
+.events-motor-poster img{height:auto;aspect-ratio:1;object-fit:contain}
+.events-date-month>strong{font-size:3.2rem;letter-spacing:-.065em;margin-block:.6rem}
