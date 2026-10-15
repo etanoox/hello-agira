@@ -17,14 +17,14 @@ const copy = lang === 'it' ? {
   heading: 'Ci sono giorni\nche restano.',
   intro: 'Le feste raccontano un paese in un modo diverso: attraverso i sapori, i riti e il piacere di ritrovarsi.',
   action: 'Scopri gli appuntamenti',
-  calendarEyebrow: '01 / IN CALENDARIO',
+  calendarEyebrow: 'IN CALENDARIO',
   calendarTitle: 'Un’occasione per venire ad Agira.',
   calendarIntro: 'La Sagra della Cassatella ti aspetta domenica 15 novembre 2026, dalle 10:00 alle 24:00, in Piazza Europa ad Agira.',
-  festivalEyebrow: 'PROSSIMO APPUNTAMENTO · DOMENICA 15 NOVEMBRE 2026',
+  festivalEyebrow: '01 / SAPORI E TRADIZIONI',
   festivalTitle: 'La Sagra della Cassatella.',
   festivalText: 'La festa celebra il dolce simbolo di Agira e invita a scoprire il paese attraverso i suoi sapori e le sue tradizioni.',
   festivalAction: 'Vai alla pagina della Sagra',
-  traditionsEyebrow: '02 / UNA TRADIZIONE VIVA',
+  traditionsEyebrow: '02 / FEDE E TRADIZIONE',
   saintTitle: 'La festa di San Filippo.',
   saintText: 'Il 12 maggio Agira celebra San Filippo, patrono del paese. La prossima festa sarà il 12 maggio 2027. La ricorrenza estiva è dedicata soprattutto agli emigrati che tornano ad Agira.',
   saintAction: 'Scopri la festa di San Filippo',
@@ -39,14 +39,14 @@ const copy = lang === 'it' ? {
   heading: 'Some days\nstay with you.',
   intro: 'Festivals tell the story of a place in a different way: through its flavours, rituals and the joy of coming together.',
   action: 'Explore the calendar',
-  calendarEyebrow: '01 / ON THE CALENDAR',
+  calendarEyebrow: 'ON THE CALENDAR',
   calendarTitle: 'A reason to come to Agira.',
   calendarIntro: 'Join the Cassatella Festival on Sunday 15 November 2026, from 10:00 to midnight, in Piazza Europa, Agira.',
-  festivalEyebrow: 'NEXT EVENT · SUNDAY 15 NOVEMBER 2026',
+  festivalEyebrow: '01 / FLAVOURS AND TRADITIONS',
   festivalTitle: 'The Cassatella Festival.',
   festivalText: 'The festival celebrates Agira’s signature pastry and invites visitors to discover the town through its flavours and traditions.',
   festivalAction: 'Explore the festival page',
-  traditionsEyebrow: '02 / A LIVING TRADITION',
+  traditionsEyebrow: '02 / FAITH AND TRADITION',
   saintTitle: 'The feast of Saint Philip.',
   saintText: 'On 12 May, Agira celebrates Saint Philip, the town’s patron saint. The next feast will take place on 12 May 2027. The summer celebration is mainly for emigrants returning to Agira.',
   saintAction: 'Discover the feast of Saint Philip',
@@ -169,7 +169,7 @@ const foodHref = pageUrl('eat', lang);
       </div>
     </section>
 
-    {seasonalEvents.map(event => <section class="events-seasonal-section section" aria-labelledby={`${event.id}-title`}>
+    {seasonalEvents.map((event, index) => <section class:list={["events-seasonal-section", "section", { "events-seasonal-section-muted": index % 2 === 1 }]} aria-labelledby={`${event.id}-title`}>
       <div class="container">
         <article class="events-featured events-text-event events-reveal">
           <div class="events-feature-copy">

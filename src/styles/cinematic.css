@@ -733,9 +733,6 @@ body.gallery-is-open{overflow:hidden}
 .events-date-tile>p{font-size:.75rem;line-height:1.3;letter-spacing:.12em;color:var(--forest-dark)}
 .events-date-tile>small{margin-top:1.25rem;padding-top:.7rem;border-top:1px solid #073e3840;font-size:.58rem;letter-spacing:.12em}
 .events-tradition-section{overflow:hidden;padding-block:6.5rem;background:#e8eadf}
-.events-page-next{background:var(--stone);color:var(--ink)}
-.events-page-next .eyebrow{color:var(--forest)}
-.events-page-next .itinerary-next-links .text-link{color:var(--forest)}
 .events-section-links{display:flex;flex-wrap:wrap;gap:.25rem 1.4rem;margin-top:.9rem}
 .events-section-links .text-link{font-size:.875rem}
 .has-sights-reveal .events-reveal{opacity:0;transform:translateY(26px);transition:opacity .75s cubic-bezier(.22,.68,0,1),transform .85s cubic-bezier(.22,.68,0,1)}
@@ -784,7 +781,7 @@ body.gallery-is-open{overflow:hidden}
 
 /* Recurring events without a dedicated photograph or detail page. */
 .events-seasonal-section{background:var(--stone)}
-.events-seasonal-section:nth-of-type(even){background:#e8eadf}
+.events-seasonal-section-muted{background:#e8eadf}
 .events-featured.events-text-event{grid-template-columns:minmax(0,1fr) 200px;align-items:start}
 .events-text-event .events-feature-copy{grid-column:1;grid-row:1}
 .events-text-event .events-feature-copy h2{max-width:800px}
