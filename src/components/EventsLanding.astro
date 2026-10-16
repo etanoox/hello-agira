@@ -57,7 +57,7 @@ const copy = lang === 'it' ? {
 };
 const seasonalEvents = lang === 'it' ? [
   {
-    id: 'presepe-vivente', image: 'nativityEvent', eyebrow: '03 / LA NOTTE DI NATALE', title: 'Il Presepe Vivente di Agira.',
+    id: 'presepe-vivente', image: 'nativitySanfilippo7586', eyebrow: '03 / LA NOTTE DI NATALE', title: 'Il Presepe Vivente di Agira.',
     date: '2026-12-24', label: 'Giovedì 24 dicembre 2026', day: 'GIOVEDÌ', number: '24', month: 'DICEMBRE', year: '2026',
     paragraphs: [
       'La notte del 24 dicembre il centro storico si anima di figuranti, botteghe e antichi mestieri. Il percorso attraversa la parte alta di Agira e accompagna Maria e Giuseppe fino alla Natività, tra i ruderi del Castello medievale.',
@@ -78,7 +78,7 @@ const seasonalEvents = lang === 'it' ? [
   },
 ] : [
   {
-    id: 'presepe-vivente', image: 'nativityEvent', eyebrow: '03 / CHRISTMAS EVE', title: 'Agira’s Living Nativity.',
+    id: 'presepe-vivente', image: 'nativitySanfilippo7586', eyebrow: '03 / CHRISTMAS EVE', title: 'Agira’s Living Nativity.',
     date: '2026-12-24', label: 'Thursday 24 December 2026', day: 'THURSDAY', number: '24', month: 'DECEMBER', year: '2026',
     paragraphs: [
       'On the night of 24 December, Agira’s historic centre comes alive with costumed performers, workshops and traditional crafts. The route winds through the upper town, following Mary and Joseph towards the Nativity among the ruins of the medieval castle.',
@@ -174,12 +174,14 @@ const foodHref = pageUrl('eat', lang);
         <article class="events-featured events-reveal">
           <figure class="events-feature-photo events-illustration">
             <Photo name={event.image as keyof typeof photos} lang={lang} sizes="(max-width: 700px) 90vw, 45vw"/>
+            {event.id === 'presepe-vivente' && <figcaption>{photos.nativitySanfilippo7586.credit[lang]}</figcaption>}
           </figure>
           <div class="events-feature-copy">
             <p class="eyebrow">{event.eyebrow}</p>
             <h2 id={`${event.id}-title`}>{event.title}</h2>
             {event.paragraphs.map(paragraph => <p>{paragraph}</p>)}
             {event.award && <p>{event.award}</p>}
+            {event.id === 'presepe-vivente' && <a class="text-link" href={pageUrl('nativity', lang)}>{lang === 'it' ? 'Scopri il Presepe Vivente' : 'Explore the Living Nativity'}<Icon name="arrow"/></a>}
           </div>
           <aside class="events-date-tile" aria-label={event.label}>
             <span>{event.day}</span><strong>{event.number}</strong><p>{event.month}<br/>{event.year}</p><small>AGIRA · SICILIA</small>
