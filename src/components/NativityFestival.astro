@@ -83,7 +83,7 @@ const structured = Astro.site?.protocol === 'https:' ? {
     </section>
     <section class="stay-practical-section section" aria-labelledby="nativity-faq-title">
       <div class="container stay-practical-grid">
-        <div class="stay-practical-intro"><p class="eyebrow">{l('05 / PRIMA DI PARTIRE', '05 / BEFORE YOU SET OFF')}</p><h2 id="nativity-faq-title">{l('Preparare la visita.', 'Plan your visit.')}</h2><div class="festival-plan-links"><a class="text-link" href={sightUrl('salvatore', lang)}>{l('La Collegiata del SS. Salvatore', 'The Collegiate Church of SS. Salvatore')}<Icon name="arrow"/></a></div></div>
+        <div class="stay-practical-intro"><p class="eyebrow">{l('05 / PRIMA DI PARTIRE', '05 / BEFORE YOU SET OFF')}</p><h2 id="nativity-faq-title">{l('Preparare la visita.', 'Plan your visit.')}</h2></div>
         <div class="stay-practical-list">
           {c.faqs.map((faq, index) => <details><summary><span class="small-number">0{index + 1}</span><h3>{faq.q}</h3><Icon name="plus"/></summary><div class="stay-practical-answer"><p>{faq.a}</p></div></details>)}
           <details><summary><span class="small-number">05</span><h3>{l('Fonti per approfondire', 'Sources for further reading')}</h3><Icon name="plus"/></summary><div class="stay-practical-answer">{sources.map(source => <p><a class="text-link" href={source.href} target="_blank" rel="noopener noreferrer">{source.name}<Icon name="diagonal"/></a></p>)}</div></details>
