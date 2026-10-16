@@ -13,7 +13,7 @@ export function getRocchePage(lang: Locale): SightPage {
     image: 'roccheAnelloLanes',
     location: l('Quartiere delle Rocche · Accesso da via Diodorea · Agira', 'Rocche Quarter · Access from Via Diodorea · Agira'),
     mapQuery: 'Via Diodorea, Agira, Enna, Sicilia',
-    visitorNote: l('Via Diodorea è il riferimento per iniziare la passeggiata. Il quartiere presenta scale e dislivelli; per la Casa Museo non sono qui indicati orari di apertura o modalità di visita.', 'Via Diodorea is the starting reference for your walk. The quarter has steps and changes in level; opening hours and visiting arrangements for the house museum are not listed here.'),
+    visitorNote: l('Via Diodorea è il riferimento per iniziare la passeggiata. Il quartiere presenta scale e dislivelli.', 'Via Diodorea is the starting reference for your walk. The quarter has steps and changes in level.'),
     facts: [
       { label: l('Accesso', 'Access'), value: l('Da via Diodorea', 'From Via Diodorea') },
       { label: l('Da scoprire', 'Explore'), value: l('Vicoli, cortili e scalinate', 'Lanes, courtyards and steps') },
@@ -24,8 +24,8 @@ export function getRocchePage(lang: Locale): SightPage {
       {
         title: l('Un quartiere da leggere camminando.', 'A neighbourhood to read as you walk.'),
         paragraphs: [
-          l('La Pro Loco descrive le Rocche come un antico quartiere dal tessuto urbanistico di tipo arabo. Stradine irregolari, vicoli ciechi, curve a gomito e piccoli cortili compongono una trama che si scopre un passo alla volta.', 'Pro Loco describes the Rocche as an old quarter with an urban layout shaped by Arab traditions. Irregular lanes, dead ends, sharp turns and small courtyards form a pattern best discovered one step at a time.'),
-          l('Nella lettura proposta dalla Pro Loco, le strade si articolano in percorsi principali pubblici, passaggi secondari semipubblici e vicoli privati legati a uno stesso ambito familiare. È una chiave per comprendere il rapporto tra le case e gli spazi condivisi, senza attribuire la stessa epoca a tutti gli edifici che vediamo oggi.', 'Pro Loco distinguishes between main public streets, secondary semi-public passages and private dead-end lanes serving a family group. This offers a way to understand the relationship between homes and shared spaces, without assuming that every building seen today dates from the same period.'),
+          l( 'Le Rocche sono un antico quartiere caratterizzato da un tessuto urbanistico di tipo arabo. Stradine irregolari, vicoli ciechi, curve a gomito e piccoli cortili compongono una trama che si scopre un passo alla volta.', 'The Rocche are an old quarter characterised by an urban layout shaped by Arab traditions. Irregular lanes, dead ends, sharp turns and small courtyards form a pattern best discovered one step at a time.' ),
+          l( 'Le strade si articolano in percorsi principali pubblici, passaggi secondari semipubblici e vicoli privati legati a uno stesso ambito familiare. Questa organizzazione aiuta a comprendere il rapporto tra le abitazioni e gli spazi condivisi, senza però attribuire necessariamente la stessa epoca a tutti gli edifici che vediamo oggi.', 'The streets are organised into main public routes, secondary semi-public passages and private dead-end lanes connected to the same family group. This layout helps explain the relationship between homes and shared spaces, without necessarily assuming that all the buildings visible today date from the same period.' ),
         ],
       },
       {
@@ -38,7 +38,7 @@ export function getRocchePage(lang: Locale): SightPage {
       {
         title: l('La memoria contadina e l’associazione.', 'Rural heritage and the neighbourhood association.'),
         paragraphs: [
-          l('La Pro Loco e I Borghi più belli d’Italia documentano nel quartiere una Casa Museo della civiltà contadina, con arredi, oggetti domestici e strumenti di lavoro. È una testimonianza della cultura materiale e delle abitudini delle generazioni precedenti, distinta dall’Ecomuseo di Cultura Materiale Silvestro Nasca.', 'Pro Loco and I Borghi più belli d’Italia document a house museum in the quarter displaying furniture, household objects and tools from rural life. It preserves the material culture and customs of earlier generations and is distinct from the Silvestro Nasca Museum of Material Culture.'),
+          l( 'Nel quartiere si trova una Casa Museo della civiltà contadina, con arredi, oggetti domestici e strumenti di lavoro legati alla vita rurale. È una testimonianza della cultura materiale e delle abitudini delle generazioni precedenti, distinta dall’Ecomuseo di Cultura Materiale Silvestro Nasca.', 'The quarter is home to a house museum dedicated to rural life, with furniture, household objects and traditional work tools. It preserves evidence of the material culture and everyday customs of earlier generations and is distinct from the Silvestro Nasca Museum of Material Culture.' ),
           l('L’Associazione Quartiere Rocche contribuisce alla valorizzazione di questo patrimonio. La manifestazione Passeggiando lungo la nostra storia intreccia memoria, tradizioni e sapori: la Pro Loco ha annunciato la XXVII edizione per il 29 e 30 agosto 2026. Le date degli appuntamenti cambiano e non costituiscono un calendario fisso per gli anni successivi.', 'The Associazione Quartiere Rocche helps preserve and share this heritage. Its event Passeggiando lungo la nostra storia brings together local memory, traditions and food: Pro Loco announced the 27th edition for 29–30 August 2026. Event dates vary and do not establish a fixed calendar for subsequent years.'),
         ],
       },
