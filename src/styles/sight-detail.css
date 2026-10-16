@@ -8,3 +8,5 @@
 
 /* Preserve the full Rocche photographs, including the photographer’s signature. */
 .place-photo-grid img[src*="/roccheAnello"]{height:auto;aspect-ratio:auto;object-fit:contain}
+
+.place-photo-grid img[src*="/salvatoreAnelloAltar-"],.place-photo-grid img[src*="/salvatoreAnelloColumns-"],.place-photo-grid img[src*="/salvatoreAnelloEntrance-"]{height:auto;aspect-ratio:auto;object-fit:contain}

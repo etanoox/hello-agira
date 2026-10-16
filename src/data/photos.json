@@ -1522,5 +1522,77 @@
       "it": "Fotografia di Filippo Anello.",
       "en": "Photograph by Filippo Anello."
     }
+  },
+  "salvatoreAnelloAltar": {
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "alt": {
+      "it": "La navata centrale della Collegiata del SS. Salvatore ad Agira, verso l’altare, con colonne e copertura lignea.",
+      "en": "The central nave of Agira’s Collegiate Church of SS. Salvatore towards the altar, with columns and a wooden roof."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photograph by Filippo Anello."
+    }
+  },
+  "salvatoreAnelloColumns": {
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "alt": {
+      "it": "Vista laterale delle colonne, dei capitelli scolpiti e della cappella nella Collegiata del SS. Salvatore ad Agira.",
+      "en": "Side view of the columns, carved capitals and chapel in Agira’s Collegiate Church of SS. Salvatore."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photograph by Filippo Anello."
+    }
+  },
+  "salvatoreAnelloEntrance": {
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "alt": {
+      "it": "L’interno della Collegiata del SS. Salvatore ad Agira, visto verso l’ingresso principale.",
+      "en": "The interior of Agira’s Collegiate Church of SS. Salvatore looking towards the main entrance."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photograph by Filippo Anello."
+    }
   }
 }

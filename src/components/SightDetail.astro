@@ -55,6 +55,14 @@ const structured=ready ? {
         </section>
         {place.audio && <PlaceAudioGuide guide={place.audio} lang={lang}/>}
         <section id="storia" class="place-story" aria-labelledby="place-story-heading"><p class="eyebrow">{l('LA STORIA E IL PAESAGGIO','HISTORY AND LANDSCAPE')}</p><h2 id="place-story-heading">{place.story[0].title}</h2>{place.story[0].paragraphs.map(text=><p>{text}</p>)}{place.story.slice(1).map(section=><div class="place-story-part"><h3>{section.title}</h3>{section.paragraphs.map(text=><p>{text}</p>)}</div>)}
+          {place.id === 'salvatore' && <div class="place-story-part">
+            <a class="text-link" href={sightUrl('aron', lang)}>{l('Scopri l’Aron e ascolta le sue audioguide', 'Explore the Aron and listen to its audio guides')}<Icon name="arrow"/></a>
+          </div>}
+          {place.id === 'aron' && <div class="place-story-part">
+            <h3>{l('La chiesa che lo custodisce.', 'The church that houses it.')}</h3>
+            <p>{l('L’Aron si trova nella navata sinistra della Collegiata del SS. Salvatore. Scopri anche l’architettura, le cappelle e la storia della chiesa.', 'The Aron is in the left nave of the Collegiate Church of SS. Salvatore. Discover the church’s architecture, chapels and history too.')}</p>
+            <a class="text-link" href={sightUrl('salvatore', lang)}>{l('Visita la pagina della Collegiata', 'Explore the collegiate church')}<Icon name="arrow"/></a>
+          </div>}
           {place.id === 'abbey' && <div class="place-story-part">
             <h3>{l('L’Abbazia e le feste del patrono.', 'The abbey and the patron saint’s festivals.')}</h3>
             <p>{l('La devozione si rinnova nella Festa di Primavera del 12 maggio e nella Festa d’Estate, A festa ranni, celebrata negli ultimi anni il 12 agosto. Scopri le tradizioni e il legame con Żebbuġ, a Malta.', 'Devotion is renewed through the Spring Festival on 12 May and the Summer Festival, A festa ranni, held on 12 August in recent years. Discover the traditions and the connection with Żebbuġ, Malta.')}</p>

@@ -42,6 +42,7 @@ export type ItineraryId = keyof typeof itinerarySlugs;
 export const itineraryUrl = (id: ItineraryId, lang: Locale) => `${pageUrl('routes', lang)}${itinerarySlugs[id][lang]}/`;
 
 export const sightSlugs = {
+  salvatore: { it: 'collegiata-ss-salvatore', en: 'ss-salvatore-collegiate-church' },
   rocche: { it: 'quartiere-delle-rocche', en: 'rocche-quarter' },
   manmanoGussio: { it: 'palazzo-baronale-manmano-gussio', en: 'palazzo-baronale-manmano-gussio' },
   canadianCemetery: { it: 'cimitero-militare-canadese', en: 'agira-canadian-war-cemetery' },
