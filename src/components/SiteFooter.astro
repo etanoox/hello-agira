@@ -19,9 +19,9 @@ const localeTarget = (locale: Locale) => alternatePaths?.[locale] ?? (currentPag
       </nav>
     </div>
     <div class="footer-nav"><p class="eyebrow">{c.footerExplore}</p>{navKeys.slice(0,5).map((key,i)=><a href={target(key)}>{c.nav[i]}</a>)}</div>
-    <div class="footer-nav"><p class="eyebrow">{c.footerUseful}</p><a href={pageUrl('services',lang)}>{lang === 'it' ? 'Servizi utili' : 'Useful services'}</a><a href={pageUrl('stay',lang)}>{c.plan}</a><a href={`${homeUrl(lang)}${anchor('map',lang)}`}>{c.onMap}</a><a href="https://etanoox.me/">{c.contactLink}<Icon name="diagonal"/></a><nav class="footer-language" aria-label={lang === 'it' ? 'Lingua del sito' : 'Site language'}><a href={localeTarget('it')} lang="it" hreflang="it" aria-current={lang === 'it' ? 'page' : undefined}>Italiano</a><a href={localeTarget('en')} lang="en" hreflang="en" aria-current={lang === 'en' ? 'page' : undefined}>English</a></nav></div>
+    <div class="footer-nav"><p class="eyebrow">{c.footerUseful}</p><a href={pageUrl('services',lang)}>{lang === 'it' ? 'Servizi utili' : 'Useful services'}</a><a href={pageUrl('stay',lang)}>{c.plan}</a><a href={`${homeUrl(lang)}${anchor('map',lang)}`}>{c.onMap}</a><nav class="footer-language" aria-label={lang === 'it' ? 'Lingua del sito' : 'Site language'}><a href={localeTarget('it')} lang="it" hreflang="it" aria-current={lang === 'it' ? 'page' : undefined}>Italiano</a><a href={localeTarget('en')} lang="en" hreflang="en" aria-current={lang === 'en' ? 'page' : undefined}>English</a></nav></div>
   </div>
-  <div class="footer-bottom"><p>{c.footerDisclaimer}</p><a href="#top">{c.backTop}<Icon name="diagonal"/></a></div>
+  <div class="footer-bottom"><p> {c.footerDisclaimer.split('Giuseppe Ricceri')[0]} <a href="https://etanoox.me/">Giuseppe Ricceri</a> {c.footerDisclaimer.split('Giuseppe Ricceri')[1]} </p><a href="#top">{c.backTop}<Icon name="diagonal"/></a></div>
 </div></footer>
 
 <style>
