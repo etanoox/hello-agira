@@ -122,22 +122,24 @@
     }
   },
   "ssalvatore": {
-    "width": 800,
-    "height": 537,
+    "width": 2047,
+    "height": 1365,
     "widths": [
       480,
-      800
+      800,
+      1200,
+      1800
     ],
     "alt": {
       "it": "La facciata in pietra della Collegiata del Santissimo Salvatore ad Agira.",
       "en": "The stone facade of the Collegiate Church of SS. Salvatore in Agira."
     },
-    "author": "Pro Loco Agira",
-    "authorUrl": "https://www.prolocoagira.it/",
-    "source": "https://www.prolocoagira.it/wp/2017/06/22/collegiata-del-ss-salvatore/",
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
     "credit": {
-      "it": "Foto: Pro Loco Agira",
-      "en": "Photo: Pro Loco Agira"
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photograph by Filippo Anello."
     },
     "license": null
   },
