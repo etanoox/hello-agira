@@ -53,7 +53,7 @@ const structured = Astro.site?.protocol === 'https:' ? {
             <div class="festival-date-lockup"><span>{l('LA PROSSIMA EDIZIONE', 'THE NEXT EDITION')}</span><div><strong>24</strong><p>{l('DICEMBRE', 'DECEMBER')}<br/>2026</p></div></div>
             <a class="button button-yellow" href="#edizione-2026">{l('L’edizione 2026', 'The 2026 edition')}<Icon name="arrow"/></a>
           </div>
-          <figure class="route-page-photo festival-hero-photo nativity-hero-photo">
+          <figure class="route-page-photo festival-hero-photo">
             <a class="photo-link" href={fullImage(hero)} data-gallery-open={hero} aria-haspopup="dialog" aria-label={l('Ingrandisci la fotografia della Natività', 'Enlarge the Nativity photograph')}><Photo name={hero} lang={lang} priority sizes="(max-width: 700px) 92vw, 48vw"/></a>
             <figcaption><span>{l('La Natività', 'The Nativity')}</span><span>{photos[hero].credit[lang]}</span></figcaption>
           </figure>
@@ -98,8 +98,6 @@ const structured = Astro.site?.protocol === 'https:' ? {
 </Base>
 <style>
 .nativity-muted{background:#e8eadf}
-.nativity-hero-photo .photo-link{height:auto!important;aspect-ratio:auto!important;max-height:none!important}
-.nativity-hero-photo :global(img){height:auto!important;object-fit:contain}
 .nativity-photo-grid{columns:3;column-gap:1.5rem}
 .nativity-photo-grid figure{break-inside:avoid;margin:0 0 2rem}
 .nativity-photo-grid .photo-link{display:block;position:relative;background:var(--forest-dark)}
