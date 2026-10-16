@@ -6,42 +6,42 @@ export function getRocchePage(lang: Locale): SightPage {
   return {
     id: 'rocche',
     name: l('Il Quartiere delle Rocche', 'The Rocche Quarter'),
-    category: l('Vicoli, case e memoria', 'Lanes, houses and memory'),
+    category: l("Vicoli, catoja e memoria di Agira", "Lanes, catoja and Agira’s heritage"),
     title: l('Quartiere delle Rocche ad Agira: vicoli e storia | Hello Agira', 'The Rocche Quarter in Agira: lanes and history | Hello Agira'),
-    description: l('Scopri il Quartiere delle Rocche di Agira: vicoli e scalinate di matrice araba, memoria contadina e fotografie di Filippo Anello. Accesso da via Diodorea.', 'Explore Agira’s Rocche Quarter: lanes and steps reflecting Arab urban traditions, rural heritage and photographs by Filippo Anello. Access from Via Diodorea.'),
-    introduction: l('Una svolta, una scalinata, una casa affacciata sul vicolo. Alle Rocche, Agira si racconta attraverso gli spazi della vita quotidiana: un quartiere da attraversare a piedi, con il tempo di osservare.', 'A turn, a flight of steps, a house opening onto a lane. In the Rocche Quarter, Agira tells its story through the spaces of everyday life: a neighbourhood to explore on foot, with time to look closely.'),
+    description: l("Scopri il Quartiere delle Rocche di Agira: vicoli, catoja, casa museo, eventi dell’associazione e contatti per prenotare una visita.", "Discover Agira’s Rocche Quarter: lanes, catoja, the house museum, association events and contacts for booking a visit."),
+    introduction: l("Nella parte alta di Agira, il Quartiere delle Rocche si scopre a piedi, tra vicoli, scalinate e ambienti che custodiscono la memoria della vita quotidiana. Un luogo da attraversare con calma, dove il lavoro dell’Associazione Quartiere Rocche mantiene vivo il legame tra gli spazi del passato e la comunità di oggi.", "In the upper part of Agira, the Rocche Quarter is best explored on foot, among lanes, steps and spaces preserving memories of everyday life. Take your time: the Associazione Quartiere Rocche keeps the connection between these historic places and today’s community alive."),
     image: 'roccheAnelloLanes',
-    location: l('Quartiere delle Rocche · Accesso da via Diodorea · Agira', 'Rocche Quarter · Access from Via Diodorea · Agira'),
+    location: l("Quartiere delle Rocche · Agira", "Rocche Quarter · Agira"),
     mapQuery: 'Via Diodorea, Agira, Enna, Sicilia',
-    visitorNote: l('Via Diodorea è il riferimento per iniziare la passeggiata. Il quartiere presenta scale e dislivelli.', 'Via Diodorea is the starting reference for your walk. The quarter has steps and changes in level.'),
+    visitorNote: l("La casa museo è aperta durante gli eventi oppure su prenotazione. Concorda giorno e orario con le referenti.", "The house museum opens during events or by appointment. Arrange the day and time with the contacts below."),
+    visitorContacts: [
+      { label: l('Signora Naselli · Presidente · +39 327 5352712', 'Ms Naselli · President · +39 327 5352712'), href: 'tel:+393275352712' },
+      { label: 'Pina Minnicino · +39 389 9805464', href: 'tel:+393899805464' },
+    ],
     facts: [
-      { label: l('Accesso', 'Access'), value: l('Da via Diodorea', 'From Via Diodorea') },
-      { label: l('Da scoprire', 'Explore'), value: l('Vicoli, cortili e scalinate', 'Lanes, courtyards and steps') },
-      { label: l('Impianto urbano', 'Urban layout'), value: l('Di matrice araba', 'Reflecting Arab urban traditions') },
+      { label: l('Accessi', 'Access'), value: 'Via Peschiera · Via Diodorea · Discesa Rosselli · Via Raddusa' },
+      { label: l('Parcheggio', 'Parking'), value: l('Piccolo parcheggio in Discesa Rosselli', 'Small car park on Discesa Rosselli') },
+      { label: l('Casa museo', 'House museum'), value: l('Durante gli eventi o su prenotazione', 'During events or by appointment') },
       { label: l('Come visitarlo', 'Getting around'), value: l('A piedi, con salite e scale', 'On foot, with slopes and steps') },
     ],
     story: [
-      {
-        title: l('Un quartiere da leggere camminando.', 'A neighbourhood to read as you walk.'),
-        paragraphs: [
-          l( 'Le Rocche sono un antico quartiere caratterizzato da un tessuto urbanistico di tipo arabo. Stradine irregolari, vicoli ciechi, curve a gomito e piccoli cortili compongono una trama che si scopre un passo alla volta.', 'The Rocche are an old quarter characterised by an urban layout shaped by Arab traditions. Irregular lanes, dead ends, sharp turns and small courtyards form a pattern best discovered one step at a time.' ),
-          l( 'Le strade si articolano in percorsi principali pubblici, passaggi secondari semipubblici e vicoli privati legati a uno stesso ambito familiare. Questa organizzazione aiuta a comprendere il rapporto tra le abitazioni e gli spazi condivisi, senza però attribuire necessariamente la stessa epoca a tutti gli edifici che vediamo oggi.', 'The streets are organised into main public routes, secondary semi-public passages and private dead-end lanes connected to the same family group. This layout helps explain the relationship between homes and shared spaces, without necessarily assuming that all the buildings visible today date from the same period.' ),
-        ],
-      },
-      {
-        title: l('Le case e gli spazi della vita quotidiana.', 'Homes and the spaces of everyday life.'),
-        paragraphs: [
-          l('Il racconto delle Rocche passa anche dalle soglie delle abitazioni, dai pianerottoli e dalle scalinate esterne. La sintesi storica Agira città d’arte ricorda gli astraci davanti alle case, elementi di un paesaggio urbano in cui abitazione e strada sono strettamente connesse.', 'The story of the Rocche also unfolds through doorways, landings and outdoor steps. The historical account Agira città d’arte mentions the astraci in front of the houses, features of a townscape in which home and street are closely connected.'),
-          l('Le fotografie di Filippo Anello accompagnano questa scoperta: osservano le murature, i passaggi e i diversi livelli delle case, conservando il carattere dei luoghi e i segni della loro vita quotidiana.', 'Filippo Anello’s photographs accompany this exploration, drawing attention to masonry, passageways and the different levels of the houses, as well as the character of the neighbourhood and the traces of everyday life.'),
-        ],
-      },
-      {
-        title: l('La memoria contadina e l’associazione.', 'Rural heritage and the neighbourhood association.'),
-        paragraphs: [
-          l( 'Nel quartiere si trova una Casa Museo della civiltà contadina, con arredi, oggetti domestici e strumenti di lavoro legati alla vita rurale. È una testimonianza della cultura materiale e delle abitudini delle generazioni precedenti, distinta dall’Ecomuseo di Cultura Materiale Silvestro Nasca.', 'The quarter is home to a house museum dedicated to rural life, with furniture, household objects and traditional work tools. It preserves evidence of the material culture and everyday customs of earlier generations and is distinct from the Silvestro Nasca Museum of Material Culture.' ),
-          l('L’Associazione Quartiere Rocche contribuisce alla valorizzazione di questo patrimonio. La manifestazione Passeggiando lungo la nostra storia intreccia memoria, tradizioni e sapori: la Pro Loco ha annunciato la XXVII edizione per il 29 e 30 agosto 2026. Le date degli appuntamenti cambiano e non costituiscono un calendario fisso per gli anni successivi.', 'The Associazione Quartiere Rocche helps preserve and share this heritage. Its event Passeggiando lungo la nostra storia brings together local memory, traditions and food: Pro Loco announced the 27th edition for 29–30 August 2026. Event dates vary and do not establish a fixed calendar for subsequent years.'),
-        ],
-      },
+      { title: l("La storia, nelle cose di ogni giorno.", "History in everyday life."), paragraphs: [
+        l("Visitare le Rocche significa avvicinarsi alla dimensione quotidiana di Agira: le case, i passaggi tra le vie e i catoja, gli ambienti al piano basso delle abitazioni che fanno parte del patrimonio del quartiere.", "Visiting the Rocche brings you closer to everyday life in Agira: houses, passageways and catoja, the ground-level rooms that form part of the quarter’s heritage."),
+        l("Durante le manifestazioni, alcuni di questi spazi si aprono ai visitatori e diventano luoghi di incontro, allestimento e racconto. Il quartiere si anima attraverso le persone che lo abitano e che ne curano la memoria.", "During events, some of these spaces open to visitors, becoming settings for displays, stories and encounters. The quarter comes alive through the people who live here and care for its heritage."),
+      ] },
+      { title: l("Un’associazione, tante storie da tramandare.", "An association with many stories to share."), paragraphs: [
+        l("Salvatore Anello fondò l’Associazione Quartiere Rocche, contribuendo alla valorizzazione delle tradizioni e della memoria del quartiere. Oggi l’associazione è presieduta dalla signora Naselli e prosegue la propria attività attraverso appuntamenti che riuniscono abitanti e visitatori.", "Salvatore Anello founded the Associazione Quartiere Rocche, helping preserve and share the quarter’s traditions and memories. Today, Ms Naselli is its president, and the association continues its work through events bringing residents and visitors together."),
+        l("Sulla sede dell’associazione si trova una targa che ricorda Salvatore Anello. La sede e la casa museo sono due luoghi distinti: quest’ultima si trova poco più sotto.", "A plaque on the association’s premises commemorates Salvatore Anello. The premises and the house museum are separate places: the museum is a little further downhill."),
+      ] },
+      { title: l("La casa museo: un incontro con la memoria del quartiere.", "The house museum: discovering the quarter’s memories."), paragraphs: [
+        l("La casa museo è una tappa per chi desidera approfondire la conoscenza delle Rocche e della sua storia quotidiana.", "The house museum is a stop for visitors wishing to learn more about the Rocche and its everyday history."),
+        l("È aperta durante le giornate degli eventi organizzati dall’associazione. Per visitarla in altri momenti è possibile prenotare, concordando direttamente giorno e orario con la presidente, signora Naselli (+39 327 5352712), oppure con Pina Minnicino (+39 389 9805464).", "It opens during the association’s events. At other times, book a visit by arranging the day and time directly with the president, Ms Naselli (+39 327 5352712), or Pina Minnicino (+39 389 9805464)."),
+      ] },
+      { title: l("Due appuntamenti per vivere le Rocche.", "Two events to experience the Rocche."), paragraphs: [
+        l("Passaggiando lungo la nostra storia è la manifestazione principale dell’Associazione Quartiere Rocche e si svolge solitamente il 1° agosto. È un’occasione per scoprire il quartiere attraverso le iniziative dedicate alla sua storia e alla sua memoria.", "Passaggiando lungo la nostra storia is the Associazione Quartiere Rocche’s main event, usually held on 1 August. It offers an opportunity to discover the neighbourhood through activities celebrating its history and memories."),
+        l("Natale al quartiere Rocche si svolge intorno al 12 e 13 dicembre. Nei catoja si aprono i presepi allestiti per l’occasione ed è possibile gustare street food della tradizione.", "Natale al quartiere Rocche takes place around 12–13 December. Nativity displays open in the catoja, and visitors can enjoy traditional street food."),
+        l("Durante entrambi gli appuntamenti è aperta anche la casa museo. Le date e i programmi delle singole edizioni vanno verificati con l’associazione.", "The house museum also opens during both events. Check each edition’s dates and programme with the association."),
+      ] },
     ],
     highlights: [
       { title: l('I percorsi', 'The routes'), text: l('Segui con lo sguardo il modo in cui vicoli, curve e scale collegano i diversi livelli del quartiere.', 'Notice how lanes, turns and steps connect the different levels of the quarter.') },
@@ -49,21 +49,22 @@ export function getRocchePage(lang: Locale): SightPage {
       { title: l('La memoria condivisa', 'Shared memory'), text: l('L’associazione e la Casa Museo raccontano il legame del quartiere con la cultura contadina di Agira.', 'The association and house museum tell the story of the quarter’s ties to Agira’s rural heritage.') },
     ],
     practical: [
-      { title: l('Iniziare da via Diodorea', 'Start from Via Diodorea'), text: l('Usa via Diodorea come riferimento di accesso. La mappa indica questa strada, non un ingresso specifico della Casa Museo.', 'Use Via Diodorea as your access reference. The map points to the street, not to a specific house museum entrance.') },
-      { title: l('Camminare nel quartiere', 'Walking through the quarter'), text: l('Indossa scarpe comode e considera la presenza di scale e dislivelli quando scegli il percorso. Per esigenze di mobilità, verifica sul posto un tragitto adatto.', 'Wear comfortable shoes and take steps and slopes into account when choosing your route. If you have mobility requirements, check locally for a suitable route.') },
-      { title: l('Case e spazi privati', 'Homes and private spaces'), text: l('Il quartiere conserva spazi legati alla vita domestica. Non entrare nelle abitazioni o nei cortili privati senza invito e chiedi il permesso prima di fotografare le persone.', 'The neighbourhood includes spaces used for domestic life. Do not enter homes or private courtyards without an invitation, and ask permission before photographing people.') },
-      { title: l('La Casa Museo', 'The house museum'), text: l('La presenza del museo è documentata dalle fonti locali. Non sono disponibili qui informazioni confermate su aperture, prenotazioni o contatti: la passeggiata nel quartiere non implica l’accesso agli interni.', 'Local sources document the museum. Confirmed opening hours, booking arrangements and contacts are not available here; a walk through the quarter does not imply access to its interiors.') },
+      { title: l("Da dove si accede al quartiere?", "How do I reach the quarter?"), text: l("Gli accessi sono Via Peschiera, Via Diodorea, Discesa Rosselli e Via Raddusa. Da questi punti si può proseguire a piedi. La mappa indica Via Diodorea come riferimento, non l’ingresso della casa museo.", "Access is from Via Peschiera, Via Diodorea, Discesa Rosselli and Via Raddusa. Continue on foot from these points. The map marks Via Diodorea as a reference, rather than the house museum entrance.") },
+      { title: l("Dove si può parcheggiare?", "Where can I park?"), text: l("In Discesa Rosselli si trova un piccolo parcheggio. I posti sono limitati, soprattutto durante le manifestazioni.", "There is a small car park on Discesa Rosselli. Spaces are limited, particularly during events.") },
+      { title: l("Quando si può visitare la casa museo?", "When can I visit the house museum?"), text: l("Durante gli eventi dell’associazione oppure su prenotazione: signora Naselli, presidente, +39 327 5352712; Pina Minnicino, +39 389 9805464.", "During the association’s events or by appointment: Ms Naselli, president, +39 327 5352712; Pina Minnicino, +39 389 9805464.") },
+      { title: l("Come prepararsi alla passeggiata?", "How should I prepare for the walk?"), text: l("Il percorso attraversa vicoli, dislivelli e scalinate. Sono consigliate scarpe comode; per esigenze di mobilità è preferibile concordare prima il percorso con le referenti.", "The walk includes lanes, slopes and steps. Wear comfortable shoes; if you have mobility requirements, discuss a suitable route with the contacts before visiting.") },
     ],
     gallery: [
       { key: 'roccheAnelloLanes', title: l('Vicoli e ingressi tra le case', 'Lanes and doorways among the houses') },
-      { key: 'roccheAnelloAssociation', title: l('L’insegna dell’Associazione Quartiere Rocche', 'The Associazione Quartiere Rocche sign') },
+      { key: 'roccheAnelloAssociation', title: l('La sede dell’Associazione Quartiere Rocche', 'The Associazione Quartiere Rocche premises') },
       { key: 'roccheAnelloSteps', title: l('Le scalinate e le murature del quartiere', 'Steps and masonry in the quarter') },
+      { key: 'roccheAnelloCourtyard', title: l("Tra le case e i vicoli delle Rocche, in bianco e nero", "Houses and lanes in the Rocche Quarter, in black and white") },
+      { key: 'roccheAnelloLandscape', title: l("Le case sulla roccia e il paesaggio", "Houses on the rock and the surrounding landscape") },
     ],
     sources: [
       { title: 'Pro Loco Agira · Quartiere Rocche', url: 'https://www.prolocoagira.it/wp/2017/06/22/quartiere-delle-rocche/' },
       { title: 'Agira città d’arte · Rita Loredana Foti e Salvatore Longo Minnolo', url: 'https://www.agira.org/Sintesi-storiche/agira-citta-darte.html' },
       { title: 'I Borghi più belli d’Italia · Agira', url: 'https://borghipiubelliditalia.it/borgo/agira/' },
-      { title: 'Pro Loco Agira · Passeggiando lungo la nostra storia, XXVII edizione', url: 'https://www.prolocoagira.it/wp/2026/08/27/passeggiando-lungo-la-nostra-storia-xxvii-edizione/' },
     ],
   };
 }

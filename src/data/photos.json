@@ -1950,5 +1950,53 @@
       "it": "Fotografia di Filippo Sanfilippo.",
       "en": "Photograph by Filippo Sanfilippo."
     }
+  },
+  "roccheAnelloCourtyard": {
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "alt": {
+      "it": "Tra le case e i vicoli delle Rocche, in bianco e nero.",
+      "en": "Houses and lanes in the Rocche Quarter, in black and white."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photograph by Filippo Anello."
+    }
+  },
+  "roccheAnelloLandscape": {
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "alt": {
+      "it": "Le case sulla roccia e il paesaggio.",
+      "en": "Houses on the rock and the surrounding landscape."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photograph by Filippo Anello."
+    }
   }
 }
