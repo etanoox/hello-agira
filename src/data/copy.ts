@@ -117,7 +117,6 @@ export function getCopy(lang: Locale) {
       { tag: l('Tradizione religiosa', 'Religious tradition'), title: l('La festa di San Filippo', 'The feast of Saint Philip'), text: l('Il culto del patrono è parte della storia cittadina. Per partecipare, consulta il programma della singola edizione.', 'The patron saint’s cult is part of the town’s history. Check the programme for the edition you plan to attend.'), href: pageUrl('saintFestival', lang), link: l('Scopri le feste di San Filippo', 'Discover Saint Philip’s festivals') },
       { tag: l('Sapori del territorio', 'Local flavours'), title: l('La Sagra della Cassatella', 'The Cassatella festival'), text: l('L’edizione 2026 si terrà domenica 15 novembre, dalle 10:00 alle 24:00, in Piazza Europa ad Agira. Una giornata dedicata al dolce simbolo del paese e alle tradizioni locali.', 'The 2026 edition takes place on Sunday 15 November, from 10:00 to midnight, in Piazza Europa, Agira. A day celebrating the town’s signature pastry and local traditions.'), href: pageUrl('festival', lang), link: l('Scopri la Sagra', 'Discover the festival') },
     ],
-    eventsNote: l('Per aggiornamenti sui programmi ed eventuali variazioni, consulta i canali degli organizzatori.', 'For programme updates and any changes, check the organisers’ channels.'),
     eventsCta: l('Consulta la Pro Loco di Agira', 'Visit Pro Loco Agira'),
     eventsPageCta: l('Vai a tutti gli eventi', 'Explore all events'),
     mapLabel: l('08 / Orientati', '08 / Find your bearings'),
