@@ -1,0 +1,43 @@
+---
+import Base from '../layouts/Base.astro';
+import SiteHeader from './SiteHeader.astro';
+import SiteFooter from './SiteFooter.astro';
+import Icon from './Icon.astro';
+import { getThanks } from '../data/thanks';
+import { pageUrl, type Locale } from '../lib/i18n';
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const l = (it: string, en: string) => lang === 'it' ? it : en;
+const c = getThanks(lang);
+const paths = { it: pageUrl('thanks', 'it'), en: pageUrl('thanks', 'en') };
+---
+<Base lang={lang} title={c.title} description={c.description} canonicalPath={paths[lang]} alternatePaths={paths}>
+  <SiteHeader lang={lang} alternatePaths={paths}/>
+  <main id="main" tabindex="-1">
+    <section class="route-page-hero" aria-labelledby="thanks-title">
+      <div class="container route-page-copy"><p class="eyebrow">{c.eyebrow}</p><h1 id="thanks-title">{c.heading}</h1><p>{c.lead}</p></div>
+    </section>
+    <section class="festival-story section" aria-labelledby="thanks-intro-title">
+      <div class="container festival-story-grid">
+        <div><p class="eyebrow">{l('IL PROGETTO', 'THE PROJECT')}</p><h2 id="thanks-intro-title">{l('Un paese da raccontare.', 'A town with stories to share.')}</h2></div>
+        <div class="festival-story-copy">{c.introduction.map(text => <p>{text}</p>)}<p>— Giuseppe Ricceri</p></div>
+      </div>
+    </section>
+    {c.groups.map((group, index) => <section id={group.id} class={index % 2 === 0 ? 'festival-plan festival-edition section' : 'festival-story section'} aria-labelledby={`${group.id}-title`}>
+      <div class="container festival-story-grid">
+        <div><p class="eyebrow">{group.label}</p><h2 id={`${group.id}-title`}>{group.title}</h2></div>
+        <div class="festival-story-copy">{group.people.map(person => <article class="thanks-person"><h3>{person.name}</h3><p>{person.text}</p></article>)}</div>
+      </div>
+    </section>)}
+    <section class="itinerary-next" aria-label={l('Continua a esplorare', 'Keep exploring')}><div class="container itinerary-next-inner">
+      <div><p class="eyebrow">{l('IL VIAGGIO CONTINUA', 'KEEP EXPLORING')}</p><h2>{l('Tante persone.\nUn paese da scoprire.', 'Many people.\nOne town to discover.')}</h2></div>
+      <div class="itinerary-next-links"><a class="button button-yellow" href={pageUrl('sights', lang)}>{l('Scopri Agira', 'Discover Agira')}<Icon name="arrow"/></a></div>
+    </div></section>
+  </main>
+  <SiteFooter lang={lang} alternatePaths={paths}/>
+</Base>
+
+<style>
+  .thanks-person + .thanks-person { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--line); }
+  .thanks-person h3 { font-size: 1.5rem; line-height: 1.2; margin-bottom: .75rem; }
+</style>

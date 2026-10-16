@@ -1,4 +1,5 @@
 ---
+import ThanksLanding from '../../components/ThanksLanding.astro';
 import NativityFestival from '../../components/NativityFestival.astro';
 import SaintPhilipFestival from '../../components/SaintPhilipFestival.astro';
 import Base from '../../layouts/Base.astro';
@@ -18,6 +19,7 @@ import { locales, pageUrl, itineraryUrl, type ItineraryId, type Locale } from '.
 
 export function getStaticPaths() {
   return locales.flatMap(lang => [
+    { params: { lang, slug: lang === 'it' ? 'ringraziamenti' : 'acknowledgements' }, props: { lang, slug: lang === 'it' ? 'ringraziamenti' : 'acknowledgements' } },
     { params: { lang, slug: lang === 'it' ? 'presepe-vivente' : 'living-nativity' }, props: { lang, slug: lang === 'it' ? 'presepe-vivente' : 'living-nativity' } },
     { params: { lang, slug: lang === 'it' ? 'festa-san-filippo' : 'saint-philip-festival' }, props: { lang, slug: lang === 'it' ? 'festa-san-filippo' : 'saint-philip-festival' } },
     { params: { lang, slug: lang === 'it' ? 'itinerari' : 'itineraries' }, props: { lang, slug: lang === 'it' ? 'itinerari' : 'itineraries' } },
@@ -41,7 +43,7 @@ const isEventsPage = slug === 'eventi' || slug === 'events';
 const page = isFestivalPage ? 'festival' : isEventsPage ? 'events' : isSightsPage ? 'sights' : isEatingPage ? 'eat' : isStayPage ? 'stay' : isHistoryPage ? 'history' : 'routes';
 const localizedPaths = { it: pageUrl(page, 'it'), en: pageUrl(page, 'en') };
 ---
-{slug === 'presepe-vivente' || slug === 'living-nativity' ? <NativityFestival lang={lang}/> : slug === 'festa-san-filippo' || slug === 'saint-philip-festival' ? <SaintPhilipFestival lang={lang}/> : isSightsPage ? <SightsLanding lang={lang}/> : isEatingPage ? <EatingLanding lang={lang}/> : isStayPage ? <StayLanding lang={lang}/> : isHistoryPage ? <HistoryLanding lang={lang}/> : isFestivalPage ? <FestivalLanding lang={lang}/> : isEventsPage ? <EventsLanding lang={lang}/> : <>
+{slug === 'ringraziamenti' || slug === 'acknowledgements' ? <ThanksLanding lang={lang}/> : slug === 'presepe-vivente' || slug === 'living-nativity' ? <NativityFestival lang={lang}/> : slug === 'festa-san-filippo' || slug === 'saint-philip-festival' ? <SaintPhilipFestival lang={lang}/> : isSightsPage ? <SightsLanding lang={lang}/> : isEatingPage ? <EatingLanding lang={lang}/> : isStayPage ? <StayLanding lang={lang}/> : isHistoryPage ? <HistoryLanding lang={lang}/> : isFestivalPage ? <FestivalLanding lang={lang}/> : isEventsPage ? <EventsLanding lang={lang}/> : <>
 <Base socialPhoto="town" lang={lang} title={c.routesPageTitle} description={c.routesPageDescription} canonicalPath={localizedPaths[lang]} alternatePaths={localizedPaths}>
   <SiteHeader lang={lang} currentPage="routes"/>
   <main id="main" tabindex="-1">
