@@ -164,9 +164,9 @@ const foodHref = pageUrl('eat', lang);
     {seasonalEvents.map((event, index) => <section class:list={["events-seasonal-section", "section", { "events-seasonal-section-muted": index % 2 === 1 }]} aria-labelledby={`${event.id}-title`}>
       <div class="container">
         <article class="events-featured events-reveal">
-          <figure class="events-feature-photo events-illustration">
+          <figure class:list={["events-feature-photo", { "events-illustration": event.id !== 'presepe-vivente' }]}>
             <Photo name={event.image as keyof typeof photos} lang={lang} sizes="(max-width: 700px) 90vw, 45vw"/>
-            {event.id === 'presepe-vivente' && <figcaption>{photos.nativitySanfilippo7586.credit[lang]}</figcaption>}
+            {event.id === 'presepe-vivente' && <figcaption><span>{lang === 'it' ? 'La Natività del Presepe Vivente di Agira' : 'The Nativity at Agira’s Living Nativity'}</span><span>{photos.nativitySanfilippo7586.credit[lang]}</span></figcaption>}
           </figure>
           <div class="events-feature-copy">
             <p class="eyebrow">{event.eyebrow}</p>
