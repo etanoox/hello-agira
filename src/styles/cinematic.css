@@ -789,3 +789,5 @@ body.gallery-is-open{overflow:hidden}
 .events-date-month>strong{font-size:3.2rem;letter-spacing:-.065em;margin-block:.6rem}
 
 .events-illustration img{height:auto;aspect-ratio:1;object-fit:contain}
+
+.events-section .button-row{margin-top:1.8rem}
