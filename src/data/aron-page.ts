@@ -13,9 +13,9 @@ export function getAronPage(lang: Locale): SightPage {
     title: l('Aron ebraico di Agira: storia e audioguida | Hello Agira', 'Agira’s Jewish Aron: history and audio guide | Hello Agira'),
     description: l('Scopri l’Aron in pietra di Agira, datato 1454 e conservato nella Collegiata del SS. Salvatore, con un’audioguida in italiano in tre capitoli.', 'Discover Agira’s stone Aron, dated to 1454 and preserved in the Collegiate Church of SS. Salvatore, with a three-chapter English audio guide.'),
     introduction: l('Una testimonianza in pietra della storia ebraica di Agira. L’Aron invita a fermarsi sulle parole incise e sulla memoria della comunità a cui apparteneva.', 'A stone witness to Agira’s Jewish history. The Aron invites you to pause over its carved words and the memory of the community to which it belonged.'),
-    image: 'ssalvatore', location: l('Collegiata del SS. Salvatore · Agira', 'Collegiate Church of SS. Salvatore · Agira'),
+    image: 'aronAnelloDetail', location: l('Collegiata del SS. Salvatore · Agira', 'Collegiate Church of SS. Salvatore · Agira'),
     mapQuery: 'Collegiata Santissimo Salvatore Agira',
-    visitorNote: l('La fotografia mostra la Collegiata che conserva l’Aron. Verifica apertura e accesso al monumento prima della visita.', 'The photograph shows the Collegiate Church where the Aron is preserved. Check opening hours and access to the monument before visiting.'),
+    visitorNote: l('Verifica apertura e accesso al monumento prima della visita.', 'Check opening hours and access to the monument before visiting.'),
     facts: [
       { label: l('Datazione', 'Date'), value: '1454' },
       { label: l('Conservato nella', 'Preserved in'), value: l('Collegiata del SS. Salvatore', 'Collegiate Church of SS. Salvatore') },
