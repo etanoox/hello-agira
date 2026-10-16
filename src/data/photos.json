@@ -1450,5 +1450,77 @@
       "it": "",
       "en": ""
     }
+  },
+  "roccheAnelloLanes": {
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "alt": {
+      "it": "Vicoli, scale esterne e ingressi delle case nel Quartiere delle Rocche di Agira.",
+      "en": "Lanes, outdoor steps and house entrances in Agira’s Rocche Quarter."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photograph by Filippo Anello."
+    }
+  },
+  "roccheAnelloAssociation": {
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "alt": {
+      "it": "Insegna in ceramica dell’Associazione Quartiere Rocche ad Agira.",
+      "en": "Ceramic sign of the Associazione Quartiere Rocche in Agira."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photograph by Filippo Anello."
+    }
+  },
+  "roccheAnelloSteps": {
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "alt": {
+      "it": "Una scalinata tra le murature delle case nel Quartiere delle Rocche di Agira.",
+      "en": "A flight of steps between the houses of Agira’s Rocche Quarter."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photograph by Filippo Anello."
+    }
   }
 }
