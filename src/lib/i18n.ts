@@ -37,6 +37,7 @@ export const clusters = {
 export const pageUrl = (key: keyof typeof clusters, lang: Locale) => `/${lang}/${clusters[key][lang]}/`;
 
 export const itinerarySlugs = {
+  saintPhilip: { it: 'sui-passi-di-san-filippo', en: 'in-saint-philips-footsteps' },
   first: { it: 'un-primo-incontro', en: 'a-first-encounter' },
   day: { it: 'prendila-con-calma', en: 'take-your-time' },
   weekend: { it: 'resta-un-po-di-piu', en: 'stay-a-little-longer' },

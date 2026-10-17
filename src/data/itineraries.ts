@@ -1,14 +1,22 @@
+import { getSaintPhilipItinerary } from './saint-philip-itinerary';
 import { pageUrl, sightUrl, type Locale, type ItineraryId } from '../lib/i18n';
 import type photos from './photos.json';
 
 export interface ItineraryStep {
   label: string; title: string; text: string; time: string; tip: string;
   link?: { label: string; href: string };
+  paragraphs?: string[];
+}
+export interface ItineraryMapStop {
+  id: string; coordinates: [number, number]; mode: 'walking' | 'driving';
+  summary: string; detailUrl?: string; audioUrl?: string;
 }
 export interface Itinerary {
   id: ItineraryId; title: string; description: string; intro: string;
   photo: keyof typeof photos; duration: string; pace: string; heading: string;
   routeTitle: string; routeIntro: string; walking: string;
+  mapStops?: ItineraryMapStop[];
+  sources?: { title: string; url: string }[];
   steps: ItineraryStep[]; tips: { title: string; text: string }[];
 }
 export function getItineraries(lang: Locale): Itinerary[] {
@@ -84,5 +92,6 @@ export function getItineraries(lang: Locale): Itinerary[] {
         {title:l('Tieni un piano alternativo','Keep an alternative plan'),text:l('Meteo e disponibilità possono cambiare. Il secondo giorno in paese è una proposta completa anche senza escursione.', 'Weather and availability can change. A second day in town is a complete option even without an excursion.')},
       ],
     },
+    getSaintPhilipItinerary(lang),
   ];
 }

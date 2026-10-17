@@ -1,0 +1,43 @@
+---
+import Icon from './Icon.astro';
+import type { Itinerary } from '../data/itineraries';
+import type { Locale } from '../lib/i18n';
+import { serializeSchema } from '../lib/schema';
+import '../styles/itinerary-map.css';
+interface Props { lang: Locale; route: Itinerary }
+const { lang, route } = Astro.props;
+const l = (it: string, en: string) => lang === 'it' ? it : en;
+const stops = (route.mapStops ?? []).map((stop, index) => ({ ...stop, title: route.steps[index].title, number: index + 1 }));
+const directions = (stop: typeof stops[number]) => `https://www.google.com/maps/dir/?api=1&destination=${stop.coordinates[1]},${stop.coordinates[0]}&travelmode=${stop.mode}`;
+---
+<section id="mappa-itinerario" class="container itinerary-map-section" data-route-map-root data-lang={lang} aria-labelledby="route-map-heading">
+  <div class="section-heading"><div><p class="eyebrow">{l('ORIENTATI TRA LE TAPPE', 'FIND YOUR WAY BETWEEN STOPS')}</p><h2 id="route-map-heading">{l('I luoghi, sulla mappa.', 'The places, on the map.')}</h2></div><p>{l('Tre tappe in paese e una sosta alla Fontana, in auto. Scegli un luogo per leggere le informazioni e aprire le indicazioni.', 'Three stops in town and a separate fountain visit by car. Choose a place for information and directions.')}</p></div>
+  <div class="route-map-shell" data-map-shell tabindex="-1" aria-label={l('Mappa dei luoghi di San Filippo', 'Map of Saint Philip’s places')}>
+    <div class="route-map-toolbar"><strong>{l('Sui passi di San Filippo', 'In Saint Philip’s footsteps')}</strong><button type="button" class="text-link" data-map-expand aria-expanded="false" hidden>{l('Espandi mappa', 'Expand map')}</button></div>
+    <div class="route-map-workspace">
+      <div class="route-map-stage">
+        <div class="route-map-cover" data-route-map-cover><p>{l('Quattro luoghi da scoprire.', 'Four places to discover.')}</p><button type="button" class="button button-yellow" data-route-map-load hidden><Icon name="pin"/>{l('Carica la mappa', 'Load the map')}</button><p class="route-map-small">{l('La mappa viene caricata da OpenStreetMap solo quando la attivi. La posizione GPS è facoltativa.', 'The map loads from OpenStreetMap only when activated. GPS location is optional.')}</p><noscript><p>{l('Attiva JavaScript per la mappa interattiva. Puoi usare i collegamenti alle tappe qui sotto.', 'Enable JavaScript for the interactive map. You can still use the stop links below.')}</p></noscript></div>
+        <div class="route-map-canvas" data-route-map-canvas aria-label={l('Tappe dell’itinerario', 'Itinerary stops')} hidden></div>
+      </div>
+      <div class="route-map-panel">
+        <div class="route-map-stop-buttons" role="group" aria-label={l('Scegli una tappa', 'Choose a stop')}>
+          {stops.map((stop, index) => <button type="button" data-route-map-stop={stop.id} aria-pressed={index === 0 ? 'true' : 'false'} aria-controls={`map-card-${stop.id}`} hidden><span>{stop.number}</span>{stop.title}</button>)}
+        </div>
+        {stops.map((stop, index) => <article class="route-map-card" id={`map-card-${stop.id}`} data-route-map-card={stop.id}>
+          <p class="eyebrow">0{stop.number} / {stop.mode === 'driving' ? l('AUTO CONSIGLIATA', 'DRIVING RECOMMENDED') : l('IN PAESE', 'IN TOWN')}</p><h3>{stop.title}</h3><p>{stop.summary}</p>
+          <div class="route-map-links"><a class="button button-green" href={directions(stop)} target="_blank" rel="noopener noreferrer">{stop.mode === 'driving' ? l('Indicazioni in auto', 'Driving directions') : l('Indicazioni a piedi', 'Walking directions')}<Icon name="diagonal"/></a><a class="text-link" href={`#tappa-${index + 1}`} data-map-read>{l('Leggi la tappa', 'Read about this stop')}<Icon name="arrow"/></a>{stop.detailUrl && <a class="text-link" href={stop.detailUrl}>{l('Scopri il luogo', 'Explore the place')}<Icon name="arrow"/></a>}{stop.audioUrl && <a class="text-link" href={stop.audioUrl}>{l('Ascolta l’audioguida', 'Listen to the audio guide')}<Icon name="arrow"/></a>}</div>
+        </article>)}
+      </div>
+    </div>
+    <div class="route-map-controls" hidden data-route-map-controls>
+      <button type="button" class="button button-green" data-route-map-locate aria-pressed="false" disabled>{l('Mostra la mia posizione', 'Show my location')}</button>
+      <button type="button" class="text-link" data-route-map-recenter hidden>{l('Centra su di me', 'Centre on me')}</button>
+      <button type="button" class="text-link" data-route-map-fit disabled>{l('Mostra tutte le tappe', 'Show all stops')}</button>
+    </div>
+    <p class="route-map-small route-map-message" data-route-map-status role="status" aria-live="polite"></p>
+    <p class="route-map-small route-map-message" data-route-map-gps-status role="status" aria-live="polite"></p>
+  </div>
+  <p class="route-map-note">{l('La mappa mostra i luoghi, senza traccia pedonale verificata. Le indicazioni si aprono in Google Maps. Hello Agira non salva la tua posizione: puoi disattivarla in qualsiasi momento.', 'The map shows the places, without a verified walking track. Directions open in Google Maps. Hello Agira does not save your location: you can turn it off at any time.')}</p>
+  <script type="application/json" data-route-map-data set:html={serializeSchema(stops)}/>
+</section>
+<script>import '../scripts/itinerary-map-loader';</script>

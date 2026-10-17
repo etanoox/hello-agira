@@ -70,15 +70,15 @@ const localizedPaths = { it: pageUrl(page, 'it'), en: pageUrl(page, 'en') };
         <div class="section-heading itinerary-heading">
           <h2 id="route-ideas-title">{c.routesPageListTitle}</h2>
         </div>
-        <div class="itinerary-grid">
+        <div class="itinerary-grid itinerary-grid--four">
           {c.routes.map((route, i) => <article class={`itinerary-card itinerary-card-${i + 1}`}>
             <div class="itinerary-card-top"><span class="route-index">0{i + 1}</span><span class="route-time">{route.time}</span></div>
-            <h3><a href={itineraryUrl((['first', 'day', 'weekend'] as ItineraryId[])[i], lang)}>{route.title}</a></h3>
+            <h3><a href={itineraryUrl((['first', 'day', 'weekend', 'saintPhilip'] as ItineraryId[])[i], lang)}>{route.title}</a></h3>
             <p>{route.text}</p>
             <ol aria-label={lang === 'it' ? 'Suggerimenti per la visita' : 'Visit suggestions'}>
               {route.stops.map(stop => <li>{stop}</li>)}
             </ol>
-            <a class="text-link itinerary-open" href={itineraryUrl((['first', 'day', 'weekend'] as ItineraryId[])[i], lang)}>{lang === 'it' ? 'Esplora l’itinerario' : 'Explore this itinerary'}<Icon name="arrow"/></a>
+            <a class="text-link itinerary-open" href={itineraryUrl((['first', 'day', 'weekend', 'saintPhilip'] as ItineraryId[])[i], lang)}>{lang === 'it' ? 'Esplora l’itinerario' : 'Explore this itinerary'}<Icon name="arrow"/></a>
           </article>)}
         </div>
       </div>

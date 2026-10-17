@@ -17,3 +17,8 @@
 @media(max-width:550px){.itinerary-title-row h1{font-size:3.3rem}.itinerary-facts{padding:1.5rem}.itinerary-stop-column>h2{font-size:2.7rem}.itinerary-timeline{margin-top:2.5rem}.itinerary-timeline>li{padding-left:3rem}.itinerary-stop-number{width:32px;height:32px}.itinerary-timeline>li::before{left:15px}.itinerary-stop-content h3{font-size:1.85rem}.itinerary-stop-content>p{font-size:.9375rem}.itinerary-stop-content .itinerary-stop-tip{padding:1rem}.itinerary-side{grid-template-columns:1fr}.itinerary-practical{margin-top:1rem}.itinerary-related-grid{grid-template-columns:1fr;gap:1rem}.itinerary-related{padding-block:3rem}.itinerary-feature-photo figcaption{font-size:.65rem}}
 /* On phones the jump links precede the stops, so they remain useful. */
 @media(max-width:800px){.itinerary-stop-column,.itinerary-side{display:contents}.itinerary-stop-column>.eyebrow{grid-row:1;margin-bottom:0}.itinerary-stop-column>h2{grid-row:2}.itinerary-route-intro{grid-row:3;margin-top:0}.itinerary-outline{grid-row:4}.itinerary-timeline{grid-row:5;margin-top:1rem}.itinerary-practical{grid-row:6}}
+
+/* Four choices use the same cards in a balanced two-column layout. */
+.route-grid--four,.itinerary-grid--four{grid-template-columns:repeat(2,minmax(0,1fr))}
+.itinerary-detail-shell[data-itinerary=saintPhilip] .itinerary-stop-content>p+p{margin-top:1rem}
+@media(max-width:700px){.route-grid--four,.itinerary-grid--four{grid-template-columns:1fr}}

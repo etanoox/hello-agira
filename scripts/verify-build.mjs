@@ -9,6 +9,7 @@ for (const name of fs.readdirSync(path.join(directory, 'images'))) {
 const read = file => fs.readFileSync(path.join(directory,file),'utf8');
 const htmlPages = ['it/index.html','en/index.html','it/itinerari/index.html','en/itineraries/index.html','it/cosa-vedere/index.html','en/things-to-see/index.html','it/mangiare/index.html','en/food-and-drink/index.html','it/dormire/index.html','en/where-to-stay/index.html','it/storia/index.html','en/history/index.html','it/eventi/index.html','en/events/index.html','it/sagra-cassatella/index.html','en/cassatella-festival/index.html'];
 const detailPairs = [
+  { it: '/it/itinerari/sui-passi-di-san-filippo/', en: '/en/itineraries/in-saint-philips-footsteps/' },
   { it: '/it/note-legali/', en: '/en/legal-notice/' },
   { it: '/it/ringraziamenti/', en: '/en/acknowledgements/' },
   { it: '/it/presepe-vivente/', en: '/en/living-nativity/' },
@@ -100,7 +101,7 @@ assert.notEqual(titles[0],titles[1],'Localized titles must differ');
 for(const file of ['404.html','robots.txt','sitemap.xml','_redirects','_headers','favicon.svg'])assert.ok(fs.existsSync(path.join(directory,file)),`Required ${file}`);
 assert.match(read('_redirects'),/^\/ \/it\/ 301/m);
 assert.ok(!read('sitemap.xml').includes('404'));
-console.log('PASS: IT/EN home, seven editorial page pairs and three itinerary pairs and three place pairs, ' + totalLinks + ' local links, ' + totalAssets + ' image uses, metadata, JSON-LD, hreflang, sitemap, redirect and 404.');
+console.log('PASS: IT/EN home, seven editorial page pairs and four itinerary pairs and three place pairs, ' + totalLinks + ' local links, ' + totalAssets + ' image uses, metadata, JSON-LD, hreflang, sitemap, redirect and 404.');
 
 for (const file of ['it/cosa-vedere/aron-memoria-ebraica/index.html', 'en/things-to-see/aron-jewish-heritage/index.html']) {
   const html = read(file);
@@ -122,6 +123,21 @@ for (const lang of ['it','en']) {
  const folder = lang === 'it' ? 'cosa-vedere' : 'things-to-see';
  assert.ok(!read(`${lang}/${folder}/palazzo-baronale-manmano-gussio/index.html`).includes('data-audio-guide'), 'Palace audio is not yet available');
 }
+
+// The Saint Philip map must work as a stop directory before map/GPS activation.
+for (const [lang, folder, slug] of [['it', 'itinerari', 'sui-passi-di-san-filippo'], ['en', 'itineraries', 'in-saint-philips-footsteps']]) {
+  const html = read(`${lang}/${folder}/${slug}/index.html`);
+  const mapData = JSON.parse(html.match(/<script[^>]*data-route-map-data[^>]*>([\s\S]*?)<\/script>/)?.[1] || '[]');
+  assert.equal(mapData.length, 4, 'Saint Philip itinerary has four map stops');
+  assert.deepEqual(mapData.map(stop => stop.mode), ['walking', 'walking', 'walking', 'driving'], 'Fountain is a separate driving stop');
+  assert.deepEqual(mapData[3].coordinates, [14.508555, 37.6545727], 'Fountain uses the supplied pin');
+  assert.match(html, /data-route-map-load[^>]*hidden/, 'Map loads only after activation');
+  assert.match(html, /data-route-map-locate[^>]*disabled/, 'GPS starts inactive');
+  assert.equal((html.match(/travelmode=walking/g) || []).length, 3, 'Three walking directions links');
+  assert.equal((html.match(/travelmode=driving/g) || []).length, 1, 'One driving directions link');
+  assert.ok(!html.includes('maps.googleapis.com/maps/api/streetview'), 'No extracted Street View imagery');
+}
+assert.match(read('_headers'), /geolocation=\(self\)/, 'Same-origin geolocation is permitted');
 
 // Check every localized page, including pages added outside htmlPages.
 let socialPages = 0;
