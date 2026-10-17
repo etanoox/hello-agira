@@ -38,6 +38,10 @@ const paths = { it: pageUrl('thanks', 'it'), en: pageUrl('thanks', 'en') };
 </Base>
 
 <style>
+  #thanks-title { overflow-wrap: anywhere; hyphens: auto; }
+  @media (max-width: 700px) {
+    #thanks-title { font-size: clamp(2rem, 9.5vw, 4rem); }
+  }
   .thanks-person + .thanks-person { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--line); }
   .thanks-person h3 { font-size: 1.5rem; line-height: 1.2; margin-bottom: .75rem; }
 </style>
