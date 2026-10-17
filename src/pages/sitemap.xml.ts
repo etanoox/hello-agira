@@ -3,6 +3,7 @@ import type { APIRoute } from 'astro';
 import { pageUrl, itinerarySlugs, itineraryUrl, type ItineraryId, sightUrl } from '../lib/i18n';
 export const GET: APIRoute = ({ site }) => {
   const pairs = [
+    { it: pageUrl('legal', 'it'), en: pageUrl('legal', 'en') },
     { it: pageUrl('thanks', 'it'), en: pageUrl('thanks', 'en') },
     { it: pageUrl('nativity', 'it'), en: pageUrl('nativity', 'en') },
     { it: pageUrl('cassatella', 'it'), en: pageUrl('cassatella', 'en') },

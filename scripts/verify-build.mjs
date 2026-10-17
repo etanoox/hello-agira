@@ -9,6 +9,7 @@ for (const name of fs.readdirSync(path.join(directory, 'images'))) {
 const read = file => fs.readFileSync(path.join(directory,file),'utf8');
 const htmlPages = ['it/index.html','en/index.html','it/itinerari/index.html','en/itineraries/index.html','it/cosa-vedere/index.html','en/things-to-see/index.html','it/mangiare/index.html','en/food-and-drink/index.html','it/dormire/index.html','en/where-to-stay/index.html','it/storia/index.html','en/history/index.html','it/eventi/index.html','en/events/index.html','it/sagra-cassatella/index.html','en/cassatella-festival/index.html'];
 const detailPairs = [
+  { it: '/it/note-legali/', en: '/en/legal-notice/' },
   { it: '/it/ringraziamenti/', en: '/en/acknowledgements/' },
   { it: '/it/presepe-vivente/', en: '/en/living-nativity/' },
   { it: '/it/cosa-vedere/collegiata-ss-salvatore/', en: '/en/things-to-see/ss-salvatore-collegiate-church/' },
