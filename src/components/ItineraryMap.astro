@@ -37,7 +37,7 @@ const directions = (stop: typeof stops[number]) => `https://www.google.com/maps/
     <p class="route-map-small route-map-message" data-route-map-status role="status" aria-live="polite"></p>
     <p class="route-map-small route-map-message" data-route-map-gps-status role="status" aria-live="polite"></p>
   </div>
-  <p class="route-map-note">{l('La mappa mostra i luoghi, senza traccia pedonale verificata. Le indicazioni si aprono in Google Maps. Hello Agira non salva la tua posizione: puoi disattivarla in qualsiasi momento.', 'The map shows the places, without a verified walking track. Directions open in Google Maps. Hello Agira does not save your location: you can turn it off at any time.')}</p>
+  <p class="route-map-note">{l('Le indicazioni si aprono in Google Maps. Hello Agira non salva la tua posizione: puoi disattivarla in qualsiasi momento.', 'Directions open in Google Maps. Hello Agira does not save your location: you can turn it off at any time.')}</p>
   <script type="application/json" data-route-map-data set:html={serializeSchema(stops)}/>
 </section>
 <script>import '../scripts/itinerary-map-loader';</script>
