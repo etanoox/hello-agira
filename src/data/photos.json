@@ -25,18 +25,17 @@
     }
   },
   "pastry": {
-    "width": 1672,
-    "height": 941,
+    "width": 1448,
+    "height": 1086,
     "widths": [
       480,
       800,
       1200,
-      1672,
-      1800
+      1448
     ],
     "alt": {
-      "it": "Cassatelle di Agira con ripieno scuro di cacao e mandorle, una tagliata a metà su un piatto.",
-      "en": "Cassatelle di Agira with a dark cocoa and almond filling, one cut in half on a plate."
+      "it": "Cassatelle di Agira spolverate di zucchero a velo su un tagliere di legno, una aperta con il ripieno di cacao e mandorle in vista.",
+      "en": "Agira cassatelle dusted with icing sugar on a wooden board, one cut open to show its cocoa and almond filling."
     },
     "author": "Giuseppe Ricceri",
     "authorUrl": null,
