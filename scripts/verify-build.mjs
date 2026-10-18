@@ -32,6 +32,10 @@ const titles=[];
 let totalAssets=0, totalLinks=0;
 for (const file of htmlPages) {
   const lang=file.slice(0,2), html=read(file);
+  for (const resource of html.matchAll(/<(?:script|iframe)\b[^>]*\ssrc="([^"]+)"/g)) {
+    assert.ok(!/^https?:\/\/[^/]*(?:googletagmanager\.com|google-analytics\.com|google\.com)(?:\/|$)/.test(resource[1]), `${file}: no Google resources before consent`);
+  }
+  assert.ok(html.includes('data-cc="show-preferencesModal"'), `${file}: cookie preferences remain reachable`);
   assert.match(html,new RegExp(`<html[^>]+lang="${lang}"`),`${lang}: language`);
   assert.equal((html.match(/<h1[\s>]/g)||[]).length,1,`${lang}: one H1`);
   assert.match(html,/<main[^>]*id="main"/,`${lang}: main landmark`);
@@ -94,7 +98,7 @@ for (const file of ['it/cosa-vedere/castello-di-agira/index.html','en/things-to-
     assert.ok(fs.existsSync(path.join(directory, match[1])), `Missing castle audio: ${match[1]}`);
   }
   const iframeSources = [...html.matchAll(/<iframe\b[^>]*\ssrc="([^"]+)"/g)].map(match => match[1]);
-  assert.ok(iframeSources.every(src => src === 'https://www.googletagmanager.com/ns.html?id=GTM-TG2VSHS8'), 'Map loads only on request; GTM noscript iframe is allowed');
+  assert.equal(iframeSources.length, 0, 'No Google or map iframe loads before consent');
   if(html.includes('rel="canonical"')) assert.ok(html.includes('TouristAttraction') && html.includes('BreadcrumbList'), 'Place structured data');
 }
 assert.notEqual(titles[0],titles[1],'Localized titles must differ');

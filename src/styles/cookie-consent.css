@@ -1,0 +1,43 @@
+#cc-main {
+  --cc-font-family: var(--body);
+  --cc-bg: var(--stone);
+  --cc-primary-color: var(--ink);
+  --cc-secondary-color: #45574f;
+  --cc-modal-border-radius: 5px;
+  --cc-btn-border-radius: 3px;
+  --cc-btn-primary-bg: var(--forest);
+  --cc-btn-primary-color: var(--stone);
+  --cc-btn-primary-border-color: var(--forest);
+  --cc-btn-primary-hover-bg: var(--forest-dark);
+  --cc-btn-primary-hover-color: var(--stone);
+  --cc-btn-primary-hover-border-color: var(--forest-dark);
+  --cc-btn-secondary-bg: #e5e9df;
+  --cc-btn-secondary-color: var(--forest);
+  --cc-btn-secondary-border-color: #c6d1c7;
+  --cc-btn-secondary-hover-bg: #d9e1d5;
+  --cc-btn-secondary-hover-color: var(--forest-dark);
+  --cc-btn-secondary-hover-border-color: #aabdad;
+  --cc-toggle-on-bg: var(--forest);
+  --cc-toggle-off-bg: #69796e;
+  --cc-toggle-readonly-bg: #b7c3b7;
+  --cc-cookie-category-block-bg: #e9ede3;
+  --cc-cookie-category-block-border: #d5dbd3;
+  --cc-cookie-category-block-hover-bg: #e1e7dc;
+  --cc-cookie-category-block-hover-border: #c6d1c7;
+  --cc-separator-border-color: var(--line);
+  --cc-footer-bg: #e9ede3;
+  --cc-footer-color: var(--ink);
+  --cc-footer-border-color: var(--line);
+}
+#cc-main .cm, #cc-main .pm { box-shadow: 0 12px 60px #032e2a35; }
+#cc-main .cm__title, #cc-main .pm__title { font-family: var(--display); letter-spacing: -.035em; }
+#cc-main .cm__title { font-size: 1.6rem; line-height: 1.1; }
+#cc-main .cm__btn, #cc-main .pm__btn { min-height: 44px; }
+#cc-main .cm__btn--close { min-width: 44px; min-height: 44px; }
+#cc-main :focus-visible { outline: 3px solid #9d6d15; outline-offset: 3px; }
+.footer-cookie-settings { border: 0; padding: 0; background: none; color: inherit; font-size: .9375rem; text-align: left; min-height: 44px; }
+.footer-cookie-settings:hover { text-decoration: underline; text-underline-offset: 4px; }
+.cookie-policy-actions { margin-top: 1.5rem; }
+.cookie-policy-links { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; margin-top: 1rem; }
+.cookie-policy-links a { text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 700px) { .footer-cookie-settings { font-size: .8125rem; } }
