@@ -10,33 +10,34 @@ import { pageUrl, type Locale } from '../lib/i18n';
 
 interface Props { lang: Locale }
 const { lang } = Astro.props;
+const l = (it: string, en: string) => lang === 'it' ? it : en;
 const localizedPaths = { it: pageUrl('festival', 'it'), en: pageUrl('festival', 'en') };
 const copy = lang === 'it' ? {
   title: 'Sagra della Cassatella di Agira 2026 | Hello Agira',
-  description: 'Sagra della Cassatella di Agira: domenica 15 novembre 2026, dalle 10:00 alle 24:00 in Piazza Europa. Scopri il programma e organizza la visita.',
+  description: 'Sagra della Cassatella e le vie dei sapori: 13–15 novembre 2026 in Piazza Europa ad Agira. Ingresso gratuito e programma completo della 14ª edizione.',
   heroEyebrow: 'AGIRA · SICILIA · UNA TRADIZIONE DA INCONTRARE',
   heroTitle: 'La cassatella\nincontra Agira.',
-  heroText: 'Ogni anno, la Sagra mette al centro il dolce simbolo del paese e invita a scoprire Agira attraverso sapori, storie e momenti da condividere.',
+  heroText: 'La Sagra della Cassatella e le vie dei sapori torna per la 14ª edizione: tre giorni per incontrare il dolce simbolo del paese, tra stand, musica, folklore e street food.',
   heroAction: 'Vai all’edizione 2026',
   imageCaption: 'La teglia al forno',
   storyEyebrow: '01 / IL CUORE DELLA FESTA',
   storyTitle: 'Un dolce, tante storie.',
   storyText: 'La Sagra è l’occasione per incontrare la cassatella nel suo luogo d’origine. Attorno a questo dolce della tradizione agirina si ritrovano la comunità, chi lo prepara e chi arriva per conoscere il paese.',
   storyAside: 'Nelle passate edizioni, il programma ha affiancato agli stand gastronomici musica, spettacoli e momenti dedicati alle tradizioni locali. Ogni anno porta con sé un programma diverso.',
-  editionEyebrow: '02 / EDIZIONE 2026',
+  editionEyebrow: '02 / 14ª EDIZIONE · 2026',
   editionTitle: 'Ci vediamo ad Agira.',
-  dateWeekday: 'DOMENICA',
+  dateLabel: 'Dal 13 al 15 novembre 2026',
   dateMonth: 'NOVEMBRE',
   dateYear: '2026',
-  updateTitle: 'Una giornata di festa in Piazza Europa.',
-  updateText: 'La Sagra della Cassatella si terrà domenica 15 novembre 2026, dalle 10:00 alle 24:00, in Piazza Europa ad Agira. Per aggiornamenti ed eventuali variazioni consulta i canali degli organizzatori.',
+  updateTitle: 'Tre giorni di festa in Piazza Europa.',
+  updateText: 'Dal 13 al 15 novembre 2026, Piazza Europa ad Agira ospita la Sagra della Cassatella e le vie dei sapori. Ingresso gratuito, stand, musica dal vivo, folklore, cabaret e attività per bambini. Per aggiornamenti ed eventuali variazioni consulta i canali degli organizzatori.',
   proLoco: 'Aggiornamenti della Pro Loco',
   comune: 'Aggiornamenti del Comune',
   programmeEyebrow: '03 / PROGRAMMA',
-  programmeTitle: 'Dalla mattina fino a sera.',
+  programmeTitle: 'Tre giorni da vivere.',
   planEyebrow: '04 / OLTRE LA SAGRA',
   planTitle: 'Fermati a conoscere Agira.',
-  planText: 'La giornata può diventare l’inizio di una visita tra vicoli, luoghi di memoria e sapori del territorio.',
+  planText: 'La Sagra può diventare l’inizio di una visita tra vicoli, luoghi di memoria e sapori del territorio.',
   sights: 'Cosa vedere',
   food: 'Dove mangiare',
   nextEyebrow: 'IL VIAGGIO CONTINUA',
@@ -44,30 +45,30 @@ const copy = lang === 'it' ? {
   nextAction: 'Esplora Agira',
 } : {
   title: 'Cassatella Festival in Agira 2026 | Hello Agira',
-  description: 'Agira’s Cassatella Festival: Sunday 15 November 2026, from 10:00 to midnight in Piazza Europa. Explore the programme and plan your visit.',
+  description: 'Agira’s 14th Cassatella Festival, 13–15 November 2026 in Piazza Europa. Free admission, food stands, music, folklore and the full three-day programme.',
   heroEyebrow: 'AGIRA · SICILY · A TRADITION TO EXPERIENCE',
   heroTitle: 'Cassatella\nmeets Agira.',
-  heroText: 'Each year, the festival celebrates the town’s signature pastry and invites visitors to discover Agira through its flavours, stories and shared moments.',
+  heroText: 'Sagra della Cassatella e le vie dei sapori returns for its 14th edition: three days celebrating Agira’s signature pastry, with stands, music, folklore and street food.',
   heroAction: 'Explore the 2026 edition',
   imageCaption: 'The tray at the oven',
   storyEyebrow: '01 / AT THE HEART OF THE FESTIVAL',
   storyTitle: 'One pastry, many stories.',
   storyText: 'The festival is a chance to discover cassatella in the place it comes from. This local pastry brings together the community, the people who make it and visitors keen to get to know Agira.',
   storyAside: 'Previous editions have paired food stands with music, performances and moments celebrating local traditions. Each year brings a different programme.',
-  editionEyebrow: '02 / 2026 EDITION',
+  editionEyebrow: '02 / 14TH EDITION · 2026',
   editionTitle: 'See you in Agira.',
-  dateWeekday: 'SUNDAY',
+  dateLabel: '13–15 November 2026',
   dateMonth: 'NOVEMBER',
   dateYear: '2026',
-  updateTitle: 'A day of celebration in Piazza Europa.',
-  updateText: 'The Cassatella Festival will take place on Sunday 15 November 2026, from 10:00 to midnight, in Piazza Europa, Agira. For updates and any changes, check the organisers’ channels.',
+  updateTitle: 'Three days of celebration in Piazza Europa.',
+  updateText: 'From 13 to 15 November 2026, Piazza Europa in Agira hosts Sagra della Cassatella e le vie dei sapori. Enjoy free admission, food stands, live music, folklore, comedy and children’s activities. For updates and any changes, check the organisers’ channels.',
   proLoco: 'Pro Loco updates',
   comune: 'Municipality updates',
   programmeEyebrow: '03 / PROGRAMME',
-  programmeTitle: 'From morning into the night.',
+  programmeTitle: 'Three days to enjoy.',
   planEyebrow: '04 / BEYOND THE FESTIVAL',
   planTitle: 'Stay and get to know Agira.',
-  planText: 'Make the day the start of a visit among the town’s lanes, places of memory and local flavours.',
+  planText: 'Make the festival the start of a visit among the town’s lanes, places of memory and local flavours.',
   sights: 'Things to see',
   food: 'Where to eat',
   nextEyebrow: 'KEEP EXPLORING',
@@ -80,32 +81,56 @@ const homeHref = `/${lang}/`;
 const prolocoHref = 'https://www.prolocoagira.it/wp/category/sagra-cassatella/';
 const comuneHref = 'https://www.comune.agira.en.it/index.php/it/news?type=1';
 const editionFacts = lang === 'it' ? [
-  { label: 'QUANDO', value: 'Domenica 15 novembre 2026' },
-  { label: 'ORARIO', value: '10:00–24:00' },
+  { label: 'QUANDO', value: 'Dal 13 al 15 novembre 2026' },
   { label: 'DOVE', value: 'Piazza Europa, Agira · Sicilia' },
-  { label: 'COSTO', value: 'Gratuito' },
+  { label: 'INGRESSO', value: 'Gratuito' },
 ] : [
-  { label: 'WHEN', value: 'Sunday 15 November 2026' },
-  { label: 'TIME', value: '10:00–24:00' },
+  { label: 'WHEN', value: '13–15 November 2026' },
   { label: 'WHERE', value: 'Piazza Europa, Agira · Sicily' },
-  { label: 'COST', value: 'Free admission' },
+  { label: 'ADMISSION', value: 'Free' },
 ];
-const programmeItems = lang === 'it' ? [
-  { time: '10:00', title: 'Apertura stand gastronomici' },
-  { time: '11:00', title: 'Show cooking' },
-  { time: '12:00', title: 'Area gastronomica' },
-  { time: '15:00', title: 'Circuito di destrezza per bambini con i go-kart' },
-  { time: '18:00', title: 'Spettacolo itinerante' },
-  { time: '21:00', title: 'Area gastronomica' },
-  { time: '23:00', title: 'DJ set' },
-] : [
-  { time: '10:00', title: 'Food stands open' },
-  { time: '11:00', title: 'Live cooking demonstration' },
-  { time: '12:00', title: 'Food area' },
-  { time: '15:00', title: 'Go-kart skills course for children' },
-  { time: '18:00', title: 'Street performance' },
-  { time: '21:00', title: 'Food area' },
-  { time: '23:00', title: 'DJ set' },
+const programmeDays = [
+  {
+    date: '2026-11-13',
+    label: l('Venerdì 13', 'Friday 13'),
+    title: l('Venerdì 13 novembre 2026', 'Friday 13 November 2026'),
+    items: [
+      { time: '19:00', title: l('Inaugurazione della 14ª Sagra della Cassatella e le vie dei sapori, con esibizione itinerante del Gruppo Folk Trinacria di Agira', 'Opening of the 14th Sagra della Cassatella e le vie dei sapori, with a street performance by Gruppo Folk Trinacria di Agira') },
+      { time: '20:30', title: l('Serata musicale con la cantante costaricana Cecilia Gayle', 'An evening of music with Costa Rican singer Cecilia Gayle') },
+      { time: '23:00', title: l('DJ set con Cardillo DJ', 'DJ set with Cardillo DJ') },
+    ],
+  },
+  {
+    date: '2026-11-14',
+    label: l('Sabato 14', 'Saturday 14'),
+    title: l('Sabato 14 novembre 2026', 'Saturday 14 November 2026'),
+    items: [
+      { time: '10:00', title: l('Apertura stand', 'Stands open') },
+      { time: '10:00', title: l('Esposizione di auto tuning a cura del Team Easy Sound Tuning Performance', 'Car tuning exhibition by Team Easy Sound Tuning Performance') },
+      { time: '11:00', title: l('Spettacolo itinerante con il Gruppo Folk Trinacria di Agira', 'Street performance by Gruppo Folk Trinacria di Agira') },
+      { time: '12:00', title: l('Area gastronomica: musica dal vivo con The Moonlight', 'Food area: live music with The Moonlight') },
+      { time: '15:00', title: l('Circuito di destrezza per bambini con i go-kart', 'Go-kart skills course for children') },
+      { time: '18:00', title: l('Spettacolo itinerante con gli Orkestreet Città di Agira', 'Street performance by Orkestreet Città di Agira') },
+      { time: '19:30', title: l('Area gastronomica: DJ set con DJ Cesar e Laura Ayla DJ', 'Food area: DJ set with DJ Cesar and Laura Ayla DJ') },
+      { time: '21:00', title: l('Area gastronomica: cabaret con I Falsi d’Autore, presentati da Paola Parsi', 'Food area: comedy show with I Falsi d’Autore, hosted by Paola Parsi') },
+      { time: '23:00', title: l('Area gastronomica: DJ set con DJ Cesar e Laura Ayla DJ', 'Food area: DJ set with DJ Cesar and Laura Ayla DJ') },
+    ],
+  },
+  {
+    date: '2026-11-15',
+    label: l('Domenica 15', 'Sunday 15'),
+    title: l('Domenica 15 novembre 2026', 'Sunday 15 November 2026'),
+    items: [
+      { time: '10:00', title: l('Apertura stand', 'Stands open') },
+      { time: '10:00', title: l('Esposizione di auto e moto d’epoca', 'Classic car and motorcycle exhibition') },
+      { time: '10:30', title: l('Sfilata con il corteo “Argyrium” di Agira', 'Parade by Agira’s “Argyrium” procession') },
+      { time: '12:00', title: l('Area gastronomica: musica dal vivo con Carmelo Ariti (Blue Stratos)', 'Food area: live music with Carmelo Ariti (Blue Stratos)') },
+      { time: '15:00', title: l('Circuito di destrezza per bambini con i carri matti “Carruzzuna”', 'Skills course for children with the “Carruzzuna” carts') },
+      { time: '17:30', title: l('Esibizione itinerante con il Gruppo Folk Family Dance', 'Street performance by Gruppo Folk Family Dance') },
+      { time: '18:30', title: l('Esibizione dell’Accademia Orfei', 'Performance by Accademia Orfei') },
+      { time: '20:00', title: l('Area gastronomica: Cartoon Tribute con I Rockanimati', 'Food area: cartoon theme-song tribute with I Rockanimati') },
+    ],
+  },
 ];
 const festivalArchive = lang === 'it' ? [
   { src: '/images/cassatella-festival-2025.webp', width: 1137, height: 1600, alt: 'Locandina della Sagra della Cassatella di Agira, 13ª edizione del 2025', caption: '13ª edizione · 2025' },
@@ -131,9 +156,9 @@ const festivalArchive = lang === 'it' ? [
             <p class="eyebrow">{lang === 'it' ? 'UNA FESTA DI SAPORI E TRADIZIONI' : 'A CELEBRATION OF FLAVOUR AND TRADITION'}</p>
             <h1 id="festival-title">{copy.heroTitle}</h1>
             <p>{copy.heroText}</p>
-            <div class="festival-date-lockup" aria-label={`${copy.dateWeekday} 15 ${copy.dateMonth} ${copy.dateYear}`}>
-              <span>{lang === 'it' ? 'EDIZIONE IN EVIDENZA' : 'FEATURED EDITION'}</span>
-              <div><strong>15</strong><p>{copy.dateMonth}<br/>{copy.dateYear}</p></div>
+            <div class="festival-date-lockup" aria-label={copy.dateLabel}>
+              <span>{l('14ª EDIZIONE', '14TH EDITION')}</span>
+              <div><strong>13–15</strong><p>{copy.dateMonth}<br/>{copy.dateYear}</p></div>
             </div>
             <a class="button button-yellow" href="#edizione-2026">{copy.heroAction}<Icon name="arrow"/></a>
           </div>
@@ -174,7 +199,7 @@ const festivalArchive = lang === 'it' ? [
           {editionFacts.map(fact => <div class="festival-date-detail"><span>{fact.label}</span><strong>{fact.value}</strong></div>)}
         </div>
         <div class="festival-programme">
-          <span class="festival-programme-index" aria-hidden="true">15</span>
+          <span class="festival-programme-index" aria-hidden="true">14</span>
           <h3>{copy.updateTitle}</h3>
           <p>{copy.updateText}</p>
           <div class="festival-official-links">
@@ -188,15 +213,29 @@ const festivalArchive = lang === 'it' ? [
     <section id="programma" class="festival-schedule-section section" aria-labelledby="festival-schedule-title">
       <div class="container">
         <div class="festival-schedule-heading">
-          <p class="eyebrow">{copy.programmeEyebrow}</p>
-          <h2 id="festival-schedule-title">{copy.programmeTitle}</h2>
+          <div>
+            <p class="eyebrow">{copy.programmeEyebrow}</p>
+            <h2 id="festival-schedule-title">{copy.programmeTitle}</h2>
+            <nav class="festival-day-links" aria-label={l('Vai al programma della giornata', 'Jump to a day’s programme')}>
+              {programmeDays.map(day => <a class="text-link" href={`#programma-${day.date}`}>{day.label}<Icon name="arrow"/></a>)}
+            </nav>
+          </div>
+          <figure class="festival-current-poster">
+            <a href="/images/cassatella-festival-2026.webp" target="_blank" rel="noopener noreferrer" aria-label={l('Apri e ingrandisci la locandina della Sagra della Cassatella 2026', 'Open the full-size 2026 Cassatella Festival poster')}>
+              <img src="/images/cassatella-festival-2026.webp" srcset="/images/cassatella-festival-2026-480.webp 480w, /images/cassatella-festival-2026.webp 900w" sizes="(max-width: 700px) 180px, 200px" alt={l('Locandina della 14ª Sagra della Cassatella e le vie dei sapori ad Agira, dal 13 al 15 novembre 2026', 'Poster for the 14th Sagra della Cassatella e le vie dei sapori in Agira, 13–15 November 2026')} width="900" height="1280" loading="lazy" decoding="async"/>
+            </a>
+            <figcaption>{l('Locandina 2026 · Ingrandisci', '2026 poster · View full size')}</figcaption>
+          </figure>
         </div>
-        <ol class="festival-schedule-list">
-          {programmeItems.map(item => <li>
-            <time datetime={item.time}>{item.time}</time>
-            <div><h3>{item.title}</h3></div>
-          </li>)}
-        </ol>
+        {programmeDays.map(day => <section class="festival-schedule-day" aria-labelledby={`programma-${day.date}`}>
+          <h3 id={`programma-${day.date}`}><time datetime={day.date}>{day.title}</time></h3>
+          <ol class="festival-schedule-list">
+            {day.items.map(item => <li>
+              <time datetime={`${day.date}T${item.time}:00+01:00`}>{item.time}</time>
+              <div><h4>{item.title}</h4></div>
+            </li>)}
+          </ol>
+        </section>)}
       </div>
     </section>
 
@@ -226,19 +265,32 @@ const festivalArchive = lang === 'it' ? [
   .festival-story-gallery img{display:block;width:100%;height:auto}
   .festival-story-gallery figcaption{margin-top:.5rem;color:var(--forest);font-family:var(--display);font-size:.76rem;line-height:1.3;letter-spacing:.01em}
   .festival-schedule-section{background:#073e38;color:var(--stone)}
+  .festival-date-lockup strong{font-size:clamp(3.1rem,7vw,4.5rem);white-space:nowrap}
   .festival-schedule-section .eyebrow{color:var(--grain)}
-  .festival-schedule-heading{max-width:760px}
+  .festival-schedule-heading{display:grid;grid-template-columns:minmax(0,1fr) 200px;gap:3rem;align-items:center}
   .festival-schedule-heading h2{max-width:720px;margin-top:.85rem;font-size:clamp(3rem,6vw,5.8rem);line-height:.94;letter-spacing:-.07em}
-  .festival-schedule-list{list-style:none;margin:3rem 0 0;padding:0}
+  .festival-day-links{display:flex;flex-wrap:wrap;gap:1rem 1.5rem;margin-top:1.75rem}
+  .festival-day-links a{display:inline-flex;align-items:center;gap:.5rem;color:var(--grain)}
+  .festival-day-links svg{width:16px;height:16px}
+  .festival-current-poster{width:200px;margin:0}
+  .festival-current-poster a{display:block;border-radius:4px;overflow:hidden}
+  .festival-current-poster a:focus-visible{outline:3px solid var(--grain);outline-offset:4px}
+  .festival-current-poster img{display:block;width:100%;height:auto}
+  .festival-current-poster figcaption{margin-top:.6rem;font-size:.78rem;line-height:1.4;color:#d8e0d9}
+  .festival-schedule-day{margin-top:3.5rem}
+  .festival-schedule-day>h3{font-size:clamp(1.65rem,3vw,2.5rem);line-height:1.15;letter-spacing:-.04em;color:var(--grain);scroll-margin-top:7rem}
+  .festival-schedule-list{list-style:none;margin:1.5rem 0 0;padding:0}
   .festival-schedule-list li{display:grid;grid-template-columns:8rem minmax(0,1fr);gap:1.5rem;padding:1.3rem 0;border-top:1px solid #ffffff35}
   .festival-schedule-list li:last-child{border-bottom:1px solid #ffffff35}
   .festival-schedule-list time{font-family:var(--display);font-size:2rem;line-height:1;color:var(--grain);letter-spacing:-.05em}
-  .festival-schedule-list h3{font-size:clamp(1.15rem,2vw,1.55rem);line-height:1.25;letter-spacing:-.025em}
+  .festival-schedule-list h4{margin:0;font-family:var(--display);font-weight:600;font-size:clamp(1.15rem,2vw,1.55rem);line-height:1.25;letter-spacing:-.025em}
   .festival-schedule-list p{max-width:760px;margin-top:.35rem;font-size:.9rem;line-height:1.6;color:#d8e0d9}
   @media(max-width:700px){
     .festival-story-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem .75rem;margin-top:1.35rem}
     .festival-story-gallery figcaption{font-size:.78rem}
-    .festival-schedule-list{margin-top:2rem}
+    .festival-schedule-heading{grid-template-columns:1fr;gap:2rem}
+    .festival-current-poster{width:180px}
+    .festival-schedule-day{margin-top:3rem}
     .festival-schedule-list li{grid-template-columns:5rem minmax(0,1fr);gap:.85rem;padding:1.1rem 0}
     .festival-schedule-list time{font-size:1.55rem}
   }

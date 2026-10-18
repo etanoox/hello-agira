@@ -12,17 +12,17 @@ const { lang } = Astro.props;
 const localizedPaths = { it: pageUrl('events', 'it'), en: pageUrl('events', 'en') };
 const copy = lang === 'it' ? {
   title: 'Eventi e tradizioni ad Agira | Hello Agira',
-  description: 'Eventi ad Agira: Sagra della Cassatella domenica 15 novembre 2026, dalle 10:00 alle 24:00 in Piazza Europa, festa di San Filippo, Presepe Vivente, Un Pane per la Vita e Motor Expo.',
+  description: 'Eventi ad Agira: Sagra della Cassatella dal 13 al 15 novembre 2026 in Piazza Europa, festa di San Filippo, Presepe Vivente, Un Pane per la Vita e Motor Expo.',
   eyebrow: 'AGIRA · IL CALENDARIO DELLE TRADIZIONI',
   heading: 'Ci sono giorni\nche restano.',
   intro: 'Le feste raccontano un paese in un modo diverso: attraverso i sapori, i riti e il piacere di ritrovarsi.',
   action: 'Scopri gli appuntamenti',
   calendarEyebrow: 'IN CALENDARIO',
   calendarTitle: 'Un’occasione per venire ad Agira.',
-  calendarIntro: 'La Sagra della Cassatella ti aspetta domenica 15 novembre 2026, dalle 10:00 alle 24:00, in Piazza Europa ad Agira.',
+  calendarIntro: 'La Sagra della Cassatella e le vie dei sapori ti aspetta dal 13 al 15 novembre 2026 in Piazza Europa ad Agira. Ingresso gratuito.',
   festivalEyebrow: '01 / SAPORI E TRADIZIONI',
   festivalTitle: 'La Sagra della Cassatella.',
-  festivalText: 'La festa celebra il dolce simbolo di Agira e invita a scoprire il paese attraverso i suoi sapori e le sue tradizioni.',
+  festivalText: 'La 14ª edizione celebra il dolce simbolo di Agira con tre giorni di stand, musica dal vivo, folklore, street food e attività per bambini. Scopri il programma completo, giorno per giorno.',
   festivalAction: 'Vai alla pagina della Sagra',
   traditionsEyebrow: '02 / FEDE E TRADIZIONE',
   saintTitle: 'La festa di San Filippo.',
@@ -34,17 +34,17 @@ const copy = lang === 'it' ? {
   food: 'Dove mangiare',
 } : {
   title: 'Events and traditions in Agira | Hello Agira',
-  description: 'Events in Agira: the Cassatella Festival on Sunday 15 November 2026, from 10:00 to midnight in Piazza Europa, the feast of Saint Philip, the Living Nativity, Un Pane per la Vita and Motor Expo.',
+  description: 'Events in Agira: the Cassatella Festival, 13–15 November 2026 in Piazza Europa, the feast of Saint Philip, the Living Nativity, Un Pane per la Vita and Motor Expo.',
   eyebrow: 'AGIRA · A CALENDAR OF TRADITIONS',
   heading: 'Some days\nstay with you.',
   intro: 'Festivals tell the story of a place in a different way: through its flavours, rituals and the joy of coming together.',
   action: 'Explore the calendar',
   calendarEyebrow: 'ON THE CALENDAR',
   calendarTitle: 'A reason to come to Agira.',
-  calendarIntro: 'Join the Cassatella Festival on Sunday 15 November 2026, from 10:00 to midnight, in Piazza Europa, Agira.',
+  calendarIntro: 'Join Sagra della Cassatella e le vie dei sapori from 13 to 15 November 2026 in Piazza Europa, Agira. Free admission.',
   festivalEyebrow: '01 / FLAVOURS AND TRADITIONS',
   festivalTitle: 'The Cassatella Festival.',
-  festivalText: 'The festival celebrates Agira’s signature pastry and invites visitors to discover the town through its flavours and traditions.',
+  festivalText: 'The 14th edition celebrates Agira’s signature pastry with three days of stands, live music, folklore, street food and children’s activities. Explore the full day-by-day programme.',
   festivalAction: 'Explore the festival page',
   traditionsEyebrow: '02 / FAITH AND TRADITION',
   saintTitle: 'The feast of Saint Philip.',
@@ -134,8 +134,8 @@ const foodHref = pageUrl('eat', lang);
             <p>{copy.festivalText}</p>
             <a class="text-link" href={festivalHref}>{copy.festivalAction}<Icon name="arrow"/></a>
           </div>
-          <aside class="events-date-tile" aria-label={lang === 'it' ? 'Domenica 15 novembre 2026' : 'Sunday 15 November 2026'}>
-            <span>{lang === 'it' ? 'DOMENICA' : 'SUNDAY'}</span><strong>15</strong><p>{lang === 'it' ? 'NOVEMBRE' : 'NOVEMBER'}<br/>2026</p><small>AGIRA · SICILIA</small>
+          <aside class="events-date-tile events-date-range" aria-label={lang === 'it' ? 'Dal 13 al 15 novembre 2026' : '13–15 November 2026'}>
+            <span>{lang === 'it' ? '14ª EDIZIONE' : '14TH EDITION'}</span><strong>13–15</strong><p>{lang === 'it' ? 'NOVEMBRE' : 'NOVEMBER'}<br/>2026</p><small>AGIRA · SICILIA</small>
           </aside>
         </article>
       </div>
@@ -215,3 +215,12 @@ const foodHref = pageUrl('eat', lang);
   <SiteFooter lang={lang} currentPage="events"/>
   <script>import '../scripts/sights-reveal';</script>
 </Base>
+
+<style>
+  .events-date-range>strong{font-size:clamp(2.75rem,3.5vw,3.75rem);letter-spacing:-.07em;white-space:nowrap}
+  @media(max-width:700px){
+    .events-date-range{grid-template-columns:auto minmax(0,1fr)}
+    .events-date-range>p{grid-column:2;grid-row:2}
+    .events-date-range>small{grid-column:2;grid-row:3}
+  }
+</style>
