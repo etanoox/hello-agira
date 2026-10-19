@@ -26,7 +26,7 @@ const paths = { it: pageUrl('thanks', 'it'), en: pageUrl('thanks', 'en') };
     {c.groups.map((group, index) => <section id={group.id} class={index % 2 === 0 ? 'festival-plan festival-edition section' : 'festival-story section'} aria-labelledby={`${group.id}-title`}>
       <div class="container festival-story-grid">
         <div><p class="eyebrow">{group.label}</p><h2 id={`${group.id}-title`}>{group.title}</h2></div>
-        <div class="festival-story-copy">{group.people.map(person => <article class="thanks-person"><h3>{person.name}</h3><p>{person.text}</p></article>)}</div>
+        <div class="festival-story-copy">{group.people.map(person => <article class="thanks-person"><h3>{person.name}</h3><p>{person.text}</p>{'href' in person && typeof person.href === 'string' && <a class="text-link" href={person.href} target="_blank" rel="noopener noreferrer">{l('Visita Agira.org', 'Visit Agira.org')}<Icon name="diagonal"/></a>}</article>)}</div>
       </div>
     </section>)}
     <section class="itinerary-next" aria-label={l('Continua a esplorare', 'Keep exploring')}><div class="container itinerary-next-inner">

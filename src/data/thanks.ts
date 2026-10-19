@@ -28,6 +28,7 @@ export function getThanks(lang: Locale) {
       ] },
       { id: 'territorio', label: l('04 / LA PROMOZIONE DEL TERRITORIO', '04 / PROMOTING LOCAL HERITAGE'), title: l('Far conoscere Agira.', 'Sharing Agira with others.'), people: [
         { name: 'Pro Loco Agira', text: l('Un ringraziamento alla Pro Loco Agira per l’impegno nella promozione del turismo e della cultura del paese. Un’attività che contribuisce a far conoscere i luoghi, le tradizioni e le iniziative della comunità agirina.', 'Thanks to Pro Loco Agira for their commitment to promoting tourism and culture in the town. Their work helps introduce others to the places, traditions and initiatives of Agira’s community.') },
+        { name: 'Agira.org', href: 'https://www.agira.org/', text: l('Per la raccolta di studi, testi e approfondimenti dedicati alla storia, ai monumenti e alle tradizioni di Agira. Un patrimonio di conoscenze che abbiamo consultato e richiamato in numerose pagine di Hello Agira, contribuendo alla ricchezza dei suoi contenuti.', 'For the collection of studies, texts and articles about Agira’s history, monuments and traditions. We have consulted and linked to this valuable resource throughout Hello Agira, helping enrich the content of the project.') },
       ] },
     ],
   };
