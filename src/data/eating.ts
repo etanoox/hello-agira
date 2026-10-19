@@ -7,10 +7,10 @@ export function getEatingPage(lang: Locale) {
 
   return {
     title: l('Dove mangiare ad Agira: ristoranti, pizzerie e cassatelle | Hello Agira', 'Where to eat in Agira: restaurants, pizzerias and cassatelle | Hello Agira'),
-    description: l('Una prima mappa di ristoranti, pizzerie, caffè e pasticcerie ad Agira. Trova una sosta e verifica i dettagli direttamente con il locale.', 'A first guide to restaurants, pizzerias, cafés and pastry shops in Agira. Find a place to stop and confirm details directly with the venue.'),
+    description: l('Una prima mappa di ristoranti, pizzerie, caffè, pasticcerie e rosticcerie ad Agira. Trova una sosta e verifica i dettagli direttamente con il locale.', 'A first guide to restaurants, pizzerias, cafés, pastry shops and Sicilian snack bars in Agira. Find a place to stop and confirm details directly with the venue.'),
     eyebrow: l('MANGIARE AD AGIRA / UNA MAPPA DA ASSAGGIARE', 'EAT IN AGIRA / A MAP TO TASTE'),
     heading: l('A tavola,\ncon Agira.', 'At the table,\nwith Agira.'),
-    intro: l('Tra ristoranti, pizzerie, caffè e cassatelle: scegli la tua prossima sosta, al ritmo del viaggio.', 'From restaurants and pizzerias to cafés and cassatelle: find your next stop and take the journey at your own pace.'),
+    intro: l('Tra ristoranti, pizzerie, caffè, rosticcerie e cassatelle: scegli la tua prossima sosta, al ritmo del viaggio.', 'From restaurants and pizzerias to cafés, Sicilian snacks and cassatelle: find your next stop and take the journey at your own pace.'),
     action: l('Esplora i locali', 'Explore places'),
     sectionEyebrow: l('01 / FAI FELICE IL PALATO', '01 / A TASTE OF AGIRA'),
     sectionTitle: l('La cassatella è solo l’inizio.', 'The cassatella is only the beginning.'),
@@ -58,6 +58,19 @@ export function getEatingPage(lang: Locale) {
           { name: 'Dolc’è Agira · La Dolciaria', category: l('Pasticceria · produzione dolciaria', 'Pastry shop · confectionery'), text: l('La Dolciaria è una delle realtà legate alla produzione delle cassatelle agirine.', 'La Dolciaria is one of the local makers of Agira’s cassatelle.'), href: 'https://ladolciaria-agira.com' },
           { name: 'Antichi Sapori “’nto catoju”', category: l('Dolci · sapori locali', 'Sweets · local flavours'), text: l('Una tappa da esplorare tra i sapori di Agira.', 'A place to explore among the flavours of Agira.'), href: mapSearch('Antichi Sapori nto catoju') },
           { name: 'Panificio Giunta Angela', category: l('Panificio · dolci', 'Bakery · sweets'), text: l('Un panificio ad Agira.', 'A bakery in Agira.'), href: mapSearch('Panificio Giunta Angela') },
+        ],
+      },
+      {
+        id: 'rosticcerie',
+        number: '05',
+        eyebrow: l('ROSTICCERIE', 'SICILIAN SNACK BARS'),
+        title: l('Il gusto di una pausa veloce.', 'A quick taste of Agira.'),
+        intro: l('Arancini, colazione, pizza e tavola calda: quattro soste da scoprire ad Agira.', 'Arancini, breakfast, pizza and Sicilian snacks: four places to discover in Agira.'),
+        places: [
+          { name: 'Sale e Pepe', category: l('Rosticceria', 'Sicilian snack bar'), text: l('Conosciuto per gli arancini.', 'Known for its arancini.'), href: 'https://maps.app.goo.gl/BjN9GycA5B4Xcwbv6' },
+          { name: 'Arte e Gusto', category: l('Rosticceria · colazione', 'Sicilian snacks · breakfast'), text: l('Un’ottima sosta per la colazione.', 'A great stop for breakfast.'), href: 'https://maps.app.goo.gl/ky4LoiWm34Kpd2WBA' },
+          { name: 'N’do Sicilianu', category: l('Rosticceria', 'Sicilian snack bar'), text: l('Una rosticceria ad Agira con una nuova gestione.', 'A Sicilian snack bar in Agira under new management.'), href: 'https://maps.app.goo.gl/sbhHmc18jjnUcH2s7' },
+          { name: 'Da Gaetano', category: l('Pizza · tavola calda', 'Pizza · Sicilian snacks'), text: l('Pizza e specialità di tavola calda.', 'Pizza and Sicilian savoury snacks.'), href: 'https://maps.app.goo.gl/sv4uzR16SDkfkoga9' },
         ],
       },
     ],

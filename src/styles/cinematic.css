@@ -403,7 +403,7 @@ body.gallery-is-open{overflow:hidden}
 .food-category-links a:hover{background:var(--forest);border-color:var(--forest);color:var(--stone)}
 .food-category-links svg{width:15px;height:15px}
 .food-hub-group{padding-block:5.5rem 6.5rem;overflow:clip}
-.food-hub-group-caffe-bar{background:#e8eadf}
+.food-hub-group-caffe-bar,.food-hub-group-rosticcerie{background:#e8eadf}
 .food-hub-heading{display:grid;grid-template-columns:1.1fr .9fr;gap:4rem;align-items:end}
 .food-hub-heading .eyebrow{color:var(--forest)}
 .food-hub-heading h2{font-size:clamp(2.8rem,5vw,5rem);line-height:.96;letter-spacing:-.065em;margin-top:.8rem}
