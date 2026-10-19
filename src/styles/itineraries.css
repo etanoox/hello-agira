@@ -18,7 +18,7 @@
 /* On phones the jump links precede the stops, so they remain useful. */
 @media(max-width:800px){.itinerary-stop-column,.itinerary-side{display:contents}.itinerary-stop-column>.eyebrow{grid-row:1;margin-bottom:0}.itinerary-stop-column>h2{grid-row:2}.itinerary-route-intro{grid-row:3;margin-top:0}.itinerary-outline{grid-row:4}.itinerary-timeline{grid-row:5;margin-top:1rem}.itinerary-practical{grid-row:6}}
 
-/* Four choices use the same cards in a balanced two-column layout. */
-.route-grid--four,.itinerary-grid--four{grid-template-columns:repeat(2,minmax(0,1fr))}
-.itinerary-detail-shell[data-itinerary=saintPhilip] .itinerary-stop-content>p+p{margin-top:1rem}
-@media(max-width:700px){.route-grid--four,.itinerary-grid--four{grid-template-columns:1fr}}
+/* Additional itineraries keep the existing two-column card layout. */
+.route-grid--extended,.itinerary-grid--extended{grid-template-columns:repeat(2,minmax(0,1fr))}
+.itinerary-detail-shell[data-itinerary=saintPhilip] .itinerary-stop-content>p+p,.itinerary-detail-shell[data-itinerary=baronialPalaces] .itinerary-stop-content>p+p{margin-top:1rem}
+@media(max-width:700px){.route-grid--extended,.itinerary-grid--extended{grid-template-columns:1fr}}

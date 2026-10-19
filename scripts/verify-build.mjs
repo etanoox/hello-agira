@@ -9,6 +9,7 @@ for (const name of fs.readdirSync(path.join(directory, 'images'))) {
 const read = file => fs.readFileSync(path.join(directory,file),'utf8');
 const htmlPages = ['it/index.html','en/index.html','it/itinerari/index.html','en/itineraries/index.html','it/cosa-vedere/index.html','en/things-to-see/index.html','it/mangiare/index.html','en/food-and-drink/index.html','it/dormire/index.html','en/where-to-stay/index.html','it/storia/index.html','en/history/index.html','it/eventi/index.html','en/events/index.html','it/sagra-cassatella/index.html','en/cassatella-festival/index.html'];
 const detailPairs = [
+  { it: '/it/itinerari/i-palazzi-baronali/', en: '/en/itineraries/baronial-palaces/' },
   { it: '/it/itinerari/sui-passi-di-san-filippo/', en: '/en/itineraries/in-saint-philips-footsteps/' },
   { it: '/it/note-legali/', en: '/en/legal-notice/' },
   { it: '/it/ringraziamenti/', en: '/en/acknowledgements/' },
@@ -105,7 +106,7 @@ assert.notEqual(titles[0],titles[1],'Localized titles must differ');
 for(const file of ['404.html','robots.txt','sitemap.xml','_redirects','_headers','favicon.svg'])assert.ok(fs.existsSync(path.join(directory,file)),`Required ${file}`);
 assert.match(read('_redirects'),/^\/ \/it\/ 301/m);
 assert.ok(!read('sitemap.xml').includes('404'));
-console.log('PASS: IT/EN home, seven editorial page pairs and four itinerary pairs and three place pairs, ' + totalLinks + ' local links, ' + totalAssets + ' image uses, metadata, JSON-LD, hreflang, sitemap, redirect and 404.');
+console.log('PASS: IT/EN home, seven editorial page pairs and five itinerary pairs and three place pairs, ' + totalLinks + ' local links, ' + totalAssets + ' image uses, metadata, JSON-LD, hreflang, sitemap, redirect and 404.');
 
 for (const file of ['it/cosa-vedere/aron-memoria-ebraica/index.html', 'en/things-to-see/aron-jewish-heritage/index.html']) {
   const html = read(file);

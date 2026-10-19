@@ -1,3 +1,4 @@
+import { getBaronialPalacesItinerary } from './baronial-palaces-itinerary';
 import { getSaintPhilipItinerary } from './saint-philip-itinerary';
 import { pageUrl, sightUrl, type Locale, type ItineraryId } from '../lib/i18n';
 import type photos from './photos.json';
@@ -93,5 +94,6 @@ export function getItineraries(lang: Locale): Itinerary[] {
       ],
     },
     getSaintPhilipItinerary(lang),
+    getBaronialPalacesItinerary(lang),
   ];
 }
