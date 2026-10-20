@@ -3,6 +3,9 @@ import Base from '../layouts/Base.astro';
 import SiteHeader from './SiteHeader.astro';
 import SiteFooter from './SiteFooter.astro';
 import Photo from './Photo.astro';
+import PhotoStoryGallery from './PhotoStoryGallery.astro';
+import galleryData from '../data/saint-philip-gallery.json';
+import photos from '../data/photos.json';
 import Icon from './Icon.astro';
 import { saintPhilipFestival } from '../data/saint-philip-festival';
 import { pageUrl, sightUrl, type Locale } from '../lib/i18n';
@@ -10,6 +13,7 @@ import { serializeSchema } from '../lib/schema';
 interface Props { lang: Locale }
 const { lang } = Astro.props;
 const c = saintPhilipFestival(lang);
+const galleryItems = galleryData.map(item => ({ key: item.key as keyof typeof photos, title: item.title[lang] }));
 const paths = { it: pageUrl('saintFestival', 'it'), en: pageUrl('saintFestival', 'en') };
 const sources = [
   { name: lang === 'it' ? 'Comune di Agira · Festa di Maggio' : 'Municipality of Agira · May festival', href: 'https://www.comune.agira.en.it/it/eventi/festa-del-santo-patrono-s-filippo-d-agira-2023' },
@@ -84,6 +88,11 @@ const breadcrumb = Astro.site?.protocol === 'https:' ? {
         </div>
       </div>
     </section>)}
+
+    <PhotoStoryGallery lang={lang} items={galleryItems}
+      eyebrow={lang === 'it' ? '05 / IL RACCONTO FOTOGRAFICO' : '05 / THE PHOTOGRAPHIC STORY'}
+      heading={lang === 'it' ? 'I volti e i gesti della festa.' : 'The faces and gestures of the festival.'}
+      introduction={lang === 'it' ? 'Processioni, dettagli e luoghi della devozione, nelle fotografie di Filippo Anello.' : 'Processions, details and places of devotion, photographed by Filippo Anello.'}/>
 
     <section class="festival-plan section" aria-labelledby="festival-visit-title">
       <div class="container festival-plan-grid">

@@ -32,7 +32,7 @@ export const saintPhilipFestival = (lang: Locale) => lang === 'it' ? {
       'Ogni anno molti maltesi vengono ad Agira per i festeggiamenti e molti agirini raggiungono Malta in occasione della festa di Żebbuġ. Visite, ospitalità e amicizie hanno consolidato uno scambio che continua a rinnovarsi: il gemellaggio vive anche nelle persone che si ritrovano.'
     ] }
   ],
-  visitLabel: '05 / VIVERE LA FESTA', visitTitle: 'Vieni per la festa. Fermati per Agira.',
+  visitLabel: '06 / VIVERE LA FESTA', visitTitle: 'Vieni per la festa. Fermati per Agira.',
   visitText: 'Consulta il programma prima di partire: orari, percorsi e disposizioni sulla viabilità possono cambiare. Nel centro storico scegli scarpe comode e lascia spazio ai partecipanti durante le processioni. La visita continua tra chiese, vicoli, panorami e sapori locali.',
   abbey: 'Scopri l’Abbazia di San Filippo', food: 'Dove mangiare', stay: 'Dove dormire',
   programmeTitle: 'Il programma di ogni edizione', programmeText: 'Questa pagina racconta le feste e le loro tradizioni. Per le date definitive della festa estiva, il calendario religioso, gli orari e gli appuntamenti civili consulta le comunicazioni della parrocchia, della Pro Loco e del Comune.',
@@ -73,7 +73,7 @@ export const saintPhilipFestival = (lang: Locale) => lang === 'it' ? {
       'Every year many Maltese visitors travel to Agira for the festivities, while people from Agira visit Malta for Żebbuġ’s celebration. Visits, hospitality and friendships have strengthened an exchange that continues to bring the communities together.'
     ] }
   ],
-  visitLabel: '05 / EXPERIENCE THE FESTIVAL', visitTitle: 'Come for the festival. Stay for Agira.',
+  visitLabel: '06 / EXPERIENCE THE FESTIVAL', visitTitle: 'Come for the festival. Stay for Agira.',
   visitText: 'Check the programme before travelling: times, routes and traffic arrangements may change. Wear comfortable shoes in the historic centre and leave space for participants during processions. Continue your visit among churches, lanes, views and local flavours.',
   abbey: 'Discover San Filippo Abbey', food: 'Where to eat', stay: 'Where to stay',
   programmeTitle: 'Each edition’s programme', programmeText: 'This page introduces the festivals and their traditions. For confirmed summer dates, religious services, times and public entertainment, consult announcements from the parish, Pro Loco and municipality.',

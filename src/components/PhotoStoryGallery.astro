@@ -1,0 +1,40 @@
+---
+import Photo from './Photo.astro';
+import PhotoGallery from './PhotoGallery.astro';
+import Icon from './Icon.astro';
+import photos from '../data/photos.json';
+import type { Locale } from '../lib/i18n';
+interface Props {
+  lang: Locale;
+  items: { key: keyof typeof photos; title: string }[];
+  eyebrow: string;
+  heading: string;
+  introduction: string;
+}
+const { lang, items, eyebrow, heading, introduction } = Astro.props;
+const fullImage = (key: keyof typeof photos) => `/images/${key}-${Math.max(...photos[key].widths.filter(width => width <= 1800))}.webp`;
+---
+<section id="fotografie" class="section photo-story" aria-labelledby="photo-story-title">
+  <div class="container">
+    <div class="section-heading"><div><p class="eyebrow">{eyebrow}</p><h2 id="photo-story-title">{heading}</h2></div><p>{introduction}</p></div>
+    <div class="photo-story-grid">{items.map((item, index) => <figure>
+      <a class="photo-link" href={fullImage(item.key)} data-gallery-open={item.key} aria-haspopup="dialog" aria-label={`${lang === 'it' ? 'Ingrandisci' : 'Enlarge'}: ${item.title}`}><Photo name={item.key} lang={lang} sizes="(max-width: 700px) 92vw, (max-width: 1000px) 44vw, 29vw"/><span class="photo-view"><Icon name="plus"/></span></a>
+      <figcaption><span>{String(index + 1).padStart(2, '0')} / {item.title}</span><span>{photos[item.key].credit?.[lang]}</span></figcaption>
+    </figure>)}</div>
+  </div>
+</section>
+<PhotoGallery lang={lang} items={items}/>
+<style>
+/* Same natural image proportions and column layout as the Living Nativity gallery. */
+.photo-story{background:#e8eadf}
+.photo-story-grid{columns:3;column-gap:1.5rem}
+.photo-story-grid figure{break-inside:avoid;margin:0 0 2rem}
+.photo-story-grid .photo-link{display:block;position:relative;background:var(--forest-dark)}
+.photo-story-grid :global(img){display:block;width:100%;height:auto}
+.photo-story-grid .photo-view{position:absolute;right:.8rem;bottom:.8rem;display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--stone);color:var(--forest)}
+.photo-story-grid .photo-view :global(svg){width:18px;height:18px}
+.photo-story-grid figcaption{display:flex;flex-direction:column;gap:.3rem;padding-top:.7rem;font-size:.78rem;line-height:1.5}
+.photo-story-grid figcaption>span:last-child{font-size:.7rem;color:var(--muted)}
+@media(max-width:1000px){.photo-story-grid{columns:2}}
+@media(max-width:700px){.photo-story-grid{columns:1}}
+</style>
