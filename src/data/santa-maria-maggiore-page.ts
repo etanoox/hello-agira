@@ -69,6 +69,7 @@ export function getSantaMariaMaggiorePage(lang: Locale): SightPage {
       { title: l('Un luogo di culto', 'A place of worship'), text: l('Visita gli ambienti con discrezione e rispetta le eventuali celebrazioni in corso.', 'Visit quietly and respectfully, and be mindful of any services taking place.') },
     ],
     gallery: [
+      { key: 'santaMariaMaggioreAnelloPanorama', title: l('La Collegiata, il campanile e il lago Pozzillo', 'The collegiate church, its bell tower and Lake Pozzillo') },
       { key: 'santaMariaMaggioreAnello', title: l('La facciata della Collegiata di Santa Maria Maggiore', 'The facade of Santa Maria Maggiore Collegiate Church') },
     ],
     sources: [],
