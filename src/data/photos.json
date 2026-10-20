@@ -2097,5 +2097,55 @@
       "it": "Fotografia di Filippo Anello.",
       "en": "Photo by Filippo Anello."
     }
+  },
+  "santaMariaMaggioreAnello1356": {
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800,
+      2048
+    ],
+    "alt": {
+      "it": "La Collegiata di Santa Maria Maggiore e il campanile tra i tetti di Agira, con il lago Pozzillo sullo sfondo.",
+      "en": "Santa Maria Maggiore Collegiate Church and its bell tower among Agira’s rooftops, with Lake Pozzillo in the background."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photo by Filippo Anello."
+    }
+  },
+  "santaMariaMaggioreAnello1370": {
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800,
+      2048
+    ],
+    "alt": {
+      "it": "Il campanile in pietra della Collegiata di Santa Maria Maggiore ad Agira, con la campana e il lago Pozzillo sullo sfondo.",
+      "en": "The stone bell tower of Santa Maria Maggiore Collegiate Church in Agira, with its bell and Lake Pozzillo in the background."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photo by Filippo Anello."
+    }
   }
 }

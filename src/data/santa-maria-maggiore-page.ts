@@ -71,6 +71,8 @@ export function getSantaMariaMaggiorePage(lang: Locale): SightPage {
     gallery: [
       { key: 'santaMariaMaggioreAnelloPanorama', title: l('La Collegiata, il campanile e il lago Pozzillo', 'The collegiate church, its bell tower and Lake Pozzillo') },
       { key: 'santaMariaMaggioreAnello', title: l('La facciata della Collegiata di Santa Maria Maggiore', 'The facade of Santa Maria Maggiore Collegiate Church') },
+      { key: 'santaMariaMaggioreAnello1356', title: l("La Collegiata tra i tetti e il lago Pozzillo", "The collegiate church among the rooftops, with Lake Pozzillo beyond") },
+      { key: 'santaMariaMaggioreAnello1370', title: l("Il campanile e la campana sullo sfondo del lago", "The bell tower and bell against the lake") },
     ],
     sources: [],
   };
