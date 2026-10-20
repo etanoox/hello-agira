@@ -2022,5 +2022,55 @@
       "it": "Fotografia di Filippo Anello.",
       "en": "Photo by Filippo Anello."
     }
+  },
+  "santaMargheritaAnelloExterior": {
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800,
+      2048
+    ],
+    "alt": {
+      "it": "La facciata della Chiesa di Santa Margherita ad Agira, con il campanile e la scalinata tra le case.",
+      "en": "The facade of Santa Margherita Church in Agira, with its bell tower and steps among the houses."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photo by Filippo Anello."
+    }
+  },
+  "santaMargheritaAnelloInterior": {
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800,
+      2048
+    ],
+    "alt": {
+      "it": "La navata centrale di Santa Margherita ad Agira, con colonne, volte decorate e il presbiterio sullo sfondo.",
+      "en": "The central nave of Santa Margherita in Agira, with columns, decorated vaults and the sanctuary in the background."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photo by Filippo Anello."
+    }
   }
 }

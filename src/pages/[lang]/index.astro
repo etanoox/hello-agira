@@ -38,6 +38,11 @@ const homeMoreSights = [c.moreSights[0], {
   text: l('Due navate asimmetriche, capitelli romanici e opere d’arte da scoprire con calma.', 'Two asymmetrical naves, Romanesque capitals and artworks to discover at your own pace.'),
   href: sightUrl('santaMariaMaggiore', lang),
   link: l('Scopri la Collegiata', 'Explore the collegiate church'),
+}, {
+  title: l('La Chiesa di Santa Margherita', 'The Church of Santa Margherita'),
+  text: l('Tre navate, una grande cupola e opere d’arte tra sculture, dipinti e legni intagliati.', 'Three naves, a great dome and artworks spanning sculpture, painting and carved wood.'),
+  href: sightUrl('santaMargherita', lang),
+  link: l('Scopri la chiesa', 'Explore the church'),
 }];
 const { Content } = await render(entry);
 const a = (key: Section) => anchor(key, lang);
