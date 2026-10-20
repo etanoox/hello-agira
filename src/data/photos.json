@@ -1997,5 +1997,30 @@
       "it": "Fotografia di Filippo Anello.",
       "en": "Photograph by Filippo Anello."
     }
+  },
+  "santaMariaMaggioreAnello": {
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800,
+      2048
+    ],
+    "alt": {
+      "it": "La facciata della Collegiata di Santa Maria Maggiore ad Agira, con il portale in pietra e la navata laterale.",
+      "en": "The facade of Santa Maria Maggiore Collegiate Church in Agira, with its stone doorway and side nave."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photo by Filippo Anello."
+    }
   }
 }

@@ -33,6 +33,11 @@ const homeMoreSights = [c.moreSights[0], {
   text: l('La facciata, la cupola e i tesori d’arte: scopri la chiesa con le audioguide in italiano e in inglese.', 'Discover the façade, dome and artistic treasures of the church with audio guides in Italian and English.'),
   href: sightUrl('saintAnthony', lang),
   link: l('Scopri la chiesa e ascolta l’audioguida', 'Explore the church and listen to the audio guide'),
+}, {
+  title: l('La Collegiata di Santa Maria Maggiore', 'The Collegiate Church of Santa Maria Maggiore'),
+  text: l('Due navate asimmetriche, capitelli romanici e opere d’arte da scoprire con calma.', 'Two asymmetrical naves, Romanesque capitals and artworks to discover at your own pace.'),
+  href: sightUrl('santaMariaMaggiore', lang),
+  link: l('Scopri la Collegiata', 'Explore the collegiate church'),
 }];
 const { Content } = await render(entry);
 const a = (key: Section) => anchor(key, lang);
