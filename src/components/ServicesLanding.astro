@@ -10,7 +10,7 @@ const { lang } = Astro.props;
 const l = (it: string, en: string) => lang === 'it' ? it : en;
 const paths = { it: pageUrl('services', 'it'), en: pageUrl('services', 'en') };
 const title = l('Servizi utili ad Agira', 'Useful services in Agira');
-const description = l('Farmacie, tabaccherie e ufficio postale ad Agira: indirizzi, numeri di telefono e collegamenti a Google Maps per trovare il locale.', 'Pharmacies, tobacconists and the post office in Agira: addresses, phone numbers and Google Maps links to find each location.');
+const description = l('Farmacie, tabaccherie, ufficio postale e ATM/Bancomat ad Agira: indirizzi, numeri di telefono e collegamenti a Google Maps per trovare il locale.', 'Pharmacies, tobacconists, the post office and cash machines in Agira: addresses, phone numbers and Google Maps links to find each location.');
 ---
 <Base lang={lang} title={`${title} | Hello Agira`} description={description} canonicalPath={paths[lang]} alternatePaths={paths}>
   <SiteHeader lang={lang} currentPage="services"/>
@@ -32,8 +32,8 @@ const description = l('Farmacie, tabaccherie e ufficio postale ad Agira: indiriz
           {group.places.map(place => <article class="service-card">
             <p class="service-category">{group.title[lang]}</p>
             <h3>{place.name}</h3>
-            <p class="service-address">{place.address}<br/>Agira</p>
-            <p class="service-phone"><span>{l('Telefono', 'Phone')}</span> {lang === 'en' ? '+39 ' : ''}{place.phone}</p>
+            <p class="service-address">{place.address && <>{place.address}<br/></>}Agira</p>
+            {place.phone && <p class="service-phone"><span>{l('Telefono', 'Phone')}</span> {lang === 'en' ? '+39 ' : ''}{place.phone}</p>}
             <a class="text-link" href={serviceMapUrl(place)} target="_blank" rel="noopener noreferrer" aria-label={`${l('Trova il locale', 'Find the location')}: ${place.name} (Google Maps)`}>{l('Trova il locale', 'Find the location')}<Icon name="diagonal"/></a>
           </article>)}
         </div>

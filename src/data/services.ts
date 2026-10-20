@@ -1,4 +1,17 @@
-export const serviceGroups = [
+interface ServicePlace {
+  name: string;
+  address?: string;
+  phone?: string;
+  mapUrl?: string;
+}
+
+interface ServiceGroup {
+  id: string;
+  title: { it: string; en: string };
+  places: ServicePlace[];
+}
+
+export const serviceGroups: ServiceGroup[] = [
   {
     id: 'pharmacies', title: { it: 'Farmacie', en: 'Pharmacies' },
     places: [
@@ -24,7 +37,15 @@ export const serviceGroups = [
       { name: 'Ufficio Postale Poste Italiane', address: 'Piazza F. Fedele, 1', phone: '0935 691499' },
     ],
   },
+  {
+    id: 'atm', title: { it: 'ATM / Bancomat', en: 'ATMs / Cash machines' },
+    places: [
+      { name: 'Banca Cred. Coop. La Riscossa di Regalbuto', mapUrl: 'https://maps.app.goo.gl/MU7ZQd7dc3ekFg5d9' },
+      { name: 'UniCredit', mapUrl: 'https://maps.app.goo.gl/6nkzkdcJWDfUohEE7' },
+      { name: 'Poste Italiane · ATM', mapUrl: 'https://maps.app.goo.gl/qSf21YL3FGqVoXLJA' },
+    ],
+  },
 ];
 
-export const serviceMapUrl = (place: { name: string; address: string }) =>
-  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${place.name}, ${place.address}, Agira, Sicilia, Italia`)}`;
+export const serviceMapUrl = (place: ServicePlace) => place.mapUrl ??
+  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent([place.name, place.address, 'Agira', 'Sicilia', 'Italia'].filter(Boolean).join(', '))}`;
