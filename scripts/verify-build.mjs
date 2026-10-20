@@ -176,3 +176,37 @@ for (const locale of ['it', 'en']) {
   }
 }
 console.log(`PASS: social metadata and hero images on ${socialPages} localized pages.`);
+
+// One confirmed festival edition, described consistently in both languages.
+const cassatellaEventIds = [];
+for (const file of ['it/sagra-cassatella/index.html', 'en/cassatella-festival/index.html']) {
+  const html = read(file);
+  const nodes = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
+    .flatMap(match => { const data = JSON.parse(match[1]); return data['@graph'] || [data]; });
+  const events = nodes.filter(node => node['@type'] === 'FoodEvent');
+  assert.equal(events.length, 1, `${file}: one festival event`);
+  const event = events[0];
+  cassatellaEventIds.push(event['@id']);
+  assert.equal(event.startDate, '2026-11-13T19:00:00+01:00', 'Confirmed opening in Italian standard time');
+  assert.equal(event.endDate, '2026-11-15', 'End date without an invented closing time');
+  assert.equal(event.isAccessibleForFree, true, 'Free festival admission');
+  assert.ok(!event.offers, 'No fictitious ticket offer');
+  const organizer = nodes.find(node => node['@id'] === event.organizer['@id']);
+  assert.equal(organizer?.name, 'Etna Eventi Management', 'Actual organizer');
+  assert.equal(organizer?.url, 'https://etnaeventimanagement.it/');
+  const venue = nodes.find(node => node['@id'] === event.location['@id']);
+  assert.equal(venue?.name, 'Piazza Europa');
+  assert.deepEqual([venue?.geo.latitude, venue?.geo.longitude], [37.658005, 14.518352], 'Supplied venue pin');
+  assert.equal(venue?.address.addressLocality, 'Agira');
+  assert.ok(html.includes(venue.hasMap) && html.includes(organizer.url), 'Venue and organizer links are visible');
+  const page = nodes.find(node => node['@type'] === 'WebPage' && node.mainEntity);
+  assert.equal(page?.mainEntity['@id'], event['@id'], 'The festival is the page’s main entity');
+  const breadcrumb = nodes.find(node => node['@type'] === 'BreadcrumbList');
+  assert.equal(breadcrumb?.itemListElement.length, 3, 'Home, events and festival breadcrumb');
+  const image = nodes.find(node => node['@id'] === event.image['@id']);
+  assert.equal(image?.['@type'], 'ImageObject');
+  assert.ok(image.creator.name && image.creditText, 'Event photograph has author and credit');
+  assert.ok(fs.existsSync(path.join(directory, new URL(image.contentUrl).pathname)), 'Event photo exists');
+}
+assert.equal(cassatellaEventIds[0], cassatellaEventIds[1], 'Translations identify the same festival edition');
+console.log('PASS: Cassatella FoodEvent, confirmed dates, venue, organizer, free admission, photograph and breadcrumbs in IT/EN.');

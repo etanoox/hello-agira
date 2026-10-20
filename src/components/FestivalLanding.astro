@@ -1,5 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
+import { cassatellaEvent, getCassatellaEventGraph } from '../data/cassatella-event';
+import { serializeSchema } from '../lib/schema';
 import CassatellaPhotoStory from './CassatellaPhotoStory.astro';
 import Icon from './Icon.astro';
 import Photo from './Photo.astro';
@@ -12,6 +14,7 @@ interface Props { lang: Locale }
 const { lang } = Astro.props;
 const l = (it: string, en: string) => lang === 'it' ? it : en;
 const localizedPaths = { it: pageUrl('festival', 'it'), en: pageUrl('festival', 'en') };
+const eventGraph = Astro.site?.protocol === 'https:' ? getCassatellaEventGraph(Astro.site, lang) : undefined;
 const copy = lang === 'it' ? {
   title: 'Sagra della Cassatella di Agira 2026 | Hello Agira',
   description: 'Sagra della Cassatella e le vie dei sapori: 13–15 novembre 2026 in Piazza Europa ad Agira. Ingresso gratuito e programma completo della 14ª edizione.',
@@ -202,7 +205,10 @@ const festivalArchive = lang === 'it' ? [
           <span class="festival-programme-index" aria-hidden="true">14</span>
           <h3>{copy.updateTitle}</h3>
           <p>{copy.updateText}</p>
+          <p>{l('Ingresso libero, senza prenotazione o biglietto. Anche gli spettacoli sono inclusi; cibo e bevande si acquistano separatamente.', 'Free entry without booking or tickets. Shows are included; food and drinks are purchased separately.')}</p>
+          <p>{l('Organizzazione:', 'Organised by:')} <a class="text-link" href={cassatellaEvent.organizer.url} target="_blank" rel="noopener noreferrer">{cassatellaEvent.organizer.name}<Icon name="diagonal"/></a></p>
           <div class="festival-official-links">
+            <a class="text-link" href={cassatellaEvent.location.mapUrl} target="_blank" rel="noopener noreferrer">{l('Come arrivare · Piazza Europa', 'Getting here · Piazza Europa')}<Icon name="diagonal"/></a>
             <a class="text-link" href={prolocoHref} target="_blank" rel="noopener noreferrer">{copy.proLoco}<Icon name="diagonal"/></a>
             <a class="text-link" href={comuneHref} target="_blank" rel="noopener noreferrer">{copy.comune}<Icon name="diagonal"/></a>
           </div>
@@ -254,6 +260,7 @@ const festivalArchive = lang === 'it' ? [
     </section>
   </main>
   <SiteFooter lang={lang} currentPage="festival"/>
+  {eventGraph && <script type="application/ld+json" set:html={serializeSchema(eventGraph)}/>}
 </Base>
 
 <style>
