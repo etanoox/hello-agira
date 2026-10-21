@@ -47,6 +47,7 @@ export type ItineraryId = keyof typeof itinerarySlugs;
 export const itineraryUrl = (id: ItineraryId, lang: Locale) => `${pageUrl('routes', lang)}${itinerarySlugs[id][lang]}/`;
 
 export const sightSlugs = {
+  saintPhilipCave: { it: 'grotta-di-san-filippo', en: 'cave-of-san-filippo' },
   santaMargherita: { it: 'chiesa-santa-margherita', en: 'santa-margherita-church' },
   santaMariaMaggiore: { it: 'collegiata-santa-maria-maggiore', en: 'santa-maria-maggiore-collegiate-church' },
   salvatore: { it: 'collegiata-ss-salvatore', en: 'ss-salvatore-collegiate-church' },

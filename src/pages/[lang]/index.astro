@@ -29,6 +29,11 @@ const homeSights = c.sights.map(s => s.id === 'town' ? {
   href: sightUrl('canadianCemetery', lang),
 } : { ...s, href: s.id === 'castle' || s.id === 'abbey' ? sightUrl(s.id, lang) : undefined });
 const homeMoreSights = [c.moreSights[0], {
+  title: l('La Grotta di San Filippo', 'The Cave of San Filippo'),
+  text: l('Un antico ambiente scavato nella roccia, tra storia e devozione per il patrono di Agira.', 'An ancient chamber carved into the rock, shaped by history and devotion to Agira’s patron saint.'),
+  href: sightUrl('saintPhilipCave', lang),
+  link: l('Scopri la grotta', 'Explore the cave'),
+}, {
   title: l('La Chiesa di Sant’Antonio di Padova', 'Church of Saint Anthony of Padua'),
   text: l('La facciata, la cupola e i tesori d’arte: scopri la chiesa con le audioguide in italiano e in inglese.', 'Discover the façade, dome and artistic treasures of the church with audio guides in Italian and English.'),
   href: sightUrl('saintAnthony', lang),

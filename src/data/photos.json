@@ -2346,5 +2346,30 @@
       "it": "Fotografia di Filippo Anello.",
       "en": "Photo by Filippo Anello."
     }
+  },
+  "saintPhilipCaveAnello": {
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800,
+      2048
+    ],
+    "alt": {
+      "it": "L’ingresso della Grotta di San Filippo tra la roccia e le scalinate di via Grotte, in bianco e nero.",
+      "en": "The entrance to the Cave of San Filippo among the rock and steps of Via Grotte, in black and white."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photo by Filippo Anello."
+    }
   }
 }
