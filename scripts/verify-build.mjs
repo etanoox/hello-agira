@@ -135,12 +135,14 @@ for (const lang of ['it','en']) {
 for (const [lang, folder, slug] of [['it', 'itinerari', 'sui-passi-di-san-filippo'], ['en', 'itineraries', 'in-saint-philips-footsteps']]) {
   const html = read(`${lang}/${folder}/${slug}/index.html`);
   const mapData = JSON.parse(html.match(/<script[^>]*data-route-map-data[^>]*>([\s\S]*?)<\/script>/)?.[1] || '[]');
-  assert.equal(mapData.length, 4, 'Saint Philip itinerary has four map stops');
-  assert.deepEqual(mapData.map(stop => stop.mode), ['walking', 'walking', 'walking', 'driving'], 'Fountain is a separate driving stop');
-  assert.deepEqual(mapData[3].coordinates, [14.508555, 37.6545727], 'Fountain uses the supplied pin');
+  assert.equal(mapData.length, 6, 'Saint Philip itinerary has six map stops');
+  assert.deepEqual(mapData.map(stop => stop.mode), ['walking', 'walking', 'walking', 'walking', 'walking', 'driving'], 'Fountain is a separate driving stop');
+  assert.deepEqual(mapData[5].coordinates, [14.508555, 37.6545727], 'Fountain uses the supplied pin');
+  assert.deepEqual(mapData[3].coordinates, [14.530211, 37.6551686], 'Castle chapel uses the supplied pin');
+  assert.deepEqual(mapData[4].coordinates, [14.518169, 37.657765], 'Piazza Europa chapel uses the supplied pin');
   assert.match(html, /data-route-map-load[^>]*hidden/, 'Map loads only after activation');
   assert.match(html, /data-route-map-locate[^>]*disabled/, 'GPS starts inactive');
-  assert.equal((html.match(/travelmode=walking/g) || []).length, 3, 'Three walking directions links');
+  assert.equal((html.match(/travelmode=walking/g) || []).length, 5, 'Five walking directions links');
   assert.equal((html.match(/travelmode=driving/g) || []).length, 1, 'One driving directions link');
   assert.ok(!html.includes('maps.googleapis.com/maps/api/streetview'), 'No extracted Street View imagery');
 }
