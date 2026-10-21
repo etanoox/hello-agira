@@ -2371,5 +2371,76 @@
       "it": "Fotografia di Filippo Anello.",
       "en": "Photo by Filippo Anello."
     }
+  },
+  "manmanoGussioDress": {
+    "width": 1080,
+    "height": 1440,
+    "widths": [
+      480,
+      800,
+      1080
+    ],
+    "alt": {
+      "it": "Dettaglio di un abito verde con ricami floreali, fiocco e decorazioni nell’esposizione di Palazzo Manmano Gussio.",
+      "en": "Detail of a green garment with floral embroidery, a bow and ornaments in the exhibition at Palazzo Manmano Gussio."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Palazzo Manmano Gussio · Agira.",
+      "en": "Palazzo Manmano Gussio · Agira."
+    }
+  },
+  "manmanoGussioPortrait": {
+    "width": 1507,
+    "height": 2048,
+    "widths": [
+      480,
+      800,
+      1200,
+      1507
+    ],
+    "alt": {
+      "it": "Ritratto dipinto di una donna in abito ornato, nella collezione di Palazzo Manmano Gussio.",
+      "en": "Painted portrait of a woman in an ornate dress, in the collection at Palazzo Manmano Gussio."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Palazzo Manmano Gussio · Agira.",
+      "en": "Palazzo Manmano Gussio · Agira."
+    }
+  },
+  "manmanoGussioEntrance": {
+    "width": 1525,
+    "height": 2048,
+    "widths": [
+      480,
+      800,
+      1200,
+      1525
+    ],
+    "alt": {
+      "it": "Il portale in pietra di Palazzo Manmano Gussio aperto sull’ingresso e sulla scala illuminata.",
+      "en": "The stone portal of Palazzo Manmano Gussio opening onto the illuminated entrance and staircase."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Palazzo Manmano Gussio · Agira.",
+      "en": "Palazzo Manmano Gussio · Agira."
+    }
   }
 }
