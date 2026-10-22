@@ -9,6 +9,7 @@ for (const name of fs.readdirSync(path.join(directory, 'images'))) {
 const read = file => fs.readFileSync(path.join(directory,file),'utf8');
 const htmlPages = ['it/index.html','en/index.html','it/itinerari/index.html','en/itineraries/index.html','it/cosa-vedere/index.html','en/things-to-see/index.html','it/mangiare/index.html','en/food-and-drink/index.html','it/dormire/index.html','en/where-to-stay/index.html','it/storia/index.html','en/history/index.html','it/eventi/index.html','en/events/index.html','it/sagra-cassatella/index.html','en/cassatella-festival/index.html'];
 const detailPairs = [
+  { it: '/it/motor-expo-agira/', en: '/en/motor-expo-agira/' },
   { it: '/it/cosa-vedere/chiesa-santa-margherita/', en: '/en/things-to-see/santa-margherita-church/' },
   { it: '/it/cosa-vedere/collegiata-santa-maria-maggiore/', en: '/en/things-to-see/santa-maria-maggiore-collegiate-church/' },
   { it: '/it/itinerari/i-palazzi-baronali/', en: '/en/itineraries/baronial-palaces/' },
@@ -256,3 +257,16 @@ for (const edition of [
   assert.equal(ids[0], ids[1], 'IT and EN share one event identity');
 }
 console.log('PASS: Saint Philip May 2027 and Living Nativity 2026 editions, photographs, venue, linked pages and breadcrumbs in IT/EN.');
+
+for (const [lang, listing] of [['it', 'eventi'], ['en', 'events']]) {
+  const html = read(`${lang}/motor-expo-agira/index.html`);
+  assert.equal((html.match(/data-gallery-slide=/g) || []).length, 7, 'Motor Expo has seven gallery photographs');
+  assert.ok(html.includes('https://www.facebook.com/agiraclub'), 'Photo source and organiser are linked');
+  assert.ok(html.includes('motorExpoHall-1200.webp'), 'Motor Expo uses the supplied hall photograph');
+  const structured = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
+    .flatMap(match => { const value = JSON.parse(match[1]); return value['@graph'] ?? [value]; });
+  assert.ok(!structured.some(node => ['Event', 'Festival', 'ExhibitionEvent'].includes(node['@type'])), 'No Event until an exact date is confirmed');
+  assert.equal(structured.filter(node => node['@type'] === 'BreadcrumbList').length, 1);
+  assert.ok(read(`${lang}/${listing}/index.html`).includes(`href="/${lang}/motor-expo-agira/"`), 'Calendar links to the Motor Expo page');
+}
+console.log('PASS: Motor Expo IT/EN pages, seven gallery photos, source attribution, calendar links and no invented event date.');

@@ -2467,5 +2467,176 @@
       "it": "Fotografia di Filippo Anello.",
       "en": "Photo by Filippo Anello."
     }
+  },
+  "motorExpoHall": {
+    "width": 2048,
+    "height": 1536,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800,
+      2048
+    ],
+    "alt": {
+      "it": "Auto d’epoca nel Padiglione Fieristico durante un’edizione precedente del Motor Expo Agira.",
+      "en": "Classic cars inside the Exhibition Pavilion during a previous edition of Motor Expo Agira."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": "https://www.facebook.com/agiraclub",
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fonte: Club Motori d’Epoca Agira · Facebook.",
+      "en": "Source: Club Motori d’Epoca Agira · Facebook."
+    }
+  },
+  "motorExpoInterior": {
+    "width": 1536,
+    "height": 2048,
+    "widths": [
+      480,
+      800,
+      1200,
+      1536
+    ],
+    "alt": {
+      "it": "Il volante e gli interni di un’auto esposta durante un’edizione precedente del Motor Expo Agira.",
+      "en": "The steering wheel and interior of a car on display during a previous edition of Motor Expo Agira."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": "https://www.facebook.com/agiraclub",
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fonte: Club Motori d’Epoca Agira · Facebook.",
+      "en": "Source: Club Motori d’Epoca Agira · Facebook."
+    }
+  },
+  "motorExpoOutdoorCars": {
+    "width": 1536,
+    "height": 2048,
+    "widths": [
+      480,
+      800,
+      1200,
+      1536
+    ],
+    "alt": {
+      "it": "Le auto e il pubblico nell’area esterna durante un’edizione precedente del Motor Expo Agira.",
+      "en": "Cars and visitors in the outdoor area during a previous edition of Motor Expo Agira."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": "https://www.facebook.com/agiraclub",
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fonte: Club Motori d’Epoca Agira · Facebook.",
+      "en": "Source: Club Motori d’Epoca Agira · Facebook."
+    }
+  },
+  "motorExpoEntrance": {
+    "width": 1742,
+    "height": 2048,
+    "widths": [
+      480,
+      800,
+      1200,
+      1742
+    ],
+    "alt": {
+      "it": "Un’auto d’epoca davanti all’ingresso del Motor Expo durante un’edizione precedente del Motor Expo Agira.",
+      "en": "A classic car outside the Motor Expo entrance during a previous edition of Motor Expo Agira."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": "https://www.facebook.com/agiraclub",
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fonte: Club Motori d’Epoca Agira · Facebook.",
+      "en": "Source: Club Motori d’Epoca Agira · Facebook."
+    }
+  },
+  "motorExpoMarket": {
+    "width": 2048,
+    "height": 1536,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800,
+      2048
+    ],
+    "alt": {
+      "it": "Il pubblico tra gli stand della mostra-scambio durante un’edizione precedente del Motor Expo Agira.",
+      "en": "Visitors among the swap meet stands during a previous edition of Motor Expo Agira."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": "https://www.facebook.com/agiraclub",
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fonte: Club Motori d’Epoca Agira · Facebook.",
+      "en": "Source: Club Motori d’Epoca Agira · Facebook."
+    }
+  },
+  "motorExpoStand": {
+    "width": 1820,
+    "height": 1512,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800,
+      1820
+    ],
+    "alt": {
+      "it": "Lo stand del Club e un’auto sportiva esposta durante un’edizione precedente del Motor Expo Agira.",
+      "en": "The club stand and a sports car on display during a previous edition of Motor Expo Agira."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": "https://www.facebook.com/agiraclub",
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fonte: Club Motori d’Epoca Agira · Facebook.",
+      "en": "Source: Club Motori d’Epoca Agira · Facebook."
+    }
+  },
+  "motorExpoBanner": {
+    "width": 1746,
+    "height": 1310,
+    "widths": [
+      480,
+      800,
+      1200,
+      1746
+    ],
+    "alt": {
+      "it": "Lo striscione del Motor Expo Agira durante un’edizione precedente del Motor Expo Agira.",
+      "en": "The Motor Expo Agira banner during a previous edition of Motor Expo Agira."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": "https://www.facebook.com/agiraclub",
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fonte: Club Motori d’Epoca Agira · Facebook.",
+      "en": "Source: Club Motori d’Epoca Agira · Facebook."
+    }
   }
 }

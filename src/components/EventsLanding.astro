@@ -185,15 +185,16 @@ const foodHref = pageUrl('eat', lang);
     <section class="events-seasonal-section section" aria-labelledby="events-motor-title">
       <div class="container">
         <article class="events-featured events-reveal">
-          <figure class="events-feature-photo events-motor-poster">
-            <Photo name="motorExpo2026Poster" lang={lang} sizes="(max-width: 700px) 90vw, 45vw"/>
-            <figcaption>{photos.motorExpo2026Poster.credit[lang]}</figcaption>
+          <figure class="events-feature-photo">
+            <Photo name="motorExpoHall" lang={lang} sizes="(max-width: 700px) 90vw, 45vw"/>
+            <figcaption><span>{lang === 'it' ? 'Motor Expo Agira · Edizione precedente' : 'Motor Expo Agira · Previous edition'}</span><a href="https://www.facebook.com/agiraclub" target="_blank" rel="noopener noreferrer">{photos.motorExpoHall.credit[lang]}</a></figcaption>
           </figure>
           <div class="events-feature-copy">
             <p class="eyebrow">{lang === 'it' ? '05 / MOTORI E PASSIONI' : '05 / MOTORING AND PASSION'}</p>
             <h2 id="events-motor-title">Motor Expo Agira 2027.</h2>
             <p>{lang === 'it' ? 'La 27ª edizione del Motor Expo Agira riunisce appassionati, collezionisti e curiosi al Padiglione Fieristico di Agira. Una mostra-scambio dedicata ad auto, moto, oggettistica e memorabilia d’epoca, organizzata dal Club Motori d’Epoca Agira.' : 'The 27th Motor Expo Agira brings enthusiasts, collectors and curious visitors together at Agira’s Exhibition Pavilion. Organised by the Club Motori d’Epoca Agira, this swap meet celebrates classic cars, motorcycles, vintage objects and memorabilia.'}</p>
             <p>{lang === 'it' ? 'L’appuntamento è previsto a marzo 2027, con ingresso gratuito. Le giornate esatte e il programma saranno pubblicati non appena confermati.' : 'The event is planned for March 2027, with free admission. Exact dates and the programme will be published once confirmed.'}</p>
+            <a class="text-link" href={pageUrl('motorExpo', lang)}>{lang === 'it' ? 'Scopri il Motor Expo Agira' : 'Explore Motor Expo Agira'}<Icon name="arrow"/></a>
           </div>
           <aside class="events-date-tile events-date-month" aria-label={lang === 'it' ? 'Marzo 2027, date da confermare' : 'March 2027, dates to be confirmed'}>
             <span>{lang === 'it' ? 'DATE DA CONFERMARE' : 'DATES TO BE CONFIRMED'}</span><strong>2027</strong><p>{lang === 'it' ? 'MARZO' : 'MARCH'}</p><small>AGIRA · SICILIA</small>

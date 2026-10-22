@@ -19,7 +19,7 @@ const fullImage = (key: keyof typeof photos) => `/images/${key}-${Math.max(...ph
     <div class="section-heading"><div><p class="eyebrow">{eyebrow}</p><h2 id="photo-story-title">{heading}</h2></div><p>{introduction}</p></div>
     <div class="photo-story-grid">{items.map((item, index) => <figure>
       <a class="photo-link" href={fullImage(item.key)} data-gallery-open={item.key} aria-haspopup="dialog" aria-label={`${lang === 'it' ? 'Ingrandisci' : 'Enlarge'}: ${item.title}`}><Photo name={item.key} lang={lang} sizes="(max-width: 700px) 92vw, (max-width: 1000px) 44vw, 29vw"/><span class="photo-view"><Icon name="plus"/></span></a>
-      <figcaption><span>{String(index + 1).padStart(2, '0')} / {item.title}</span><span>{photos[item.key].credit?.[lang]}</span></figcaption>
+      <figcaption><span>{String(index + 1).padStart(2, '0')} / {item.title}</span><span>{photos[item.key].source ? <a href={photos[item.key].source!} target="_blank" rel="noopener noreferrer">{photos[item.key].credit?.[lang]}</a> : photos[item.key].credit?.[lang]}</span></figcaption>
     </figure>)}</div>
   </div>
 </section>

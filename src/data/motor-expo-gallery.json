@@ -1,0 +1,51 @@
+[
+  {
+    "key": "motorExpoHall",
+    "title": {
+      "it": "Auto d’epoca nel Padiglione Fieristico",
+      "en": "Classic cars inside the Exhibition Pavilion"
+    }
+  },
+  {
+    "key": "motorExpoInterior",
+    "title": {
+      "it": "Il volante e gli interni di un’auto esposta",
+      "en": "The steering wheel and interior of a car on display"
+    }
+  },
+  {
+    "key": "motorExpoOutdoorCars",
+    "title": {
+      "it": "Le auto e il pubblico nell’area esterna",
+      "en": "Cars and visitors in the outdoor area"
+    }
+  },
+  {
+    "key": "motorExpoEntrance",
+    "title": {
+      "it": "Un’auto d’epoca davanti all’ingresso del Motor Expo",
+      "en": "A classic car outside the Motor Expo entrance"
+    }
+  },
+  {
+    "key": "motorExpoMarket",
+    "title": {
+      "it": "Il pubblico tra gli stand della mostra-scambio",
+      "en": "Visitors among the swap meet stands"
+    }
+  },
+  {
+    "key": "motorExpoStand",
+    "title": {
+      "it": "Lo stand del Club e un’auto sportiva esposta",
+      "en": "The club stand and a sports car on display"
+    }
+  },
+  {
+    "key": "motorExpoBanner",
+    "title": {
+      "it": "Lo striscione del Motor Expo Agira",
+      "en": "The Motor Expo Agira banner"
+    }
+  }
+]
