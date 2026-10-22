@@ -48,7 +48,7 @@ const structured = Astro.site?.protocol === 'https:' ? getReligiousEventGraph(As
     <section id="edizione-2026" class="festival-edition" aria-labelledby="nativity-edition-title">
       <div class="container festival-edition-grid">
         <div class="festival-edition-date"><p class="eyebrow">{l('36ª EDIZIONE · 2026', '36TH EDITION · 2026')}</p><h2 id="nativity-edition-title">{c.editionTitle}</h2><p>{c.editionText}</p></div>
-        <div class="festival-programme"><span class="festival-programme-index" aria-hidden="true">24</span><h3>{c.programmeTitle}</h3><p>{c.programmeText}</p></div>
+        <div class="festival-programme"><span class="festival-programme-index" aria-hidden="true">24</span><h3>{c.programmeTitle}</h3><p>{c.programmeText}</p><div class="festival-plan-links"><a class="text-link" href={pageUrl('nessunDormaChristmas', lang)}>{l('Dopo mezzanotte: Natale al Nessun Dorma', 'After midnight: Christmas at Nessun Dorma')}<Icon name="arrow"/></a></div></div>
       </div>
     </section>
     {c.sections.map((section, index) => <section id={section.id} class={index % 2 === 0 ? 'festival-story section' : 'festival-plan section nativity-muted'} aria-labelledby={`${section.id}-title`}>

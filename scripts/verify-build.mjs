@@ -9,6 +9,7 @@ for (const name of fs.readdirSync(path.join(directory, 'images'))) {
 const read = file => fs.readFileSync(path.join(directory,file),'utf8');
 const htmlPages = ['it/index.html','en/index.html','it/itinerari/index.html','en/itineraries/index.html','it/cosa-vedere/index.html','en/things-to-see/index.html','it/mangiare/index.html','en/food-and-drink/index.html','it/dormire/index.html','en/where-to-stay/index.html','it/storia/index.html','en/history/index.html','it/eventi/index.html','en/events/index.html','it/sagra-cassatella/index.html','en/cassatella-festival/index.html'];
 const detailPairs = [
+  { it: '/it/natale-nessun-dorma/', en: '/en/christmas-at-nessun-dorma/' },
   { it: '/it/motor-expo-agira/', en: '/en/motor-expo-agira/' },
   { it: '/it/cosa-vedere/chiesa-santa-margherita/', en: '/en/things-to-see/santa-margherita-church/' },
   { it: '/it/cosa-vedere/collegiata-santa-maria-maggiore/', en: '/en/things-to-see/santa-maria-maggiore-collegiate-church/' },
@@ -270,3 +271,31 @@ for (const [lang, listing] of [['it', 'eventi'], ['en', 'events']]) {
   assert.ok(read(`${lang}/${listing}/index.html`).includes(`href="/${lang}/motor-expo-agira/"`), 'Calendar links to the Motor Expo page');
 }
 console.log('PASS: Motor Expo IT/EN pages, seven gallery photos, source attribution, calendar links and no invented event date.');
+
+const christmasEventIds = [];
+for (const [lang, slug, calendar, nativity] of [
+  ['it', 'natale-nessun-dorma', 'eventi', 'presepe-vivente'],
+  ['en', 'christmas-at-nessun-dorma', 'events', 'living-nativity'],
+]) {
+  const html = read(`${lang}/${slug}/index.html`);
+  const nodes = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
+    .flatMap(match => { const value = JSON.parse(match[1]); return value['@graph'] ?? [value]; });
+  const events = nodes.filter(node => node['@type'] === 'Event');
+  assert.equal(events.length, 1, 'One Christmas event');
+  const event = events[0];
+  assert.equal(event.startDate, '2026-12-25T00:01:00+01:00');
+  assert.equal(event.endDate, '2026-12-25T05:00:00+01:00');
+  assert.equal(event.isAccessibleForFree, true);
+  assert.ok(!event.performer && !event.offers && !event.superEvent, 'Do not invent performers, tickets or a formal link with the Nativity');
+  const resolve = ref => Object.assign({}, ...nodes.filter(node => node['@id'] === ref?.['@id']));
+  assert.equal(resolve(event.organizer).url, 'https://nessundormapub.it/');
+  assert.equal(resolve(event.location).address.streetAddress, 'Via Cairoli 21');
+  assert.equal(resolve(event.mainEntityOfPage).mainEntity['@id'], event['@id']);
+  assert.match(html, /datetime="2026-12-25T00:01:00\+01:00"/);
+  assert.match(html, /datetime="2026-12-25T05:00:00\+01:00"/);
+  assert.ok(read(`${lang}/${calendar}/index.html`).includes(`href="/${lang}/${slug}/"`));
+  assert.ok(read(`${lang}/${nativity}/index.html`).includes(`href="/${lang}/${slug}/"`));
+  christmasEventIds.push(event['@id']);
+}
+assert.equal(christmasEventIds[0], christmasEventIds[1], 'Christmas event identity shared across IT/EN');
+console.log('PASS: Nessun Dorma Christmas event IT/EN, confirmed CET times, free admission, venue, organiser and contextual links.');

@@ -1,0 +1,43 @@
+---
+import Base from '../layouts/Base.astro';
+import SiteHeader from './SiteHeader.astro';
+import SiteFooter from './SiteFooter.astro';
+import Photo from './Photo.astro';
+import PhotoGallery from './PhotoGallery.astro';
+import Icon from './Icon.astro';
+import photos from '../data/photos.json';
+import { getNessunDormaChristmas, getNessunDormaChristmasGraph, nessunDormaChristmas } from '../data/nessun-dorma-christmas';
+import { pageUrl, type Locale } from '../lib/i18n';
+import { serializeSchema } from '../lib/schema';
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const l = (it: string, en: string) => lang === 'it' ? it : en;
+const c = getNessunDormaChristmas(lang);
+const paths = { it: pageUrl('nessunDormaChristmas', 'it'), en: pageUrl('nessunDormaChristmas', 'en') };
+const hero = nessunDormaChristmas.image;
+const imageUrl = `/images/${hero}-${Math.max(...photos[hero].widths)}.webp`;
+const items = [{ key: hero, title: l('Una serata al Pub Nessun Dorma', 'An evening at Pub Nessun Dorma') }];
+const graph = Astro.site?.protocol === 'https:' ? getNessunDormaChristmasGraph(Astro.site, lang) : undefined;
+---
+<Base socialPhoto={hero} lang={lang} title={c.title} description={c.description} canonicalPath={paths[lang]} alternatePaths={paths}>
+  <SiteHeader lang={lang} currentPage="events" alternatePaths={paths}/>
+  <main id="main" tabindex="-1">
+    <section class="route-page-hero festival-hero" aria-labelledby="christmas-title"><div class="container">
+      <p class="eyebrow festival-topline">{l('AGIRA · LA NOTTE CONTINUA', 'AGIRA · THE NIGHT CONTINUES')}</p>
+      <div class="festival-hero-grid"><div class="route-page-copy"><h1 id="christmas-title">{c.heading}</h1><p>{c.intro}</p>
+        <div class="festival-date-lockup"><span>{l('INGRESSO GRATUITO · 00:01–05:00', 'FREE ADMISSION · 00:01–05:00')}</span><div><strong>25</strong><p>{l('DICEMBRE', 'DECEMBER')}<br/>2026</p></div></div>
+        <a class="button button-yellow" href="#edizione-2026">{l('L’appuntamento', 'The event')}<Icon name="arrow"/></a>
+      </div><figure class="route-page-photo festival-hero-photo"><a class="photo-link" href={imageUrl} data-gallery-open={hero} aria-haspopup="dialog" aria-label={l('Ingrandisci la foto del pub', 'Enlarge the pub photograph')}><Photo name={hero} lang={lang} priority sizes="(max-width: 700px) 92vw, 48vw"/></a><figcaption><span>{l('Una serata al Nessun Dorma', 'An evening at Nessun Dorma')}</span><span>{photos[hero].credit[lang]}</span></figcaption></figure></div>
+    </div></section>
+    <section id="edizione-2026" class="festival-edition" aria-labelledby="christmas-edition-title"><div class="container festival-edition-grid">
+      <div class="festival-edition-date"><p class="eyebrow">{l('25 DICEMBRE 2026 · INGRESSO GRATUITO', '25 DECEMBER 2026 · FREE ADMISSION')}</p><h2 id="christmas-edition-title">{l('Un minuto dopo\nla mezzanotte.', 'One minute\nafter midnight.')}</h2><p>{l('Nella notte tra il 24 e il 25 dicembre, dalle ', 'On the night of 24–25 December, from ')}<time datetime={nessunDormaChristmas.startDate}>00:01</time>{l(' fino alle ', ' until ')}<time datetime={nessunDormaChristmas.endDate}>05:00</time>{l(' del mattino. L’ingresso è gratuito.', ' in the morning. Admission is free.')}</p></div>
+      <div class="festival-programme"><span class="festival-programme-index" aria-hidden="true">25</span><h3>Pub Nessun Dorma.</h3><p>Via Cairoli 21 · Agira</p><p>{l('L’evento è organizzato dal Pub Nessun Dorma. Per informazioni e aggiornamenti, consulta il sito del locale.', 'The event is organised by Pub Nessun Dorma. Visit the pub’s website for information and updates.')}</p><div class="festival-official-links"><a class="text-link" href={nessunDormaChristmas.organizer.url} target="_blank" rel="noopener noreferrer">{l('Il sito del Nessun Dorma', 'Nessun Dorma website')}<Icon name="diagonal"/></a></div></div>
+    </div></section>
+    {c.sections.map(section => <section id={section.id} class="festival-story section" aria-labelledby={`${section.id}-title`}><div class="container festival-story-grid"><div><p class="eyebrow">{section.label}</p><h2 id={`${section.id}-title`}>{section.title}</h2></div><div class="festival-story-copy">{section.paragraphs.map(text => <p>{text}</p>)}<div class="festival-plan-links"><a class="text-link" href={pageUrl('nativity', lang)}>{l('Scopri il Presepe Vivente', 'Explore the Living Nativity')}<Icon name="arrow"/></a></div></div></div></section>)}
+    <section class="stay-practical-section section" aria-labelledby="christmas-faq-title"><div class="container stay-practical-grid"><div class="stay-practical-intro"><p class="eyebrow">{l('02 / PRIMA DI PARTIRE', '02 / BEFORE YOU SET OFF')}</p><h2 id="christmas-faq-title">{l('Preparare la serata.', 'Plan your evening.')}</h2></div><div class="stay-practical-list">{c.faqs.map((faq, i) => <details><summary><span class="small-number">0{i + 1}</span><h3>{faq.q}</h3><Icon name="plus"/></summary><div class="stay-practical-answer"><p>{faq.a}</p></div></details>)}</div></div></section>
+    <section class="itinerary-next" aria-label={l('Continua a esplorare', 'Keep exploring')}><div class="container itinerary-next-inner"><div><p class="eyebrow">{l('IL VIAGGIO CONTINUA', 'KEEP EXPLORING')}</p><h2>{l('Una notte di festa.\nUn paese da scoprire.', 'A night to celebrate.\nA town to discover.')}</h2></div><div class="itinerary-next-links"><a class="button button-yellow" href={pageUrl('events', lang)}>{l('Tutti gli eventi', 'All events')}<Icon name="arrow"/></a><a class="text-link" href={pageUrl('stay', lang)}>{l('Dove dormire', 'Where to stay')}<Icon name="diagonal"/></a></div></div></section>
+  </main>
+  <SiteFooter lang={lang} currentPage="events" alternatePaths={paths}/>
+  <PhotoGallery lang={lang} items={items}/>
+  {graph && <script type="application/ld+json" set:html={serializeSchema(graph)}/>}
+</Base>

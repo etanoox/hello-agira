@@ -1,4 +1,5 @@
 ---
+import NessunDormaChristmas from '../../components/NessunDormaChristmas.astro';
 import MotorExpoFestival from '../../components/MotorExpoFestival.astro';
 import LegalLanding from '../../components/LegalLanding.astro';
 import ThanksLanding from '../../components/ThanksLanding.astro';
@@ -21,6 +22,7 @@ import { locales, pageUrl, itineraryUrl, type ItineraryId, type Locale } from '.
 
 export function getStaticPaths() {
   return locales.flatMap(lang => [
+    { params: { lang, slug: lang === 'it' ? 'natale-nessun-dorma' : 'christmas-at-nessun-dorma' }, props: { lang, slug: lang === 'it' ? 'natale-nessun-dorma' : 'christmas-at-nessun-dorma' } },
     { params: { lang, slug: 'motor-expo-agira' }, props: { lang, slug: 'motor-expo-agira' } },
     { params: { lang, slug: lang === 'it' ? 'note-legali' : 'legal-notice' }, props: { lang, slug: lang === 'it' ? 'note-legali' : 'legal-notice' } },
     { params: { lang, slug: lang === 'it' ? 'ringraziamenti' : 'acknowledgements' }, props: { lang, slug: lang === 'it' ? 'ringraziamenti' : 'acknowledgements' } },
@@ -47,7 +49,7 @@ const isEventsPage = slug === 'eventi' || slug === 'events';
 const page = isFestivalPage ? 'festival' : isEventsPage ? 'events' : isSightsPage ? 'sights' : isEatingPage ? 'eat' : isStayPage ? 'stay' : isHistoryPage ? 'history' : 'routes';
 const localizedPaths = { it: pageUrl(page, 'it'), en: pageUrl(page, 'en') };
 ---
-{slug === 'motor-expo-agira' ? <MotorExpoFestival lang={lang}/> : slug === 'note-legali' || slug === 'legal-notice' ? <LegalLanding lang={lang}/> : slug === 'ringraziamenti' || slug === 'acknowledgements' ? <ThanksLanding lang={lang}/> : slug === 'presepe-vivente' || slug === 'living-nativity' ? <NativityFestival lang={lang}/> : slug === 'festa-san-filippo' || slug === 'saint-philip-festival' ? <SaintPhilipFestival lang={lang}/> : isSightsPage ? <SightsLanding lang={lang}/> : isEatingPage ? <EatingLanding lang={lang}/> : isStayPage ? <StayLanding lang={lang}/> : isHistoryPage ? <HistoryLanding lang={lang}/> : isFestivalPage ? <FestivalLanding lang={lang}/> : isEventsPage ? <EventsLanding lang={lang}/> : <>
+{slug === 'natale-nessun-dorma' || slug === 'christmas-at-nessun-dorma' ? <NessunDormaChristmas lang={lang}/> : slug === 'motor-expo-agira' ? <MotorExpoFestival lang={lang}/> : slug === 'note-legali' || slug === 'legal-notice' ? <LegalLanding lang={lang}/> : slug === 'ringraziamenti' || slug === 'acknowledgements' ? <ThanksLanding lang={lang}/> : slug === 'presepe-vivente' || slug === 'living-nativity' ? <NativityFestival lang={lang}/> : slug === 'festa-san-filippo' || slug === 'saint-philip-festival' ? <SaintPhilipFestival lang={lang}/> : isSightsPage ? <SightsLanding lang={lang}/> : isEatingPage ? <EatingLanding lang={lang}/> : isStayPage ? <StayLanding lang={lang}/> : isHistoryPage ? <HistoryLanding lang={lang}/> : isFestivalPage ? <FestivalLanding lang={lang}/> : isEventsPage ? <EventsLanding lang={lang}/> : <>
 <Base socialPhoto="town" lang={lang} title={c.routesPageTitle} description={c.routesPageDescription} canonicalPath={localizedPaths[lang]} alternatePaths={localizedPaths}>
   <SiteHeader lang={lang} currentPage="routes"/>
   <main id="main" tabindex="-1">

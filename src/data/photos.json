@@ -2638,5 +2638,29 @@
       "it": "Fonte: Club Motori d’Epoca Agira · Facebook.",
       "en": "Source: Club Motori d’Epoca Agira · Facebook."
     }
+  },
+  "nessunDormaChristmas": {
+    "width": 1536,
+    "height": 1152,
+    "widths": [
+      480,
+      800,
+      1200,
+      1536
+    ],
+    "alt": {
+      "it": "Una serata al Pub Nessun Dorma di Agira, tra archi in pietra e luci rosse.",
+      "en": "An evening at Pub Nessun Dorma in Agira, with stone arches and red lighting."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Pub Nessun Dorma · Agira.",
+      "en": "Pub Nessun Dorma · Agira."
+    }
   }
 }

@@ -12,7 +12,7 @@ const { lang } = Astro.props;
 const localizedPaths = { it: pageUrl('events', 'it'), en: pageUrl('events', 'en') };
 const copy = lang === 'it' ? {
   title: 'Eventi e tradizioni ad Agira | Hello Agira',
-  description: 'Eventi ad Agira: Sagra della Cassatella dal 13 al 15 novembre 2026 in Piazza Europa, festa di San Filippo, Presepe Vivente, Un Pane per la Vita e Motor Expo.',
+  description: 'Eventi ad Agira: Sagra della Cassatella dal 13 al 15 novembre 2026 in Piazza Europa, festa di San Filippo, Presepe Vivente, Natale al Nessun Dorma, Un Pane per la Vita e Motor Expo.',
   eyebrow: 'AGIRA · IL CALENDARIO DELLE TRADIZIONI',
   heading: 'Ci sono giorni\nche restano.',
   intro: 'Le feste raccontano un paese in un modo diverso: attraverso i sapori, i riti e il piacere di ritrovarsi.',
@@ -34,7 +34,7 @@ const copy = lang === 'it' ? {
   food: 'Dove mangiare',
 } : {
   title: 'Events and traditions in Agira | Hello Agira',
-  description: 'Events in Agira: the Cassatella Festival, 13–15 November 2026 in Piazza Europa, the feast of Saint Philip, the Living Nativity, Un Pane per la Vita and Motor Expo.',
+  description: 'Events in Agira: the Cassatella Festival, 13–15 November 2026 in Piazza Europa, the feast of Saint Philip, the Living Nativity, Christmas at Nessun Dorma, Un Pane per la Vita and Motor Expo.',
   eyebrow: 'AGIRA · A CALENDAR OF TRADITIONS',
   heading: 'Some days\nstay with you.',
   intro: 'Festivals tell the story of a place in a different way: through its flavours, rituals and the joy of coming together.',
@@ -65,7 +65,13 @@ const seasonalEvents = lang === 'it' ? [
     award: 'Il Presepe ha ricevuto il riconoscimento di “Miglior Presepe Vivente d’Italia” per il 2025/2026, nell’ambito del 33° Geraci Eventus Praesepium Meeting.',
   },
   {
-    id: 'un-pane-per-la-vita', image: 'breadForLifeEvent', eyebrow: '04 / SAPORI E SOLIDARIETÀ', title: 'Un Pane per la Vita.',
+    id: 'natale-nessun-dorma', image: 'nessunDormaChristmas', eyebrow: '04 / LA NOTTE CONTINUA', title: 'Natale al Nessun Dorma.',
+    date: '2026-12-25', label: 'Venerdì 25 dicembre 2026', day: 'VENERDÌ', number: '25', month: 'DICEMBRE', year: '2026',
+    paragraphs: ['Dalle 00:01 alle 05:00 del 25 dicembre 2026, l’appuntamento annuale al Pub Nessun Dorma, in Via Cairoli 21. Ingresso gratuito per continuare la notte di Natale ad Agira, anche dopo la visita al Presepe Vivente.'],
+    award: null,
+  },
+  {
+    id: 'un-pane-per-la-vita', image: 'breadForLifeEvent', eyebrow: '05 / SAPORI E SOLIDARIETÀ', title: 'Un Pane per la Vita.',
     date: '2027-01-05', label: 'Martedì 5 gennaio 2027', day: 'MARTEDÌ', number: '5', month: 'GENNAIO', year: '2027',
     paragraphs: [
       'Il 5 gennaio 2027 torna nella parte alta del centro storico la 35ª edizione di Un Pane per la Vita: una serata di incontro e solidarietà a favore dell’UNICEF e dei bambini colpiti da guerre e carestie.',
@@ -82,7 +88,13 @@ const seasonalEvents = lang === 'it' ? [
     award: 'The event received the “Best Living Nativity in Italy” award for 2025/2026 at the 33rd Geraci Eventus Praesepium Meeting.',
   },
   {
-    id: 'un-pane-per-la-vita', image: 'breadForLifeEvent', eyebrow: '04 / FOOD AND SOLIDARITY', title: 'Un Pane per la Vita.',
+    id: 'natale-nessun-dorma', image: 'nessunDormaChristmas', eyebrow: '04 / THE NIGHT CONTINUES', title: 'Christmas at Nessun Dorma.',
+    date: '2026-12-25', label: 'Friday 25 December 2026', day: 'FRIDAY', number: '25', month: 'DECEMBER', year: '2026',
+    paragraphs: ['From 00:01 to 05:00 on 25 December 2026, the annual gathering at Pub Nessun Dorma, Via Cairoli 21. Free admission to continue Christmas night in Agira, including after a visit to the Living Nativity.'],
+    award: null,
+  },
+  {
+    id: 'un-pane-per-la-vita', image: 'breadForLifeEvent', eyebrow: '05 / FOOD AND SOLIDARITY', title: 'Un Pane per la Vita.',
     date: '2027-01-05', label: 'Tuesday 5 January 2027', day: 'TUESDAY', number: '5', month: 'JANUARY', year: '2027',
     paragraphs: [
       'On 5 January 2027, the upper historic centre hosts the 35th edition of Un Pane per la Vita — Bread for Life: an evening supporting UNICEF and children affected by war and famine.',
@@ -164,9 +176,10 @@ const foodHref = pageUrl('eat', lang);
     {seasonalEvents.map((event, index) => <section class:list={["events-seasonal-section", "section", { "events-seasonal-section-muted": index % 2 === 1 }]} aria-labelledby={`${event.id}-title`}>
       <div class="container">
         <article class="events-featured events-reveal">
-          <figure class:list={["events-feature-photo", { "events-illustration": event.id !== 'presepe-vivente' }]}>
+          <figure class:list={["events-feature-photo", { "events-illustration": event.id === 'un-pane-per-la-vita' }]}>
             <Photo name={event.image as keyof typeof photos} lang={lang} sizes="(max-width: 700px) 90vw, 45vw"/>
             {event.id === 'presepe-vivente' && <figcaption><span>{lang === 'it' ? 'La Natività del Presepe Vivente di Agira' : 'The Nativity at Agira’s Living Nativity'}</span><span>{photos.nativitySanfilippo7586.credit[lang]}</span></figcaption>}
+            {event.id === 'natale-nessun-dorma' && <figcaption><span>{lang === 'it' ? 'Una serata al Nessun Dorma' : 'An evening at Nessun Dorma'}</span><span>{photos.nessunDormaChristmas.credit[lang]}</span></figcaption>}
           </figure>
           <div class="events-feature-copy">
             <p class="eyebrow">{event.eyebrow}</p>
@@ -174,6 +187,7 @@ const foodHref = pageUrl('eat', lang);
             {event.paragraphs.map(paragraph => <p>{paragraph}</p>)}
             {event.award && <p>{event.award}</p>}
             {event.id === 'presepe-vivente' && <a class="text-link" href={pageUrl('nativity', lang)}>{lang === 'it' ? 'Scopri il Presepe Vivente' : 'Explore the Living Nativity'}<Icon name="arrow"/></a>}
+            {event.id === 'natale-nessun-dorma' && <a class="text-link" href={pageUrl('nessunDormaChristmas', lang)}>{lang === 'it' ? 'Scopri Natale al Nessun Dorma' : 'Explore Christmas at Nessun Dorma'}<Icon name="arrow"/></a>}
           </div>
           <aside class="events-date-tile" aria-label={event.label}>
             <span>{event.day}</span><strong>{event.number}</strong><p>{event.month}<br/>{event.year}</p><small>AGIRA · SICILIA</small>
@@ -182,7 +196,7 @@ const foodHref = pageUrl('eat', lang);
       </div>
     </section>)}
 
-    <section class="events-seasonal-section section" aria-labelledby="events-motor-title">
+    <section class="events-seasonal-section events-seasonal-section-muted section" aria-labelledby="events-motor-title">
       <div class="container">
         <article class="events-featured events-reveal">
           <figure class="events-feature-photo">
@@ -190,7 +204,7 @@ const foodHref = pageUrl('eat', lang);
             <figcaption><span>{lang === 'it' ? 'Motor Expo Agira · Edizione precedente' : 'Motor Expo Agira · Previous edition'}</span><a href="https://www.facebook.com/agiraclub" target="_blank" rel="noopener noreferrer">{photos.motorExpoHall.credit[lang]}</a></figcaption>
           </figure>
           <div class="events-feature-copy">
-            <p class="eyebrow">{lang === 'it' ? '05 / MOTORI E PASSIONI' : '05 / MOTORING AND PASSION'}</p>
+            <p class="eyebrow">{lang === 'it' ? '06 / MOTORI E PASSIONI' : '06 / MOTORING AND PASSION'}</p>
             <h2 id="events-motor-title">Motor Expo Agira 2027.</h2>
             <p>{lang === 'it' ? 'La 27ª edizione del Motor Expo Agira riunisce appassionati, collezionisti e curiosi al Padiglione Fieristico di Agira. Una mostra-scambio dedicata ad auto, moto, oggettistica e memorabilia d’epoca, organizzata dal Club Motori d’Epoca Agira.' : 'The 27th Motor Expo Agira brings enthusiasts, collectors and curious visitors together at Agira’s Exhibition Pavilion. Organised by the Club Motori d’Epoca Agira, this swap meet celebrates classic cars, motorcycles, vintage objects and memorabilia.'}</p>
             <p>{lang === 'it' ? 'L’appuntamento è previsto a marzo 2027, con ingresso gratuito. Le giornate esatte e il programma saranno pubblicati non appena confermati.' : 'The event is planned for March 2027, with free admission. Exact dates and the programme will be published once confirmed.'}</p>
