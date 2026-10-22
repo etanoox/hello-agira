@@ -212,3 +212,47 @@ for (const file of ['it/sagra-cassatella/index.html', 'en/cassatella-festival/in
 }
 assert.equal(cassatellaEventIds[0], cassatellaEventIds[1], 'Translations identify the same festival edition');
 console.log('PASS: Cassatella FoodEvent, confirmed dates, venue, organizer, free admission, photograph and breadcrumbs in IT/EN.');
+
+// Event editions must describe the same real-world occurrence in both languages.
+for (const edition of [
+  { paths: ['it/festa-san-filippo/index.html', 'en/saint-philip-festival/index.html'], type: 'Festival', date: '2027-05-12', suffix: '#edizione-2027', image: 'abbeyFestivalAnello', author: 'Filippo Anello', organizer: undefined },
+  { paths: ['it/presepe-vivente/index.html', 'en/living-nativity/index.html'], type: 'Event', date: '2026-12-24', suffix: '#edizione-2026', image: 'nativitySanfilippo7586', author: 'Filippo Sanfilippo', organizer: 'Associazione Amici del Presepe' },
+]) {
+  const ids = [];
+  for (const file of edition.paths) {
+    const html = read(file);
+    const nodes = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
+      .flatMap(match => { const value = JSON.parse(match[1]); return value['@graph'] ?? [value]; });
+    const events = nodes.filter(node => ['Event', 'Festival'].includes(node['@type']));
+    assert.equal(events.length, 1, `${file}: one event edition`);
+    const event = events[0];
+    assert.equal(event['@type'], edition.type);
+    assert.equal(event.startDate, edition.date, 'Only the confirmed date, without invented times');
+    assert.ok(event['@id'].endsWith(edition.suffix));
+    assert.ok(!event.endDate && !event.offers && !Object.hasOwn(event, 'isAccessibleForFree'), 'Unconfirmed finish and admission omitted');
+    assert.equal(event.eventStatus, 'https://schema.org/EventScheduled');
+    assert.equal(event.eventAttendanceMode, 'https://schema.org/OfflineEventAttendanceMode');
+    const resolve = ref => {
+      const matches = nodes.filter(node => ref?.['@id'] && node['@id'] === ref['@id']);
+      return matches.length ? Object.assign({}, ...matches) : undefined;
+    };
+    const venue = resolve(event.location);
+    assert.equal(venue?.address.addressLocality, 'Agira');
+    assert.equal(venue?.address.postalCode, '94011');
+    const image = resolve(event.image);
+    assert.equal(image?.creator.name, edition.author);
+    assert.ok(image?.creditText && image.contentUrl.includes(`/images/${edition.image}-`));
+    assert.ok(fs.existsSync(path.join(directory, new URL(image.contentUrl).pathname)));
+    const page = resolve(event.mainEntityOfPage);
+    assert.equal(page?.mainEntity?.['@id'], event['@id']);
+    const breadcrumbs = nodes.filter(node => node['@type'] === 'BreadcrumbList');
+    assert.equal(breadcrumbs.length, 1, 'No duplicate breadcrumbs');
+    assert.equal(resolve(page.breadcrumb)?.itemListElement.length, 3);
+    if (edition.organizer) assert.equal(resolve(event.organizer)?.name, edition.organizer);
+    else assert.ok(!event.organizer, 'Do not infer the May festival organizer');
+    assert.ok(html.includes(`datetime="${edition.date}"`) || html.includes(edition.date.slice(0, 4)), 'Edition is also visible on the page');
+    ids.push(event['@id']);
+  }
+  assert.equal(ids[0], ids[1], 'IT and EN share one event identity');
+}
+console.log('PASS: Saint Philip May 2027 and Living Nativity 2026 editions, photographs, venue, linked pages and breadcrumbs in IT/EN.');
