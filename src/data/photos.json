@@ -1507,11 +1507,12 @@
       480,
       800,
       1200,
-      1800
+      1800,
+      2048
     ],
     "alt": {
-      "it": "Una scalinata tra le murature delle case nel Quartiere delle Rocche di Agira.",
-      "en": "A flight of steps between the houses of Agira’s Rocche Quarter."
+      "it": "Le scalinate e le murature del quartiere nel Quartiere delle Rocche di Agira.",
+      "en": "Steps and masonry in the quarter in Agira’s Rocche Quarter."
     },
     "author": "Filippo Anello",
     "authorUrl": null,
@@ -1521,7 +1522,7 @@
     "date": null,
     "credit": {
       "it": "Fotografia di Filippo Anello.",
-      "en": "Photograph by Filippo Anello."
+      "en": "Photo by Filippo Anello."
     }
   },
   "salvatoreAnelloAltar": {
@@ -2661,6 +2662,297 @@
     "credit": {
       "it": "Pub Nessun Dorma · Agira.",
       "en": "Pub Nessun Dorma · Agira."
+    }
+  },
+  "roccheAnello0238": {
+    "width": 1365,
+    "height": 2048,
+    "widths": [
+      480,
+      800,
+      1200,
+      1365
+    ],
+    "alt": {
+      "it": "Un passaggio stretto e una lanterna, in bianco e nero nel Quartiere delle Rocche di Agira.",
+      "en": "A narrow passage and a lantern, in black and white in Agira’s Rocche Quarter."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photo by Filippo Anello."
+    }
+  },
+  "roccheAnello0245": {
+    "width": 1365,
+    "height": 2048,
+    "widths": [
+      480,
+      800,
+      1200,
+      1365
+    ],
+    "alt": {
+      "it": "Un vicolo pavimentato tra le facciate delle case nel Quartiere delle Rocche di Agira.",
+      "en": "A paved lane between house facades in Agira’s Rocche Quarter."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photo by Filippo Anello."
+    }
+  },
+  "roccheAnello0280": {
+    "width": 1365,
+    "height": 2048,
+    "widths": [
+      480,
+      800,
+      1200,
+      1365
+    ],
+    "alt": {
+      "it": "Un ingresso ad arco tra muri e vegetazione nel Quartiere delle Rocche di Agira.",
+      "en": "An arched doorway among walls and greenery in Agira’s Rocche Quarter."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photo by Filippo Anello."
+    }
+  },
+  "roccheAnello0295": {
+    "width": 2048,
+    "height": 2048,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800,
+      2048
+    ],
+    "alt": {
+      "it": "La pavimentazione in pietra e le case del quartiere nel Quartiere delle Rocche di Agira.",
+      "en": "Stone paving and houses in the quarter in Agira’s Rocche Quarter."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photo by Filippo Anello."
+    }
+  },
+  "roccheAnello0298": {
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800,
+      2048
+    ],
+    "alt": {
+      "it": "Il passaggio tra gli ingressi e le scale esterne nel Quartiere delle Rocche di Agira.",
+      "en": "A passage between doorways and external steps in Agira’s Rocche Quarter."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photo by Filippo Anello."
+    }
+  },
+  "roccheAnello0306": {
+    "width": 2048,
+    "height": 2048,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800,
+      2048
+    ],
+    "alt": {
+      "it": "Uno slargo e le scalinate tra le case nel Quartiere delle Rocche di Agira.",
+      "en": "An open space and steps among the houses in Agira’s Rocche Quarter."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photo by Filippo Anello."
+    }
+  },
+  "roccheAnello0308": {
+    "width": 1365,
+    "height": 2048,
+    "widths": [
+      480,
+      800,
+      1200,
+      1365
+    ],
+    "alt": {
+      "it": "La salita tra le case e i lampioni nel Quartiere delle Rocche di Agira.",
+      "en": "The uphill street among houses and lamps in Agira’s Rocche Quarter."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photo by Filippo Anello."
+    }
+  },
+  "roccheAnello0347": {
+    "width": 1365,
+    "height": 2047,
+    "widths": [
+      480,
+      800,
+      1200,
+      1365
+    ],
+    "alt": {
+      "it": "Una lanterna e i balconi affacciati sul vicolo nel Quartiere delle Rocche di Agira.",
+      "en": "A lantern and balconies overlooking the lane in Agira’s Rocche Quarter."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photo by Filippo Anello."
+    }
+  },
+  "roccheAnello0357": {
+    "width": 1365,
+    "height": 2048,
+    "widths": [
+      480,
+      800,
+      1200,
+      1365
+    ],
+    "alt": {
+      "it": "Un vicolo in discesa tra le case delle Rocche nel Quartiere delle Rocche di Agira.",
+      "en": "A downhill lane among the houses of the Rocche Quarter in Agira’s Rocche Quarter."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photo by Filippo Anello."
+    }
+  },
+  "roccheAnello0363": {
+    "width": 1365,
+    "height": 2048,
+    "widths": [
+      480,
+      800,
+      1200,
+      1365
+    ],
+    "alt": {
+      "it": "Un bivio tra i vicoli del quartiere nel Quartiere delle Rocche di Agira.",
+      "en": "A fork in the lanes of the quarter in Agira’s Rocche Quarter."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photo by Filippo Anello."
+    }
+  },
+  "roccheAnello0419": {
+    "width": 1365,
+    "height": 2048,
+    "widths": [
+      480,
+      800,
+      1200,
+      1365
+    ],
+    "alt": {
+      "it": "La salita verso una casa in pietra nel Quartiere delle Rocche di Agira.",
+      "en": "The uphill lane towards a stone house in Agira’s Rocche Quarter."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photo by Filippo Anello."
+    }
+  },
+  "roccheAnello0432": {
+    "width": 1365,
+    "height": 2048,
+    "widths": [
+      480,
+      800,
+      1200,
+      1365
+    ],
+    "alt": {
+      "it": "Una scalinata stretta tra le facciate nel Quartiere delle Rocche di Agira.",
+      "en": "A narrow stairway between facades in Agira’s Rocche Quarter."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photo by Filippo Anello."
     }
   }
 }
