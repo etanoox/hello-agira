@@ -52,21 +52,33 @@ const ratings = { threeStars: l('3 Stelle', '3 stars'), threeSpighe: '3 Spighe' 
       <div class="container">
         <div class="stay-guide-heading">
           <div><p class="eyebrow">{l('OSPITALITÀ AD AGIRA', 'HOSPITALITY IN AGIRA')}</p><h2 id="stay-accommodations-title">{l('Un posto dove restare.', 'A place to stay.')}</h2></div>
-          <p>{l('Affitti brevi, bed & breakfast e agriturismo: scopri le strutture di Agira, con categoria e codici CIR e CIN.', 'Short-term rentals, bed & breakfasts and a farm stay: explore accommodation in Agira, with categories and CIR and CIN registration codes.')}</p>
+          <p>{l('Affitti brevi e bed & breakfast: scopri le strutture e consulta disponibilità e condizioni sui loro canali di prenotazione.', 'Short-term rentals and bed & breakfasts: explore accommodation and check availability and terms through their booking channels.')}</p>
         </div>
-        <ul class="accommodation-list" role="list">
+        <ul class="accommodation-list" id="accommodation-list" role="list">
           {accommodations.map((stay, i) => <li class="accommodation-entry">
-            <span class="small-number">{String(i + 1).padStart(2, '0')}</span>
-            <div>
-            <p class="accommodation-category">{categories[stay.category]}{stay.rating && ` · ${ratings[stay.rating]}`}</p>
-              <h3>{stay.name}</h3>
-              <dl class="accommodation-codes">
-                <div><dt>CIR</dt><dd>{stay.cir}</dd></div>
-                <div><dt>CIN</dt><dd>{stay.cin}</dd></div>
-              </dl>
-            </div>
+            <article aria-labelledby={`accommodation-${stay.id}`}>
+              <div class="accommodation-card-top">
+                <p class="accommodation-category">{categories[stay.category]}{stay.rating && ` · ${ratings[stay.rating]}`}</p>
+                <span class="small-number" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+              </div>
+              <h3 id={`accommodation-${stay.id}`}>{stay.name}</h3>
+              {stay.address && <p class="accommodation-address"><Icon name="pin"/><span>{stay.address}</span></p>}
+              {(stay.bookingUrl || stay.websiteUrl) && <div class="accommodation-actions">
+                {stay.bookingUrl && <a class="button button-yellow" href={stay.bookingUrl} target="_blank" rel="noopener noreferrer" aria-label={`${l('Prenota su Booking', 'Book on Booking.com')} · ${stay.name}`}>{l('Prenota su Booking', 'Book on Booking.com')}<Icon name="diagonal"/></a>}
+                {stay.websiteUrl && <a class="text-link" href={stay.websiteUrl} target="_blank" rel="noopener noreferrer" aria-label={`${l('Sito della struttura', 'Property website')} · ${stay.name}`}>{l('Sito della struttura', 'Property website')}<Icon name="diagonal"/></a>}
+              </div>}
+              <details class="accommodation-registration">
+                <summary>{l('Codici della struttura', 'Property registration codes')}<Icon name="plus"/></summary>
+                <dl class="accommodation-codes">
+                  <div><dt>CIR</dt><dd>{stay.cir}</dd></div>
+                  <div><dt>CIN</dt><dd>{stay.cin}</dd></div>
+                </dl>
+              </details>
+            </article>
           </li>)}
         </ul>
+        <div class="accommodation-more"><button class="accommodation-more-button" type="button" data-accommodation-more aria-expanded="false" aria-controls="accommodation-list" data-show-label={l(`Mostra tutte le ${accommodations.length} strutture`, `Show all ${accommodations.length} properties`)} data-hide-label={l('Mostra meno strutture', 'Show fewer properties')} hidden>{l(`Mostra tutte le ${accommodations.length} strutture`, `Show all ${accommodations.length} properties`)}</button></div>
+        <p class="accommodation-booking-note">{l('Disponibilità, prezzi e prenotazioni sono gestiti dalle singole strutture e dalle piattaforme collegate.', 'Availability, prices and bookings are managed by the individual properties and linked platforms.')}</p>
       </div>
     </section>
 
@@ -114,19 +126,54 @@ const ratings = { threeStars: l('3 Stelle', '3 stars'), threeSpighe: '3 Spighe' 
     </section>
   </main>
   <SiteFooter lang={lang} currentPage="stay"/>
-  <script>import '../scripts/sights-reveal';</script>
+  <script>
+    import '../scripts/sights-reveal';
+    const list = document.getElementById('accommodation-list');
+    const more = document.querySelector<HTMLButtonElement>('[data-accommodation-more]');
+    if (list && more) {
+      const entries = Array.from(list.querySelectorAll<HTMLLIElement>('.accommodation-entry'));
+      if (entries.length > 6) {
+        entries.slice(6).forEach(entry => { entry.hidden = true; });
+        more.hidden = false;
+        more.addEventListener('click', () => {
+          const expanded = more.getAttribute('aria-expanded') === 'true';
+          entries.slice(6).forEach(entry => { entry.hidden = expanded; });
+          more.setAttribute('aria-expanded', String(!expanded));
+          more.textContent = expanded ? more.dataset.showLabel! : more.dataset.hideLabel!;
+        });
+      }
+    }
+  </script>
 </Base>
 
 <style>
   .stay-accommodations{background:var(--stone)}
-  .accommodation-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:3rem;margin:3rem 0 0;padding:0;list-style:none}
-  .accommodation-entry{display:grid;grid-template-columns:2rem minmax(0,1fr);gap:1rem;padding:1.8rem 0;border-top:1px solid var(--line)}
-  .accommodation-entry>.small-number{padding-top:.15rem}
-  .accommodation-category{font-size:.75rem;line-height:1.5;color:var(--muted)}
-  .accommodation-entry h3{margin:.6rem 0 1.2rem;font-size:clamp(1.5rem,2.2vw,2rem);line-height:1.15;letter-spacing:-.04em;overflow-wrap:anywhere}
-  .accommodation-codes{margin:0;font-size:.75rem;line-height:1.7}
+  .accommodation-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem;margin:3rem 0 0;padding:0;list-style:none}
+  .accommodation-entry{min-width:0;background:var(--white);border:1px solid var(--line);border-top:3px solid var(--forest);border-radius:2px}
+  .accommodation-entry article{display:flex;flex-direction:column;height:100%;padding:1.8rem 1.8rem 0}
+  .accommodation-card-top{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:1.2rem}
+  .accommodation-category{font-size:.75rem;line-height:1.5;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+  .accommodation-card-top .small-number{flex-shrink:0}
+  .accommodation-entry h3{margin:0 0 1.3rem;font-size:clamp(1.6rem,2.5vw,2rem);line-height:1.15;letter-spacing:-.04em;overflow-wrap:anywhere}
+  .accommodation-address{display:flex;align-items:flex-start;gap:.6rem;font-size:.875rem;line-height:1.6;margin-bottom:1.4rem}
+  .accommodation-address svg{width:17px;height:17px;margin-top:.2rem;color:var(--forest)}
+  .accommodation-address span{min-width:0;overflow-wrap:anywhere}
+  .accommodation-actions{display:flex;align-items:center;flex-wrap:wrap;gap:1rem;margin-top:auto;padding-bottom:1.5rem}
+  .accommodation-actions .button{font-size:.875rem;min-height:48px;padding:.8rem 1.2rem;gap:1rem}
+  .accommodation-actions .button svg{width:18px;height:18px}
+  .accommodation-registration{border-top:1px solid var(--line);margin-top:auto}
+  .accommodation-actions+.accommodation-registration{margin-top:0}
+  .accommodation-registration summary{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:52px;list-style:none;font-size:.75rem;color:var(--muted);cursor:pointer}
+  .accommodation-registration summary::-webkit-details-marker{display:none}
+  .accommodation-registration summary svg{width:16px;height:16px}
+  .accommodation-registration[open] summary svg{transform:rotate(45deg)}
+  .accommodation-codes{margin:0 0 1.2rem;font-size:.75rem;line-height:1.7}
   .accommodation-codes>div{display:grid;grid-template-columns:2.5rem minmax(0,1fr);gap:.5rem}
   .accommodation-codes dt{color:var(--muted)}
   .accommodation-codes dd{margin:0;overflow-wrap:anywhere}
-  @media(max-width:700px){.accommodation-list{grid-template-columns:1fr;margin-top:2rem}.accommodation-entry{gap:.6rem;padding:1.5rem 0}}
+  .accommodation-more{text-align:center;margin-top:2rem}
+  .accommodation-more-button{background:transparent;border:1px solid var(--forest);border-radius:2px;min-height:48px;padding:.8rem 1.5rem;color:var(--forest);font-size:.875rem;font-weight:600}
+  .accommodation-more-button:hover{background:var(--forest);color:var(--white)}
+  .accommodation-booking-note{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--line);font-size:.8125rem;max-width:750px}
+  @media(max-width:700px){.accommodation-list{grid-template-columns:1fr;margin-top:2rem;gap:1rem}.accommodation-entry article{padding:1.5rem 1.3rem 0}.accommodation-actions .button{max-width:100%}}
 </style>
