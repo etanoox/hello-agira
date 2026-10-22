@@ -41,6 +41,7 @@ export function getAronPage(lang: Locale): SightPage {
       { key: 'aronAnelloDetail', title: l('L’arco e i dettagli scolpiti', 'The arch and carved details') },
       { key: 'salvatoreAnelloInterior', title: l('L’interno della Collegiata del SS. Salvatore', 'Inside the Collegiate Church of SS. Salvatore') },
       { key: 'ssalvatore', title: l('La Collegiata del SS. Salvatore, che conserva l’Aron', 'The Collegiate Church of SS. Salvatore, where the Aron is preserved') },
+      { key: 'salvatoreAnelloAronInterior', title: l('L’Aron nell’interno della Collegiata del SS. Salvatore', 'The Aron inside the Collegiate Church of SS. Salvatore') },
     ],
     sources: [
       { title: 'Università di Messina · Sicilia Semitica — Corpus delle iscrizioni ebraiche', url: 'https://siciliasemitica.unime.it/wp-content/uploads/sites/27/2024/12/2-Corpus-delle-iscrizioni-ebraiche-in-Sicilia.pdf' },

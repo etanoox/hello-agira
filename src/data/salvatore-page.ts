@@ -87,6 +87,7 @@ export function getSalvatorePage(lang: Locale): SightPage {
       { key: 'salvatoreAnelloColumns', title: l('Le colonne e la cappella laterale', 'The columns and side chapel') },
       { key: 'salvatoreAnelloEntrance', title: l('La navata verso l’ingresso', 'The nave towards the entrance') },
       { key: 'ssalvatore', title: l('La facciata della Collegiata', 'The collegiate church façade') },
+      { key: 'salvatoreAnelloAronInterior', title: l('L’Aron nell’interno della Collegiata del SS. Salvatore', 'The Aron inside the Collegiate Church of SS. Salvatore') },
     ],
     sources: [
       { title: 'La chiesa del SS. Salvatore di Agira · Rita Loredana Foti e Salvatore Longo Minnolo', url: 'https://www.agira.org/Sintesi-storiche/la-chiesa-del-ss-salvatore-di-agira.html' },

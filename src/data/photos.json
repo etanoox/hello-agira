@@ -2442,5 +2442,30 @@
       "it": "Palazzo Manmano Gussio · Agira.",
       "en": "Palazzo Manmano Gussio · Agira."
     }
+  },
+  "salvatoreAnelloAronInterior": {
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800,
+      2048
+    ],
+    "alt": {
+      "it": "L’interno della Collegiata del SS. Salvatore, con l’Aron in pietra sulla sinistra, le colonne e l’altare.",
+      "en": "Inside the Collegiate Church of SS. Salvatore, with the stone Aron on the left, columns and altar."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photo by Filippo Anello."
+    }
   }
 }
