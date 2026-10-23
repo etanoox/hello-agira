@@ -2954,5 +2954,104 @@
       "it": "Fotografia di Filippo Anello.",
       "en": "Photo by Filippo Anello."
     }
+  },
+  "borghiAnello33": {
+    "width": 1365,
+    "height": 2048,
+    "widths": [
+      480,
+      800,
+      1200,
+      1365
+    ],
+    "alt": {
+      "it": "Lo sbandieratore davanti a Santa Margherita alla festa della bandiera dei Borghi più belli d’Italia ad Agira, il 30 dicembre 2023.",
+      "en": "A flag thrower in front of Santa Margherita at the I Borghi più belli d’Italia flag celebration in Agira on 30 December 2023."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": "2023-12-30",
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photo by Filippo Anello."
+    }
+  },
+  "borghiAnello28": {
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800,
+      2048
+    ],
+    "alt": {
+      "it": "Lo stendardo degli Sbandieratori e Musici Civitas Nicosiae alla festa della bandiera dei Borghi più belli d’Italia ad Agira, il 30 dicembre 2023.",
+      "en": "The banner of the Civitas Nicosiae flag throwers and musicians at the I Borghi più belli d’Italia flag celebration in Agira on 30 December 2023."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": "2023-12-30",
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photo by Filippo Anello."
+    }
+  },
+  "borghiAnello44": {
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800,
+      2048
+    ],
+    "alt": {
+      "it": "Sbandieratori e musici attorno al gazebo illuminato alla festa della bandiera dei Borghi più belli d’Italia ad Agira, il 30 dicembre 2023.",
+      "en": "Flag throwers and musicians around the illuminated bandstand at the I Borghi più belli d’Italia flag celebration in Agira on 30 December 2023."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": "2023-12-30",
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photo by Filippo Anello."
+    }
+  },
+  "borghiAnello45": {
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      480,
+      800,
+      1200,
+      1800,
+      2048
+    ],
+    "alt": {
+      "it": "Le bandiere in volo durante l’esibizione serale alla festa della bandiera dei Borghi più belli d’Italia ad Agira, il 30 dicembre 2023.",
+      "en": "Flags in flight during the evening performance at the I Borghi più belli d’Italia flag celebration in Agira on 30 December 2023."
+    },
+    "author": "Filippo Anello",
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": "2023-12-30",
+    "credit": {
+      "it": "Fotografia di Filippo Anello.",
+      "en": "Photo by Filippo Anello."
+    }
   }
 }

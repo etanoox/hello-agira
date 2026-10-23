@@ -9,7 +9,7 @@ for (const name of fs.readdirSync(path.join(directory, 'images'))) {
 const read = file => fs.readFileSync(path.join(directory,file),'utf8');
 const htmlPages = ['it/index.html','en/index.html','it/itinerari/index.html','en/itineraries/index.html','it/cosa-vedere/index.html','en/things-to-see/index.html','it/mangiare/index.html','en/food-and-drink/index.html','it/dormire/index.html','en/where-to-stay/index.html','it/storia/index.html','en/history/index.html','it/eventi/index.html','en/events/index.html','it/sagra-cassatella/index.html','en/cassatella-festival/index.html'];
 const detailPairs = [
-  { it: '/it/agira-borghi-piu-belli-italia/', en: '/en/agira-most-beautiful-villages-italy/', unlisted: true },
+  { it: '/it/agira-borghi-piu-belli-italia/', en: '/en/agira-most-beautiful-villages-italy/' },
   { it: '/it/natale-nessun-dorma/', en: '/en/christmas-at-nessun-dorma/' },
   { it: '/it/motor-expo-agira/', en: '/en/motor-expo-agira/' },
   { it: '/it/cosa-vedere/chiesa-santa-margherita/', en: '/en/things-to-see/santa-margherita-church/' },
@@ -90,8 +90,7 @@ for (const file of htmlPages) {
       }
     }
     assert.ok(!html.includes('noindex,nofollow'));
-    if (detailPair?.unlisted) assert.ok(!read('sitemap.xml').includes(canonical), 'Unlisted page is not promoted in the sitemap');
-    else assert.ok(read('sitemap.xml').includes(canonical));
+    assert.ok(read('sitemap.xml').includes(canonical));
     const graph=JSON.parse(html.match(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/)?.[1]||'{}');
     const page=graph['@graph']?.find(node=>node['@type']==='WebPage');
     assert.equal(page?.url,canonical,`${lang}: WebPage structured URL`);
@@ -302,8 +301,8 @@ for (const [lang, slug, calendar, nativity] of [
 assert.equal(christmasEventIds[0], christmasEventIds[1], 'Christmas event identity shared across IT/EN');
 console.log('PASS: Nessun Dorma Christmas event IT/EN, confirmed CET times, free admission, venue, organiser and contextual links.');
 
-const unlistedVillagePages = ['it/agira-borghi-piu-belli-italia/index.html', 'en/agira-most-beautiful-villages-italy/index.html'];
-for (const file of unlistedVillagePages) {
+const villagePages = ['it/agira-borghi-piu-belli-italia/index.html', 'en/agira-most-beautiful-villages-italy/index.html'];
+for (const file of villagePages) {
   const html = read(file);
   assert.equal((html.match(/class="borghi-milestone(?:\s|\")/g) || []).length, 3, 'Three historical milestones');
   for (const date of ['2023-11-09', '2023-12-30']) assert.ok(html.includes(`datetime="${date}"`));
@@ -312,13 +311,13 @@ for (const file of unlistedVillagePages) {
     .flatMap(match => { const value = JSON.parse(match[1]); return value['@graph'] ?? [value]; });
   assert.ok(!nodes.some(node => ['Event', 'Festival', 'FoodEvent'].includes(node['@type'])), 'Historical recognition is not an upcoming event');
 }
-for (const locale of ['it', 'en']) {
-  for (const relative of fs.readdirSync(path.join(directory, locale), { recursive: true })) {
-    if (!relative.endsWith('.html')) continue;
-    const file = `${locale}/${relative}`;
-    if (unlistedVillagePages.includes(file)) continue;
-    const html = read(file);
-    for (const unlisted of unlistedVillagePages) assert.ok(!html.includes(`href="/${unlisted.replace(/index\.html$/, '')}"`), `${file}: no incoming links to the unlisted page`);
-  }
+for (const [lang, slug, sights] of [['it', 'agira-borghi-piu-belli-italia', 'cosa-vedere'], ['en', 'agira-most-beautiful-villages-italy', 'things-to-see']]) {
+  const target = `/${lang}/${slug}/`;
+  assert.ok(read(`${lang}/index.html`).includes(`href="${target}"`), 'Home links to the Borghi page');
+  assert.ok(read(`${lang}/${sights}/index.html`).includes(`href="${target}"`), 'Sights page links to the Borghi page');
+  const html = read(`${lang}/${slug}/index.html`);
+  assert.equal((html.match(/data-gallery-slide=/g) || []).length, 4, 'Four flag celebration photographs');
+  assert.ok(html.includes('borghiAnello33-1200.webp'), 'Hero uses the new portrait photograph');
+  assert.ok(html.includes('Filippo Anello'));
 }
-console.log('PASS: unlisted Borghi IT/EN pages, eight chapters, three historical milestones and no incoming links.');
+console.log('PASS: Borghi IT/EN pages, timeline, four Anello photographs and links from home, sights and sitemap.');

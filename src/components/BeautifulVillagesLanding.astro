@@ -3,7 +3,8 @@ import Base from '../layouts/Base.astro';
 import SiteHeader from './SiteHeader.astro';
 import SiteFooter from './SiteFooter.astro';
 import Photo from './Photo.astro';
-import PhotoGallery from './PhotoGallery.astro';
+import PhotoStoryGallery from './PhotoStoryGallery.astro';
+import galleryData from '../data/beautiful-villages-gallery.json';
 import Icon from './Icon.astro';
 import photos from '../data/photos.json';
 import { getBeautifulVillages } from '../data/beautiful-villages';
@@ -14,9 +15,9 @@ const { lang } = Astro.props;
 const l = (it: string, en: string) => lang === 'it' ? it : en;
 const c = getBeautifulVillages(lang);
 const paths = { it: pageUrl('beautifulVillages', 'it'), en: pageUrl('beautifulVillages', 'en') };
-const hero = 'town' as const;
+const hero = 'borghiAnello33' as const;
 const heroUrl = `/images/${hero}-${Math.max(...photos[hero].widths.filter(width => width <= 1800))}.webp`;
-const items = [{ key: hero, title: l('Agira, dai tetti al Castello', 'Agira, from the rooftops to the castle') }];
+const items = galleryData.map(item => ({ key: item.key as keyof typeof photos, title: item.title[lang] }));
 const timelineLinks = ['#associazione', '#riconoscimento', '#festa-della-bandiera'];
 const chapterLinks: Record<string, { href: string; label: string }[]> = {
   'centro-storico': [{ href: sightUrl('rocche', lang), label: l('Il Quartiere delle Rocche', 'The Rocche Quarter') }],
@@ -56,7 +57,7 @@ const structured = Astro.site?.protocol === 'https:' ? {
       <div class="festival-hero-grid"><div class="route-page-copy"><h1 id="borghi-title">{c.heading}</h1><p>{c.introduction}</p>
         <div class="festival-date-lockup"><span>{l('NELLA RETE NAZIONALE DAL', 'PART OF THE NATIONAL NETWORK SINCE')}</span><div><strong>2023</strong><p>{l('STORIA, ARTE', 'HISTORY, ART')}<br/>{l('E PAESAGGIO', 'AND LANDSCAPE')}</p></div></div>
         <a class="button button-yellow" href="#timeline">{l('Le tappe del riconoscimento', 'The milestones')}<Icon name="arrow"/></a>
-      </div><figure class="route-page-photo festival-hero-photo"><a class="photo-link" href={heroUrl} data-gallery-open={hero} aria-haspopup="dialog" aria-label={l('Ingrandisci il panorama di Agira', 'Enlarge the view of Agira')}><Photo name={hero} lang={lang} priority sizes="(max-width: 700px) 92vw, 48vw"/></a><figcaption><span>{items[0].title}</span><span>{photos[hero].credit[lang]}</span></figcaption></figure></div>
+      </div><figure class="route-page-photo festival-hero-photo"><a class="photo-link" href={heroUrl} data-gallery-open={hero} aria-haspopup="dialog" aria-label={l('Ingrandisci la foto della festa della bandiera', 'Enlarge the flag celebration photograph')}><Photo name={hero} lang={lang} priority sizes="(max-width: 700px) 92vw, 48vw"/></a><figcaption><span>{items[0].title}</span><span>{photos[hero].credit[lang]}</span></figcaption></figure></div>
     </div></section>
     <section class="festival-story section" aria-label={l('Un invito alla scoperta', 'An invitation to explore')}><div class="container festival-story-grid"><div><p class="eyebrow">{l('IL TEMPO DI SCOPRIRE', 'TIME TO DISCOVER')}</p><h2>{l('Un paese.\nMolti incontri.', 'One town.\nMany discoveries.')}</h2></div><div class="festival-story-copy">{c.opening.map(text => <p>{text}</p>)}</div></div></section>
     <section id="riconoscimento" class="festival-plan section" aria-labelledby="recognition-title"><div class="container festival-story-grid"><div><p class="eyebrow">{l('01 / IL RICONOSCIMENTO', '01 / THE RECOGNITION')}</p><h2 id="recognition-title">{c.recognition.title}</h2></div><div class="festival-story-copy">{c.recognition.paragraphs.map(text => <p>{text}</p>)}</div></div></section>
@@ -71,11 +72,10 @@ const structured = Astro.site?.protocol === 'https:' ? {
       </ol>
       <div class="borghi-timeline-tail"><span aria-hidden="true"></span><p>{l('Il riconoscimento è parte della storia. La scoperta continua, un passo alla volta.', 'The recognition is part of the story. Discovery continues, one step at a time.')}</p></div>
     </div></section>
-    {c.chapters.map((chapter, i) => <section id={chapter.id} class={i % 2 === 0 ? 'festival-story section' : 'festival-plan section'} aria-labelledby={`${chapter.id}-title`}><div class="container festival-story-grid"><div><p class="eyebrow">{chapter.label}</p><h2 id={`${chapter.id}-title`}>{chapter.title}</h2></div><div class="festival-story-copy">{chapter.paragraphs.map(text => <p>{text}</p>)}{chapterLinks[chapter.id] && <div class="festival-plan-links">{chapterLinks[chapter.id].map(link => <a class="text-link" href={link.href}>{link.label}<Icon name="arrow"/></a>)}</div>}</div></div></section>)}
+    {c.chapters.map((chapter, i) => <><section id={chapter.id} class={i % 2 === 0 ? 'festival-story section' : 'festival-plan section'} aria-labelledby={`${chapter.id}-title`}><div class="container festival-story-grid"><div><p class="eyebrow">{chapter.label}</p><h2 id={`${chapter.id}-title`}>{chapter.title}</h2></div><div class="festival-story-copy">{chapter.paragraphs.map(text => <p>{text}</p>)}{chapterLinks[chapter.id] && <div class="festival-plan-links">{chapterLinks[chapter.id].map(link => <a class="text-link" href={link.href}>{link.label}<Icon name="arrow"/></a>)}</div>}</div></div></section>{chapter.id === 'festa-della-bandiera' && <PhotoStoryGallery lang={lang} items={items} eyebrow={l('30 DICEMBRE 2023 / IL RACCONTO FOTOGRAFICO', '30 DECEMBER 2023 / THE PHOTOGRAPHIC STORY')} heading={l('Le bandiere, i volti,\nla festa.', 'The flags, the faces,\nthe celebration.')} introduction={l('La giornata della bandiera nelle fotografie di Filippo Anello: il corteo, gli sbandieratori e i musici, tra le strade e le piazze di Agira.', 'The flag celebration through Filippo Anello’s photographs: the procession, flag throwers and musicians in Agira’s streets and squares.')}/>}</>)}
     <section class="itinerary-next" aria-label={l('Continua a esplorare', 'Keep exploring')}><div class="container itinerary-next-inner"><div><p class="eyebrow">{l('IL VIAGGIO CONTINUA', 'KEEP EXPLORING')}</p><h2>{l('Dai un nome alla curiosità.\nScegli la prossima tappa.', 'Follow your curiosity.\nChoose your next stop.')}</h2></div><div class="itinerary-next-links"><a class="button button-yellow" href={pageUrl('sights', lang)}>{l('Cosa vedere ad Agira', 'Things to see in Agira')}<Icon name="arrow"/></a><a class="text-link" href={pageUrl('routes', lang)}>{l('Gli itinerari', 'The itineraries')}<Icon name="diagonal"/></a></div></div></section>
   </main>
   <SiteFooter lang={lang} alternatePaths={paths}/>
-  <PhotoGallery lang={lang} items={items}/>
   {structured && <script type="application/ld+json" set:html={serializeSchema(structured)}/>}
 </Base>
 <style>

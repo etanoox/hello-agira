@@ -62,7 +62,7 @@ const id = (key: Section) => sectionIds[key][lang];
     <section id={id('discover')} class="section intro-section" aria-labelledby="intro-title">
       <div class="container intro-grid">
         <div><p class="eyebrow">{c.introLabel}</p><h2 id="intro-title" class="display-title">{c.introTitle}</h2></div>
-        <div class="intro-copy"><div class="prose-copy"><Content/></div><div class="inline-links">{(['history','sights','info'] as Section[]).map((key,i)=><a href={a(key)}>{c.introLinks[i]}<Icon name="diagonal"/></a>)}</div></div>
+        <div class="intro-copy"><div class="prose-copy"><Content/></div><div class="inline-links">{(['history','sights','info'] as Section[]).map((key,i)=><a href={a(key)}>{c.introLinks[i]}<Icon name="diagonal"/></a>)}<a href={pageUrl('beautifulVillages', lang)}>{l('Agira tra i Borghi più belli d’Italia', 'Agira among Italy’s Most Beautiful Villages')}<Icon name="diagonal"/></a></div></div>
       </div>
       <div class="container gateway-grid">{c.gateways.map(g => <a class="gateway" href={a(g.key)}><span class="gateway-number">{g.number}</span><h3>{g.title}</h3><p>{g.text}</p><Icon name="diagonal"/></a>)}</div>
     </section>
