@@ -9,6 +9,7 @@ for (const name of fs.readdirSync(path.join(directory, 'images'))) {
 const read = file => fs.readFileSync(path.join(directory,file),'utf8');
 const htmlPages = ['it/index.html','en/index.html','it/itinerari/index.html','en/itineraries/index.html','it/cosa-vedere/index.html','en/things-to-see/index.html','it/mangiare/index.html','en/food-and-drink/index.html','it/dormire/index.html','en/where-to-stay/index.html','it/storia/index.html','en/history/index.html','it/eventi/index.html','en/events/index.html','it/sagra-cassatella/index.html','en/cassatella-festival/index.html'];
 const detailPairs = [
+  { it: '/it/agira-borghi-piu-belli-italia/', en: '/en/agira-most-beautiful-villages-italy/', unlisted: true },
   { it: '/it/natale-nessun-dorma/', en: '/en/christmas-at-nessun-dorma/' },
   { it: '/it/motor-expo-agira/', en: '/en/motor-expo-agira/' },
   { it: '/it/cosa-vedere/chiesa-santa-margherita/', en: '/en/things-to-see/santa-margherita-church/' },
@@ -89,7 +90,8 @@ for (const file of htmlPages) {
       }
     }
     assert.ok(!html.includes('noindex,nofollow'));
-    assert.ok(read('sitemap.xml').includes(canonical));
+    if (detailPair?.unlisted) assert.ok(!read('sitemap.xml').includes(canonical), 'Unlisted page is not promoted in the sitemap');
+    else assert.ok(read('sitemap.xml').includes(canonical));
     const graph=JSON.parse(html.match(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/)?.[1]||'{}');
     const page=graph['@graph']?.find(node=>node['@type']==='WebPage');
     assert.equal(page?.url,canonical,`${lang}: WebPage structured URL`);
@@ -299,3 +301,24 @@ for (const [lang, slug, calendar, nativity] of [
 }
 assert.equal(christmasEventIds[0], christmasEventIds[1], 'Christmas event identity shared across IT/EN');
 console.log('PASS: Nessun Dorma Christmas event IT/EN, confirmed CET times, free admission, venue, organiser and contextual links.');
+
+const unlistedVillagePages = ['it/agira-borghi-piu-belli-italia/index.html', 'en/agira-most-beautiful-villages-italy/index.html'];
+for (const file of unlistedVillagePages) {
+  const html = read(file);
+  assert.equal((html.match(/class="borghi-milestone(?:\s|\")/g) || []).length, 3, 'Three historical milestones');
+  for (const date of ['2023-11-09', '2023-12-30']) assert.ok(html.includes(`datetime="${date}"`));
+  for (const section of ['riconoscimento', 'associazione', 'festa-della-bandiera', 'centro-storico', 'chiese-arte-memorie', 'castello-paesaggio', 'cassatella-sapori', 'organizza-la-visita']) assert.ok(html.includes(`id="${section}"`), 'All eight chapters are present');
+  const nodes = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
+    .flatMap(match => { const value = JSON.parse(match[1]); return value['@graph'] ?? [value]; });
+  assert.ok(!nodes.some(node => ['Event', 'Festival', 'FoodEvent'].includes(node['@type'])), 'Historical recognition is not an upcoming event');
+}
+for (const locale of ['it', 'en']) {
+  for (const relative of fs.readdirSync(path.join(directory, locale), { recursive: true })) {
+    if (!relative.endsWith('.html')) continue;
+    const file = `${locale}/${relative}`;
+    if (unlistedVillagePages.includes(file)) continue;
+    const html = read(file);
+    for (const unlisted of unlistedVillagePages) assert.ok(!html.includes(`href="/${unlisted.replace(/index\.html$/, '')}"`), `${file}: no incoming links to the unlisted page`);
+  }
+}
+console.log('PASS: unlisted Borghi IT/EN pages, eight chapters, three historical milestones and no incoming links.');
