@@ -1,4 +1,4 @@
-import * as CookieConsent from 'vanilla-cookieconsent';
+import { acceptCategory, acceptedCategory, getUserPreferences, hide, validConsent, } from 'vanilla-cookieconsent';
 
 document.querySelectorAll<HTMLElement>('[data-place-map]').forEach(root => {
   const button=root.querySelector<HTMLButtonElement>('[data-load-map]');
@@ -11,13 +11,13 @@ document.querySelectorAll<HTMLElement>('[data-place-map]').forEach(root => {
     if(!source) return;
     const url=new URL(source);
     if(url.origin!=='https://www.google.com' || url.pathname!=='/maps') return;
-    if (!CookieConsent.validConsent() || !CookieConsent.acceptedCategory('maps')) {
+    if (!validConsent() || !acceptedCategory('maps')) {
       // This button explicitly grants Maps only; do not opt into Analytics.
-      const accepted = CookieConsent.getUserPreferences().acceptedCategories;
-      CookieConsent.acceptCategory([...new Set([...accepted, 'maps'])]);
+      const accepted = getUserPreferences().acceptedCategories;
+      acceptCategory([...new Set([...accepted, 'maps'])]);
     }
-    if (!CookieConsent.validConsent() || !CookieConsent.acceptedCategory('maps')) return;
-    CookieConsent.hide();
+    if (!validConsent() || !acceptedCategory('maps')) return;
+    hide();
     frame.src=url.href;
     frame.hidden=false;
     cover.hidden=true;

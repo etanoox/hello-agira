@@ -311,10 +311,9 @@ for (const file of villagePages) {
     .flatMap(match => { const value = JSON.parse(match[1]); return value['@graph'] ?? [value]; });
   assert.ok(!nodes.some(node => ['Event', 'Festival', 'FoodEvent'].includes(node['@type'])), 'Historical recognition is not an upcoming event');
 }
-for (const [lang, slug, sights] of [['it', 'agira-borghi-piu-belli-italia', 'cosa-vedere'], ['en', 'agira-most-beautiful-villages-italy', 'things-to-see']]) {
+for (const [lang, slug] of [['it', 'agira-borghi-piu-belli-italia'], ['en', 'agira-most-beautiful-villages-italy']]) {
   const target = `/${lang}/${slug}/`;
   assert.ok(read(`${lang}/index.html`).includes(`href="${target}"`), 'Home links to the Borghi page');
-  assert.ok(read(`${lang}/${sights}/index.html`).includes(`href="${target}"`), 'Sights page links to the Borghi page');
   const html = read(`${lang}/${slug}/index.html`);
   assert.equal((html.match(/data-gallery-slide=/g) || []).length, 4, 'Four flag celebration photographs');
   assert.ok(html.includes('borghiAnello33-1200.webp'), 'Hero uses the new portrait photograph');

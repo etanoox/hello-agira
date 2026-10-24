@@ -1,4 +1,4 @@
-import * as CookieConsent from 'vanilla-cookieconsent';
+import { acceptedCategory, run, validConsent } from 'vanilla-cookieconsent';
 import { getConsentTranslation } from '../data/cookie-consent';
 import { consentConfig } from '../lib/consent-config';
 
@@ -90,8 +90,8 @@ function startAnalytics(): void {
 }
 
 function syncConsent(): void {
-  const valid = CookieConsent.validConsent();
-  if (valid && CookieConsent.acceptedCategory('analytics')) {
+  const valid = validConsent();
+  if (valid && acceptedCategory('analytics')) {
     startAnalytics();
   } else {
     window[disableKey] = true;
@@ -101,7 +101,7 @@ function syncConsent(): void {
       return;
     }
   }
-  if (!valid || !CookieConsent.acceptedCategory('maps')) unloadGoogleMaps();
+  if (!valid || !acceptedCategory('maps')) unloadGoogleMaps();
   lastChoice = storedChoice();
 }
 
@@ -110,7 +110,7 @@ function notifyOtherTabs(): void {
 }
 
 async function initialiseConsent(): Promise<void> {
-  await CookieConsent.run({
+  await run({
     revision: consentConfig.revision,
     mode: 'opt-in',
     disablePageInteraction: false,
