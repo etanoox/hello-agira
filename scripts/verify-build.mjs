@@ -9,6 +9,7 @@ for (const name of fs.readdirSync(path.join(directory, 'images'))) {
 const read = file => fs.readFileSync(path.join(directory,file),'utf8');
 const htmlPages = ['it/index.html','en/index.html','it/itinerari/index.html','en/itineraries/index.html','it/cosa-vedere/index.html','en/things-to-see/index.html','it/mangiare/index.html','en/food-and-drink/index.html','it/dormire/index.html','en/where-to-stay/index.html','it/storia/index.html','en/history/index.html','it/eventi/index.html','en/events/index.html','it/sagra-cassatella/index.html','en/cassatella-festival/index.html'];
 const detailPairs = [
+  { it: '/it/cosa-vedere/palazzo-baronale-zuccaro/', en: '/en/things-to-see/palazzo-baronale-zuccaro/' },
   { it: '/it/agira-borghi-piu-belli-italia/', en: '/en/agira-most-beautiful-villages-italy/' },
   { it: '/it/natale-nessun-dorma/', en: '/en/christmas-at-nessun-dorma/' },
   { it: '/it/motor-expo-agira/', en: '/en/motor-expo-agira/' },
@@ -320,3 +321,16 @@ for (const [lang, slug] of [['it', 'agira-borghi-piu-belli-italia'], ['en', 'agi
   assert.ok(html.includes('Filippo Anello'));
 }
 console.log('PASS: Borghi IT/EN pages, timeline, four Anello photographs and links from home, sights and sitemap.');
+
+for (const [lang, sights, palaces, first, villages] of [
+  ['it', 'cosa-vedere', 'itinerari/i-palazzi-baronali', 'itinerari/un-primo-incontro', 'agira-borghi-piu-belli-italia'],
+  ['en', 'things-to-see', 'itineraries/baronial-palaces', 'itineraries/a-first-encounter', 'agira-most-beautiful-villages-italy'],
+]) {
+  const target = `/${lang}/${sights}/palazzo-baronale-zuccaro/`;
+  const html = read(`${lang}/${sights}/palazzo-baronale-zuccaro/index.html`);
+  assert.equal((html.match(/data-gallery-slide=/g) || []).length, 8, 'Eight Zuccaro exhibition photographs');
+  assert.ok(html.includes('Filippo Anello') && html.includes('2024'), 'Zuccaro photo credit and exhibition year');
+  for (const date of ['1677', '1714', '1862', '2001', '2003']) assert.ok(html.includes(date), `Zuccaro historical date: ${date}`);
+  for (const source of [sights, palaces, first, villages]) assert.ok(read(`${lang}/${source}/index.html`).includes(`href="${target}"`), `Zuccaro link from ${source}`);
+}
+console.log('PASS: Palazzo Zuccaro IT/EN, eight Anello exhibition photographs and contextual links.');

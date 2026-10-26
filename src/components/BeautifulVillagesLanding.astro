@@ -20,6 +20,7 @@ const heroUrl = `/images/${hero}-${Math.max(...photos[hero].widths.filter(width 
 const items = galleryData.map(item => ({ key: item.key as keyof typeof photos, title: item.title[lang] }));
 const timelineLinks = ['#associazione', '#riconoscimento', '#festa-della-bandiera'];
 const chapterLinks: Record<string, { href: string; label: string }[]> = {
+  'festa-della-bandiera': [{ href: sightUrl('zuccaro', lang), label: l('Scopri Palazzo Zuccaro', 'Explore Palazzo Zuccaro') }],
   'centro-storico': [{ href: sightUrl('rocche', lang), label: l('Il Quartiere delle Rocche', 'The Rocche Quarter') }],
   'chiese-arte-memorie': [
     { href: sightUrl('santaMariaMaggiore', lang), label: l('Santa Maria Maggiore', 'Santa Maria Maggiore') },

@@ -1,3 +1,4 @@
+import { getZuccaroPage } from './zuccaro-page';
 import { getSaintPhilipCavePage } from './saint-philip-cave-page';
 import { getSantaMargheritaPage } from './santa-margherita-page';
 import { getSantaMariaMaggiorePage } from './santa-maria-maggiore-page';
@@ -111,5 +112,5 @@ export function getSightPages(lang: Locale): SightPage[] {
     sources: [
       {title:'Agira città d’arte — Rita Loredana Foti e Salvatore Longo Minnolo',url:'https://www.agira.org/Sintesi-storiche/agira-citta-darte.html'},
     ],
-  }, getAbbeyPage(lang), getSaintAnthonyPage(lang), getAronPage(lang), getCanadianCemeteryPage(lang), getManmanoGussioPage(lang), getRocchePage(lang), getSalvatorePage(lang), getSantaMariaMaggiorePage(lang), getSantaMargheritaPage(lang), getSaintPhilipCavePage(lang)];
+  }, getAbbeyPage(lang), getSaintAnthonyPage(lang), getAronPage(lang), getCanadianCemeteryPage(lang), getManmanoGussioPage(lang), getRocchePage(lang), getSalvatorePage(lang), getSantaMariaMaggiorePage(lang), getSantaMargheritaPage(lang), getSaintPhilipCavePage(lang), getZuccaroPage(lang)];
 }

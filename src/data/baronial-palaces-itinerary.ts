@@ -19,6 +19,7 @@ export function getBaronialPalacesItinerary(lang: Locale): Itinerary {
       {
         label: l('La dimora e la piazza', 'The residence and the square'),
         title: 'Palazzo Zuccaro',
+        link: { href: sightUrl('zuccaro', lang), label: l('Scopri Palazzo Zuccaro', 'Explore Palazzo Zuccaro') },
         text: l('Accanto a Piazza Garibaldi, in via Vittorio Emanuele 329, Palazzo Zuccaro è la storica dimora dei baroni Zuccaro di Cuticchi e di Sant’Andrea. È una prima sosta per avvicinarsi alla storia delle famiglie nobiliari di Agira.', 'Beside Piazza Garibaldi, at Via Vittorio Emanuele 329, Palazzo Zuccaro is the historic residence of the Zuccaro barons of Cuticchi and Sant’Andrea. It offers an introduction to the history of Agira’s noble families.'),
         paragraphs: [l('Il palazzo ospitò Giuseppe Garibaldi nel 1862: dal balcone si rivolse alla popolazione agirina. Il suo salone di rappresentanza, con gli affreschi recuperati attraverso il restauro, racconta anche il ruolo della dimora nella vita culturale del paese.', 'The palace hosted Giuseppe Garibaldi in 1862, when he addressed the people of Agira from its balcony. Its reception room, with frescoes recovered through restoration, also reflects the residence’s place in the town’s cultural life.')],
         time: l('Via Vittorio Emanuele 329 · Piazza Garibaldi', 'Via Vittorio Emanuele 329 · Piazza Garibaldi'),
