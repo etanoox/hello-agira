@@ -30,9 +30,9 @@ const questionData = JSON.stringify(quizQuestions).replace(/</g, '\\u003c');
           <p class="eyebrow">LA CURIOSITÀ È IL PUNTO DI PARTENZA</p>
           <h2 id="quiz-welcome-title">Una domanda.<br/>Una scoperta.</h2>
           <p>Ogni partita è un percorso diverso tra le storie di Agira. Scegli una risposta e scopri subito quella corretta.</p>
-          <ul class="quiz-rules"><li>10 domande estratte a caso</li><li>4 risposte tra cui scegliere</li><li>Nessun timer, nessuna registrazione</li></ul>
+          <ul class="quiz-rules"><li>10 domande estratte</li><li>4 risposte tra cui scegliere</li><li>Nessun timer, nessuna registrazione</li></ul>
           <button class="button button-yellow" type="button" data-quiz-start hidden>Cominciamo<Icon name="arrow"/></button>
-          <p class="quiz-bank-note">{quizQuestions.length} domande da cui partire. Quante ne conosci?</p>
+          <p class="quiz-bank-note">Quante ne indovini?</p>
           <noscript><p class="quiz-feedback">Per giocare, attiva JavaScript nel browser. Puoi comunque esplorare <a href={pageUrl('sights', lang)}>i luoghi di Agira</a>.</p></noscript>
         </section>
         <section class="quiz-card" data-quiz-play hidden aria-label="La tua partita">
