@@ -9,6 +9,7 @@ for (const name of fs.readdirSync(path.join(directory, 'images'))) {
 const read = file => fs.readFileSync(path.join(directory,file),'utf8');
 const htmlPages = ['it/index.html','en/index.html','it/itinerari/index.html','en/itineraries/index.html','it/cosa-vedere/index.html','en/things-to-see/index.html','it/mangiare/index.html','en/food-and-drink/index.html','it/dormire/index.html','en/where-to-stay/index.html','it/storia/index.html','en/history/index.html','it/eventi/index.html','en/events/index.html','it/sagra-cassatella/index.html','en/cassatella-festival/index.html'];
 const detailPairs = [
+  { it: '/it/quiz/', en: '/en/quiz/' },
   { it: '/it/cosa-vedere/palazzo-baronale-zuccaro/', en: '/en/things-to-see/palazzo-baronale-zuccaro/' },
   { it: '/it/agira-borghi-piu-belli-italia/', en: '/en/agira-most-beautiful-villages-italy/' },
   { it: '/it/natale-nessun-dorma/', en: '/en/christmas-at-nessun-dorma/' },
@@ -334,3 +335,15 @@ for (const [lang, sights, palaces, first, villages] of [
   for (const source of [sights, palaces, first, villages]) assert.ok(read(`${lang}/${source}/index.html`).includes(`href="${target}"`), `Zuccaro link from ${source}`);
 }
 console.log('PASS: Palazzo Zuccaro IT/EN, eight Anello exhibition photographs and contextual links.');
+
+const quizHtml = read('it/quiz/index.html');
+const quizPayload = quizHtml.match(/<script[^>]*data-quiz-data[^>]*>([\s\S]*?)<\/script>/)?.[1];
+assert.ok(quizPayload, 'Italian quiz question payload');
+const quizBank = JSON.parse(quizPayload);
+assert.ok(quizBank.length >= 10, 'Quiz has at least ten eligible questions');
+assert.equal(new Set(quizBank.map(question => question.id)).size, quizBank.length, 'Unique quiz question IDs');
+for (const key of ['data-quiz-start', 'data-quiz-next', 'data-quiz-restart', 'data-quiz-result']) assert.ok(quizHtml.includes(key), `Quiz control: ${key}`);
+assert.ok(quizHtml.includes('<noscript>'), 'Quiz has a no-JavaScript explanation');
+assert.ok(read('en/quiz/index.html').includes('currently available in Italian'), 'English page explains quiz language');
+for (const lang of ['it', 'en']) assert.ok(read(`${lang}/index.html`).includes(`href="/${lang}/quiz/"`), 'Footer links to quiz');
+console.log(`PASS: quiz IT/EN pages, ${quizBank.length} eligible questions, game controls and footer links.`);

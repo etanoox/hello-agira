@@ -11,7 +11,8 @@
     "build": "astro check && astro build",
     "preview": "astro preview --host 0.0.0.0 --port 14322 --strictPort",
     "check": "astro check",
-    "verify": "node scripts/verify-build.mjs"
+    "verify": "node scripts/verify-build.mjs",
+    "test:quiz": "node --experimental-strip-types scripts/test-quiz.mjs"
   },
   "dependencies": {
     "@fontsource-variable/bricolage-grotesque": "5.3.0",
