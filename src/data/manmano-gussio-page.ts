@@ -1,13 +1,22 @@
 import type { Locale } from '../lib/i18n';
 import type { SightPage } from './sight-pages';
+import englishAudio from './manmano-gussio-audio-en.json';
 
 export function getManmanoGussioPage(lang: Locale): SightPage {
   const l = (it: string, en: string) => lang === 'it' ? it : en;
+  const seconds = Math.floor(englishAudio.chapters.reduce((total, chapter) => total + chapter.durationSeconds, 0));
   return {
     id: 'manmanoGussio', name: 'Palazzo baronale Manmano Gussio',
+    audio: {
+      language: 'en',
+      title: l('Il palazzo, raccontato in inglese.', 'The palace, narrated.'),
+      introduction: l('Un’introduzione, sei capitoli e una conclusione per scoprire le famiglie, le opere e gli ambienti del palazzo. L’audioguida e le trascrizioni disponibili sono in inglese. Ascolta in sequenza oppure scegli una traccia.', 'An introduction, six chapters and a closing to discover the palace’s families, artworks and rooms. The audio guide and transcripts are in English. Listen in sequence or choose a track.'),
+      chapters: englishAudio.chapters,
+      credit: l('Audioguida gratuita realizzata e curata da Giuseppe Ricceri per Hello Agira.', 'Free audio guide created and curated by Giuseppe Ricceri for Hello Agira.'),
+    },
     category: l('Una dimora, una storia ritrovata', 'A historic residence rediscovered'),
     title: l('Palazzo baronale Manmano Gussio ad Agira | Hello Agira', 'Palazzo baronale Manmano Gussio in Agira | Hello Agira'),
-    description: l("Palazzo Manmano Gussio ad Agira, già Trigona dei Principi di Sant’Elia: Salone di Apollo e Dafne, sale storiche, cimeli di famiglia e visite su prenotazione.", "Palazzo Manmano Gussio in Agira, formerly Trigona dei Principi di Sant’Elia: the Apollo and Daphne Hall, historic rooms, family collections and visits by reservation."),
+    description: l("Palazzo Manmano Gussio ad Agira, già Trigona dei Principi di Sant’Elia: Salone di Apollo e Dafne, cimeli di famiglia, audioguida in inglese e visite su prenotazione.", "Palazzo Manmano Gussio in Agira, formerly Trigona dei Principi di Sant’Elia: the Apollo and Daphne Hall, family collections, an English audio guide and visits by reservation."),
     introduction: l("Nel cuore monumentale di Agira, una dimora patrizia di fine Cinquecento custodisce il Salone di Apollo e Dafne, sale decorate e una preziosa esposizione di cimeli, abiti e documenti di famiglia.", "In Agira’s monumental heart, a late 16th-century patrician residence houses the Apollo and Daphne Hall, decorated rooms and a precious collection of family memorabilia, clothing and documents."),
     image: 'manmanoGussio', location: l('Via Norfo 2 · angolo via Diodorea 135 · Agira', 'Via Norfo 2 · corner of Via Diodorea 135 · Agira'),
     mapQuery: 'Palazzo Manmano Gussio Via Norfo 2 Agira',
@@ -17,6 +26,8 @@ export function getManmanoGussioPage(lang: Locale): SightPage {
       { label: l('Prenota su WhatsApp · Orazio La Delfa', 'Book via WhatsApp · Orazio La Delfa'), href: 'https://wa.me/393287797235' },
     ],
     facts: [
+      { label: l('Audioguida', 'Audio guide'), value: l('Inglese · 8 tracce', 'English · 8 tracks') },
+      { label: l('Durata dell’ascolto', 'Listening time'), value: `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}` },
       { label: l("Origini", "Origins"), value: l("Fine del XVI secolo", "Late 16th century") },
       { label: l("Già", "Formerly"), value: l("Trigona dei Principi di Sant’Elia", "Trigona dei Principi di Sant’Elia") },
       { label: l("Restauro avviato nel", "Restoration begun in"), value: l("2006", "2006") },
@@ -33,7 +44,7 @@ export function getManmanoGussioPage(lang: Locale): SightPage {
       ] },
       { title: l("Il cortile, la cisterna e il restauro.", "The courtyard, cistern and restoration."), paragraphs: [
         l("Sul retro, un cortile a due livelli ospita una monumentale cisterna ipogea scavata nella roccia. È una parte del complesso che affianca agli ambienti di rappresentanza le strutture legate alla vita della dimora.", "At the rear, a two-level courtyard contains a monumental underground cistern carved into the rock. This part of the complex complements the reception rooms with structures serving the everyday life of the residence."),
-        l("Un meticoloso restauro conservativo, avviato nel 2006, ha permesso la rifunzionalizzazione degli interni. Il recupero curato da Orazio La Delfa consente oggi di riscoprire gli ambienti del palazzo attraverso visite concordate in anticipo.", "A meticulous conservation restoration, begun in 2006, brought the interiors back into use. The restoration undertaken by Orazio La Delfa now allows visitors to rediscover the palace through visits arranged in advance."),
+        l("Un meticoloso restauro conservativo, avviato nel 2006, ha permesso la rifunzionalizzazione degli interni. Il recupero curato da Orazio La Delfa e dalla moglie Elena Minnì consente oggi di riscoprire gli ambienti del palazzo attraverso visite concordate in anticipo.", "A meticulous conservation restoration, begun in 2006, brought the interiors back into use. The restoration undertaken by Orazio La Delfa and his wife Elena Minnì now allows visitors to rediscover the palace through visits arranged in advance."),
         l("Gli interni ospitano un’esposizione permanente di cimeli, abiti e documenti d’epoca della famiglia, dalla fine del XVI al XIX secolo: testimonianze che accompagnano il racconto dell’edificio e delle persone che lo hanno abitato.", "The interiors house a permanent exhibition of family memorabilia, historic clothing and documents dating from the late 16th to the 19th century, complementing the story of the building and the people who lived here."),
       ] },
       { title: l("I Trigona e la cometa a sette punte.", "The Trigona family and the seven-pointed comet."), paragraphs: [
@@ -59,6 +70,7 @@ export function getManmanoGussioPage(lang: Locale): SightPage {
       { title: l("La memoria di famiglia", "Family memories"), text: l("Abiti, cimeli e documenti nell’esposizione permanente, accanto alle sale e agli arredi storici.", "Clothing, memorabilia and documents in the permanent exhibition, alongside historic rooms and furnishings.") },
     ],
     practical: [
+      { title: l('Ascoltare l’audioguida', 'Listening to the audio guide'), text: l('L’audioguida disponibile è in inglese, con trascrizioni per tutte le otto tracce. Puoi ascoltarla prima della visita o durante il percorso: usa le cuffie e segui le indicazioni dei referenti del palazzo.', 'The audio guide is in English, with transcripts for all eight tracks. Listen before your visit or as you explore: use headphones and follow the guidance of the palace’s representatives.') },
       { title: l('Prenotare la visita', 'Arranging a visit'), text: l('La visita richiede prenotazione. Contatta Orazio La Delfa al +39 328 779 7235, per telefono o WhatsApp, per concordare giorno, orario e condizioni di accesso.', 'Visits require prior reservation. Contact Orazio La Delfa on +39 328 779 7235 by phone or WhatsApp to agree on the date, time and access arrangements.') },
       { title: l('Dove si trova', 'Location'), text: l('L’indirizzo è via Norfo 2, angolo via Diodorea 135, ad Agira. Usa la mappa come aiuto per orientarti e verifica sul posto l’ingresso concordato.', 'The address is Via Norfo 2, on the corner of Via Diodorea 135, in Agira. Use the map to get your bearings and confirm the agreed entrance on arrival.') },
       { title: l('Durante la visita', 'During your visit'), text: l('Segui le indicazioni dei referenti della dimora e chiedi prima di fotografare gli ambienti. Evita di toccare decorazioni e arredi.', 'Follow the guidance of the residence’s representatives and ask before photographing the rooms. Avoid touching decorations and furnishings.') },

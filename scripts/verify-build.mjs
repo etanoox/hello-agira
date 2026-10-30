@@ -131,10 +131,29 @@ for (const file of ['it/cosa-vedere/cimitero-militare-canadese/index.html', 'en/
   assert.ok(html.includes(`/audio/cimitero-canadese/${lang}/`), 'Cemetery audio matches the page language');
 }
 
-for (const lang of ['it','en']) {
- const folder = lang === 'it' ? 'cosa-vedere' : 'things-to-see';
- assert.ok(!read(`${lang}/${folder}/palazzo-baronale-manmano-gussio/index.html`).includes('data-audio-guide'), 'Palace audio is not yet available');
+const palaceAudio = JSON.parse(fs.readFileSync('src/data/manmano-gussio-audio-en.json', 'utf8'));
+assert.equal(palaceAudio.language, 'en');
+assert.equal(palaceAudio.chapters.length, 8, 'Palace introduction, six chapters and closing');
+const palaceDuration = Math.floor(palaceAudio.chapters.reduce((total, chapter) => total + chapter.durationSeconds, 0));
+for (const chapter of palaceAudio.chapters) {
+  assert.ok(chapter.transcript.length > 0 && chapter.transcript.every(text => text.trim()), 'Palace transcript paragraphs are present');
+  assert.ok(!chapter.transcript.join(' ').includes('[thoughtfully]'), 'Voice directions are not part of the transcript');
+  assert.ok(chapter.durationSeconds > 0, 'Measured palace track duration');
+  assert.ok(chapter.src.startsWith('/audio/manmano-gussio/en/'));
+  assert.ok(fs.statSync(path.join(directory, chapter.src)).size > 0, `Palace audio exists: ${chapter.src}`);
 }
+for (const lang of ['it', 'en']) {
+  const folder = lang === 'it' ? 'cosa-vedere' : 'things-to-see';
+  const html = read(`${lang}/${folder}/palazzo-baronale-manmano-gussio/index.html`);
+  assert.ok(html.includes('data-audio-guide'), 'English palace audio is available on both page versions');
+  assert.equal((html.match(/<a\b[^>]*\sdata-audio-chapter(?:\s|>)/g) || []).length, 8, 'Eight palace audio tracks');
+  assert.equal((html.match(/<details\b[^>]*lang="en"[^>]*id="audioguida-transcript-/g) || []).length, 8, 'Palace transcripts correctly marked as English');
+  assert.ok(html.includes(lang === 'it' ? 'Audio in inglese' : 'Audio in English'), 'Visible palace audio language');
+  assert.ok(html.includes(`${Math.floor(palaceDuration / 60)}:${String(palaceDuration % 60).padStart(2, '0')}`), 'Total palace listening duration');
+  assert.ok(!html.includes('/audio/manmano-gussio/it/'), 'No unavailable Italian audio advertised');
+  for (const chapter of palaceAudio.chapters) assert.ok(html.includes(`href="${chapter.src}"`), 'Palace chapter link');
+}
+console.log('PASS: Manmano Gussio English audio, eight local tracks, transcripts and language labels on IT/EN pages.');
 
 // The Saint Philip map must work as a stop directory before map/GPS activation.
 for (const [lang, folder, slug] of [['it', 'itinerari', 'sui-passi-di-san-filippo'], ['en', 'itineraries', 'in-saint-philips-footsteps']]) {
