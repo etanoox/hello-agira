@@ -1,30 +1,32 @@
 import type { Locale } from '../lib/i18n';
 import type { SightPage } from './sight-pages';
 import englishAudio from './zuccaro-audio-en.json';
+import italianAudio from './zuccaro-audio-it.json';
 
 export function getZuccaroPage(lang: Locale): SightPage {
   const l = (it: string, en: string) => lang === 'it' ? it : en;
-  const seconds = Math.floor(englishAudio.chapters.reduce((total, chapter) => total + chapter.durationSeconds, 0));
+  const audio = lang === 'it' ? italianAudio : englishAudio;
+  const seconds = Math.floor(audio.chapters.reduce((total, chapter) => total + chapter.durationSeconds, 0));
   return {
     id: 'zuccaro',
     audio: {
-      language: 'en',
-      title: l('Il palazzo, raccontato in inglese.', 'The palace, narrated.'),
-      introduction: l('Un’introduzione, sei capitoli e una conclusione per scoprire le origini del palazzo, la famiglia Zuccaro, gli ospiti e la vita culturale della dimora. L’audioguida e le trascrizioni disponibili sono in inglese. Ascolta in sequenza oppure scegli una traccia.', 'An introduction, six chapters and a closing exploring the palace’s origins, the Zuccaro family, its guests and its cultural life. The audio guide and transcripts are in English. Listen in sequence or choose a track.'),
-      chapters: englishAudio.chapters,
+      language: lang,
+      title: l('Il palazzo, raccontato.', 'The palace, narrated.'),
+      introduction: l('Un’introduzione, sei capitoli e una conclusione per scoprire le origini del palazzo, la famiglia Zuccaro, gli ospiti e la vita culturale della dimora. L’audioguida e le trascrizioni di questa pagina sono in italiano. Ascolta in sequenza oppure scegli una traccia.', 'An introduction, six chapters and a closing exploring the palace’s origins, the Zuccaro family, its guests and its cultural life. The audio guide and transcripts are in English. Listen in sequence or choose a track.'),
+      chapters: audio.chapters,
       credit: l('Audioguida gratuita realizzata e curata da Giuseppe Ricceri per Hello Agira.', 'Free audio guide created and curated by Giuseppe Ricceri for Hello Agira.'),
     },
     name: l("Palazzo baronale Zuccaro", "Palazzo baronale Zuccaro"),
     category: l("Una dimora, secoli di memorie", "A residence, centuries of memories"),
     title: l("Palazzo baronale Zuccaro ad Agira: storia e visita | Hello Agira", "Palazzo baronale Zuccaro in Agira: history and visiting | Hello Agira"),
-    description: l("Scopri Palazzo Zuccaro ad Agira, accanto a Piazza Garibaldi: il balcone di Garibaldi, il salone decorato, l’audioguida in inglese e le fotografie della mostra del 2024.", "Discover Palazzo Zuccaro in Agira, beside Piazza Garibaldi: Garibaldi’s balcony, the decorated reception room, an English audio guide and photographs of the 2024 exhibition."),
+    description: l("Scopri Palazzo Zuccaro ad Agira, accanto a Piazza Garibaldi: il balcone di Garibaldi, il salone decorato, l’audioguida in italiano e le fotografie della mostra del 2024.", "Discover Palazzo Zuccaro in Agira, beside Piazza Garibaldi: Garibaldi’s balcony, the decorated reception room, an English audio guide and photographs of the 2024 exhibition."),
     introduction: l("Una dimora baronale nel cuore di Agira, tra architettura barocca, decorazioni neoclassiche e memorie che attraversano i secoli.", "A baronial residence in the heart of Agira, with Baroque architecture, Neoclassical decoration and memories spanning the centuries."),
     location: l("Via Vittorio Emanuele · Piazza Garibaldi · Agira", "Via Vittorio Emanuele · Piazza Garibaldi · Agira"),
     visitorNote: l("La facciata è visibile dalla strada. Per gli interni, verifica le aperture in occasione di eventi oppure contatta la proprietaria per concordare una visita guidata.", "The facade is visible from the street. For the interior, check openings during events or contact the owner to arrange a guided visit."),
     image: 'zuccaroAnello9643',
     mapQuery: 'Palazzo Zuccaro, Via Vittorio Emanuele, Piazza Garibaldi, Agira, Sicilia',
     facts: [
-      { label: l('Audioguida', 'Audio guide'), value: l('Inglese · 8 tracce', 'English · 8 tracks') },
+      { label: l('Audioguida', 'Audio guide'), value: l('Italiano · 8 tracce', 'English · 8 tracks') },
       { label: l('Durata dell’ascolto', 'Listening time'), value: `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}` },
       { label: l("Dove", "Location"), value: l("Accanto a Piazza Garibaldi", "Beside Piazza Garibaldi") },
       { label: l("Origini", "Origins"), value: l("Fine del Quattrocento · ricostruzione del 1677", "Late 15th century · rebuilding project in 1677") },
@@ -76,7 +78,7 @@ export function getZuccaroPage(lang: Locale): SightPage {
       { title: l("La memoria delle sarte", "The dressmakers’ legacy"), text: l("Le fotografie della mostra del 2024 raccontano gli abiti e le persone che hanno animato il salone.", "Photographs of the 2024 exhibition document the garments and people who brought the room to life.") },
     ],
     practical: [
-      { title: l('Ascoltare l’audioguida', 'Listening to the audio guide'), text: l('L’audioguida disponibile è in inglese, con trascrizioni per tutte le otto tracce. Puoi ascoltarla prima della visita o durante il percorso, usando le cuffie.', 'The audio guide is in English, with transcripts for all eight tracks. Listen before your visit or as you explore, using headphones.') },
+      { title: l('Ascoltare l’audioguida', 'Listening to the audio guide'), text: l('L’audioguida di questa pagina è in italiano, con trascrizioni per tutte le otto tracce. La versione inglese è disponibile nella pagina in inglese. Puoi ascoltarla prima della visita o durante il percorso, usando le cuffie.', 'The audio guide is in English, with transcripts for all eight tracks. Listen before your visit or as you explore, using headphones.') },
       { title: l("Prima della visita", "Before your visit"), text: l("La facciata è visibile dalla strada. Per gli interni, verifica le aperture in occasione di eventi oppure contatta la proprietaria per concordare una visita guidata.", "The facade is visible from the street. For the interior, check openings during events or contact the owner to arrange a guided visit.") },
       { title: l("Le fotografie", "The photographs"), text: l("Gli otto scatti di Filippo Anello documentano la mostra “La moda agirina nel tempo” del 2024. L’allestimento non indica una mostra permanente.", "The eight photographs by Filippo Anello document the 2024 exhibition “La moda agirina nel tempo”. The display shown is not presented as a permanent exhibition.") },
     ],
