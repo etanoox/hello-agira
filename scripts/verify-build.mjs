@@ -367,3 +367,25 @@ assert.ok(quizHtml.includes('<noscript>'), 'Quiz has a no-JavaScript explanation
 assert.ok(read('en/quiz/index.html').includes('currently available in Italian'), 'English page explains quiz language');
 for (const lang of ['it', 'en']) assert.ok(read(`${lang}/index.html`).includes(`href="/${lang}/quiz/"`), 'Footer links to quiz');
 console.log(`PASS: quiz IT/EN pages, ${quizBank.length} eligible questions, game controls and footer links.`);
+
+const zuccaroAudio = JSON.parse(fs.readFileSync('src/data/zuccaro-audio-en.json', 'utf8'));
+assert.equal(zuccaroAudio.language, 'en');
+assert.equal(zuccaroAudio.chapters.length, 8, 'Zuccaro introduction, six chapters and closing');
+const zuccaroDuration = Math.floor(zuccaroAudio.chapters.reduce((total, chapter) => total + chapter.durationSeconds, 0));
+for (const chapter of zuccaroAudio.chapters) {
+  assert.ok(chapter.transcript.length > 0 && chapter.transcript.every(text => text.trim()), 'Zuccaro transcript paragraphs');
+  assert.ok(chapter.durationSeconds > 0, 'Measured Zuccaro track duration');
+  assert.ok(chapter.src.startsWith('/audio/zuccaro/en/'));
+  assert.ok(fs.statSync(path.join(directory, chapter.src)).size > 0, `Zuccaro audio exists: ${chapter.src}`);
+}
+for (const [lang, folder] of [['it', 'cosa-vedere'], ['en', 'things-to-see']]) {
+  const html = read(`${lang}/${folder}/palazzo-baronale-zuccaro/index.html`);
+  assert.ok(html.includes('data-audio-guide'), 'English Zuccaro guide on both page versions');
+  assert.equal((html.match(/<a\b[^>]*\sdata-audio-chapter(?:\s|>)/g) || []).length, 8, 'Eight Zuccaro audio tracks');
+  assert.equal((html.match(/<details\b[^>]*lang="en"[^>]*id="audioguida-transcript-/g) || []).length, 8, 'Zuccaro transcripts marked as English');
+  assert.ok(html.includes(lang === 'it' ? 'Audio in inglese' : 'Audio in English'), 'Visible Zuccaro audio language');
+  assert.ok(html.includes(`${Math.floor(zuccaroDuration / 60)}:${String(zuccaroDuration % 60).padStart(2, '0')}`), 'Zuccaro total listening duration');
+  assert.ok(!html.includes('/audio/zuccaro/it/'), 'No unavailable Italian Zuccaro audio');
+  for (const chapter of zuccaroAudio.chapters) assert.ok(html.includes(`href="${chapter.src}"`), 'Zuccaro track link');
+}
+console.log('PASS: Zuccaro English audio, eight local tracks, transcripts, duration and IT/EN language labels.');
