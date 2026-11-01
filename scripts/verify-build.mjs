@@ -391,27 +391,28 @@ for (const [lang, folder] of [['it', 'cosa-vedere'], ['en', 'things-to-see']]) {
 }
 console.log('PASS: Zuccaro IT/EN audio, eight tracks per language, transcripts and measured durations.');
 
-const salvatoreAudio = JSON.parse(fs.readFileSync('src/data/salvatore-audio-en.json', 'utf8'));
-assert.equal(salvatoreAudio.language, 'en');
-assert.equal(salvatoreAudio.chapters.length, 8, 'SS. Salvatore introduction, six chapters and closing');
-const salvatoreDuration = Math.floor(salvatoreAudio.chapters.reduce((total, chapter) => total + chapter.durationSeconds, 0));
-for (const chapter of salvatoreAudio.chapters) {
-  assert.ok(chapter.transcript.length > 0 && chapter.transcript.every(text => text.trim()), 'SS. Salvatore transcript paragraphs');
-  assert.ok(!chapter.transcript.join(' ').includes('[short pause]'), 'Voice directions are not published');
-  assert.ok(chapter.durationSeconds > 0, 'Measured SS. Salvatore track duration');
-  assert.ok(chapter.src.startsWith('/audio/ss-salvatore/en/'));
-  assert.ok(fs.statSync(path.join(directory, chapter.src)).size > 0, `SS. Salvatore audio exists: ${chapter.src}`);
-}
 for (const [lang, folder, slug] of [['it', 'cosa-vedere', 'collegiata-ss-salvatore'], ['en', 'things-to-see', 'ss-salvatore-collegiate-church']]) {
+  const salvatoreAudio = JSON.parse(fs.readFileSync(`src/data/salvatore-audio-${lang}.json`, 'utf8'));
+  assert.equal(salvatoreAudio.language, lang);
+  assert.equal(salvatoreAudio.chapters.length, 8, 'SS. Salvatore introduction, six chapters and closing');
+  const salvatoreDuration = Math.floor(salvatoreAudio.chapters.reduce((total, chapter) => total + chapter.durationSeconds, 0));
+  for (const chapter of salvatoreAudio.chapters) {
+    assert.ok(chapter.transcript.length > 0 && chapter.transcript.every(text => text.trim()), 'SS. Salvatore transcript paragraphs');
+    assert.ok(!chapter.transcript.join(' ').includes('[short pause]'), 'Voice directions are not published');
+    assert.ok(chapter.durationSeconds > 0, 'Measured SS. Salvatore track duration');
+    assert.ok(chapter.src.startsWith(`/audio/ss-salvatore/${lang}/`));
+    assert.ok(fs.statSync(path.join(directory, chapter.src)).size > 0, `SS. Salvatore audio exists: ${chapter.src}`);
+  }
   const html = read(`${lang}/${folder}/${slug}/index.html`);
-  assert.ok(html.includes('data-audio-guide'), 'English SS. Salvatore guide on both page versions');
+  assert.ok(html.includes('data-audio-guide'), 'SS. Salvatore audio guide in the page language');
   assert.equal((html.match(/<a\b[^>]*\sdata-audio-chapter(?:\s|>)/g) || []).length, 8, 'Eight SS. Salvatore audio tracks');
-  assert.equal((html.match(/<details\b[^>]*lang="en"[^>]*id="audioguida-transcript-/g) || []).length, 8, 'SS. Salvatore transcripts marked as English');
-  assert.ok(html.includes(lang === 'it' ? 'Audio in inglese' : 'Audio in English'), 'Visible SS. Salvatore audio language');
+  assert.equal((html.match(new RegExp(`<details\\b[^>]*lang="${lang}"[^>]*id="audioguida-transcript-`, 'g')) || []).length, 8, 'SS. Salvatore transcripts match the page language');
+  assert.ok(html.includes(lang === 'it' ? 'Audio in italiano' : 'Audio in English'), 'Visible SS. Salvatore audio language');
   assert.ok(html.includes(`${Math.floor(salvatoreDuration / 60)}:${String(salvatoreDuration % 60).padStart(2, '0')}`), 'SS. Salvatore total listening duration');
-  assert.ok(!html.includes('/audio/ss-salvatore/it/'), 'No unavailable Italian SS. Salvatore audio');
+  const other = lang === 'it' ? 'en' : 'it';
+  assert.ok(!html.includes(`/audio/ss-salvatore/${other}/`), 'SS. Salvatore does not mix audio languages');
   for (const chapter of salvatoreAudio.chapters) assert.ok(html.includes(`href="${chapter.src}"`), 'SS. Salvatore track link');
   const aronSlug = lang === 'it' ? 'aron-memoria-ebraica' : 'aron-jewish-heritage';
   assert.ok(html.includes(`href="/${lang}/${folder}/${aronSlug}/"`), 'Dedicated Aron guide remains linked');
 }
-console.log('PASS: SS. Salvatore English audio, eight tracks, transcripts, duration and IT/EN language labels.');
+console.log('PASS: SS. Salvatore IT/EN audio, eight tracks per language, transcripts and measured durations.');
