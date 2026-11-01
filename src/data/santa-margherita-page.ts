@@ -1,20 +1,31 @@
 import type { Locale } from '../lib/i18n';
 import type { SightPage } from './sight-pages';
+import englishAudio from './santa-margherita-audio-en.json';
 
 export function getSantaMargheritaPage(lang: Locale): SightPage {
   const l = (it: string, en: string) => lang === 'it' ? it : en;
+  const seconds = Math.floor(englishAudio.chapters.reduce((total, chapter) => total + chapter.durationSeconds, 0));
   return {
     id: 'santaMargherita',
+    audio: {
+      language: 'en',
+      title: l('Santa Margherita, raccontata in inglese.', 'Santa Margherita, narrated.'),
+      introduction: l('Un’introduzione, sei capitoli e una conclusione per scoprire le origini della chiesa, la ricostruzione, la cupola e le opere d’arte. L’audioguida e le trascrizioni disponibili sono in inglese. Ascolta in sequenza oppure scegli una traccia.', 'An introduction, six chapters and a closing exploring the church’s origins, rebuilding, dome and artworks. The audio guide and transcripts are in English. Listen in sequence or choose a track.'),
+      chapters: englishAudio.chapters,
+      credit: l('Audioguida gratuita realizzata e curata da Giuseppe Ricceri per Hello Agira.', 'Free audio guide created and curated by Giuseppe Ricceri for Hello Agira.'),
+    },
     name: l('La Chiesa di Santa Margherita', 'The Church of Santa Margherita'),
     category: l('Architettura e arte sacra', 'Architecture and sacred art'),
     title: l('Chiesa di Santa Margherita ad Agira: storia e visita | Hello Agira', 'Santa Margherita Church in Agira: history and visiting | Hello Agira'),
-    description: l('Scopri Santa Margherita ad Agira: tre navate, la cupola, l’Immacolata di Giuseppe Picano, gli altari e il legno intagliato. Foto di Filippo Anello.', 'Discover Santa Margherita in Agira: three naves, its dome, the Immaculate Virgin by Giuseppe Picano, altars and carved wood. Photos by Filippo Anello.'),
+    description: l('Scopri Santa Margherita ad Agira: tre navate, la cupola, l’Immacolata di Giuseppe Picano, gli altari, il legno intagliato e l’audioguida in inglese. Foto di Filippo Anello.', 'Discover Santa Margherita in Agira: three naves, its dome, the Immaculate Virgin by Giuseppe Picano, altars, carved wood and an English audio guide. Photos by Filippo Anello.'),
     introduction: l('Tre navate, una grande cupola e un patrimonio di sculture, dipinti e legni intagliati: una delle tappe principali per scoprire l’arte sacra di Agira.', 'Three naves, a great dome and a collection of sculptures, paintings and carved wood: one of the main stops for discovering Agira’s sacred art.'),
     image: 'santaMargheritaAnelloInterior',
     location: l('Chiesa di Santa Margherita · Agira', 'Santa Margherita Church · Agira'),
     mapQuery: 'Chiesa di Santa Margherita, Agira, Sicilia',
     visitorNote: l('Santa Margherita è un luogo di culto: visita gli ambienti con discrezione e rispetta le celebrazioni. Prima di organizzare la visita agli interni, verifica gli orari di apertura e la possibilità di accedere alla sacrestia.', 'Santa Margherita is a place of worship: visit quietly and respect services. Before planning an indoor visit, check opening hours and whether the sacristy can be accessed.'),
     facts: [
+      { label: l('Audioguida', 'Audio guide'), value: l('Inglese · 8 tracce', 'English · 8 tracks') },
+      { label: l('Durata dell’ascolto', 'Listening time'), value: `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}` },
       { label: l('Impianto medievale', 'Medieval layout'), value: l('Prima metà del XIII secolo', 'First half of the 13th century') },
       { label: l('Pianta', 'Plan'), value: l('Croce latina · tre navate', 'Latin cross · three naves') },
       { label: l('Prospetto', 'Facade'), value: l('Neoclassico · XIX secolo', 'Neoclassical · 19th century') },
@@ -89,6 +100,7 @@ export function getSantaMargheritaPage(lang: Locale): SightPage {
       { title: l('Gli altari e il legno', 'Altars and carved wood'), text: l('Soffermati sulle miniature in oro su vetro, sul coro e sugli intagli del pulpito.', 'Look closely at the gold-on-glass miniatures, the choir and the pulpit carvings.') },
     ],
     practical: [
+      { title: l('Ascoltare l’audioguida', 'Listening to the audio guide'), text: l('L’audioguida disponibile è in inglese, con trascrizioni per tutte le otto tracce. Usa le cuffie e rispetta le celebrazioni e gli spazi di preghiera. Verifica con la chiesa l’accesso alla sacrestia e agli altri ambienti.', 'The audio guide is in English, with transcripts for all eight tracks. Use headphones and respect services and spaces used for prayer. Check access to the sacristy and other rooms with the church.') },
       { title: l('Prima della visita', 'Before your visit'), text: l('Prima di organizzare la visita agli interni, verifica gli orari di apertura e la possibilità di accedere alla sacrestia.', 'Before planning an indoor visit, check opening hours and whether the sacristy can be accessed.') },
       { title: l('Un luogo di culto', 'A place of worship'), text: l('Visita gli ambienti con discrezione e rispetta le celebrazioni.', 'Visit quietly and respectfully, and be mindful of services.') },
     ],
