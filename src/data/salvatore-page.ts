@@ -1,20 +1,31 @@
 import type { Locale } from '../lib/i18n';
 import type { SightPage } from './sight-pages';
+import englishAudio from './salvatore-audio-en.json';
 
 export function getSalvatorePage(lang: Locale): SightPage {
   const l = (it: string, en: string) => lang === 'it' ? it : en;
+  const seconds = Math.floor(englishAudio.chapters.reduce((total, chapter) => total + chapter.durationSeconds, 0));
   return {
     id: 'salvatore',
+    audio: {
+      language: 'en',
+      title: l('La Collegiata, raccontata in inglese.', 'The collegiate church, narrated.'),
+      introduction: l('Un’introduzione, sei capitoli e una conclusione per scoprire le origini, i capitelli, le cappelle, i tesori e l’Aron in pietra. L’audioguida e le trascrizioni disponibili sono in inglese. Ascolta in sequenza oppure scegli una traccia.', 'An introduction, six chapters and a closing exploring the church’s origins, capitals, chapels, treasures and stone Aron. The audio guide and transcripts are in English. Listen in sequence or choose a track.'),
+      chapters: englishAudio.chapters,
+      credit: l('Audioguida gratuita realizzata e curata da Giuseppe Ricceri per Hello Agira.', 'Free audio guide created and curated by Giuseppe Ricceri for Hello Agira.'),
+    },
     name: l('La Collegiata del SS. Salvatore', 'The Collegiate Church of SS. Salvatore'),
     category: l('Architettura, arte e memoria', 'Architecture, art and memory'),
     title: l('Collegiata del SS. Salvatore ad Agira: storia e visita | Hello Agira', 'Collegiate Church of SS. Salvatore in Agira: history and visiting | Hello Agira'),
-    description: l('Scopri la Collegiata del SS. Salvatore di Agira: origini normanne, capitelli scolpiti, tesoro sacro e Aron in pietra del 1454. Foto di Filippo Anello.', 'Discover Agira’s Collegiate Church of SS. Salvatore: Norman origins, carved capitals, sacred treasures and the stone Aron of 1454. Photos by Filippo Anello.'),
+    description: l('Scopri la Collegiata del SS. Salvatore di Agira: origini normanne, capitelli scolpiti, tesoro sacro, Aron in pietra del 1454 e audioguida in inglese. Foto di Filippo Anello.', 'Discover Agira’s Collegiate Church of SS. Salvatore: Norman origins, carved capitals, sacred treasures, the stone Aron of 1454 and an English audio guide. Photos by Filippo Anello.'),
     introduction: l('Ai piedi dell’altura del Castello, il Santissimo Salvatore custodisce secoli di storia religiosa e artistica. Tra colonne, cappelle e memorie della comunità ebraica, la visita invita a riconoscere le diverse epoche di Agira.', 'At the foot of the castle hill, the church of the Most Holy Saviour preserves centuries of religious and artistic history. Columns, chapels and traces of the Jewish community reveal different chapters in Agira’s past.'),
     image: 'salvatoreAnelloAltar',
     location: l('Collegiata del SS. Salvatore · Piazza Roma · Agira', 'Collegiate Church of SS. Salvatore · Piazza Roma · Agira'),
     mapQuery: 'Collegiata Santissimo Salvatore, Piazza Roma, Agira',
     visitorNote: l('Verifica con la chiesa l’apertura e la possibilità di osservare le singole opere. Le celebrazioni e le esigenze di culto possono condizionare la visita.', 'Check opening hours and arrangements for viewing individual works with the church. Services and worship may affect your visit.'),
     facts: [
+      { label: l('Audioguida', 'Audio guide'), value: l('Inglese · 8 tracce', 'English · 8 tracks') },
+      { label: l('Durata dell’ascolto', 'Listening time'), value: `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}` },
       { label: l('Origini', 'Origins'), value: l('Epoca normanna · XII secolo', 'Norman period · 12th century') },
       { label: l('Collegiata dal', 'Collegiate status since'), value: '1689' },
       { label: l('Interno', 'Interior'), value: l('Tre navate · pianta quasi quadrata', 'Three naves · almost square plan') },
@@ -78,6 +89,7 @@ export function getSalvatorePage(lang: Locale): SightPage {
       { title: l('L’Aron', 'The Aron'), text: l('Una struttura in pietra del 1454 restituisce una testimonianza della storia ebraica di Agira.', 'A stone structure from 1454 preserves evidence of Agira’s Jewish history.') },
     ],
     practical: [
+      { title: l('Ascoltare l’audioguida', 'Listening to the audio guide'), text: l('L’audioguida disponibile è in inglese, con trascrizioni per tutte le otto tracce. Usa le cuffie durante l’ascolto e rispetta le celebrazioni e gli spazi di preghiera.', 'The audio guide is in English, with transcripts for all eight tracks. Use headphones and respect services and spaces used for prayer.') },
       { title: l('Organizzare la visita', 'Planning your visit'), text: l('Verifica gli orari direttamente con la chiesa. La visibilità delle opere e degli oggetti del tesoro può dipendere dalle modalità di accesso.', 'Check opening hours directly with the church. Access arrangements may affect which artworks and treasury objects can be viewed.') },
       { title: l('Durante le celebrazioni', 'During services'), text: l('Mantieni un tono di voce basso e rispetta gli spazi di preghiera. Chiedi prima di fotografare durante le funzioni.', 'Keep your voice low and respect areas used for prayer. Ask before taking photographs during services.') },
       { title: l('Accessibilità', 'Accessibility'), text: l('In presenza di esigenze di mobilità, verifica preventivamente gli ingressi e i percorsi interni con la chiesa.', 'If you have mobility requirements, check entrances and routes through the interior with the church before visiting.') },
