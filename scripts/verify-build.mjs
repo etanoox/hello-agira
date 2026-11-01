@@ -417,25 +417,26 @@ for (const [lang, folder, slug] of [['it', 'cosa-vedere', 'collegiata-ss-salvato
 }
 console.log('PASS: SS. Salvatore IT/EN audio, eight tracks per language, transcripts and measured durations.');
 
-const margheritaAudio = JSON.parse(fs.readFileSync('src/data/santa-margherita-audio-en.json', 'utf8'));
-assert.equal(margheritaAudio.language, 'en');
-assert.equal(margheritaAudio.chapters.length, 8, 'Santa Margherita introduction, six chapters and closing');
-const margheritaDuration = Math.floor(margheritaAudio.chapters.reduce((total, chapter) => total + chapter.durationSeconds, 0));
-for (const chapter of margheritaAudio.chapters) {
-  assert.ok(chapter.transcript.length > 0 && chapter.transcript.every(text => text.trim()), 'Santa Margherita transcript paragraphs');
-  assert.ok(!/\[(?:warmly|thoughtfully)\]/.test(chapter.transcript.join(' ')), 'Voice directions are not published');
-  assert.ok(chapter.durationSeconds > 0, 'Measured Santa Margherita track duration');
-  assert.ok(chapter.src.startsWith('/audio/santa-margherita/en/'));
-  assert.ok(fs.statSync(path.join(directory, chapter.src)).size > 0, `Santa Margherita audio exists: ${chapter.src}`);
-}
 for (const [lang, folder, slug] of [['it', 'cosa-vedere', 'chiesa-santa-margherita'], ['en', 'things-to-see', 'santa-margherita-church']]) {
+  const margheritaAudio = JSON.parse(fs.readFileSync(`src/data/santa-margherita-audio-${lang}.json`, 'utf8'));
+  assert.equal(margheritaAudio.language, lang);
+  assert.equal(margheritaAudio.chapters.length, 8, 'Santa Margherita introduction, six chapters and closing');
+  const margheritaDuration = Math.floor(margheritaAudio.chapters.reduce((total, chapter) => total + chapter.durationSeconds, 0));
+  for (const chapter of margheritaAudio.chapters) {
+    assert.ok(chapter.transcript.length > 0 && chapter.transcript.every(text => text.trim()), 'Santa Margherita transcript paragraphs');
+    assert.ok(!/\[(?:warmly|thoughtfully)\]/.test(chapter.transcript.join(' ')), 'Voice directions are not published');
+    assert.ok(chapter.durationSeconds > 0, 'Measured Santa Margherita track duration');
+    assert.ok(chapter.src.startsWith(`/audio/santa-margherita/${lang}/`));
+    assert.ok(fs.statSync(path.join(directory, chapter.src)).size > 0, `Santa Margherita audio exists: ${chapter.src}`);
+  }
   const html = read(`${lang}/${folder}/${slug}/index.html`);
-  assert.ok(html.includes('data-audio-guide'), 'English Santa Margherita guide on both page versions');
+  assert.ok(html.includes('data-audio-guide'), 'Santa Margherita guide in the page language');
   assert.equal((html.match(/<a\b[^>]*\sdata-audio-chapter(?:\s|>)/g) || []).length, 8, 'Eight Santa Margherita audio tracks');
-  assert.equal((html.match(/<details\b[^>]*lang="en"[^>]*id="audioguida-transcript-/g) || []).length, 8, 'Santa Margherita transcripts marked as English');
-  assert.ok(html.includes(lang === 'it' ? 'Audio in inglese' : 'Audio in English'), 'Visible Santa Margherita audio language');
+  assert.equal((html.match(new RegExp(`<details\\b[^>]*lang="${lang}"[^>]*id="audioguida-transcript-`, 'g')) || []).length, 8, 'Santa Margherita transcripts match the page language');
+  assert.ok(html.includes(lang === 'it' ? 'Audio in italiano' : 'Audio in English'), 'Visible Santa Margherita audio language');
   assert.ok(html.includes(`${Math.floor(margheritaDuration / 60)}:${String(margheritaDuration % 60).padStart(2, '0')}`), 'Santa Margherita total listening duration');
-  assert.ok(!html.includes('/audio/santa-margherita/it/'), 'No unavailable Italian Santa Margherita audio');
+  const other = lang === 'it' ? 'en' : 'it';
+  assert.ok(!html.includes(`/audio/santa-margherita/${other}/`), 'Santa Margherita does not mix audio languages');
   for (const chapter of margheritaAudio.chapters) assert.ok(html.includes(`href="${chapter.src}"`), 'Santa Margherita track link');
 }
-console.log('PASS: Santa Margherita English audio, eight tracks, transcripts, duration and IT/EN language labels.');
+console.log('PASS: Santa Margherita IT/EN audio, eight tracks per language, transcripts and measured durations.');
