@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { cassatellaEvent, getCassatellaEventGraph } from '../data/cassatella-event';
+import { getCassatellaVisits } from '../data/cassatella-visits';
 import { serializeSchema } from '../lib/schema';
 import CassatellaPhotoStory from './CassatellaPhotoStory.astro';
 import Icon from './Icon.astro';
@@ -14,6 +15,7 @@ interface Props { lang: Locale }
 const { lang } = Astro.props;
 const l = (it: string, en: string) => lang === 'it' ? it : en;
 const localizedPaths = { it: pageUrl('festival', 'it'), en: pageUrl('festival', 'en') };
+const visitorInfo = getCassatellaVisits(lang);
 const eventGraph = Astro.site?.protocol === 'https:' ? getCassatellaEventGraph(Astro.site, lang) : undefined;
 const copy = lang === 'it' ? {
   title: 'Sagra della Cassatella di Agira 2026 | Hello Agira',
@@ -40,7 +42,7 @@ const copy = lang === 'it' ? {
   programmeTitle: 'Tre giorni da vivere.',
   planEyebrow: '04 / OLTRE LA SAGRA',
   planTitle: 'Fermati a conoscere Agira.',
-  planText: 'La Sagra può diventare l’inizio di una visita tra vicoli, luoghi di memoria e sapori del territorio.',
+  planText: 'Approfitta della Sagra per scoprire la città di Diodoro Siculo: chiese, musei, palazzi, piazze, il Castello medievale e i luoghi di culto di San Filippo d’Agira. Scegli le visite e contatta i referenti per organizzarle.',
   sights: 'Cosa vedere',
   food: 'Dove mangiare',
   nextEyebrow: 'IL VIAGGIO CONTINUA',
@@ -71,7 +73,7 @@ const copy = lang === 'it' ? {
   programmeTitle: 'Three days to enjoy.',
   planEyebrow: '04 / BEYOND THE FESTIVAL',
   planTitle: 'Stay and get to know Agira.',
-  planText: 'Make the festival the start of a visit among the town’s lanes, places of memory and local flavours.',
+  planText: 'Make the festival a chance to explore the town of Diodorus Siculus: churches, museums, palaces, squares, the medieval castle and places associated with Saint Philip of Agira. Choose your visits and contact the venues to arrange them.',
   sights: 'Things to see',
   food: 'Where to eat',
   nextEyebrow: 'KEEP EXPLORING',
@@ -80,7 +82,6 @@ const copy = lang === 'it' ? {
 };
 const sightsHref = pageUrl('sights', lang);
 const foodHref = pageUrl('eat', lang);
-const homeHref = `/${lang}/`;
 const editionFacts = lang === 'it' ? [
   { label: 'QUANDO', value: 'Dal 13 al 15 novembre 2026' },
   { label: 'DOVE', value: 'Piazza Europa, Agira · Sicilia' },
@@ -206,6 +207,7 @@ const festivalArchive = lang === 'it' ? [
           <p>{l('Ingresso libero, senza prenotazione o biglietto. Anche gli spettacoli sono inclusi; cibo e bevande si acquistano separatamente.', 'Free entry without booking or tickets. Shows are included; food and drinks are purchased separately.')}</p>
           <p>{l('Organizzazione:', 'Organised by:')} <a class="text-link" href={cassatellaEvent.organizer.url} target="_blank" rel="noopener noreferrer">{cassatellaEvent.organizer.name}<Icon name="diagonal"/></a></p>
           <div class="festival-official-links">
+            <a class="text-link" href="#visite-e-navetta">{l('Visite, prenotazioni e navetta', 'Visits, bookings and shuttle')}<Icon name="arrow"/></a>
             <a class="text-link" href={cassatellaEvent.location.mapUrl} target="_blank" rel="noopener noreferrer">{l('Come arrivare · Piazza Europa', 'Getting here · Piazza Europa')}<Icon name="diagonal"/></a>
           </div>
         </div>
@@ -241,17 +243,34 @@ const festivalArchive = lang === 'it' ? [
       </div>
     </section>
 
-    <section class="festival-plan section" aria-labelledby="festival-plan-title">
+    <section id="visite-e-navetta" class="festival-plan festival-visits section" aria-labelledby="festival-plan-title">
       <div class="container festival-plan-grid">
         <div><p class="eyebrow">{copy.planEyebrow}</p><h2 id="festival-plan-title">{copy.planTitle}</h2></div>
-        <div><p>{copy.planText}</p><div class="festival-plan-links"><a class="text-link" href={sightsHref}>{copy.sights}<Icon name="arrow"/></a><a class="text-link" href={foodHref}>{copy.food}<Icon name="arrow"/></a></div></div>
+        <div><p>{copy.planText}</p><div class="festival-plan-links"><a class="text-link" href={sightsHref}>{copy.sights}<Icon name="arrow"/></a><a class="text-link" href={pageUrl('beautifulVillages', lang)}>{l('Agira tra i Borghi più belli d’Italia', 'Agira among Italy’s Most Beautiful Villages')}<Icon name="arrow"/></a></div></div>
+      </div>
+      <div class="container">
+        <ul class="festival-visit-list" aria-label={l('Visite e mostra durante la Sagra', 'Visits and exhibition during the festival')}>
+          {visitorInfo.visits.map((visit, i) => <li>
+            <div class="festival-visit-top"><p>{i === 3 ? l('MOSTRA D’ARTE', 'ART EXHIBITION') : l('VISITE SU PRENOTAZIONE', 'VISITS BY APPOINTMENT')}</p><span class="small-number" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span></div>
+            <h3>{visit.title}</h3>
+            <p>{visit.text}</p>
+            <div class="festival-visit-actions">
+              <a class="button button-yellow" href={visit.href} aria-label={`${visit.action}: ${visit.title}, ${visit.phone}`}><span>{visit.action}<br/>{visit.phone}</span><Icon name="diagonal"/></a>
+              {'detailUrl' in visit && <a class="text-link" href={visit.detailUrl}>{l('Scopri il luogo', 'Explore the place')}<Icon name="arrow"/></a>}
+            </div>
+          </li>)}
+        </ul>
+        <section class="festival-shuttle" aria-labelledby="festival-shuttle-title">
+          <div><p class="eyebrow">{l('MUOVERSI DURANTE LA SAGRA', 'GETTING AROUND DURING THE FESTIVAL')}</p><h3 id="festival-shuttle-title">{l('Il servizio navetta.', 'The shuttle service.')}</h3><p>{l('A cura di', 'Provided by')} {visitorInfo.shuttle.organizer}.</p></div>
+          <div><p><strong>{l('Punto di partenza:', 'Departure point:')}</strong><br/>{visitorInfo.shuttle.departure}</p><a class="button button-yellow" href={visitorInfo.shuttle.href} aria-label={`${l('Informazioni sul servizio navetta', 'Shuttle service information')}: ${visitorInfo.shuttle.phone}`}><span>{l('Informazioni', 'Information')} · {visitorInfo.shuttle.phone}</span><Icon name="diagonal"/></a></div>
+        </section>
       </div>
     </section>
 
     <section class="itinerary-next festival-next" aria-label={lang === 'it' ? 'Continua a esplorare' : 'Keep exploring'}>
       <div class="container itinerary-next-inner">
         <div><p class="eyebrow">{copy.nextEyebrow}</p><h2>{copy.nextTitle}</h2></div>
-        <div class="itinerary-next-links"><a class="button button-yellow" href={homeHref}>{copy.nextAction}<Icon name="arrow"/></a></div>
+        <div class="itinerary-next-links"><a class="button button-yellow" href={foodHref}>{copy.food}<Icon name="arrow"/></a></div>
       </div>
     </section>
   </main>
@@ -260,6 +279,24 @@ const festivalArchive = lang === 'it' ? [
 </Base>
 
 <style>
+  .festival-visits .festival-plan-grid{align-items:start}
+  .festival-visit-list{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem;margin:3rem 0 0;padding:0}
+  .festival-visit-list>li{display:flex;flex-direction:column;min-width:0;background:var(--white);border:1px solid var(--line);border-top:3px solid var(--forest);border-radius:2px;padding:1.8rem}
+  .festival-visit-top{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:1.2rem}
+  .festival-visit-top p{font-size:.75rem;line-height:1.5;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+  .festival-visit-top .small-number{flex-shrink:0}
+  .festival-visit-list h3,.festival-shuttle h3{font-size:clamp(1.6rem,2.5vw,2rem);line-height:1.15;letter-spacing:-.04em;margin:0 0 1.3rem;overflow-wrap:anywhere}
+  .festival-visit-list p,.festival-shuttle p{line-height:1.65}
+  .festival-visit-actions{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.5rem;margin-top:auto;padding-top:1.5rem}
+  .festival-visit-actions .button,.festival-shuttle .button{font-size:.875rem;min-height:48px;padding:.8rem 1.2rem;gap:1rem;max-width:100%;white-space:normal;text-align:left}
+  .festival-visit-actions .button svg,.festival-shuttle .button svg{width:18px;height:18px;flex-shrink:0}
+  .festival-visit-actions .text-link{font-size:.875rem}
+  .festival-visit-actions .button span,.festival-shuttle .button span{line-height:1.6;overflow-wrap:anywhere}
+  .festival-shuttle{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;background:var(--white);border:1px solid var(--line);border-top:3px solid var(--forest);border-radius:2px;padding:1.8rem;margin-top:1.5rem}
+  .festival-shuttle .eyebrow{margin-bottom:1.2rem}
+  .festival-shuttle .button{margin-top:1.3rem}
+  @media(max-width:700px){.festival-visit-list,.festival-shuttle{grid-template-columns:1fr;gap:1rem}.festival-visit-list{margin-top:2rem}.festival-visit-list>li,.festival-shuttle{padding:1.5rem 1.3rem}.festival-shuttle>div+div{margin-top:.3rem}}
+
   .festival-story-gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.85rem;margin-top:1.65rem}
   .festival-story-gallery figure{min-width:0;margin:0}
   .festival-story-gallery a{display:block;overflow:hidden;border:1px solid #d8d4c8;border-radius:4px;background:#fff;box-shadow:0 5px 16px #14251d12;transition:transform .2s ease,box-shadow .2s ease}

@@ -440,3 +440,13 @@ for (const [lang, folder, slug] of [['it', 'cosa-vedere', 'chiesa-santa-margheri
   for (const chapter of margheritaAudio.chapters) assert.ok(html.includes(`href="${chapter.src}"`), 'Santa Margherita track link');
 }
 console.log('PASS: Santa Margherita IT/EN audio, eight tracks per language, transcripts and measured durations.');
+
+for (const file of ['it/sagra-cassatella/index.html', 'en/cassatella-festival/index.html']) {
+  const html = read(file);
+  assert.ok(html.includes('id="visite-e-navetta"'), 'Festival visitor information anchor');
+  for (const phone of ['+393381302639', '+393287797235', '+393801881164', '+393701205284', '+393888037673']) assert.ok(html.includes(`href="tel:${phone}"`), `Official festival contact: ${phone}`);
+  for (const label of ['CassatellArt', 'Ecomuseo di Cultura Materiale', 'Piazza Emanuele Basile', 'I Castelli di Enna']) assert.ok(html.includes(label), `Official festival visitor detail: ${label}`);
+  assert.ok(html.includes(file.startsWith('it/') ? '/it/cosa-vedere/aron-memoria-ebraica/' : '/en/things-to-see/aron-jewish-heritage/'), 'Festival Aron detail link');
+  assert.ok(html.includes(file.startsWith('it/') ? '/it/cosa-vedere/palazzo-baronale-manmano-gussio/' : '/en/things-to-see/palazzo-baronale-manmano-gussio/'), 'Festival palace detail link');
+}
+console.log('PASS: Cassatella official visitor contacts, exhibition, shuttle departure and localized detail links.');
