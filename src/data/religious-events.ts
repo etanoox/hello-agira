@@ -1,5 +1,5 @@
-import photos from './photos.json';
 import { pageUrl, type Locale } from '../lib/i18n';
+import { imageObject } from '../lib/schema';
 
 // Edition dates already confirmed by the editor. Unknown times, admission
 // arrangements and organizers are omitted rather than inferred from past years.
@@ -26,10 +26,8 @@ export function getReligiousEventGraph(origin: URL, lang: Locale, kind: Religiou
   const eventId = new URL(pageUrl(route, 'it') + (saint ? '#edizione-2027' : '#edizione-2026'), root).href;
   const locationId = `${root}/#${saint ? 'luoghi-festa-san-filippo' : 'luoghi-presepe-vivente'}`;
   const breadcrumbId = `${page}#breadcrumb`;
-  const photo = photos[details.image];
-  const width = Math.max(...photo.widths.filter(value => value <= 2048));
-  const imageUrl = new URL(`/images/${details.image}-${width}.webp`, root).href;
-  const imageId = `${imageUrl}#image`;
+  const image = imageObject(origin, lang, details.image, 2048);
+  const imageId = image['@id'];
   const organizerId = `${root}/#associazione-amici-del-presepe`;
   const name = saint
     ? l('Festa di San Filippo d’Agira 2027', 'Feast of Saint Philip of Agira 2027')
@@ -61,12 +59,7 @@ export function getReligiousEventGraph(origin: URL, lang: Locale, kind: Religiou
         },
       },
       ...(!saint ? [{ '@type': 'Organization', '@id': organizerId, name: nativityEvent.organizer }] : []),
-      {
-        '@type': 'ImageObject', '@id': imageId, contentUrl: imageUrl, url: imageUrl,
-        width, height: Math.round(photo.height * width / photo.width),
-        caption: photo.alt[lang], creditText: photo.credit[lang],
-        creator: { '@type': 'Person', name: photo.author },
-      },
+      image,
       {
         '@type': 'BreadcrumbList', '@id': breadcrumbId,
         itemListElement: [

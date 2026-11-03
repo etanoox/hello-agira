@@ -204,6 +204,61 @@ for (const locale of ['it', 'en']) {
 }
 console.log(`PASS: social metadata and hero images on ${socialPages} localized pages.`);
 
+// Cover every ImageObject, including nested primaryImageOfPage objects.
+const photoMetadata = JSON.parse(fs.readFileSync('src/data/photos.json', 'utf8'));
+function collectImageObjects(value) {
+  if (!value || typeof value !== 'object') return [];
+  return [
+    ...(value['@type'] === 'ImageObject' ? [value] : []),
+    ...Object.values(value).flatMap(collectImageObjects),
+  ];
+}
+let imageObjects = 0;
+for (const [locale, legalPath] of [['it', '/it/note-legali/#diritti-immagini'], ['en', '/en/legal-notice/#image-rights']]) {
+  for (const relative of fs.readdirSync(path.join(directory, locale), { recursive: true })) {
+    if (!relative.endsWith('.html')) continue;
+    const file = path.join(locale, relative), html = read(file);
+    const canonical = html.match(/rel="canonical" href="([^"]+)"/)?.[1];
+    if (!canonical) continue;
+    const images = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
+      .flatMap(match => collectImageObjects(JSON.parse(match[1])));
+    assert.equal(new Set(images.map(image => image['@id'])).size, images.length, `${file}: no duplicate ImageObjects`);
+    for (const image of images) {
+      const url = new URL(image.contentUrl);
+      const key = path.basename(url.pathname).replace(/-\d+\.webp$/, '');
+      const photo = photoMetadata[key];
+      assert.ok(photo, `${file}: image comes from the shared photo catalogue`);
+      assert.equal(image.url, image.contentUrl);
+      assert.equal(image['@id'], `${image.contentUrl}#image`);
+      assert.equal(url.origin, new URL(canonical).origin);
+      assert.ok(fs.existsSync(path.join(directory, url.pathname)), `${file}: image file exists`);
+      assert.ok(photo.widths.includes(image.width) && image.height > 0, `${file}: valid image dimensions`);
+      assert.equal(image.caption, photo.alt[locale], `${file}: localized description`);
+      assert.equal(image.creditText, photo.credit?.[locale]?.trim() || undefined, `${file}: original credit`);
+      assert.deepEqual(image.creator, photo.author?.trim()
+        ? { '@type': photo.authorType ?? 'Person', name: photo.author.trim() } : undefined, `${file}: no invented creator`);
+      assert.equal(image.copyrightNotice, photo.copyrightHolder?.trim()
+        ? `© ${photo.copyrightHolder.trim()}` : undefined, `${file}: copyright only from an explicit holder`);
+      assert.equal(image.acquireLicensePage, photo.licenseContactUrl?.trim()
+        ? new URL(photo.licenseContactUrl.trim()).href : undefined, `${file}: contact only from an explicit URL`);
+      assert.equal(image.license, photo.licenseUrl?.trim()
+        ? new URL(photo.licenseUrl.trim()).href : new URL(legalPath, canonical).href, `${file}: specific licence or localized notice`);
+      for (const href of [image.license, image.acquireLicensePage].filter(Boolean)) {
+        const target = new URL(href);
+        assert.ok(['http:', 'https:'].includes(target.protocol) && !target.username && !target.password, `${file}: absolute public-page URL`);
+        if (target.origin === new URL(canonical).origin) {
+          const targetFile = target.pathname.endsWith('/') ? `${target.pathname}index.html` : target.pathname;
+          assert.ok(fs.existsSync(path.join(directory, targetFile)), `${file}: rights page exists`);
+          if (target.hash) assert.ok(read(targetFile).includes(`id="${target.hash.slice(1)}"`), `${file}: rights section exists`);
+        }
+      }
+      imageObjects++;
+    }
+  }
+}
+assert.ok(imageObjects > 0, 'Image metadata was emitted');
+console.log(`PASS: ${imageObjects} ImageObjects, localized rights pages, explicit copyright/contact data and no invented rights.`);
+
 // One confirmed festival edition, described consistently in both languages.
 const cassatellaEventIds = [];
 for (const file of ['it/sagra-cassatella/index.html', 'en/cassatella-festival/index.html']) {

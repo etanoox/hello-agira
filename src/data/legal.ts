@@ -1,13 +1,15 @@
 import type { Locale } from '../lib/i18n';
+export const imageRightsSectionIds = { it: 'diritti-immagini', en: 'image-rights' } satisfies Record<Locale, string>;
+
 export function getLegal(lang: Locale) {
   const l = (it: string, en: string) => lang === 'it' ? it : en;
   return {
     title: l('Note legali e condizioni d’uso | Hello Agira', 'Legal notice and terms of use | Hello Agira'),
     heading: l('Note legali e condizioni d’uso.', 'Legal notice and terms of use.'),
-    description: l('Informazioni su Hello Agira, uso dei contenuti, servizi di terzi e contatti per segnalazioni e richieste sui materiali.', 'Information about Hello Agira, use of its content, third-party services and contacts for reports and requests concerning materials.'),
-    updated: l('Ultimo aggiornamento: 18/10/2026', 'Last updated: 18 October 2026'),
+    description: l('Informazioni su Hello Agira, uso dei contenuti, servizi di terzi e contatti per segnalazioni.', 'Information about Hello Agira, use of its content, third-party services and contacts for reports.'),
+    updated: l('Ultimo aggiornamento: 03/11/2026', 'Last updated: 3 November 2026'),
     introduction: l('Hello Agira è una guida indipendente su Agira, curata da Giuseppe Ricceri. Il progetto è gratuito e autofinanziato e non è il sito istituzionale del Comune.', 'Hello Agira is an independent guide to Agira, curated by Giuseppe Ricceri. The project is free and self-funded and is not the municipality’s official website.'),
-    contact: l('Per contatti, segnalazioni o richieste sui materiali:', 'For enquiries, reports or requests concerning materials:'),
+    contact: l('Per contatti sul progetto o segnalazioni:', 'For enquiries about the project or reports:'),
     sections: [
       { id: 'informazioni', title: l('Informazioni e servizi citati', 'Information and services mentioned'), paragraphs: [
         l('Il sito propone contenuti culturali e indicazioni pratiche. Orari, accessibilità dei luoghi, programmi degli eventi e servizi delle attività possono cambiare: prima di organizzare una visita verifica le informazioni con il referente o l’organizzatore indicato. La presenza di una scheda non equivale a un rapporto commerciale o a una garanzia sui servizi di terzi.', 'The website provides cultural content and practical information. Opening hours, accessibility of places, event programmes and services offered by businesses may change: before planning a visit, check the information with the contact person or organiser indicated. Inclusion in a listing does not imply a commercial relationship or a guarantee of third-party services.'),
@@ -27,8 +29,13 @@ export function getLegal(lang: Locale) {
         l('Cloudflare Pages distribuisce il sito e può trattare dati tecnici di connessione per erogazione e sicurezza. Font e audioguide sono serviti dal sito. Le scelte valgono per il browser e il dispositivo utilizzati. Puoi esercitare, nei casi previsti dal GDPR, i diritti di accesso, rettifica, cancellazione, limitazione, opposizione e portabilità scrivendo al titolare, oltre a proporre reclamo all’autorità di controllo competente. La revoca non pregiudica i trattamenti precedenti e non cancella automaticamente i dati già raccolti.', 'Cloudflare Pages delivers the website and may process technical connection data for delivery and security. Fonts and audioguides are served by the website. Choices apply to the browser and device used. Where applicable under the GDPR, you may exercise access, correction, erasure, restriction, objection and portability rights by contacting the controller, and complain to a competent supervisory authority. Withdrawal does not affect earlier processing and does not automatically erase previously collected data.'),
       ] },
       { id: 'segnalazioni', title: l('Segnalazioni e collegamenti', 'Reports and links'), paragraphs: [
-        l('Puoi segnalare errori, aggiornamenti, problemi di accessibilità o questioni relative ai diritti sui contenuti scrivendo al gestore e indicando la pagina interessata. I collegamenti esterni rimandano a servizi gestiti dai rispettivi soggetti.', 'You can report errors, updates, accessibility issues or questions about content rights by contacting the website operator and specifying the page concerned. External links lead to services operated by their respective providers.'),
+        l('Puoi segnalare errori, aggiornamenti, problemi di accessibilità o possibili violazioni dei diritti sui contenuti scrivendo al gestore e indicando la pagina interessata. I collegamenti esterni rimandano a servizi gestiti dai rispettivi soggetti.', 'You can report errors, updates, accessibility issues or possible infringements of content rights by contacting the website operator and specifying the page concerned. External links lead to services operated by their respective providers.'),
         l('Queste note non limitano diritti inderogabili né escludono responsabilità che la legge non consente di escludere.', 'These notes do not restrict statutory rights that cannot be waived or exclude liability that cannot lawfully be excluded.'),
+      ] },
+      { id: imageRightsSectionIds[lang], title: l('Diritti delle immagini', 'Image rights'), paragraphs: [
+        l('Le fotografie pubblicate su Hello Agira restano di proprietà dei rispettivi autori o titolari dei diritti, indicati nei crediti quando disponibili. La pubblicazione sul sito non implica l’autorizzazione al riutilizzo da parte di terzi.', 'Photographs published on Hello Agira remain the property of their respective authors or rights holders, identified in the credits where available. Publication on this website does not authorise reuse by third parties.'),
+        l('Le condizioni di utilizzo dipendono dall’autore o dal titolare dei diritti della singola fotografia. Eventuali licenze specifiche indicate per una fotografia continuano ad applicarsi; queste note non le sostituiscono né concedono una licenza aggiuntiva.', 'Terms of use depend on the author or rights holder of each photograph. Any specific licence stated for a photograph continues to apply; this notice neither replaces it nor grants an additional licence.'),
+        l('Per richieste di riproduzione o utilizzo è necessario rivolgersi direttamente all’autore o al titolare dei diritti indicato per la fotografia, tramite i suoi recapiti pubblici quando disponibili. Hello Agira non agisce da intermediario per queste richieste.', 'Requests to reproduce or use a photograph must be addressed directly to the author or rights holder identified for that photograph, using their public contact details where available. Hello Agira does not act as an intermediary for these requests.'),
       ] },
     ],
   };

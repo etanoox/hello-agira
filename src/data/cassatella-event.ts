@@ -1,5 +1,5 @@
-import photos from './photos.json';
 import { pageUrl, type Locale } from '../lib/i18n';
+import { imageObject } from '../lib/schema';
 
 // Details confirmed by the editor; coordinates resolve from the supplied Maps pin.
 export const cassatellaEvent = {
@@ -24,10 +24,8 @@ export function getCassatellaEventGraph(origin: URL, lang: Locale) {
   const eventId = new URL(pageUrl('festival', 'it') + '#evento-2026', root).href;
   const locationId = `${root}/#piazza-europa-agira`;
   const organizerId = `${cassatellaEvent.organizer.url}#organization`;
-  const photo = photos[cassatellaEvent.image];
-  const width = Math.max(...photo.widths.filter(value => value <= 1800));
-  const imageUrl = new URL(`/images/${cassatellaEvent.image}-${width}.webp`, root).href;
-  const imageId = `${imageUrl}#image`;
+  const image = imageObject(origin, lang, cassatellaEvent.image);
+  const imageId = image['@id'];
   const breadcrumbId = `${page}#breadcrumb`;
   return {
     '@context': 'https://schema.org',
@@ -59,12 +57,7 @@ export function getCassatellaEventGraph(origin: URL, lang: Locale) {
         hasMap: cassatellaEvent.location.mapUrl,
       },
       { '@type': 'Organization', '@id': organizerId, ...cassatellaEvent.organizer },
-      {
-        '@type': 'ImageObject', '@id': imageId, contentUrl: imageUrl, url: imageUrl,
-        width, height: Math.round(photo.height * width / photo.width),
-        caption: photo.alt[lang], creditText: photo.credit[lang],
-        creator: { '@type': 'Person', name: photo.author },
-      },
+      image,
       {
         '@type': 'BreadcrumbList', '@id': breadcrumbId,
         itemListElement: [

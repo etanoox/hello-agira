@@ -9,7 +9,7 @@ import Icon from './Icon.astro';
 import photos from '../data/photos.json';
 import { getBeautifulVillages } from '../data/beautiful-villages';
 import { pageUrl, sightUrl, type Locale } from '../lib/i18n';
-import { serializeSchema } from '../lib/schema';
+import { imageObject, serializeSchema } from '../lib/schema';
 interface Props { lang: Locale }
 const { lang } = Astro.props;
 const l = (it: string, en: string) => lang === 'it' ? it : en;
@@ -45,7 +45,7 @@ const structured = Astro.site?.protocol === 'https:' ? {
     ] },
     { '@type': 'WebPage', '@id': new URL(paths[lang] + '#page', Astro.site).href,
       breadcrumb: { '@id': new URL(paths[lang] + '#breadcrumb', Astro.site).href },
-      primaryImageOfPage: { '@type': 'ImageObject', contentUrl: new URL(heroUrl, Astro.site).href, caption: photos[hero].alt[lang], creditText: photos[hero].credit[lang], creator: { '@type': 'Person', name: photos[hero].author } },
+      primaryImageOfPage: imageObject(Astro.site, lang, hero),
     },
   ],
 } : undefined;
