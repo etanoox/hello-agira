@@ -1,21 +1,7 @@
-import { socialProfiles } from '../data/social';
-import photos from '../data/photos.json';
-import { imageRightsSectionIds } from '../data/legal';
-import { pageUrl, type Locale } from './i18n';
-
-// Rights are explicit editorial data, independent of the photographer's name.
-export interface PhotoMetadata {
-  width: number;
-  height: number;
-  widths: number[];
-  alt: Record<Locale, string>;
-  credit?: Partial<Record<Locale, string>>;
-  author?: string | null;
-  authorType?: string | null;
-  licenseUrl?: string | null;
-  copyrightHolder?: string | null;
-  licenseContactUrl?: string | null;
-}
+import { socialProfiles } from '../data/social.ts';
+import { imageRightsSectionIds } from '../data/legal.ts';
+import { pageUrl, type Locale } from './i18n.ts';
+import { imageFile, imageMetadata, type ImageKey } from './image-metadata.ts';
 
 // Syntax validation only: editors must verify the page and its rights/contact
 // information before entering a URL. Never infer it from authorUrl or source.
@@ -28,11 +14,15 @@ function imageRightsUrl(value: string | null | undefined) {
   return url.href;
 }
 
-export function imageObject(origin: URL, lang: Locale, name: keyof typeof photos, maxWidth = 1800) {
-  const photo: PhotoMetadata = photos[name];
+export function imageReference(origin: URL, name: ImageKey) {
+  return { '@id': `${origin.origin}/#image-${name}` };
+}
+
+export function imageObject(origin: URL, lang: Locale, name: ImageKey, maxWidth = 1800) {
+  const photo = imageMetadata(name);
   const candidates = photo.widths.filter(width => width <= maxWidth);
   const width = candidates.length ? Math.max(...candidates) : Math.min(...photo.widths);
-  const contentUrl = new URL(`/images/${name}-${width}.webp`, origin).href;
+  const contentUrl = new URL(imageFile(name, width), origin).href;
   const author = photo.author?.trim();
   const authorType = photo.authorType ?? 'Person';
   if (author && !['Person', 'Organization'].includes(authorType)) {
@@ -42,9 +32,9 @@ export function imageObject(origin: URL, lang: Locale, name: keyof typeof photos
   const copyrightHolder = photo.copyrightHolder?.trim();
   const acquireLicensePage = imageRightsUrl(photo.licenseContactUrl);
   return {
-    '@type': 'ImageObject', '@id': `${contentUrl}#image`,
+    '@type': 'ImageObject', ...imageReference(origin, name),
     contentUrl, url: contentUrl,
-    width, height: Math.round(photo.height * width / photo.width),
+    width, height: photo.variantHeights?.[width] ?? Math.round(photo.height * width / photo.width),
     caption: photo.alt[lang],
     ...(creditText ? { creditText } : {}),
     ...(author ? { creator: { '@type': authorType, name: author } } : {}),
@@ -52,6 +42,7 @@ export function imageObject(origin: URL, lang: Locale, name: keyof typeof photos
     license: imageRightsUrl(photo.licenseUrl)
       ?? new URL(`${pageUrl('legal', lang)}#${imageRightsSectionIds[lang]}`, origin).href,
     ...(acquireLicensePage ? { acquireLicensePage } : {}),
+    ...(photo.source ? { isBasedOn: photo.source } : {}),
   };
 }
 

@@ -94,6 +94,9 @@
     "credit": {
       "it": "Fotografia di Giuseppe Ricceri.",
       "en": "Photograph by Giuseppe Ricceri."
+    },
+    "variantHeights": {
+      "1800": 2094
     }
   },
   "stay": {
@@ -3250,6 +3253,134 @@
     "credit": {
       "it": "Fotografia di Filippo Anello.",
       "en": "Photo by Filippo Anello."
+    }
+  },
+  "cassatellaFestival2022": {
+    "width": 480,
+    "height": 674,
+    "widths": [
+      480
+    ],
+    "files": {
+      "480": "/images/cassatella-festival-2022.webp"
+    },
+    "alt": {
+      "it": "Locandina della Sagra della Cassatella di Agira, 10ª edizione del 2022",
+      "en": "Poster for the 10th Cassatella Festival in Agira, 2022"
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "",
+      "en": ""
+    }
+  },
+  "cassatellaFestival2023": {
+    "width": 900,
+    "height": 1286,
+    "widths": [
+      480,
+      900
+    ],
+    "files": {
+      "480": "/images/cassatella-festival-2023-480.webp",
+      "900": "/images/cassatella-festival-2023.webp"
+    },
+    "alt": {
+      "it": "Locandina della Sagra della Cassatella di Agira, 11ª edizione del 2023",
+      "en": "Poster for the 11th Cassatella Festival in Agira, 2023"
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "",
+      "en": ""
+    }
+  },
+  "cassatellaFestival2024": {
+    "width": 900,
+    "height": 1266,
+    "widths": [
+      480,
+      900
+    ],
+    "files": {
+      "480": "/images/cassatella-festival-2024-480.webp",
+      "900": "/images/cassatella-festival-2024.webp"
+    },
+    "alt": {
+      "it": "Locandina della Sagra della Cassatella di Agira, 12ª edizione del 2024",
+      "en": "Poster for the 12th Cassatella Festival in Agira, 2024"
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "",
+      "en": ""
+    }
+  },
+  "cassatellaFestival2025": {
+    "width": 900,
+    "height": 1266,
+    "widths": [
+      480,
+      900
+    ],
+    "files": {
+      "480": "/images/cassatella-festival-2025-480.webp",
+      "900": "/images/cassatella-festival-2025.webp"
+    },
+    "alt": {
+      "it": "Locandina della Sagra della Cassatella di Agira, 13ª edizione del 2025",
+      "en": "Poster for the 13th Cassatella Festival in Agira, 2025"
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "",
+      "en": ""
+    }
+  },
+  "cassatellaFestival2026": {
+    "width": 900,
+    "height": 1280,
+    "widths": [
+      480,
+      900
+    ],
+    "files": {
+      "480": "/images/cassatella-festival-2026-480.webp",
+      "900": "/images/cassatella-festival-2026.webp"
+    },
+    "alt": {
+      "it": "Locandina della 14ª Sagra della Cassatella e le vie dei sapori ad Agira, dal 13 al 15 novembre 2026",
+      "en": "Poster for the 14th Sagra della Cassatella e le vie dei sapori in Agira, 13–15 November 2026"
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "",
+      "en": ""
     }
   }
 }

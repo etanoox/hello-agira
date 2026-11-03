@@ -1,5 +1,5 @@
 import { pageUrl, type Locale } from '../lib/i18n';
-import { imageObject } from '../lib/schema';
+import { imageReference } from '../lib/schema';
 
 // Details confirmed by the editor; coordinates resolve from the supplied Maps pin.
 export const cassatellaEvent = {
@@ -24,8 +24,7 @@ export function getCassatellaEventGraph(origin: URL, lang: Locale) {
   const eventId = new URL(pageUrl('festival', 'it') + '#evento-2026', root).href;
   const locationId = `${root}/#piazza-europa-agira`;
   const organizerId = `${cassatellaEvent.organizer.url}#organization`;
-  const image = imageObject(origin, lang, cassatellaEvent.image);
-  const imageId = image['@id'];
+  const imageId = imageReference(origin, cassatellaEvent.image)['@id'];
   const breadcrumbId = `${page}#breadcrumb`;
   return {
     '@context': 'https://schema.org',
@@ -57,7 +56,6 @@ export function getCassatellaEventGraph(origin: URL, lang: Locale) {
         hasMap: cassatellaEvent.location.mapUrl,
       },
       { '@type': 'Organization', '@id': organizerId, ...cassatellaEvent.organizer },
-      image,
       {
         '@type': 'BreadcrumbList', '@id': breadcrumbId,
         itemListElement: [

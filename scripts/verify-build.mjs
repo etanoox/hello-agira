@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import assert from 'node:assert/strict';
+import { imageMetadata, imageFile } from '../src/lib/image-metadata.ts';
 const directory = 'dist';
 for (const name of fs.readdirSync(path.join(directory, 'images'))) {
   const file = path.join(directory, 'images', name);
@@ -204,7 +205,7 @@ for (const locale of ['it', 'en']) {
 }
 console.log(`PASS: social metadata and hero images on ${socialPages} localized pages.`);
 
-// Cover every ImageObject, including nested primaryImageOfPage objects.
+// Cover every rendered editorial image, including nested schema and repeated thumbnails.
 const photoMetadata = JSON.parse(fs.readFileSync('src/data/photos.json', 'utf8'));
 function collectImageObjects(value) {
   if (!value || typeof value !== 'object') return [];
@@ -213,7 +214,10 @@ function collectImageObjects(value) {
     ...Object.values(value).flatMap(collectImageObjects),
   ];
 }
-let imageObjects = 0;
+const imageKeysByPath = new Map(Object.entries(photoMetadata).flatMap(([key, photo]) =>
+  photo.widths.map(width => [imageFile(key, width), key])));
+const coveredKeys = new Set();
+let imageObjects = 0, pagesWithImageMetadata = 0;
 for (const [locale, legalPath] of [['it', '/it/note-legali/#diritti-immagini'], ['en', '/en/legal-notice/#image-rights']]) {
   for (const relative of fs.readdirSync(path.join(directory, locale), { recursive: true })) {
     if (!relative.endsWith('.html')) continue;
@@ -223,16 +227,36 @@ for (const [locale, legalPath] of [['it', '/it/note-legali/#diritti-immagini'], 
     const images = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
       .flatMap(match => collectImageObjects(JSON.parse(match[1])));
     assert.equal(new Set(images.map(image => image['@id'])).size, images.length, `${file}: no duplicate ImageObjects`);
+    const visibleKeys = new Set([...html.matchAll(/<img\b[^>]*>/g)].flatMap(([tag]) => {
+      if (tag.includes('data-decorative')) {
+        assert.ok(tag.includes('alt=""'), `${file}: decorative images have empty alt text`);
+        return [];
+      }
+      const src = tag.match(/\bsrc="([^"]+)"/)?.[1];
+      assert.ok(src, `${file}: image has a crawlable src`);
+      const key = imageKeysByPath.get(new URL(src, canonical).pathname);
+      assert.ok(key, `${file}: every editorial image must use the shared catalogue (${src})`);
+      return [key];
+    }));
+    const markedKeys = new Set(images.map(image => imageKeysByPath.get(new URL(image.contentUrl).pathname)));
+    assert.deepEqual(markedKeys, visibleKeys, `${file}: schema covers exactly the images on this page`);
+    const ids = new Set(images.map(image => image['@id']));
+    for (const match of html.matchAll(/"@id":"([^"]*#image-[^"]+)"/g)) {
+      assert.ok(ids.has(match[1]), `${file}: image reference resolves on this page`);
+    }
+    if (images.length) pagesWithImageMetadata++;
     for (const image of images) {
       const url = new URL(image.contentUrl);
-      const key = path.basename(url.pathname).replace(/-\d+\.webp$/, '');
-      const photo = photoMetadata[key];
+      const key = imageKeysByPath.get(url.pathname);
+      const photo = key && imageMetadata(key);
       assert.ok(photo, `${file}: image comes from the shared photo catalogue`);
       assert.equal(image.url, image.contentUrl);
-      assert.equal(image['@id'], `${image.contentUrl}#image`);
+      assert.equal(image['@id'], `${new URL(canonical).origin}/#image-${key}`);
       assert.equal(url.origin, new URL(canonical).origin);
       assert.ok(fs.existsSync(path.join(directory, url.pathname)), `${file}: image file exists`);
       assert.ok(photo.widths.includes(image.width) && image.height > 0, `${file}: valid image dimensions`);
+      assert.equal(image.height, photo.variantHeights?.[image.width] ?? Math.round(photo.height * image.width / photo.width));
+      assert.equal(url.pathname, imageFile(key, image.width), `${file}: an existing rendition of the same asset`);
       assert.equal(image.caption, photo.alt[locale], `${file}: localized description`);
       assert.equal(image.creditText, photo.credit?.[locale]?.trim() || undefined, `${file}: original credit`);
       assert.deepEqual(image.creator, photo.author?.trim()
@@ -252,12 +276,13 @@ for (const [locale, legalPath] of [['it', '/it/note-legali/#diritti-immagini'], 
           if (target.hash) assert.ok(read(targetFile).includes(`id="${target.hash.slice(1)}"`), `${file}: rights section exists`);
         }
       }
+      coveredKeys.add(key);
       imageObjects++;
     }
   }
 }
 assert.ok(imageObjects > 0, 'Image metadata was emitted');
-console.log(`PASS: ${imageObjects} ImageObjects, localized rights pages, explicit copyright/contact data and no invented rights.`);
+console.log(`PASS: ${imageObjects} ImageObjects on ${pagesWithImageMetadata} pages, ${coveredKeys.size} unique images, full per-page coverage and explicit rights/contact data.`);
 
 // One confirmed festival edition, described consistently in both languages.
 const cassatellaEventIds = [];

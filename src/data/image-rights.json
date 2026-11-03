@@ -1,0 +1,452 @@
+{
+  "people": {
+    "filippo-anello": {
+      "name": "Filippo Anello",
+      "type": "Person",
+      "licenseContactUrl": "https://www.facebook.com/FilippoAnelloStudio/"
+    },
+    "filippo-sanfilippo": {
+      "name": "Filippo Sanfilippo",
+      "type": "Person"
+    },
+    "angelo-lambusta": {
+      "name": "Angelo Lambusta",
+      "type": "Person"
+    },
+    "giuseppe-ricceri": {
+      "name": "Giuseppe Ricceri",
+      "type": "Person"
+    },
+    "omero-mugavero": {
+      "name": "Omero Mugavero",
+      "type": "Person"
+    },
+    "etanoox": {
+      "name": "Etanoox",
+      "type": "Person"
+    },
+    "pro-loco-agira": {
+      "name": "Pro Loco Agira",
+      "type": "Organization"
+    }
+  },
+  "images": {
+    "grotta": {
+      "creatorId": null
+    },
+    "manmanoGussio": {
+      "creditIsAttribution": false
+    },
+    "manmanoGussioFacade": {
+      "creditIsAttribution": false
+    },
+    "manmanoGussioMirror": {
+      "creditIsAttribution": false
+    },
+    "manmanoGussioDress": {
+      "creditIsAttribution": false
+    },
+    "manmanoGussioPortrait": {
+      "creditIsAttribution": false
+    },
+    "manmanoGussioEntrance": {
+      "creditIsAttribution": false
+    },
+    "motorExpo2026Poster": {
+      "creditIsAttribution": false
+    },
+    "nessunDormaChristmas": {
+      "creditIsAttribution": false
+    },
+    "cassatelleAnello9934": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "ssalvatore": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "cassatelleAnello9890": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "cassatelleAnello9889": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "cassatelleAnello9903": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "cassatelleAnello9910": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "cassatelleAnello9938": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "cassatelleAnello9878": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "cassatelleAnello9882": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "cassatelleAnello9917": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "cassatelleAnello9923": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "cassatelleAnello9926": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "saintAnthonyAnelloFacade": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "saintAnthonyAnelloInterior": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "saintAnthonyAnelloPassiatore": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "abbeyAnelloFacade": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "abbeyAnelloPanorama": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "abbeyAnelloNave": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "abbeyAnelloCelebration": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "aronAnelloFull": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "aronAnelloDetail": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "salvatoreAnelloInterior": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "castleAnelloPath": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "castleAnelloWalls": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "castleAnelloTower": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "castleAnelloPanorama": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "castleAnelloRuins": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "castleAnelloRemains": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "castleAnelloLookout": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "abbeyFestivalAnello": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "roccheAnelloLanes": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "roccheAnelloAssociation": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "roccheAnelloSteps": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "salvatoreAnelloAltar": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "salvatoreAnelloColumns": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "salvatoreAnelloEntrance": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "roccheAnelloCourtyard": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "roccheAnelloLandscape": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "santaMariaMaggioreAnello": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "santaMargheritaAnelloExterior": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "santaMargheritaAnelloInterior": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "santaMariaMaggioreAnelloPanorama": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "santaMariaMaggioreAnello1356": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "santaMariaMaggioreAnello1370": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "saintPhilipAnello2635": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "saintPhilipAnello8375": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "saintPhilipAnello8380": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "saintPhilipAnello8862": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "saintPhilipAnello9381": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "saintPhilipAnello2202": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "saintPhilipAnello2344": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "saintPhilipAnelloStone": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "saintPhilipCaveAnello": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "salvatoreAnelloAronInterior": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "roccheAnello0238": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "roccheAnello0245": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "roccheAnello0280": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "roccheAnello0295": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "roccheAnello0298": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "roccheAnello0306": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "roccheAnello0308": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "roccheAnello0347": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "roccheAnello0357": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "roccheAnello0363": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "roccheAnello0419": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "roccheAnello0432": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "borghiAnello33": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "borghiAnello28": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "borghiAnello44": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "borghiAnello45": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "zuccaroAnello9643": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "zuccaroAnello9613": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "zuccaroAnello9615": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "zuccaroAnello9050": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "zuccaroAnello9053": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "zuccaroAnello2975": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "zuccaroAnello3505": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    },
+    "zuccaroAnello9556": {
+      "creatorId": "filippo-anello",
+      "copyrightHolderId": "filippo-anello",
+      "licenseContactId": "filippo-anello"
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import { pageUrl, type Locale } from '../lib/i18n';
-import { imageObject } from '../lib/schema';
+import { imageReference } from '../lib/schema';
 
 export const nessunDormaChristmas = {
   startDate: '2026-12-25T00:01:00+01:00',
@@ -40,8 +40,7 @@ export function getNessunDormaChristmasGraph(origin: URL, lang: Locale) {
   const eventId = new URL(pageUrl('nessunDormaChristmas', 'it') + '#edizione-2026', root).href;
   const organizerId = `${nessunDormaChristmas.organizer.url}#organization`;
   const locationId = `${nessunDormaChristmas.organizer.url}#place`;
-  const image = imageObject(origin, lang, nessunDormaChristmas.image, Infinity);
-  const imageId = image['@id'];
+  const imageId = imageReference(origin, nessunDormaChristmas.image)['@id'];
   const breadcrumbId = `${page}#breadcrumb`;
   return {
     '@context': 'https://schema.org', '@graph': [
@@ -54,7 +53,6 @@ export function getNessunDormaChristmasGraph(origin: URL, lang: Locale) {
       { '@type': 'Place', '@id': locationId, name: 'Pub Nessun Dorma', url: nessunDormaChristmas.organizer.url,
         address: { '@type': 'PostalAddress', streetAddress: nessunDormaChristmas.address, addressLocality: 'Agira', addressRegion: 'Sicilia', postalCode: '94011', addressCountry: 'IT' } },
       { '@type': 'Organization', '@id': organizerId, ...nessunDormaChristmas.organizer },
-      image,
       { '@type': 'BreadcrumbList', '@id': breadcrumbId, itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Hello Agira', item: `${root}/${lang}/` },
         { '@type': 'ListItem', position: 2, name: l('Eventi', 'Events'), item: new URL(pageUrl('events', lang), root).href },
