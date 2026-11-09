@@ -44,4 +44,12 @@ export const cassatellaMenus: FestivalMenuVenue[] = [{
   menus: [
     { image: 'sagra2026Etoile', title: { it: 'Menù della Sagra', en: 'Festival menu' } },
   ],
+}, {
+  id: 'sale-pepe',
+  name: 'Sale & Pepe',
+  category: { it: 'Rosticceria · Gastronomia', en: 'Rosticceria · Deli' },
+  menus: [
+    { image: 'sagra2026SalePepeRosticceria', title: { it: 'Rosticceria', en: 'Rosticceria offers' } },
+    { image: 'sagra2026SalePepeCucina', title: { it: 'Menù cucina', en: 'Kitchen menu' } },
+  ],
 }];
