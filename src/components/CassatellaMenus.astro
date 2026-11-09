@@ -19,7 +19,7 @@ const l = (it: string, en: string) => lang === 'it' ? it : en;
       {cassatellaMenus.map(venue => <article class="festival-menu-venue" aria-labelledby={`menu-${venue.id}`}>
         <header class="festival-menu-header">
           <div><p class="eyebrow">{venue.category[lang]}</p><h3 id={`menu-${venue.id}`}>{venue.name}</h3></div>
-          <p class="festival-menu-dates"><span>{l('Offerte valide il', 'Offers valid on')}</span><strong><time datetime={venue.validFrom}>{venue.dates[lang]}</time></strong></p>
+          {venue.dates && <p class="festival-menu-dates"><span>{l('Offerte valide il', 'Offers valid on')}</span><strong><time datetime={venue.validFrom}>{venue.dates[lang]}</time></strong></p>}
         </header>
         <div class="festival-menu-grid">
           {venue.menus.map(menu => <figure>

@@ -6,9 +6,9 @@ interface FestivalMenuVenue {
   id: string;
   name: string;
   category: Record<Locale, string>;
-  validFrom: string;
-  validThrough: string;
-  dates: Record<Locale, string>;
+  validFrom?: string;
+  validThrough?: string;
+  dates?: Record<Locale, string>;
   menus: { image: ImageKey; title: Record<Locale, string> }[];
 }
 
@@ -22,5 +22,12 @@ export const cassatellaMenus: FestivalMenuVenue[] = [{
   menus: [
     { image: 'sagra2026NdoRosticceria', title: { it: 'Rosticceria', en: 'Rosticceria offers' } },
     { image: 'sagra2026NdoCucina', title: { it: 'Menù cucina', en: 'Kitchen menu' } },
+  ],
+}, {
+  id: 'number-one',
+  name: 'Number One',
+  category: { it: 'Ristorante · Pizzeria', en: 'Restaurant · Pizzeria' },
+  menus: [
+    { image: 'sagra2026NumberOne', title: { it: 'Menù della Sagra · 25 €', en: 'Festival menu · €25' } },
   ],
 }];

@@ -3428,5 +3428,28 @@
       "it": "",
       "en": ""
     }
+  },
+  "sagra2026NumberOne": {
+    "width": 1122,
+    "height": 1402,
+    "widths": [
+      480,
+      800,
+      1122
+    ],
+    "alt": {
+      "it": "Number One, ristorante pizzeria — menù della Sagra della Cassatella a 25 euro: antipasti, primi, secondo e contorno, cassatella, acqua e vino locale.",
+      "en": "Number One restaurant and pizzeria — Cassatella Festival menu at €25: starters, pasta, main course with sides, cassatella, water and local wine. Menu in Italian."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "",
+      "en": ""
+    }
   }
 }
