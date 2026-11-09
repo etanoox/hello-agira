@@ -535,13 +535,16 @@ for (const file of ['it/sagra-cassatella/index.html', 'en/cassatella-festival/in
   const html = read(file);
   const menus = html.match(/<section\b[^>]*id="menu-della-sagra"[\s\S]*?<\/section>/)?.[0];
   assert.ok(menus, `${file}: festival menus section`);
-  assert.equal((menus.match(/<article\b/g) || []).length, 2, `${file}: two venues with their own menus`);
+  assert.equal((menus.match(/<article\b/g) || []).length, 3, `${file}: three venues with their own menus`);
+  assert.ok(menus.includes('Ètoile'), `${file}: Etoile menu`);
+  assert.equal((menus.match(/datetime="2026-11-14"/g) || []).length, 3, `${file}: offer dates on every venue`);
+  assert.equal((menus.match(new RegExp(`<time[^>]*>${file.startsWith('it/') ? '14 e 15 novembre 2026' : '14–15 November 2026'}</time>`, 'g')) || []).length, 3, `${file}: localized offer dates on every venue`);
   assert.ok(menus.includes('Number One') && menus.includes('25'), `${file}: Number One festival menu`);
   assert.ok(menus.includes('N’do Sicilianu') && menus.includes('2026-11-14'), `${file}: venue and offer dates`);
-  for (const key of ['sagra2026NdoRosticceria', 'sagra2026NdoCucina', 'sagra2026NumberOne']) {
+  for (const key of ['sagra2026NdoRosticceria', 'sagra2026NdoCucina', 'sagra2026NumberOne', 'sagra2026Etoile']) {
     assert.ok(menus.includes(`/images/${key}-1122.webp`), `${file}: full-size menu link`);
     assert.ok(menus.includes(`/images/${key}-480.webp`), `${file}: responsive menu image`);
   }
   assert.ok(html.includes('href="#menu-della-sagra"'), `${file}: menu jump link`);
 }
-console.log('PASS: Cassatella menus IT/EN, two venues with three responsive menus, confirmed offer dates and full-size links.');
+console.log('PASS: Cassatella menus IT/EN, three venues with four responsive menus, offer dates on every venue and full-size links.');

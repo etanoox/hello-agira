@@ -3451,5 +3451,28 @@
       "it": "",
       "en": ""
     }
+  },
+  "sagra2026Etoile": {
+    "width": 1122,
+    "height": 1402,
+    "widths": [
+      480,
+      800,
+      1122
+    ],
+    "alt": {
+      "it": "Bar pasticceria Ètoile, Piazza Garibaldi 29/30/31 ad Agira: menù della Sagra con lasagna o salsiccia e patate a 9 euro, acqua e caffè; menù completo a 15 euro.",
+      "en": "Ètoile café and pastry shop, Piazza Garibaldi 29/30/31, Agira: festival offers with lasagna or sausage and potatoes at €9, water and coffee; full menu at €15. Menu in Italian."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "",
+      "en": ""
+    }
   }
 }
