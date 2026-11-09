@@ -3382,5 +3382,51 @@
       "it": "",
       "en": ""
     }
+  },
+  "sagra2026NdoRosticceria": {
+    "width": 1122,
+    "height": 1402,
+    "widths": [
+      480,
+      800,
+      1122
+    ],
+    "alt": {
+      "it": "N’do Sicilianu — Rosticceria, offerte del 14 e 15 novembre 2026 per la Sagra della Cassatella.",
+      "en": "N’do Sicilianu — rosticceria offers for 14–15 November 2026 at the Cassatella Festival. Menu in Italian."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "",
+      "en": ""
+    }
+  },
+  "sagra2026NdoCucina": {
+    "width": 1122,
+    "height": 1402,
+    "widths": [
+      480,
+      800,
+      1122
+    ],
+    "alt": {
+      "it": "N’do Sicilianu — Menù cucina, offerte del 14 e 15 novembre 2026 per la Sagra della Cassatella.",
+      "en": "N’do Sicilianu — kitchen menu for 14–15 November 2026 at the Cassatella Festival. Menu in Italian."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "",
+      "en": ""
+    }
   }
 }
