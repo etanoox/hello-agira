@@ -3589,5 +3589,28 @@
       "it": "",
       "en": ""
     }
+  },
+  "sagra2026MalucchiffariJolly": {
+    "width": 1122,
+    "height": 1402,
+    "widths": [
+      480,
+      800,
+      1122
+    ],
+    "alt": {
+      "it": "Malucchiffari RistoPub e Jolly Bar — menù della Sagra da 25 euro, solo domenica 15 novembre 2026: primo, secondo con contorno, cassatella, acqua e Coca-Cola.",
+      "en": "Malucchiffari RistoPub and Jolly Bar — €25 festival menu, Sunday 15 November 2026 only: pasta, main course with sides, cassatella, water and Coca-Cola. Menu in Italian."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "",
+      "en": ""
+    }
   }
 }

@@ -67,4 +67,14 @@ export const cassatellaMenus: FestivalMenuVenue[] = [{
   menus: [
     { image: 'sagra2026CrystalPub', title: { it: 'Menù della Sagra', en: 'Festival menu' } },
   ],
+}, {
+  id: 'malucchiffari-jolly',
+  name: 'Malucchiffari RistoPub e Jolly Bar',
+  category: { it: 'RistoPub · Bar', en: 'RistoPub · Bar' },
+  validFrom: '2026-11-15',
+  validThrough: '2026-11-15',
+  dates: { it: '15 novembre 2026 · solo domenica', en: '15 November 2026 · Sunday only' },
+  menus: [
+    { image: 'sagra2026MalucchiffariJolly', title: { it: 'Menù condiviso · 25 €', en: 'Joint menu · €25' } },
+  ],
 }];
