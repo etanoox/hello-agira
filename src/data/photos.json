@@ -3520,5 +3520,74 @@
       "it": "",
       "en": ""
     }
+  },
+  "sagra2026AgoraCompleto": {
+    "width": 1122,
+    "height": 1402,
+    "widths": [
+      480,
+      800,
+      1122
+    ],
+    "alt": {
+      "it": "Agorà — menù completo della Sagra a 25 euro a persona, valido il 14 e 15 novembre 2026.",
+      "en": "Agorà — full festival menu at €25 per person, valid on 14–15 November 2026. Menu in Italian."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "",
+      "en": ""
+    }
+  },
+  "sagra2026AgoraAsporto": {
+    "width": 1122,
+    "height": 1402,
+    "widths": [
+      480,
+      800,
+      1122
+    ],
+    "alt": {
+      "it": "Agorà — menù da asporto della Sagra, valido il 14 e 15 novembre 2026.",
+      "en": "Agorà — festival takeaway menu, valid on 14–15 November 2026. Menu in Italian."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "",
+      "en": ""
+    }
+  },
+  "sagra2026CrystalPub": {
+    "width": 1122,
+    "height": 1402,
+    "widths": [
+      480,
+      800,
+      1122
+    ],
+    "alt": {
+      "it": "Crystal Pub, Piazza Garibaldi 12 ad Agira — menù della Sagra, offerte valide il 14 e 15 novembre 2026.",
+      "en": "Crystal Pub, Piazza Garibaldi 12, Agira — festival menu, offers valid on 14–15 November 2026. Menu in Italian."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "",
+      "en": ""
+    }
   }
 }

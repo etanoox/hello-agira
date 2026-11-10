@@ -52,4 +52,19 @@ export const cassatellaMenus: FestivalMenuVenue[] = [{
     { image: 'sagra2026SalePepeRosticceria', title: { it: 'Rosticceria', en: 'Rosticceria offers' } },
     { image: 'sagra2026SalePepeCucina', title: { it: 'Menù cucina', en: 'Kitchen menu' } },
   ],
+}, {
+  id: 'agora',
+  name: 'Agorà',
+  category: { it: 'Pasticceria · Pizzeria', en: 'Pastry shop · Pizzeria' },
+  menus: [
+    { image: 'sagra2026AgoraCompleto', title: { it: 'Menù completo · 25 € a persona', en: 'Full menu · €25 per person' } },
+    { image: 'sagra2026AgoraAsporto', title: { it: 'Menù da asporto', en: 'Takeaway menu' } },
+  ],
+}, {
+  id: 'crystal-pub',
+  name: 'Crystal Pub',
+  category: { it: 'Bar · Pub', en: 'Bar · Pub' },
+  menus: [
+    { image: 'sagra2026CrystalPub', title: { it: 'Menù della Sagra', en: 'Festival menu' } },
+  ],
 }];
