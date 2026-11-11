@@ -3635,5 +3635,28 @@
       "it": "",
       "en": ""
     }
+  },
+  "sagra2026DaGaetano": {
+    "width": 1122,
+    "height": 1402,
+    "widths": [
+      480,
+      800,
+      1122
+    ],
+    "alt": {
+      "it": "Da Gaetano, pizzeria d’asporto in via Vittorio Emanuele 131 ad Agira. Menù della Sagra valido il 13, 14 e 15 novembre 2026.",
+      "en": "Da Gaetano takeaway pizzeria, Via Vittorio Emanuele 131, Agira. Festival menu valid on 13–15 November 2026. Menu in Italian."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "",
+      "en": ""
+    }
   }
 }

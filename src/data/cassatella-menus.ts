@@ -87,4 +87,14 @@ export const cassatellaMenus: FestivalMenuVenue[] = [{
   menus: [
     { image: 'sagra2026TheBunStop', title: { it: 'Menù della Sagra', en: 'Festival menu' } },
   ],
+}, {
+  id: 'da-gaetano',
+  name: 'Da Gaetano',
+  category: { it: 'Pizzeria d’asporto', en: 'Takeaway pizzeria' },
+  validFrom: '2026-11-13',
+  validThrough: '2026-11-15',
+  dates: { it: '13, 14 e 15 novembre 2026', en: '13–15 November 2026' },
+  menus: [
+    { image: 'sagra2026DaGaetano', title: { it: 'Menù della Sagra', en: 'Festival menu' } },
+  ],
 }];
