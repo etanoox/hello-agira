@@ -77,4 +77,14 @@ export const cassatellaMenus: FestivalMenuVenue[] = [{
   menus: [
     { image: 'sagra2026MalucchiffariJolly', title: { it: 'Menù condiviso · 25 €', en: 'Joint menu · €25' } },
   ],
+}, {
+  id: 'the-bun-stop',
+  name: 'The Bun Stop',
+  category: { it: 'Panineria · Steak house', en: 'Sandwich shop · Steakhouse' },
+  validFrom: '2026-11-13',
+  validThrough: '2026-11-15',
+  dates: { it: '13, 14 e 15 novembre 2026', en: '13–15 November 2026' },
+  menus: [
+    { image: 'sagra2026TheBunStop', title: { it: 'Menù della Sagra', en: 'Festival menu' } },
+  ],
 }];

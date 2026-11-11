@@ -535,21 +535,23 @@ for (const file of ['it/sagra-cassatella/index.html', 'en/cassatella-festival/in
   const html = read(file);
   const menus = html.match(/<section\b[^>]*id="menu-della-sagra"[\s\S]*?<\/section>/)?.[0];
   assert.ok(menus, `${file}: festival menus section`);
-  assert.equal((menus.match(/<article\b/g) || []).length, 7, `${file}: seven venue cards with their own menus`);
+  assert.equal((menus.match(/<article\b/g) || []).length, 8, `${file}: eight venue cards with their own menus`);
   assert.ok(menus.includes('Sale &amp; Pepe'), `${file}: Sale & Pepe venue`);
   assert.ok(menus.includes('Agorà') && menus.includes('Crystal Pub'), `${file}: Agora and Crystal Pub venues`);
   assert.ok(menus.includes('Malucchiffari RistoPub e Jolly Bar'), `${file}: joint Malucchiffari and Jolly card`);
   assert.ok(menus.includes(file.startsWith('it/') ? '15 novembre 2026 · solo domenica' : '15 November 2026 · Sunday only'), `${file}: joint menu is Sunday only`);
   assert.equal((menus.match(/datetime="2026-11-15"/g) || []).length, 1, `${file}: Sunday-only validity on the joint menu`);
+  const bunCard = (menus.match(/<article\b[\s\S]*?<\/article>/g) || []).find(card => card.includes('The Bun Stop'));
+  assert.ok(bunCard?.includes('datetime="2026-11-13"') && bunCard.includes(file.startsWith('it/') ? '13, 14 e 15 novembre 2026' : '13–15 November 2026'), `${file}: The Bun Stop offers cover all three days`);
   assert.ok(menus.includes('Ètoile'), `${file}: Etoile menu`);
   assert.equal((menus.match(/datetime="2026-11-14"/g) || []).length, 6, `${file}: offer dates on every venue`);
   assert.equal((menus.match(new RegExp(`<time[^>]*>${file.startsWith('it/') ? '14 e 15 novembre 2026' : '14–15 November 2026'}</time>`, 'g')) || []).length, 6, `${file}: localized offer dates on every venue`);
   assert.ok(menus.includes('Number One') && menus.includes('25'), `${file}: Number One festival menu`);
   assert.ok(menus.includes('N’do Sicilianu') && menus.includes('2026-11-14'), `${file}: venue and offer dates`);
-  for (const key of ['sagra2026NdoRosticceria', 'sagra2026NdoCucina', 'sagra2026NumberOne', 'sagra2026Etoile', 'sagra2026SalePepeRosticceria', 'sagra2026SalePepeCucina', 'sagra2026AgoraCompleto', 'sagra2026AgoraAsporto', 'sagra2026CrystalPub', 'sagra2026MalucchiffariJolly']) {
+  for (const key of ['sagra2026NdoRosticceria', 'sagra2026NdoCucina', 'sagra2026NumberOne', 'sagra2026Etoile', 'sagra2026SalePepeRosticceria', 'sagra2026SalePepeCucina', 'sagra2026AgoraCompleto', 'sagra2026AgoraAsporto', 'sagra2026CrystalPub', 'sagra2026MalucchiffariJolly', 'sagra2026TheBunStop']) {
     assert.ok(menus.includes(`/images/${key}-1122.webp`), `${file}: full-size menu link`);
     assert.ok(menus.includes(`/images/${key}-480.webp`), `${file}: responsive menu image`);
   }
   assert.ok(html.includes('href="#menu-della-sagra"'), `${file}: menu jump link`);
 }
-console.log('PASS: Cassatella menus IT/EN, seven venue cards with ten responsive menus, offer dates on every venue and full-size links.');
+console.log('PASS: Cassatella menus IT/EN, eight venue cards with eleven responsive menus, offer dates on every venue and full-size links.');

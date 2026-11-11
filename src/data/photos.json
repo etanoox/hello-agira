@@ -3612,5 +3612,28 @@
       "it": "",
       "en": ""
     }
+  },
+  "sagra2026TheBunStop": {
+    "width": 1122,
+    "height": 1402,
+    "widths": [
+      480,
+      800,
+      1122
+    ],
+    "alt": {
+      "it": "The Bun Stop, panineria e steak house — menù della Sagra della Cassatella, valido il 13, 14 e 15 novembre 2026.",
+      "en": "The Bun Stop, sandwich shop and steakhouse — Cassatella Festival menu, valid on 13–15 November 2026. Menu in Italian."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "",
+      "en": ""
+    }
   }
 }
