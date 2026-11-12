@@ -104,4 +104,14 @@ export const cassatellaMenus: FestivalMenuVenue[] = [{
   menus: [
     { image: 'sagra2026BarEuropa', title: { it: 'Menù panini', en: 'Sandwich menu' } },
   ],
+}, {
+  id: 'nessun-dorma',
+  name: 'Nessun Dorma',
+  category: { it: 'Pub', en: 'Pub' },
+  validFrom: '2026-11-15',
+  validThrough: '2026-11-15',
+  dates: { it: '15 novembre 2026 · solo domenica a pranzo', en: '15 November 2026 · Sunday lunch only' },
+  menus: [
+    { image: 'sagra2026NessunDorma', title: { it: 'Componi la tua focaccia · Via Cairoli 21, Agira', en: 'Build your own focaccia · Via Cairoli 21, Agira' } },
+  ],
 }];

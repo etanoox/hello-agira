@@ -3681,5 +3681,28 @@
       "it": "",
       "en": ""
     }
+  },
+  "sagra2026NessunDorma": {
+    "width": 1122,
+    "height": 1402,
+    "widths": [
+      480,
+      800,
+      1122
+    ],
+    "alt": {
+      "it": "Nessun Dorma, Via Cairoli 21, Agira. Apertura straordinaria domenica 15 novembre a pranzo: focaccia da comporre e cassatelle di Agira.",
+      "en": "Nessun Dorma, Via Cairoli 21, Agira. Special opening for Sunday lunch on 15 November: build-your-own focaccia and Agira cassatelle. Menu in Italian."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "",
+      "en": ""
+    }
   }
 }
