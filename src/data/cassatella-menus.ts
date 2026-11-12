@@ -97,4 +97,11 @@ export const cassatellaMenus: FestivalMenuVenue[] = [{
   menus: [
     { image: 'sagra2026DaGaetano', title: { it: 'Menù della Sagra', en: 'Festival menu' } },
   ],
+}, {
+  id: 'bar-europa',
+  name: 'Bar Europa',
+  category: { it: 'Bar', en: 'Café' },
+  menus: [
+    { image: 'sagra2026BarEuropa', title: { it: 'Menù panini', en: 'Sandwich menu' } },
+  ],
 }];

@@ -3658,5 +3658,28 @@
       "it": "",
       "en": ""
     }
+  },
+  "sagra2026BarEuropa": {
+    "width": 1122,
+    "height": 1402,
+    "widths": [
+      480,
+      800,
+      1122
+    ],
+    "alt": {
+      "it": "Bar Europa, Piazza Europa 8, Agira. Menù dei panini per la Sagra della Cassatella.",
+      "en": "Bar Europa, Piazza Europa 8, Agira. Sandwich menu for the Cassatella Festival. Menu in Italian."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "",
+      "en": ""
+    }
   }
 }
