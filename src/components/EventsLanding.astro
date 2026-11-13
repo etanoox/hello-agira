@@ -4,15 +4,17 @@ import Icon from './Icon.astro';
 import Photo from './Photo.astro';
 import SiteHeader from './SiteHeader.astro';
 import SiteFooter from './SiteFooter.astro';
+import { conference, conferenceCopy } from '../data/diodorus-conference';
 import photos from '../data/photos.json';
 import { pageUrl, type Locale } from '../lib/i18n';
 
 interface Props { lang: Locale }
 const { lang } = Astro.props;
+const diodorus = conferenceCopy(lang);
 const localizedPaths = { it: pageUrl('events', 'it'), en: pageUrl('events', 'en') };
 const copy = lang === 'it' ? {
   title: 'Eventi e tradizioni ad Agira | Hello Agira',
-  description: 'Eventi ad Agira: Sagra della Cassatella dal 13 al 15 novembre 2026 in Piazza Europa, festa di San Filippo, Presepe Vivente, Natale al Nessun Dorma, Un Pane per la Vita e Motor Expo.',
+  description: 'Eventi ad Agira: Sagra della Cassatella dal 13 al 15 novembre 2026 in Piazza Europa, convegno su Diodoro Siculo, festa di San Filippo, Presepe Vivente, Natale al Nessun Dorma, Un Pane per la Vita e Motor Expo.',
   eyebrow: 'AGIRA · IL CALENDARIO DELLE TRADIZIONI',
   heading: 'Ci sono giorni\nche restano.',
   intro: 'Le feste raccontano un paese in un modo diverso: attraverso i sapori, i riti e il piacere di ritrovarsi.',
@@ -34,7 +36,7 @@ const copy = lang === 'it' ? {
   food: 'Dove mangiare',
 } : {
   title: 'Events and traditions in Agira | Hello Agira',
-  description: 'Events in Agira: the Cassatella Festival, 13–15 November 2026 in Piazza Europa, the feast of Saint Philip, the Living Nativity, Christmas at Nessun Dorma, Un Pane per la Vita and Motor Expo.',
+  description: 'Events in Agira: the Cassatella Festival, 13–15 November 2026 in Piazza Europa, the Diodorus Siculus conference, the feast of Saint Philip, the Living Nativity, Christmas at Nessun Dorma, Un Pane per la Vita and Motor Expo.',
   eyebrow: 'AGIRA · A CALENDAR OF TRADITIONS',
   heading: 'Some days\nstay with you.',
   intro: 'Festivals tell the story of a place in a different way: through its flavours, rituals and the joy of coming together.',
@@ -150,6 +152,21 @@ const foodHref = pageUrl('eat', lang);
             <span>{lang === 'it' ? '14ª EDIZIONE' : '14TH EDITION'}</span><strong>13–15</strong><p>{lang === 'it' ? 'NOVEMBRE' : 'NOVEMBER'}<br/>2026</p><small>AGIRA · SICILIA</small>
           </aside>
         </article>
+        <article class="events-featured events-reveal events-conference" aria-labelledby="events-conference-title">
+          <figure class="events-feature-photo events-conference-poster">
+            <Photo name={conference.image} lang={lang} sizes="(max-width: 700px) 90vw, 45vw"/>
+            <figcaption><span>{diodorus.credit}</span></figcaption>
+          </figure>
+          <div class="events-feature-copy">
+            <p class="eyebrow">{diodorus.category}</p>
+            <h3 id="events-conference-title">{diodorus.name}</h3>
+            <p><time datetime={conference.start}>{diodorus.date}</time><br/>{diodorus.venue}<br/>{diodorus.admission}</p>
+            <a class="text-link" href={pageUrl('diodorusConference', lang)}>{lang === 'it' ? 'Scopri il convegno' : 'Explore the conference'}<Icon name="arrow"/></a>
+          </div>
+          <aside class="events-date-tile" aria-hidden="true">
+            <span>{lang === 'it' ? 'SABATO' : 'SATURDAY'}</span><strong>21</strong><p>{lang === 'it' ? 'NOVEMBRE' : 'NOVEMBER'}<br/>2026</p><small>AGIRA · SICILIA</small>
+          </aside>
+        </article>
       </div>
     </section>
 
@@ -232,6 +249,8 @@ const foodHref = pageUrl('eat', lang);
 </Base>
 
 <style>
+  .events-conference{margin-top:clamp(2rem,5vw,4rem)}
+  .events-conference-poster :global(img){height:auto;aspect-ratio:auto;object-fit:contain}
   .events-date-range>strong{font-size:clamp(2.75rem,3.5vw,3.75rem);letter-spacing:-.07em;white-space:nowrap}
   @media(max-width:700px){
     .events-date-range{grid-template-columns:auto minmax(0,1fr)}

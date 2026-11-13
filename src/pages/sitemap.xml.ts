@@ -5,6 +5,7 @@ export const GET: APIRoute = ({ site }) => {
   const pairs = [
     { it: pageUrl('quiz', 'it'), en: pageUrl('quiz', 'en') },
     { it: pageUrl('beautifulVillages', 'it'), en: pageUrl('beautifulVillages', 'en') },
+    { it: pageUrl('diodorusConference', 'it'), en: pageUrl('diodorusConference', 'en') },
     { it: pageUrl('nessunDormaChristmas', 'it'), en: pageUrl('nessunDormaChristmas', 'en') },
     { it: pageUrl('motorExpo', 'it'), en: pageUrl('motorExpo', 'en') },
     { it: pageUrl('legal', 'it'), en: pageUrl('legal', 'en') },

@@ -10,6 +10,7 @@ for (const name of fs.readdirSync(path.join(directory, 'images'))) {
 const read = file => fs.readFileSync(path.join(directory,file),'utf8');
 const htmlPages = ['it/index.html','en/index.html','it/itinerari/index.html','en/itineraries/index.html','it/cosa-vedere/index.html','en/things-to-see/index.html','it/mangiare/index.html','en/food-and-drink/index.html','it/dormire/index.html','en/where-to-stay/index.html','it/storia/index.html','en/history/index.html','it/eventi/index.html','en/events/index.html','it/sagra-cassatella/index.html','en/cassatella-festival/index.html'];
 const detailPairs = [
+  { it: '/it/convegno-diodoro-siculo/', en: '/en/diodorus-siculus-conference/' },
   { it: '/it/quiz/', en: '/en/quiz/' },
   { it: '/it/cosa-vedere/palazzo-baronale-zuccaro/', en: '/en/things-to-see/palazzo-baronale-zuccaro/' },
   { it: '/it/agira-borghi-piu-belli-italia/', en: '/en/agira-most-beautiful-villages-italy/' },
@@ -559,3 +560,23 @@ for (const file of ['it/sagra-cassatella/index.html', 'en/cassatella-festival/in
   assert.ok(html.includes('href="#menu-della-sagra"'), `${file}: menu jump link`);
 }
 console.log('PASS: Cassatella menus IT/EN, eleven venue cards with fourteen responsive menus, offer dates on every venue and full-size links.');
+
+for (const [lang, slug, listing, venue, admission] of [
+  ['it', 'convegno-diodoro-siculo', 'eventi', '/it/cosa-vedere/collegiata-ss-salvatore/', 'Ingresso gratuito, senza prenotazione.'],
+  ['en', 'diodorus-siculus-conference', 'events', '/en/things-to-see/ss-salvatore-collegiate-church/', 'Free admission. No booking required.'],
+]) {
+  const file = `${lang}/${slug}/index.html`;
+  const html = read(file);
+  const calendar = read(`${lang}/${listing}/index.html`);
+  assert.ok(calendar.includes(`href="/${lang}/${slug}/"`) && calendar.includes(admission), `${file}: linked calendar card with admission`);
+  assert.ok(html.includes(`href="${venue}"`) && html.includes(admission), `${file}: localized venue and admission`);
+  for (const time of ['16:00', '18:00', '19:30']) assert.ok(html.includes(`datetime="${time}"`), `${file}: programme ${time}`);
+  assert.ok(html.includes('/images/diodorusConferencePoster-1049.webp'), `${file}: full-size poster`);
+  const events = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
+    .flatMap(([, json]) => JSON.parse(json)['@graph'] ?? []).filter(item => item['@type'] === 'Event');
+  assert.equal(events.length, 1, `${file}: one conference event`);
+  assert.equal(events[0].startDate, '2026-11-21T16:00:00+01:00');
+  assert.equal(events[0].isAccessibleForFree, true);
+  assert.equal(events[0].organizer.name, 'Fondazione Franzone');
+}
+console.log('PASS: Diodorus conference IT/EN, calendar cards, venue, admission, programme, poster and Event markup.');

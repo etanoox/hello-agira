@@ -21,6 +21,7 @@ export const anchor = (key: Section, lang: Locale) => `#${sectionIds[key][lang]}
 export const clusters = {
   quiz: { it: 'quiz', en: 'quiz' },
   beautifulVillages: { it: 'agira-borghi-piu-belli-italia', en: 'agira-most-beautiful-villages-italy' },
+  diodorusConference: { it: 'convegno-diodoro-siculo', en: 'diodorus-siculus-conference' },
   nessunDormaChristmas: { it: 'natale-nessun-dorma', en: 'christmas-at-nessun-dorma' },
   motorExpo: { it: 'motor-expo-agira', en: 'motor-expo-agira' },
   legal: { it: 'note-legali', en: 'legal-notice' },

@@ -3704,5 +3704,28 @@
       "it": "",
       "en": ""
     }
+  },
+  "diodorusConferencePoster": {
+    "width": 1049,
+    "height": 1499,
+    "widths": [
+      480,
+      800,
+      1049
+    ],
+    "alt": {
+      "it": "Locandina del convegno su Diodoro Siculo ad Agira, il 21 novembre 2026 alle 16:00 nella chiesa del SS. Salvatore.",
+      "en": "Poster for the Diodorus Siculus conference in Agira, on 21 November 2026 at 4:00 pm at the Church of the Most Holy Saviour."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Locandina della Fondazione Franzone.",
+      "en": "Event poster from the Franzone Foundation."
+    }
   }
 }
