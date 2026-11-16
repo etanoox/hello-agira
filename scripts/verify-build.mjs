@@ -571,7 +571,7 @@ for (const [lang, slug, listing, venue, admission] of [
   assert.ok(calendar.includes(`href="/${lang}/${slug}/"`) && calendar.includes(admission), `${file}: linked calendar card with admission`);
   assert.ok(html.includes(`href="${venue}"`) && html.includes(admission), `${file}: localized venue and admission`);
   for (const time of ['16:00', '18:00', '19:30']) assert.ok(html.includes(`datetime="${time}"`), `${file}: programme ${time}`);
-  assert.ok(html.includes('/images/diodorusConferencePoster-1049.webp'), `${file}: full-size poster`);
+  assert.ok(html.includes('/images/diodorusConferenceHelloAgira-1080.webp'), `${file}: full-size poster`);
   const events = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
     .flatMap(([, json]) => JSON.parse(json)['@graph'] ?? []).filter(item => item['@type'] === 'Event');
   assert.equal(events.length, 1, `${file}: one conference event`);

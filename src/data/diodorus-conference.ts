@@ -2,7 +2,7 @@ import { pageUrl, sightUrl, type Locale } from '../lib/i18n';
 import { imageReference } from '../lib/schema';
 
 export const conference = {
-  image: 'diodorusConferencePoster',
+  image: 'diodorusConferenceHelloAgira',
   start: '2026-11-21T16:00:00+01:00',
   website: 'https://www.fondazionefranzone.org/',
   email: 'info@fondazionefranzone.org',
@@ -19,7 +19,7 @@ export function conferenceCopy(lang: Locale) {
     description: l('Ad Agira, città natale di Diodoro Siculo, una giornata di studio e ricerca storica dedicata ai racconti della sua Biblioteca storica.', 'Agira, the birthplace of Diodorus Siculus, hosts a conference exploring the accounts preserved in his Library of History.'),
     book: l('Biblioteca storica', 'Library of History'),
     body: l('Dall’antico Egitto alle Amazzoni e agli Atlantidi, studiosi di diverse discipline si confrontano su come interpretare questi racconti alla luce delle fonti antiche e della ricerca moderna.', 'From ancient Egypt to the Amazons and the Atlantians, scholars from different fields will discuss how ancient sources and modern research can help us understand these accounts.'),
-    credit: l('Locandina della Fondazione Franzone.', 'Event poster from the Franzone Foundation.'),
+    credit: l('Grafica a cura di Hello Agira.', 'Event graphic by Hello Agira.'),
     organizer: l('L’iniziativa è promossa dalla Fondazione Franzone con il patrocinio del Comune di Agira.', 'The event is organised by the Franzone Foundation under the patronage of the Municipality of Agira.'),
   };
 }
