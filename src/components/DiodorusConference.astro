@@ -4,7 +4,7 @@ import SiteHeader from './SiteHeader.astro';
 import SiteFooter from './SiteFooter.astro';
 import Photo from './Photo.astro';
 import Icon from './Icon.astro';
-import { conference, conferenceCopy, conferenceGraph } from '../data/diodorus-conference';
+import { conference, conferenceCopy, conferenceGraph, conferenceSpeakers } from '../data/diodorus-conference';
 import { imageFile } from '../lib/image-metadata';
 import { pageUrl, sightUrl, type Locale } from '../lib/i18n';
 import { serializeSchema } from '../lib/schema';
@@ -27,7 +27,7 @@ const programme = [
   <main id="main" tabindex="-1">
     <section class="route-page-hero festival-hero" aria-labelledby="conference-title">
       <div class="container">
-        <p class="eyebrow festival-topline">AGIRA · {c.category}</p>
+        <p class="eyebrow festival-topline">AGIRA · {l('Giornata di studio e ricerca storica', 'Day of study and historical research')}</p>
         <div class="festival-hero-grid">
           <div class="route-page-copy">
             <h1 id="conference-title">{c.name}</h1>
@@ -61,6 +61,17 @@ const programme = [
         </div>
       </div>
     </section>
+    <section id="relatori" class="festival-story" aria-labelledby="conference-speakers-title">
+      <div class="container festival-story-grid">
+        <div>
+          <p class="eyebrow">{c.category}</p>
+          <h2 id="conference-speakers-title">{l('Chi interviene.', 'Meet the speakers.')}</h2>
+        </div>
+        <ul class="conference-speakers" role="list">
+          {conferenceSpeakers.map(({ name, details }) => <li><strong>{name}</strong><span>{details[lang]}</span></li>)}
+        </ul>
+      </div>
+    </section>
     <section class="itinerary-next" aria-label={l('Continua a esplorare', 'Keep exploring')}>
       <div class="container itinerary-next-inner">
         <div><p class="eyebrow">{l('IL VIAGGIO CONTINUA', 'KEEP EXPLORING')}</p><h2>{l('Altri appuntamenti ad Agira.', 'More events in Agira.')}</h2></div>
@@ -77,4 +88,9 @@ const programme = [
   .conference-poster :global(img){display:block;width:100%;height:auto;aspect-ratio:auto;object-fit:contain}
   .route-page-copy p a{text-decoration:underline;text-underline-offset:.15em}
   .festival-edition-date ul{padding-inline-start:1.25rem}
+  .conference-speakers{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 1.5rem}
+  .conference-speakers li{border-top:1px solid var(--line);padding-block:1rem}
+  .conference-speakers strong,.conference-speakers span{display:block}
+  .conference-speakers span{margin-top:.25rem;color:var(--muted);line-height:1.5}
+  @media(max-width:480px){.conference-speakers{grid-template-columns:1fr}}
 </style>

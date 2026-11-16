@@ -8,6 +8,28 @@ export const conference = {
   email: 'info@fondazionefranzone.org',
 } as const;
 
+export const conferenceSpeakers = [
+  { name: 'Pietro Colletta', details: {
+    it: 'Università di Palermo; presidente del Collegio dei Saggi della Fondazione Franzone',
+    en: 'University of Palermo; Chair of the Franzone Foundation’s Council of Elders',
+  } },
+  { name: 'Paolo Barresi', details: {
+    it: 'Archeologo, Università Kore di Enna', en: 'Archaeologist, Kore University of Enna',
+  } },
+  { name: 'Claudio Gambino', details: {
+    it: 'Geografo, Università Kore di Enna', en: 'Geographer, Kore University of Enna',
+  } },
+  { name: 'Orazio La Delfa', details: { it: 'Archeologo', en: 'Archaeologist' } },
+  { name: 'Filippo Mauceri', details: { it: 'Autore e regista', en: 'Author and director' } },
+  { name: 'Marco Neri', details: { it: 'Vulcanologo, INGV Catania', en: 'Volcanologist, INGV Catania' } },
+  { name: 'Patrizia Piacentini', details: {
+    it: 'Egittologa, Università di Milano', en: 'Egyptologist, University of Milan',
+  } },
+  { name: 'Elena Santagati', details: {
+    it: 'Storica, Università di Messina', en: 'Historian, University of Messina',
+  } },
+] as const;
+
 export function conferenceCopy(lang: Locale) {
   const l = (it: string, en: string) => lang === 'it' ? it : en;
   return {
