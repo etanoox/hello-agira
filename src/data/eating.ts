@@ -27,6 +27,7 @@ export function getEatingPage(lang: Locale) {
           { name: 'Al Ritrovo', category: l('Pizzeria', 'Pizzeria'), text: l('Pizzeria in via Vittorio Emanuele, nel centro di Agira.', 'Pizzeria on Via Vittorio Emanuele, in the centre of Agira.'), href: 'https://maps.app.goo.gl/TVz9vVWCAgK9PLHf7' },
           { name: 'Agorà', category: l('Pizzeria · Pasticceria', 'Pizzeria · Pastry'), text: l('Un nuovo locale in Piazza ad Agira.', 'A new place in Agira.'), href: 'https://maps.app.goo.gl/iXUiGg3VzXL5b6QX7' },
           { name: 'Malucchiffari ristopub', category: l('Ristopub', 'Ristopub'), text: l('Un ristopub ad Agira. Aperto solo la sera', 'A gastropub in Agira. Open only for dinner.'), href: mapSearch('Malucchiffari ristopub') },
+          { name: 'TBS - The Bun Stop', category: l('Panineria · steak house', 'Sandwich shop · steakhouse'), text: 'Via Circonvallazione, Agira', href: mapSearch('TBS - The Bun Stop Via Circonvallazione') },
         ],
       },
       {
