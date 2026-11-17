@@ -4,6 +4,7 @@ import Icon from './Icon.astro';
 import Photo from './Photo.astro';
 import SiteHeader from './SiteHeader.astro';
 import SiteFooter from './SiteFooter.astro';
+import { seminar, seminarCopy } from '../data/aging-seminar';
 import { conference, conferenceCopy } from '../data/diodorus-conference';
 import photos from '../data/photos.json';
 import { pageUrl, type Locale } from '../lib/i18n';
@@ -11,6 +12,7 @@ import { pageUrl, type Locale } from '../lib/i18n';
 interface Props { lang: Locale }
 const { lang } = Astro.props;
 const diodorus = conferenceCopy(lang);
+const aging = seminarCopy(lang);
 const localizedPaths = { it: pageUrl('events', 'it'), en: pageUrl('events', 'en') };
 const copy = lang === 'it' ? {
   title: 'Eventi e tradizioni ad Agira | Hello Agira',
@@ -165,6 +167,21 @@ const foodHref = pageUrl('eat', lang);
           </div>
           <aside class="events-date-tile" aria-hidden="true">
             <span>{lang === 'it' ? 'SABATO' : 'SATURDAY'}</span><strong>21</strong><p>{lang === 'it' ? 'NOVEMBRE' : 'NOVEMBER'}<br/>2026</p><small>AGIRA · SICILIA</small>
+          </aside>
+        </article>
+        <article class="events-featured events-reveal events-conference" aria-labelledby="events-aging-title">
+          <figure class="events-feature-photo events-conference-poster">
+            <Photo name={seminar.image} lang={lang} sizes="(max-width: 700px) 90vw, 45vw"/>
+            <figcaption><span>{aging.credit}</span></figcaption>
+          </figure>
+          <div class="events-feature-copy">
+            <p class="eyebrow">{aging.category}</p>
+            <h3 id="events-aging-title">{aging.name}</h3>
+            <p><time datetime={seminar.start}>{aging.date}</time><br/>{aging.venue}<br/>{aging.admission}</p>
+            <a class="text-link" href={pageUrl('agingSeminar', lang)}>{lang === 'it' ? 'Scopri il seminario' : 'Explore the seminar'}<Icon name="arrow"/></a>
+          </div>
+          <aside class="events-date-tile" aria-hidden="true">
+            <span>{lang === 'it' ? 'SABATO' : 'SATURDAY'}</span><strong>28</strong><p>{lang === 'it' ? 'NOVEMBRE' : 'NOVEMBER'}<br/>2026</p><small>AGIRA · SICILIA</small>
           </aside>
         </article>
       </div>

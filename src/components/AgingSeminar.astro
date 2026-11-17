@@ -1,0 +1,70 @@
+---
+import Base from '../layouts/Base.astro';
+import SiteHeader from './SiteHeader.astro';
+import SiteFooter from './SiteFooter.astro';
+import Photo from './Photo.astro';
+import Icon from './Icon.astro';
+import { seminar, seminarCopy, seminarGraph } from '../data/aging-seminar';
+import { imageFile } from '../lib/image-metadata';
+import { pageUrl, type Locale } from '../lib/i18n';
+import { serializeSchema } from '../lib/schema';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const l = (it: string, en: string) => lang === 'it' ? it : en;
+const c = seminarCopy(lang);
+const paths = { it: pageUrl('agingSeminar', 'it'), en: pageUrl('agingSeminar', 'en') };
+const graph = Astro.site?.protocol === 'https:' ? seminarGraph(Astro.site, lang) : undefined;
+---
+<Base socialPhoto={seminar.image} lang={lang} title={c.name + ' | Hello Agira'} description={c.description} canonicalPath={paths[lang]} alternatePaths={paths}>
+  <SiteHeader lang={lang} currentPage="events" alternatePaths={paths}/>
+  <main id="main" tabindex="-1">
+    <section class="route-page-hero festival-hero" aria-labelledby="conference-title">
+      <div class="container">
+        <p class="eyebrow festival-topline">AGIRA · {c.category}</p>
+        <div class="festival-hero-grid">
+          <div class="route-page-copy">
+            <h1 id="conference-title">{c.name}</h1>
+            <p><time datetime={seminar.start}>{c.date}</time><br/>{c.venue} · {seminar.address}<br/>{c.admission}</p>
+            <p>{c.description}</p>
+            <a class="button button-yellow" href="#partecipazione">{l('Informazioni sull’incontro', 'About the seminar')}<Icon name="arrow"/></a>
+          </div>
+          <figure class="route-page-photo festival-hero-photo conference-poster">
+            <a class="photo-link" href={imageFile(seminar.image, 1122)} aria-label={l('Apri la locandina a grandezza intera', 'Open the full-size event poster')}>
+              <Photo name={seminar.image} lang={lang} priority sizes="(max-width: 700px) 92vw, 42vw"/>
+            </a>
+            <figcaption><span>{c.credit}</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+    <section id="partecipazione" class="festival-edition" aria-labelledby="seminar-details">
+      <div class="container festival-edition-grid">
+        <div class="festival-edition-date">
+          <p class="eyebrow">{c.date}</p>
+          <h2 id="seminar-details">{l('Dove e come partecipare', 'Venue and admission')}</h2>
+          <p>{c.venue} · {seminar.address}. {c.admission}</p>
+        </div>
+        <div class="festival-programme">
+          <h3>{l('Chi interviene', 'Who’s taking part')}</h3>
+          <p>{c.organizer}</p>
+          <p>{c.participant}</p>
+          <p>{c.support}</p>
+        </div>
+      </div>
+    </section>
+    <section class="itinerary-next" aria-label={l('Continua a esplorare', 'Keep exploring')}>
+      <div class="container itinerary-next-inner">
+        <div><p class="eyebrow">{l('IL VIAGGIO CONTINUA', 'KEEP EXPLORING')}</p><h2>{l('Altri appuntamenti ad Agira.', 'More events in Agira.')}</h2></div>
+        <div class="itinerary-next-links"><a class="button button-yellow" href={pageUrl('events', lang)}>{l('Tutti gli eventi', 'All events')}<Icon name="arrow"/></a></div>
+      </div>
+    </section>
+  </main>
+  <SiteFooter lang={lang} currentPage="events" alternatePaths={paths}/>
+  {graph && <script type="application/ld+json" set:html={serializeSchema(graph)}/>}
+</Base>
+
+<style>
+  .festival-hero .conference-poster .photo-link{height:auto;max-height:none;aspect-ratio:auto;border-radius:2px;cursor:zoom-in}
+  .conference-poster :global(img){display:block;width:100%;height:auto;aspect-ratio:auto;object-fit:contain}
+</style>

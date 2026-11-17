@@ -3727,5 +3727,28 @@
       "it": "Grafica a cura di Hello Agira.",
       "en": "Event graphic by Hello Agira."
     }
+  },
+  "agingSeminarPoster": {
+    "width": 1122,
+    "height": 1402,
+    "widths": [
+      480,
+      800,
+      1122
+    ],
+    "alt": {
+      "it": "Grafica del seminario Invecchiare non significa arrendersi, 28 novembre 2026 alle 17:00 al Circolo degli Operai di Agira.",
+      "en": "Poster for the Growing older doesn’t mean giving up seminar, 28 November 2026 at 5 pm at the Circolo degli Operai in Agira."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Grafica non ufficiale a cura di Hello Agira.",
+      "en": "Unofficial event graphic by Hello Agira."
+    }
   }
 }
