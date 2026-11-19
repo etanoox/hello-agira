@@ -3774,5 +3774,51 @@
       "it": "Fonte: pagina Facebook Associazione Amici Del Presepe Agira.",
       "en": "Source: Associazione Amici Del Presepe Agira Facebook page."
     }
+  },
+  "nativity2026HelloPoster": {
+    "width": 1064,
+    "height": 1478,
+    "widths": [
+      480,
+      800,
+      1064
+    ],
+    "alt": {
+      "it": "Grafica Hello Agira del Presepe Vivente, 36ª edizione, 24 dicembre 2026 nel centro storico.",
+      "en": "Hello Agira poster for the 36th Living Nativity, 24 December 2026 in Agira’s historic centre."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Grafica Hello Agira · Foto: Filippo Sanfilippo Arts and Tech.",
+      "en": "Graphic by Hello Agira · Photo: Filippo Sanfilippo Arts and Tech."
+    }
+  },
+  "bread2027HelloPoster": {
+    "width": 1064,
+    "height": 1478,
+    "widths": [
+      480,
+      800,
+      1064
+    ],
+    "alt": {
+      "it": "Grafica Hello Agira di Un Pane per la Vita, 35ª edizione, 5 gennaio 2027 nei quartieri alti di Agira, a sostegno dell’UNICEF.",
+      "en": "Hello Agira poster for Un Pane per la Vita, 35th edition, 5 January 2027 in upper Agira, supporting UNICEF."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Grafica Hello Agira · Foto dalla pagina Facebook Associazione Amici del Presepe Agira.",
+      "en": "Graphic by Hello Agira · Photo from the Associazione Amici del Presepe Agira Facebook page."
+    }
   }
 }
