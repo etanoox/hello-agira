@@ -12,7 +12,9 @@ document.querySelectorAll<HTMLElement>('[data-nativity-video]').forEach(root => 
     }
     if (!validConsent() || !acceptedCategory('youtube')) return;
     hide();
-    frame.src = 'https://www.youtube-nocookie.com/embed/4jQFX7mSD-A';
+    const id = root.dataset.videoId;
+    if (!id || !['4jQFX7mSD-A', 'TTNHiWpcQ_c', '4h8SvJhhEnQ'].includes(id)) return;
+    frame.src = 'https://www.youtube-nocookie.com/embed/' + id;
     frame.hidden = false;
     cover.hidden = true;
     frame.focus();

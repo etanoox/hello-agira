@@ -19,6 +19,11 @@ const paths = { it: pageUrl('nativity', 'it'), en: pageUrl('nativity', 'en') };
 const hero = 'nativitySanfilippo7586' as const;
 const items = galleryData.map(item => ({ key: item.key as keyof typeof photos, title: item.title[lang] }));
 const fullImage = (key: keyof typeof photos) => `/images/${key}-${Math.max(...photos[key].widths)}.webp`;
+const videos = [
+  { year: 2025, id: '4jQFX7mSD-A' },
+  { year: 2024, id: 'TTNHiWpcQ_c' },
+  { year: 2023, id: '4h8SvJhhEnQ' },
+];
 const sources = [
   { name: 'EnnaPress · ' + l('Il riconoscimento 2025/2026 e la 36ª edizione', 'The 2025/2026 award and the 36th edition'), href: 'https://ennapress.it/il-presepe-di-agira-premiato-come-il-migliore-presepe-vivente-ditalia/' },
   { name: l('Comune di Agira · Programma natalizio 2023', 'Municipality of Agira · Christmas programme 2023'), href: 'https://www.comune.agira.en.it/it/news/1625595' },
@@ -59,15 +64,21 @@ const structured = Astro.site?.protocol === 'https:' ? getReligiousEventGraph(As
     </section>)}
     <section id="video" class="section" aria-labelledby="nativity-video-title">
       <div class="container">
-        <div class="section-heading"><div><p class="eyebrow">{l('04 / IL RACCONTO IN VIDEO', '04 / THE VIDEO STORY')}</p><h2 id="nativity-video-title">{l('Il Presepe Vivente, in video.', 'The Living Nativity, on film.')}</h2></div><p>{l('Video di Sandro Bellomo.', 'Video by Sandro Bellomo.')}</p></div>
-        <div data-nativity-video>
-          <div data-video-cover>
-            <p>{l('Il video è ospitato su YouTube. Premendo il pulsante acconsenti a caricarlo: YouTube riceverà dati tecnici e potrà usare cookie. La scelta è separata dalle statistiche e può essere revocata nelle preferenze cookie.', 'This video is hosted on YouTube. By pressing the button you consent to loading it: YouTube will receive technical data and may use cookies. This choice is separate from analytics and can be withdrawn in Cookie preferences.')}</p>
-            <button type="button" class="button button-yellow" data-load-video hidden>{l('Accetta YouTube e guarda il video', 'Accept YouTube and watch the video')}</button>
-          </div>
-          <iframe title={l('Presepe Vivente di Agira · Video di Sandro Bellomo', 'Agira Living Nativity · Video by Sandro Bellomo')} hidden allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        <div class="section-heading"><div><p class="eyebrow">{l('04 / IL RACCONTO IN VIDEO', '04 / THE VIDEO STORY')}</p><h2 id="nativity-video-title">{l('Tre edizioni, una tradizione.', 'Three editions, one tradition.')}</h2></div><p>{l('Rivivi il Presepe Vivente di Agira nelle edizioni 2025, 2024 e 2023. Tutti i video sono di Sandro Bellomo.', 'Revisit Agira’s Living Nativity in 2025, 2024 and 2023. All videos are by Sandro Bellomo.')}</p></div>
+        <div class="nativity-video-grid">
+          {videos.map(video => <article class="nativity-video-card">
+            <h3>{l('Edizione', 'Edition')} {video.year}</h3>
+            <div data-nativity-video data-video-id={video.id}>
+              <div data-video-cover>
+                <span class="nativity-video-year" aria-hidden="true">{video.year}</span>
+                <button type="button" class="button button-yellow" data-load-video hidden aria-label={l('Guarda il video', 'Watch the video') + ' ' + video.year}>{l('Guarda il video', 'Watch the video')}<Icon name="arrow"/></button>
+                <p>{l('Al clic carichi YouTube e acconsenti al trattamento dei dati tecnici e agli eventuali cookie del servizio. Puoi revocare la scelta nelle preferenze cookie.', 'Clicking loads YouTube and consents to its processing of technical data and any service cookies. You can withdraw this choice in Cookie preferences.')}</p>
+              </div>
+              <iframe title={l('Presepe Vivente di Agira', 'Agira Living Nativity') + ' ' + video.year + ' · Sandro Bellomo'} hidden allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+            <p class="nativity-video-credit">Sandro Bellomo · <a class="text-link" href={'https://www.youtube.com/watch?v=' + video.id} target="_blank" rel="noopener noreferrer">{l('Apri su YouTube', 'Open on YouTube')}<Icon name="diagonal"/></a></p>
+          </article>)}
         </div>
-        <p class="nativity-video-credit"><a class="text-link" href="https://www.youtube.com/watch?v=4jQFX7mSD-A" target="_blank" rel="noopener noreferrer">{l('Guarda su YouTube · Sandro Bellomo', 'Watch on YouTube · Sandro Bellomo')}<Icon name="diagonal"/></a></p>
       </div>
     </section>
     <section id="fotografie" class="section nativity-muted" aria-labelledby="nativity-photos-title">
@@ -96,10 +107,16 @@ const structured = Astro.site?.protocol === 'https:' ? getReligiousEventGraph(As
   {structured && <script type="application/ld+json" set:html={serializeSchema(structured)}/>}
 </Base>
 <style>
-[data-video-cover]{padding:2rem;background:var(--stone);border:1px solid var(--line)}
-[data-video-cover] p{max-width:55rem;margin-bottom:1.5rem}
+.nativity-video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem}
+.nativity-video-card{min-width:0}
+.nativity-video-card:first-child{grid-column:1/-1}
+.nativity-video-card h3{margin-bottom:1rem}
+[data-video-cover]{padding:clamp(1rem,3vw,2rem);background:var(--forest);color:var(--stone);display:flex;flex-direction:column;align-items:flex-start;gap:1rem}
+.nativity-video-year{font-size:clamp(2.5rem,6vw,5rem);font-weight:700;line-height:1}
+[data-video-cover] p{max-width:55rem;font-size:.8rem;line-height:1.6}
 [data-nativity-video] iframe{width:100%;aspect-ratio:16/9;border:0}
-.nativity-video-credit{margin-top:1rem}
+.nativity-video-credit{margin-top:1rem;font-size:.85rem}
+@media(max-width:700px){.nativity-video-grid{grid-template-columns:1fr}}
 .nativity-muted{background:#e8eadf}
 .nativity-photo-grid{columns:3;column-gap:1.5rem}
 .nativity-photo-grid figure{break-inside:avoid;margin:0 0 2rem}
