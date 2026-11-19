@@ -102,6 +102,15 @@ function syncConsent(): void {
     }
   }
   if (!valid || !acceptedCategory('maps')) unloadGoogleMaps();
+  if (!valid || !acceptedCategory('youtube')) {
+    document.querySelectorAll<HTMLElement>('[data-nativity-video]').forEach(root => {
+      const frame = root.querySelector('iframe');
+      frame?.removeAttribute('src');
+      if (frame) frame.hidden = true;
+      const cover = root.querySelector<HTMLElement>('[data-video-cover]');
+      if (cover) cover.hidden = false;
+    });
+  }
   lastChoice = storedChoice();
 }
 
@@ -130,6 +139,7 @@ async function initialiseConsent(): Promise<void> {
       necessary: { enabled: true, readOnly: true },
       analytics: { enabled: false },
       maps: { enabled: false },
+      youtube: { enabled: false },
     },
     language: {
       default: lang,

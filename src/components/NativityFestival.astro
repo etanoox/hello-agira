@@ -57,9 +57,22 @@ const structured = Astro.site?.protocol === 'https:' ? getReligiousEventGraph(As
         {index === 0 && <div class="festival-plan-links"><a class="text-link" href={sightUrl('castle', lang)}>{l('Scopri il Castello di Agira', 'Discover Agira Castle')}<Icon name="arrow"/></a></div>}
       </div></div>
     </section>)}
+    <section id="video" class="section" aria-labelledby="nativity-video-title">
+      <div class="container">
+        <div class="section-heading"><div><p class="eyebrow">{l('04 / IL RACCONTO IN VIDEO', '04 / THE VIDEO STORY')}</p><h2 id="nativity-video-title">{l('Il Presepe Vivente, in video.', 'The Living Nativity, on film.')}</h2></div><p>{l('Video di Sandro Bellomo.', 'Video by Sandro Bellomo.')}</p></div>
+        <div data-nativity-video>
+          <div data-video-cover>
+            <p>{l('Il video è ospitato su YouTube. Premendo il pulsante acconsenti a caricarlo: YouTube riceverà dati tecnici e potrà usare cookie. La scelta è separata dalle statistiche e può essere revocata nelle preferenze cookie.', 'This video is hosted on YouTube. By pressing the button you consent to loading it: YouTube will receive technical data and may use cookies. This choice is separate from analytics and can be withdrawn in Cookie preferences.')}</p>
+            <button type="button" class="button button-yellow" data-load-video hidden>{l('Accetta YouTube e guarda il video', 'Accept YouTube and watch the video')}</button>
+          </div>
+          <iframe title={l('Presepe Vivente di Agira · Video di Sandro Bellomo', 'Agira Living Nativity · Video by Sandro Bellomo')} hidden allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <p class="nativity-video-credit"><a class="text-link" href="https://www.youtube.com/watch?v=4jQFX7mSD-A" target="_blank" rel="noopener noreferrer">{l('Guarda su YouTube · Sandro Bellomo', 'Watch on YouTube · Sandro Bellomo')}<Icon name="diagonal"/></a></p>
+      </div>
+    </section>
     <section id="fotografie" class="section nativity-muted" aria-labelledby="nativity-photos-title">
       <div class="container">
-        <div class="section-heading"><div><p class="eyebrow">{l('04 / IL RACCONTO FOTOGRAFICO', '04 / THE PHOTOGRAPHIC STORY')}</p><h2 id="nativity-photos-title">{l('Quindici sguardi, una notte.', 'Fifteen views, one night.')}</h2></div><p>{l('Scene delle edizioni precedenti, nelle fotografie di Filippo Sanfilippo.', 'Scenes from previous editions, photographed by Filippo Sanfilippo.')}</p></div>
+        <div class="section-heading"><div><p class="eyebrow">{l('05 / IL RACCONTO FOTOGRAFICO', '05 / THE PHOTOGRAPHIC STORY')}</p><h2 id="nativity-photos-title">{l('Quindici sguardi, una notte.', 'Fifteen views, one night.')}</h2></div><p>{l('Scene delle edizioni precedenti, nelle fotografie di Filippo Sanfilippo.', 'Scenes from previous editions, photographed by Filippo Sanfilippo.')}</p></div>
         <div class="nativity-photo-grid">{items.map((item, index) => <figure>
           <a class="photo-link" href={fullImage(item.key)} data-gallery-open={item.key} aria-haspopup="dialog" aria-label={`${l('Ingrandisci', 'Enlarge')}: ${item.title}`}><Photo name={item.key} lang={lang} sizes="(max-width: 700px) 92vw, (max-width: 1000px) 44vw, 29vw"/><span class="photo-view"><Icon name="plus"/></span></a>
           <figcaption><span>{String(index + 1).padStart(2, '0')} / {item.title}</span><span>{photos[item.key].credit?.[lang]}</span></figcaption>
@@ -68,7 +81,7 @@ const structured = Astro.site?.protocol === 'https:' ? getReligiousEventGraph(As
     </section>
     <section class="stay-practical-section section" aria-labelledby="nativity-faq-title">
       <div class="container stay-practical-grid">
-        <div class="stay-practical-intro"><p class="eyebrow">{l('05 / PRIMA DI PARTIRE', '05 / BEFORE YOU SET OFF')}</p><h2 id="nativity-faq-title">{l('Preparare la visita.', 'Plan your visit.')}</h2></div>
+        <div class="stay-practical-intro"><p class="eyebrow">{l('06 / PRIMA DI PARTIRE', '06 / BEFORE YOU SET OFF')}</p><h2 id="nativity-faq-title">{l('Preparare la visita.', 'Plan your visit.')}</h2></div>
         <div class="stay-practical-list">
           {c.faqs.map((faq, index) => <details><summary><span class="small-number">0{index + 1}</span><h3>{faq.q}</h3><Icon name="plus"/></summary><div class="stay-practical-answer"><p>{faq.a}</p></div></details>)}
           <details><summary><span class="small-number">05</span><h3>{l('Fonti per approfondire', 'Sources for further reading')}</h3><Icon name="plus"/></summary><div class="stay-practical-answer">{sources.map(source => <p><a class="text-link" href={source.href} target="_blank" rel="noopener noreferrer">{source.name}<Icon name="diagonal"/></a></p>)}</div></details>
@@ -78,10 +91,15 @@ const structured = Astro.site?.protocol === 'https:' ? getReligiousEventGraph(As
     <section class="itinerary-next" aria-label={l('Continua a esplorare', 'Keep exploring')}><div class="container itinerary-next-inner"><div><p class="eyebrow">{l('IL VIAGGIO CONTINUA', 'KEEP EXPLORING')}</p><h2>{l('Una notte ad Agira.\nTante storie da scoprire.', 'A night in Agira.\nMany stories to discover.')}</h2></div><div class="itinerary-next-links"><a class="button button-yellow" href={pageUrl('events', lang)}>{l('Tutti gli eventi', 'All events')}<Icon name="arrow"/></a><a class="text-link" href={pageUrl('stay', lang)}>{l('Dove dormire', 'Where to stay')}<Icon name="diagonal"/></a></div></div></section>
   </main>
   <SiteFooter lang={lang} currentPage="events" alternatePaths={paths}/>
+  <script>import '../scripts/nativity-video';</script>
   <PhotoGallery lang={lang} items={items}/>
   {structured && <script type="application/ld+json" set:html={serializeSchema(structured)}/>}
 </Base>
 <style>
+[data-video-cover]{padding:2rem;background:var(--stone);border:1px solid var(--line)}
+[data-video-cover] p{max-width:55rem;margin-bottom:1.5rem}
+[data-nativity-video] iframe{width:100%;aspect-ratio:16/9;border:0}
+.nativity-video-credit{margin-top:1rem}
 .nativity-muted{background:#e8eadf}
 .nativity-photo-grid{columns:3;column-gap:1.5rem}
 .nativity-photo-grid figure{break-inside:avoid;margin:0 0 2rem}

@@ -9,8 +9,8 @@ export function getConsentTranslation(lang: Locale): Translation {
     consentModal: {
       title: l('La tua scelta sui cookie.', 'Your cookie choice.'),
       description: l(
-        'Usiamo strumenti tecnici per ricordare la tua scelta. Con il tuo consenso attiviamo le statistiche di Google Analytics e le mappe Google, che potrai poi aprire nelle schede. Puoi rifiutare e continuare a esplorare la guida. Chiudere con la X mantiene attivi solo i necessari.',
-        'We use technical tools to remember your choice. With your consent, we enable Google Analytics statistics and Google maps, which you can then open on place pages. You can reject and keep exploring the guide. Closing with the X keeps only necessary tools active.',
+        'Usiamo strumenti tecnici per ricordare la tua scelta. Con il tuo consenso attiviamo le statistiche di Google Analytics, le mappe Google e i video YouTube, che potrai poi aprire nelle schede. Puoi rifiutare e continuare a esplorare la guida. Chiudere con la X mantiene attivi solo i necessari.',
+        'We use technical tools to remember your choice. With your consent, we enable Google Analytics statistics, Google maps and YouTube videos, which you can then open on place pages. You can reject and keep exploring the guide. Closing with the X keeps only necessary tools active.',
       ),
       acceptAllBtn: l('Accetta tutto', 'Accept all'),
       acceptNecessaryBtn: l('Rifiuta non necessari', 'Reject optional'),
@@ -54,6 +54,11 @@ export function getConsentTranslation(lang: Locale): Translation {
               { name: '_ga_*', purpose: l('Stato della sessione', 'Session state'), duration: l('Fino a 180 giorni', 'Up to 180 days') },
             ],
           },
+        },
+        {
+          title: 'YouTube',
+          description: l('I video si caricano solo dopo il consenso e la pressione del pulsante. YouTube riceve dati tecnici e può usare cookie. Puoi revocare il consenso dal footer.', 'Videos load only after consent and pressing the button. YouTube receives technical data and may use cookies. You can withdraw consent using the footer.'),
+          linkedCategory: 'youtube',
         },
         {
           title: l('Mappe Google', 'Google maps'),
