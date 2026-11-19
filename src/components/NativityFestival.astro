@@ -56,6 +56,19 @@ const structured = Astro.site?.protocol === 'https:' ? getReligiousEventGraph(As
         <div class="festival-programme"><span class="festival-programme-index" aria-hidden="true">24</span><h3>{c.programmeTitle}</h3><p>{c.programmeText}</p><div class="festival-plan-links"><a class="text-link" href={pageUrl('nessunDormaChristmas', lang)}>{l('Dopo mezzanotte: Natale al Nessun Dorma', 'After midnight: Christmas at Nessun Dorma')}<Icon name="arrow"/></a></div></div>
       </div>
     </section>
+    <section id="programma-2026" class="section nativity-muted" aria-labelledby="nativity-programme-title">
+      <div class="container">
+        <div class="section-heading"><div><p class="eyebrow">24 / 25 · 12 · 2026</p><h2 id="nativity-programme-title">{l('Il programma ufficiale.', 'The official programme.')}</h2></div><p>{l('Gli appuntamenti della 36ª edizione, dal pieghevole degli organizzatori.', 'The 36th edition’s schedule, from the organisers’ leaflet.')}</p></div>
+        <ol class="nativity-programme-list">{c.programme.map(item => <li><time datetime={item.datetime}>{item.time}</time><div><h3>{item.title}</h3><p><strong>{item.place}</strong> · {item.text}</p></div></li>)}</ol>
+        <p class="nativity-info-links"><a class="text-link" href={sightUrl('salvatore', lang)}>{l('La chiesa del SS. Salvatore', 'The Church of SS. Salvatore')}<Icon name="arrow"/></a></p>
+      </div>
+    </section>
+    <section id="scene-2026" class="section" aria-labelledby="nativity-scenes-title">
+      <div class="container">
+        <div class="section-heading"><div><p class="eyebrow">{l('NOVITÀ 2026 · MICHEA', 'NEW FOR 2026 · MICAH')}</p><h2 id="nativity-scenes-title">{l('Dalla profezia alla Natività.', 'From prophecy to Nativity.')}</h2></div><p>{l('Cinque scene accompagnano il racconto. Quest’anno si aggiunge la profezia di Michea, legata a Betlemme.', 'Five scenes tell the story. This year introduces Micah’s prophecy concerning Bethlehem.')}</p></div>
+        <ol class="nativity-scenes-list">{c.scenes.map(scene => <li><h3>{scene.title}</h3><p>{scene.text}</p></li>)}</ol>
+      </div>
+    </section>
     {c.sections.map((section, index) => <section id={section.id} class={index % 2 === 0 ? 'festival-story section' : 'festival-plan section nativity-muted'} aria-labelledby={`${section.id}-title`}>
       <div class="container festival-story-grid"><div><p class="eyebrow">{section.label}</p><h2 id={`${section.id}-title`}>{section.title}</h2></div><div class="festival-story-copy">
         {section.paragraphs.map(text => <p>{text}</p>)}
@@ -95,10 +108,15 @@ const structured = Astro.site?.protocol === 'https:' ? getReligiousEventGraph(As
         <div class="stay-practical-intro"><p class="eyebrow">{l('06 / PRIMA DI PARTIRE', '06 / BEFORE YOU SET OFF')}</p><h2 id="nativity-faq-title">{l('Preparare la visita.', 'Plan your visit.')}</h2></div>
         <div class="stay-practical-list">
           {c.faqs.map((faq, index) => <details><summary><span class="small-number">0{index + 1}</span><h3>{faq.q}</h3><Icon name="plus"/></summary><div class="stay-practical-answer"><p>{faq.a}</p></div></details>)}
-          <details><summary><span class="small-number">05</span><h3>{l('Fonti per approfondire', 'Sources for further reading')}</h3><Icon name="plus"/></summary><div class="stay-practical-answer">{sources.map(source => <p><a class="text-link" href={source.href} target="_blank" rel="noopener noreferrer">{source.name}<Icon name="diagonal"/></a></p>)}</div></details>
+          <details><summary><span class="small-number">{String(c.faqs.length + 1).padStart(2, '0')}</span><h3>{l('Fonti per approfondire', 'Sources for further reading')}</h3><Icon name="plus"/></summary><div class="stay-practical-answer">{sources.map(source => <p><a class="text-link" href={source.href} target="_blank" rel="noopener noreferrer">{source.name}<Icon name="diagonal"/></a></p>)}</div></details>
         </div>
       </div>
     </section>
+    <section class="section nativity-muted" aria-labelledby="nativity-contacts-title"><div class="container">
+      <h2 id="nativity-contacts-title">{l('Informazioni dagli organizzatori.', 'Information from the organisers.')}</h2>
+      <p>{l('Associazione Amici del Presepe · Contatti indicati nel pieghevole ufficiale.', 'Associazione Amici del Presepe · Contacts listed in the official leaflet.')}</p>
+      <ul class="nativity-info-links">{c.contacts.map(phone => <li><a class="text-link" href={'tel:+39' + phone.replaceAll(' ', '')}>{phone}</a></li>)}</ul>
+    </div></section>
     <section class="itinerary-next" aria-label={l('Continua a esplorare', 'Keep exploring')}><div class="container itinerary-next-inner"><div><p class="eyebrow">{l('IL VIAGGIO CONTINUA', 'KEEP EXPLORING')}</p><h2>{l('Una notte ad Agira.\nTante storie da scoprire.', 'A night in Agira.\nMany stories to discover.')}</h2></div><div class="itinerary-next-links"><a class="button button-yellow" href={pageUrl('events', lang)}>{l('Tutti gli eventi', 'All events')}<Icon name="arrow"/></a><a class="text-link" href={pageUrl('stay', lang)}>{l('Dove dormire', 'Where to stay')}<Icon name="diagonal"/></a></div></div></section>
   </main>
   <SiteFooter lang={lang} currentPage="events" alternatePaths={paths}/>
@@ -107,6 +125,15 @@ const structured = Astro.site?.protocol === 'https:' ? getReligiousEventGraph(As
   {structured && <script type="application/ld+json" set:html={serializeSchema(structured)}/>}
 </Base>
 <style>
+.nativity-programme-list,.nativity-scenes-list{list-style:none;margin:0;padding:0}
+.nativity-programme-list li{display:grid;grid-template-columns:5rem 1fr;gap:1.5rem;padding:1.5rem 0;border-top:1px solid var(--line)}
+.nativity-programme-list time{font-weight:700;color:var(--forest);font-size:1.4rem}
+.nativity-scenes-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem}
+.nativity-scenes-list li{padding:1.5rem;background:var(--stone);border-top:3px solid var(--forest)}
+.nativity-scenes-list p,.nativity-programme-list p{margin-top:.6rem;line-height:1.65}
+.nativity-info-links{display:flex;flex-wrap:wrap;gap:1.5rem;list-style:none;padding:0;margin-top:1.5rem}
+@media(max-width:700px){.nativity-scenes-list{grid-template-columns:1fr}.nativity-programme-list li{grid-template-columns:1fr;gap:.5rem}}
+
 .nativity-video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem}
 .nativity-video-card{min-width:0}
 .nativity-video-card:first-child{grid-column:1/-1}

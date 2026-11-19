@@ -8,7 +8,7 @@ export const saintPhilipMainEvent = {
   image: 'abbeyFestivalAnello',
 } as const;
 export const nativityEvent = {
-  startDate: '2026-12-24',
+  startDate: '2026-12-24T20:00:00+01:00',
   image: 'nativitySanfilippo7586',
   organizer: 'Associazione Amici del Presepe',
 } as const;
@@ -57,7 +57,7 @@ export function getReligiousEventGraph(origin: URL, lang: Locale, kind: Religiou
           addressRegion: 'Sicilia', postalCode: '94011', addressCountry: 'IT',
         },
       },
-      ...(!saint ? [{ '@type': 'Organization', '@id': organizerId, name: nativityEvent.organizer }] : []),
+      ...(!saint ? [{ '@type': 'Organization', '@id': organizerId, name: nativityEvent.organizer, telephone: ['+393384411865', '+393351330161', '+393281389446', '+393381185764'] }] : []),
       {
         '@type': 'BreadcrumbList', '@id': breadcrumbId,
         itemListElement: [

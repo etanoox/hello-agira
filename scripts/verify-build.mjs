@@ -323,7 +323,7 @@ console.log('PASS: Cassatella FoodEvent, confirmed dates, venue, organizer, free
 // Event editions must describe the same real-world occurrence in both languages.
 for (const edition of [
   { paths: ['it/festa-san-filippo/index.html', 'en/saint-philip-festival/index.html'], type: 'Festival', date: '2027-05-12', suffix: '#edizione-2027', image: 'abbeyFestivalAnello', author: 'Filippo Anello', organizer: undefined },
-  { paths: ['it/presepe-vivente/index.html', 'en/living-nativity/index.html'], type: 'Event', date: '2026-12-24', suffix: '#edizione-2026', image: 'nativitySanfilippo7586', author: 'Filippo Sanfilippo', organizer: 'Associazione Amici del Presepe' },
+  { paths: ['it/presepe-vivente/index.html', 'en/living-nativity/index.html'], type: 'Event', date: '2026-12-24T20:00:00+01:00', suffix: '#edizione-2026', image: 'nativitySanfilippo7586', author: 'Filippo Sanfilippo', organizer: 'Associazione Amici del Presepe' },
 ]) {
   const ids = [];
   for (const file of edition.paths) {
