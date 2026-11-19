@@ -75,7 +75,7 @@ const seasonalEvents = lang === 'it' ? [
     award: null,
   },
   {
-    id: 'un-pane-per-la-vita', image: 'breadForLifeEvent', eyebrow: '05 / SAPORI E SOLIDARIETÀ', title: 'Un Pane per la Vita.',
+    id: 'un-pane-per-la-vita', image: 'breadForLifeAssociation', eyebrow: '05 / SAPORI E SOLIDARIETÀ', title: 'Un Pane per la Vita.',
     date: '2027-01-05', label: 'Martedì 5 gennaio 2027', day: 'MARTEDÌ', number: '5', month: 'GENNAIO', year: '2027',
     paragraphs: [
       'Il 5 gennaio 2027 torna nella parte alta del centro storico la 35ª edizione di Un Pane per la Vita: una serata di incontro e solidarietà a favore dell’UNICEF e dei bambini colpiti da guerre e carestie.',
@@ -98,7 +98,7 @@ const seasonalEvents = lang === 'it' ? [
     award: null,
   },
   {
-    id: 'un-pane-per-la-vita', image: 'breadForLifeEvent', eyebrow: '05 / FOOD AND SOLIDARITY', title: 'Un Pane per la Vita.',
+    id: 'un-pane-per-la-vita', image: 'breadForLifeAssociation', eyebrow: '05 / FOOD AND SOLIDARITY', title: 'Un Pane per la Vita.',
     date: '2027-01-05', label: 'Tuesday 5 January 2027', day: 'TUESDAY', number: '5', month: 'JANUARY', year: '2027',
     paragraphs: [
       'On 5 January 2027, the upper historic centre hosts the 35th edition of Un Pane per la Vita — Bread for Life: an evening supporting UNICEF and children affected by war and famine.',
@@ -210,8 +210,9 @@ const foodHref = pageUrl('eat', lang);
     {seasonalEvents.map((event, index) => <section class:list={["events-seasonal-section", "section", { "events-seasonal-section-muted": index % 2 === 1 }]} aria-labelledby={`${event.id}-title`}>
       <div class="container">
         <article class="events-featured events-reveal">
-          <figure class:list={["events-feature-photo", { "events-illustration": event.id === 'un-pane-per-la-vita' }]}>
+          <figure class="events-feature-photo">
             <Photo name={event.image as keyof typeof photos} lang={lang} sizes="(max-width: 700px) 90vw, 45vw"/>
+            {event.id === 'un-pane-per-la-vita' && <figcaption><span>{lang === 'it' ? 'Un Pane per la Vita · Un allestimento dell’iniziativa' : 'Un Pane per la Vita · A display at the event'}</span><span>{photos.breadForLifeAssociation.credit[lang]}</span></figcaption>}
             {event.id === 'presepe-vivente' && <figcaption><span>{lang === 'it' ? 'La Natività del Presepe Vivente di Agira' : 'The Nativity at Agira’s Living Nativity'}</span><span>{photos.nativitySanfilippo7586.credit[lang]}</span></figcaption>}
             {event.id === 'natale-nessun-dorma' && <figcaption><span>{lang === 'it' ? 'Una serata al Nessun Dorma' : 'An evening at Nessun Dorma'}</span><span>{photos.nessunDormaChristmas.credit[lang]}</span></figcaption>}
           </figure>

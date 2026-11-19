@@ -3750,5 +3750,29 @@
       "it": "Grafica non ufficiale a cura di Hello Agira.",
       "en": "Unofficial event graphic by Hello Agira."
     }
+  },
+  "breadForLifeAssociation": {
+    "width": 2048,
+    "height": 1536,
+    "widths": [
+      480,
+      800,
+      1200,
+      2048
+    ],
+    "alt": {
+      "it": "Allestimento con calze della Befana, oggetti tradizionali e una cassetta per le offerte UNICEF a Un Pane per la Vita, Agira.",
+      "en": "Display with Epiphany stockings, traditional objects and a UNICEF donation box at Un Pane per la Vita in Agira."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fonte: pagina Facebook Associazione Amici Del Presepe Agira.",
+      "en": "Source: Associazione Amici Del Presepe Agira Facebook page."
+    }
   }
 }
