@@ -164,8 +164,10 @@ const foodHref = pageUrl('eat', lang);
           <div><p class="eyebrow">{copy.calendarEyebrow}</p><h2 id="events-calendar-title">{copy.calendarTitle}</h2></div>
           <p>{copy.calendarIntro}</p>
         </div>
-        <div class="events-list">
-          {events.map(event => <article class="events-featured events-reveal" aria-labelledby={`${event.id}-title`}>
+      </div>
+      <div class="events-list">
+        {events.map(event => <div class="events-row">
+          <article class="container events-featured events-reveal" aria-labelledby={`${event.id}-title`}>
             <figure class:list={["events-feature-photo", { "events-editorial-poster": event.poster }]}>
               <Photo name={event.image} lang={lang} sizes="(max-width: 700px) 90vw, 45vw"/>
               <figcaption>
@@ -185,8 +187,8 @@ const foodHref = pageUrl('eat', lang);
               <p><time datetime={event.date}>{event.badge.month}{event.badge.year && <><br/>{event.badge.year}</>}</time></p>
               <small>AGIRA · SICILIA</small>
             </aside>
-          </article>)}
-        </div>
+          </article>
+        </div>)}
       </div>
     </section>
 
@@ -206,7 +208,10 @@ const foodHref = pageUrl('eat', lang);
 
 <style>
   .events-editorial-poster :global(img){display:block;width:100%;height:auto;aspect-ratio:auto;object-fit:contain}
-  .events-list{display:grid;gap:clamp(2.75rem,6vw,5rem)}
+  .events-calendar{padding-bottom:0}
+  .events-row{padding-block:clamp(2.25rem,5vw,4rem);background:var(--white)}
+  .events-list > .events-row:nth-child(even){background:#e8eadf}
+  .events-row .events-featured{padding-top:0;border-top:0}
   .events-date-range>strong{font-size:clamp(2.75rem,3.5vw,3.75rem);letter-spacing:-.07em;white-space:nowrap}
   @media(max-width:700px){
     .events-date-range{grid-template-columns:auto minmax(0,1fr)}
