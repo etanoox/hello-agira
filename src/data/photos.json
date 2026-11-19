@@ -4013,5 +4013,28 @@
       "it": "Foto: Associazione Amici del Presepe.",
       "en": "Photo: Associazione Amici del Presepe."
     }
+  },
+  "breadForLifeOven": {
+    "width": 854,
+    "height": 469,
+    "widths": [
+      480,
+      800,
+      854
+    ],
+    "alt": {
+      "it": "Una pagnotta su una pala davanti a un forno a legna acceso, a Un Pane per la Vita ad Agira.",
+      "en": "A loaf on a baker’s peel in front of a lit wood-fired oven at Un Pane per la Vita in Agira."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Foto dalla pagina Facebook dell’Associazione Amici del Presepe Agira.",
+      "en": "Photo from the Associazione Amici del Presepe Agira Facebook page."
+    }
   }
 }

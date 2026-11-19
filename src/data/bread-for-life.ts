@@ -1,6 +1,8 @@
 import { pageUrl, type Locale } from '../lib/i18n';
 import { imageReference } from '../lib/schema';
 
+export const breadForLifeHero = 'breadForLifeOven';
+
 export function getBreadForLife(lang: Locale) {
  const l = (it: string, en: string) => lang === 'it' ? it : en;
  return {
@@ -32,8 +34,8 @@ export function getBreadForLifeGraph(origin: URL, lang: Locale) {
  const page=new URL(pageUrl('breadForLife',lang),root).href;
  const id=new URL(pageUrl('breadForLife','it')+'#edizione-2027',root).href;
  return {'@context':'https://schema.org','@graph':[
- {'@type':'Event','@id':id,name:c.name,description:c.description,url:page,startDate:'2027-01-05',eventStatus:'https://schema.org/EventScheduled',eventAttendanceMode:'https://schema.org/OfflineEventAttendanceMode',isAccessibleForFree:true,image:imageReference(origin,'breadForLifeGallery03'),organizer:{'@type':'Organization',name:'Associazione Amici del Presepe'},location:{'@type':'Place',name:lang==='it'?'Quartieri alti del centro storico di Agira':'Upper quarters of Agira’s historic centre',address:{'@type':'PostalAddress',addressLocality:'Agira',addressRegion:'Sicilia',postalCode:'94011',addressCountry:'IT'}},mainEntityOfPage:{'@id':page+'#page'}},
+ {'@type':'Event','@id':id,name:c.name,description:c.description,url:page,startDate:'2027-01-05',eventStatus:'https://schema.org/EventScheduled',eventAttendanceMode:'https://schema.org/OfflineEventAttendanceMode',isAccessibleForFree:true,image:imageReference(origin, breadForLifeHero),organizer:{'@type':'Organization',name:'Associazione Amici del Presepe'},location:{'@type':'Place',name:lang==='it'?'Quartieri alti del centro storico di Agira':'Upper quarters of Agira’s historic centre',address:{'@type':'PostalAddress',addressLocality:'Agira',addressRegion:'Sicilia',postalCode:'94011',addressCountry:'IT'}},mainEntityOfPage:{'@id':page+'#page'}},
  {'@type':'BreadcrumbList','@id':page+'#breadcrumb',itemListElement:[{'@type':'ListItem',position:1,name:'Hello Agira',item:root+'/'+lang+'/'},{'@type':'ListItem',position:2,name:lang==='it'?'Eventi':'Events',item:new URL(pageUrl('events',lang),root).href},{'@type':'ListItem',position:3,name:c.name,item:page}]},
- {'@type':'WebPage','@id':page+'#page',mainEntity:{'@id':id},breadcrumb:{'@id':page+'#breadcrumb'},primaryImageOfPage:imageReference(origin,'breadForLifeGallery03')}
+ {'@type':'WebPage','@id':page+'#page',mainEntity:{'@id':id},breadcrumb:{'@id':page+'#breadcrumb'},primaryImageOfPage:imageReference(origin, breadForLifeHero)}
  ]};
 }
