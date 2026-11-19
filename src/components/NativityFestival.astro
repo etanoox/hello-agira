@@ -24,11 +24,6 @@ const videos = [
   { year: 2024, id: 'TTNHiWpcQ_c' },
   { year: 2023, id: '4h8SvJhhEnQ' },
 ];
-const sources = [
-  { name: 'EnnaPress · ' + l('Il riconoscimento 2025/2026 e la 36ª edizione', 'The 2025/2026 award and the 36th edition'), href: 'https://ennapress.it/il-presepe-di-agira-premiato-come-il-migliore-presepe-vivente-ditalia/' },
-  { name: l('Comune di Agira · Programma natalizio 2023', 'Municipality of Agira · Christmas programme 2023'), href: 'https://www.comune.agira.en.it/it/news/1625595' },
-  { name: 'VivaSicilia · Presepe Vivente di Agira', href: 'https://www.vivasicilia.com/presepe-vivente-agira/' },
-];
 const structured = Astro.site?.protocol === 'https:' ? getReligiousEventGraph(Astro.site, lang, 'nativity') : undefined;
 ---
 <Base socialPhoto={hero} lang={lang} title={c.title} description={c.description} canonicalPath={paths[lang]} alternatePaths={paths}>
@@ -56,10 +51,10 @@ const structured = Astro.site?.protocol === 'https:' ? getReligiousEventGraph(As
         <div class="festival-programme"><span class="festival-programme-index" aria-hidden="true">24</span><h3>{c.programmeTitle}</h3><p>{c.programmeText}</p><div class="festival-plan-links"><a class="text-link" href={pageUrl('nessunDormaChristmas', lang)}>{l('Dopo mezzanotte: Natale al Nessun Dorma', 'After midnight: Christmas at Nessun Dorma')}<Icon name="arrow"/></a></div></div>
       </div>
     </section>
-    <section id="programma-2026" class="section nativity-muted" aria-labelledby="nativity-programme-title">
+    <section id="programma-2026" class="section festival-schedule-section" aria-labelledby="nativity-programme-title">
       <div class="container">
-        <div class="section-heading"><div><p class="eyebrow">24 / 25 · 12 · 2026</p><h2 id="nativity-programme-title">{l('Il programma ufficiale.', 'The official programme.')}</h2></div><p>{l('Gli appuntamenti della 36ª edizione del Presepe Vivente di Agira.', 'The 36th edition’s schedule.')}</p></div>
-        <ol class="nativity-programme-list">{c.programme.map(item => <li><time datetime={item.datetime}>{item.time}</time><div><h3>{item.title}</h3><p><strong>{item.place}</strong> · {item.text}</p></div></li>)}</ol>
+        <div class="festival-schedule-heading"><div><p class="eyebrow">24 / 25 · 12 · 2026</p><h2 id="nativity-programme-title">{l('Il programma ufficiale.', 'The official programme.')}</h2></div><p>{l('Gli appuntamenti della 36ª edizione del Presepe Vivente di Agira.', 'The 36th edition’s schedule.')}</p></div>
+        <ol class="festival-schedule-list">{c.programme.map(item => <li><time datetime={item.datetime}>{item.time}</time><div><h3>{item.title}</h3><p><strong>{item.place}</strong> · {item.text}</p></div></li>)}</ol>
         <p class="nativity-info-links"><a class="text-link" href={sightUrl('salvatore', lang)}>{l('La chiesa del SS. Salvatore', 'The Church of SS. Salvatore')}<Icon name="arrow"/></a></p>
       </div>
     </section>
@@ -108,14 +103,18 @@ const structured = Astro.site?.protocol === 'https:' ? getReligiousEventGraph(As
         <div class="stay-practical-intro"><p class="eyebrow">{l('06 / PRIMA DI PARTIRE', '06 / BEFORE YOU SET OFF')}</p><h2 id="nativity-faq-title">{l('Preparare la visita.', 'Plan your visit.')}</h2></div>
         <div class="stay-practical-list">
           {c.faqs.map((faq, index) => <details><summary><span class="small-number">0{index + 1}</span><h3>{faq.q}</h3><Icon name="plus"/></summary><div class="stay-practical-answer"><p>{faq.a}</p></div></details>)}
-          <details><summary><span class="small-number">{String(c.faqs.length + 1).padStart(2, '0')}</span><h3>{l('Fonti per approfondire', 'Sources for further reading')}</h3><Icon name="plus"/></summary><div class="stay-practical-answer">{sources.map(source => <p><a class="text-link" href={source.href} target="_blank" rel="noopener noreferrer">{source.name}<Icon name="diagonal"/></a></p>)}</div></details>
         </div>
       </div>
     </section>
-    <section class="section nativity-muted" aria-labelledby="nativity-contacts-title"><div class="container">
-      <h2 id="nativity-contacts-title">{l('Informazioni dagli organizzatori.', 'Information from the organisers.')}</h2>
-      <p>{l('Associazione Amici del Presepe · Contatti indicati nel pieghevole ufficiale.', 'Associazione Amici del Presepe · Contacts listed in the official leaflet.')}</p>
-      <ul class="nativity-info-links">{c.contacts.map(phone => <li><a class="text-link" href={'tel:+39' + phone.replaceAll(' ', '')}>{phone}</a></li>)}</ul>
+    <section class="section nativity-muted nativity-contacts" aria-labelledby="nativity-contacts-title"><div class="container">
+      <div class="section-heading"><div><p class="eyebrow">{l('INFORMAZIONI E CONTATTI', 'INFORMATION AND CONTACTS')}</p><h2 id="nativity-contacts-title">{l('Informazioni dagli organizzatori.', 'Information from the organisers.')}</h2></div>
+      <p>{l('Associazione Amici del Presepe · Contatti ufficiali.', 'Associazione Amici del Presepe · Official contacts.')}</p>
+      </div>
+      <ul class="festival-visit-list">{c.contacts.map((phone, i) => <li>
+        <div class="festival-visit-top"><p>{l('INFORMAZIONI', 'INFORMATION')}</p><span class="small-number" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span></div>
+        <h3>Associazione Amici del Presepe</h3>
+        <div class="festival-visit-actions"><a class="button button-yellow" href={'tel:+39' + phone.replaceAll(' ', '')} aria-label={l('Chiama', 'Call') + ' ' + phone}><span>{l('Chiama', 'Call')}<br/>{phone}</span><Icon name="diagonal"/></a></div>
+      </li>)}</ul>
     </div></section>
     <section class="itinerary-next" aria-label={l('Continua a esplorare', 'Keep exploring')}><div class="container itinerary-next-inner"><div><p class="eyebrow">{l('IL VIAGGIO CONTINUA', 'KEEP EXPLORING')}</p><h2>{l('Una notte ad Agira.\nTante storie da scoprire.', 'A night in Agira.\nMany stories to discover.')}</h2></div><div class="itinerary-next-links"><a class="button button-yellow" href={pageUrl('events', lang)}>{l('Tutti gli eventi', 'All events')}<Icon name="arrow"/></a><a class="text-link" href={pageUrl('stay', lang)}>{l('Dove dormire', 'Where to stay')}<Icon name="diagonal"/></a></div></div></section>
   </main>
@@ -125,14 +124,42 @@ const structured = Astro.site?.protocol === 'https:' ? getReligiousEventGraph(As
   {structured && <script type="application/ld+json" set:html={serializeSchema(structured)}/>}
 </Base>
 <style>
-.nativity-programme-list,.nativity-scenes-list{list-style:none;margin:0;padding:0}
-.nativity-programme-list li{display:grid;grid-template-columns:5rem 1fr;gap:1.5rem;padding:1.5rem 0;border-top:1px solid var(--line)}
-.nativity-programme-list time{font-weight:700;color:var(--forest);font-size:1.4rem}
+  .festival-visit-list{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem;margin:3rem 0 0;padding:0}
+  .festival-visit-list>li{display:flex;flex-direction:column;min-width:0;background:var(--white);border:1px solid var(--line);border-top:3px solid var(--forest);border-radius:2px;padding:1.8rem}
+  .festival-visit-top{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:1.2rem}
+  .festival-visit-top p{font-size:.75rem;line-height:1.5;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+  .festival-visit-top .small-number{flex-shrink:0}
+  .festival-visit-list h3,.festival-shuttle h3{font-size:clamp(1.6rem,2.5vw,2rem);line-height:1.15;letter-spacing:-.04em;margin:0 0 1.3rem;overflow-wrap:anywhere}
+  .festival-visit-list p,.festival-shuttle p{line-height:1.65}
+  .festival-visit-actions{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.5rem;margin-top:auto;padding-top:1.5rem}
+  .festival-visit-actions .button,.festival-shuttle .button{font-size:.875rem;min-height:48px;padding:.8rem 1.2rem;gap:1rem;max-width:100%;white-space:normal;text-align:left}
+  .festival-visit-actions .button svg,.festival-shuttle .button svg{width:18px;height:18px;flex-shrink:0}
+  .festival-visit-actions .text-link{font-size:.875rem}
+  .festival-visit-actions .button span,.festival-shuttle .button span{line-height:1.6;overflow-wrap:anywhere}
+  .festival-schedule-section{background:#073e38;color:var(--stone)}
+  .festival-schedule-section .eyebrow{color:var(--grain)}
+  .festival-schedule-heading h2{max-width:720px;margin-top:.85rem;font-size:clamp(3rem,6vw,5.8rem);line-height:.94;letter-spacing:-.07em}
+  .festival-schedule-list{list-style:none;margin:1.5rem 0 0;padding:0}
+  .festival-schedule-list li{display:grid;grid-template-columns:8rem minmax(0,1fr);gap:1.5rem;padding:1.3rem 0;border-top:1px solid #ffffff35}
+  .festival-schedule-list li:last-child{border-bottom:1px solid #ffffff35}
+  .festival-schedule-list time{font-family:var(--display);font-size:2rem;line-height:1;color:var(--grain);letter-spacing:-.05em}
+  .festival-schedule-list h4{margin:0;font-family:var(--display);font-weight:600;font-size:clamp(1.15rem,2vw,1.55rem);line-height:1.25;letter-spacing:-.025em}
+  .festival-schedule-list p{max-width:760px;margin-top:.35rem;font-size:.9rem;line-height:1.6;color:#d8e0d9}
+    .festival-schedule-list li{grid-template-columns:5rem minmax(0,1fr);gap:.85rem;padding:1.1rem 0}
+    .festival-schedule-list time{font-size:1.55rem}
+.festival-visit-list h3{font-size:clamp(1.6rem,2.5vw,2rem);line-height:1.15;letter-spacing:-.04em;margin:0 0 1.3rem;overflow-wrap:anywhere}
+.festival-schedule-heading{display:grid;grid-template-columns:1fr;gap:1.5rem}
+.festival-schedule-heading>p{color:#d8e0d9;line-height:1.6}
+.festival-schedule-list h3{margin:0;font-family:var(--display);font-weight:600;font-size:clamp(1.15rem,2vw,1.55rem);line-height:1.25;letter-spacing:-.025em;color:var(--stone)}
+.festival-schedule-section .nativity-info-links a{color:var(--grain)}
+@media(max-width:700px){.festival-visit-list{grid-template-columns:1fr;gap:1rem;margin-top:2rem}.festival-visit-list>li{padding:1.5rem 1.3rem}.festival-schedule-list li{grid-template-columns:5rem minmax(0,1fr);gap:.85rem;padding:1.1rem 0}.festival-schedule-list time{font-size:1.55rem}}
+
+.nativity-scenes-list{list-style:none;margin:0;padding:0}
 .nativity-scenes-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem}
 .nativity-scenes-list li{padding:1.5rem;background:var(--stone);border-top:3px solid var(--forest)}
-.nativity-scenes-list p,.nativity-programme-list p{margin-top:.6rem;line-height:1.65}
+.nativity-scenes-list p{margin-top:.6rem;line-height:1.65}
 .nativity-info-links{display:flex;flex-wrap:wrap;gap:1.5rem;list-style:none;padding:0;margin-top:1.5rem}
-@media(max-width:700px){.nativity-scenes-list{grid-template-columns:1fr}.nativity-programme-list li{grid-template-columns:1fr;gap:.5rem}}
+@media(max-width:700px){.nativity-scenes-list{grid-template-columns:1fr}}
 
 .nativity-video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem}
 .nativity-video-card{min-width:0}
