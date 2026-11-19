@@ -10,6 +10,7 @@ for (const name of fs.readdirSync(path.join(directory, 'images'))) {
 const read = file => fs.readFileSync(path.join(directory,file),'utf8');
 const htmlPages = ['it/index.html','en/index.html','it/itinerari/index.html','en/itineraries/index.html','it/cosa-vedere/index.html','en/things-to-see/index.html','it/mangiare/index.html','en/food-and-drink/index.html','it/dormire/index.html','en/where-to-stay/index.html','it/storia/index.html','en/history/index.html','it/eventi/index.html','en/events/index.html','it/sagra-cassatella/index.html','en/cassatella-festival/index.html'];
 const detailPairs = [
+  { it: '/it/un-pane-per-la-vita/', en: '/en/un-pane-per-la-vita/' },
   { it: '/it/invecchiare-non-significa-arrendersi/', en: '/en/growing-older-seminar/' },
   { it: '/it/convegno-diodoro-siculo/', en: '/en/diodorus-siculus-conference/' },
   { it: '/it/quiz/', en: '/en/quiz/' },

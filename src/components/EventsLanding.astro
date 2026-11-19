@@ -222,6 +222,7 @@ const foodHref = pageUrl('eat', lang);
             {event.paragraphs.map(paragraph => <p>{paragraph}</p>)}
             {event.award && <p>{event.award}</p>}
             {event.id === 'presepe-vivente' && <a class="text-link" href={pageUrl('nativity', lang)}>{lang === 'it' ? 'Scopri il Presepe Vivente' : 'Explore the Living Nativity'}<Icon name="arrow"/></a>}
+            {event.id === 'un-pane-per-la-vita' && <a class="text-link" href={pageUrl('breadForLife', lang)}>{lang === 'it' ? 'Scopri Un Pane per la Vita' : 'Explore Un Pane per la Vita'}<Icon name="arrow"/></a>}
             {event.id === 'natale-nessun-dorma' && <a class="text-link" href={pageUrl('nessunDormaChristmas', lang)}>{lang === 'it' ? 'Scopri Natale al Nessun Dorma' : 'Explore Christmas at Nessun Dorma'}<Icon name="arrow"/></a>}
           </div>
           <aside class="events-date-tile" aria-label={event.label}>
