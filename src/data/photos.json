@@ -4036,5 +4036,30 @@
       "it": "Foto dalla pagina Facebook dell’Associazione Amici del Presepe Agira.",
       "en": "Photo from the Associazione Amici del Presepe Agira Facebook page."
     }
+  },
+  "nativity2026Banner": {
+    "width": 2048,
+    "height": 810,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600,
+      2048
+    ],
+    "alt": {
+      "it": "Banner del Presepe Vivente di Agira: la Natività sotto un arco di pietra, data del 24 dicembre 2026 e riconoscimento come Miglior Presepe Vivente d’Italia 2025/26.",
+      "en": "Agira Living Nativity banner: the Nativity beneath a stone arch, the date 24 December 2026 and the Best Living Nativity in Italy 2025/26 award."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "",
+      "en": ""
+    }
   }
 }
