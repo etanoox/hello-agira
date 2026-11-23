@@ -46,6 +46,8 @@ export function getEatingPage(lang: Locale) {
           { name: 'Bar Europa', category: l('Bar', 'Bar'), text: l('Il bar alla villa.', 'The café by the gardens.'), href: mapSearch('Bar Europa') },
           { name: 'Bar Moderno', category: l('Bar', 'Bar'), text: l('Un ottimo caffè ad Agira.', 'A very good espresso in Agira.'), href: mapSearch('Bar Moderno') },
           { name: "Bar L'altra Piazza", category: l('Bar', 'Bar'), text: l('Un bar ad Agira.', 'A bar in Agira.'), href: mapSearch("Bar L'altra Piazza") },
+          { name: 'Bar del Bivio', category: 'Bar', text: 'Via Vittorio Emanuele 13, Agira', href: mapSearch('Bar del Bivio Via Vittorio Emanuele 13') },
+          { name: 'Bar Tabacchi Football Cafe', category: l('Bar · tabacchi', 'Bar · tobacconist'), text: 'Via Vittorio Emanuele 177, Agira', href: mapSearch('Bar Tabacchi Football Cafe Via Vittorio Emanuele 177') },
         ],
       },
       {
