@@ -4061,5 +4061,29 @@
       "it": "",
       "en": ""
     }
+  },
+  "materialCultureMuseumMural": {
+    "width": 1440,
+    "height": 1195,
+    "widths": [
+      480,
+      800,
+      1200,
+      1440
+    ],
+    "alt": {
+      "it": "Murale con case, scalinate, persone e animali, con l’Etna sullo sfondo.",
+      "en": "Mural depicting houses, stairways, people and animals, with Mount Etna in the background."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": "https://www.facebook.com/EcomuseoAgira",
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Fonte: pagina ufficiale dell’Ecomuseo di Agira su Facebook.",
+      "en": "Source: the Agira Ecomuseum’s official Facebook page."
+    }
   }
 }

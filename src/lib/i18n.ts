@@ -54,6 +54,7 @@ export type ItineraryId = keyof typeof itinerarySlugs;
 export const itineraryUrl = (id: ItineraryId, lang: Locale) => `${pageUrl('routes', lang)}${itinerarySlugs[id][lang]}/`;
 
 export const sightSlugs = {
+  materialCultureMuseum: { it: 'museo-della-cultura-materiale', en: 'museum-of-material-culture' },
   zuccaro: { it: 'palazzo-baronale-zuccaro', en: 'palazzo-baronale-zuccaro' },
   saintPhilipCave: { it: 'grotta-di-san-filippo', en: 'cave-of-san-filippo' },
   santaMargherita: { it: 'chiesa-santa-margherita', en: 'santa-margherita-church' },
