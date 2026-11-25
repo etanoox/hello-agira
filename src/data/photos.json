@@ -4085,5 +4085,27 @@
       "it": "Fonte: pagina ufficiale dell’Ecomuseo di Agira su Facebook.",
       "en": "Source: the Agira Ecomuseum’s official Facebook page."
     }
+  },
+  "diodorusImaginedBust": {
+    "width": 647,
+    "height": 451,
+    "widths": [
+      480,
+      647
+    ],
+    "alt": {
+      "it": "Ritratto di fantasia di Diodoro Siculo: un busto con rotoli su sfondo verde.",
+      "en": "Imagined portrait of Diodorus Siculus: a bust with scrolls against a green background."
+    },
+    "author": null,
+    "authorUrl": null,
+    "source": null,
+    "license": null,
+    "licenseUrl": null,
+    "date": null,
+    "credit": {
+      "it": "Illustrazione di Hello Agira.",
+      "en": "Illustration by Hello Agira."
+    }
   }
 }
